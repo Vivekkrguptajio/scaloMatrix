@@ -27,13 +27,7 @@ export default function Hero({ startAnimation }) {
           We're a team of 1200+ Specialists delivering award-winning work for 350+ brands worldwide, 11 years and counting!
         </motion.p>
         
-        {/* Tiny black dot from the image */}
-        <motion.div 
-          className="absolute right-4 bottom-[-100px] md:right-10 md:bottom-[-80px] lg:right-32 lg:bottom-[-120px] w-2.5 h-2.5 bg-black rounded-full"
-          initial={{ opacity: 0 }}
-          animate={startAnimation ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        ></motion.div>
+
       </div>
       
       {/* Marquee at the bottom of the hero section */}
