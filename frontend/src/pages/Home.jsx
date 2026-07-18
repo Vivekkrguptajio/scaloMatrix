@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 
 // Components
-import Preloader from '../components/Preloader'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import About from '../components/About'
@@ -12,9 +11,6 @@ import LatestWork from '../components/LatestWork'
 import Contact from '../components/Contact'
 
 export default function Home() {
-  const [loading, setLoading] = useState(() => {
-    return !sessionStorage.getItem('hasVisited')
-  })
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [isDarkTheme, setIsDarkTheme] = useState(false)
@@ -51,18 +47,12 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-white overflow-x-clip font-sans">
       
-      {/* ═══════ PRELOADER ═══════ */}
-      {loading && <Preloader onComplete={() => {
-        sessionStorage.setItem('hasVisited', 'true')
-        setLoading(false)
-      }} />}
-
       {/* ═══════ NAVBAR ═══════ */}
-      <Navbar scrolled={scrolled} activeSection={activeSection} loading={loading} isDarkTheme={isDarkTheme} />
+      <Navbar scrolled={scrolled} activeSection={activeSection} isDarkTheme={isDarkTheme} />
 
       {/* ═══════ MAIN CONTENT ═══════ */}
-      <main className={`transition-all duration-1000 ${loading ? 'opacity-0 blur-md' : 'opacity-100 blur-0'}`}>
-        <Hero startAnimation={!loading} />
+      <main className="transition-all duration-1000 opacity-100 blur-0">
+        <Hero startAnimation={true} />
         <About />
         <Toolkit />
         <Approach />
