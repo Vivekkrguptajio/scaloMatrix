@@ -60,20 +60,18 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
     <header 
       className={`fixed left-0 right-0 z-50 flex justify-center transition-all duration-700 ease-in-out ${
         loading ? 'opacity-0 -translate-y-full' : 'opacity-100 translate-y-0'
-      } ${scrolled ? 'top-4 px-4' : 'top-0 px-0'}`}
+      } top-4 px-4`}
     >
       <nav 
         onMouseLeave={() => setActiveDropdown(null)}
-        className={`relative w-full flex flex-col transition-all duration-300 backdrop-blur-2xl backdrop-saturate-200 ${
-          isDarkTheme ? 'bg-white/5' : 'bg-white/20'
-        } ${
-          scrolled 
-            ? `max-w-7xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] border ${isDarkTheme ? 'border-white/10' : 'border-gray-100'} ${activeDropdown ? 'rounded-[32px] shadow-xl' : 'rounded-[32px]'}` 
-            : `max-w-full shadow-sm rounded-none border-transparent ${activeDropdown ? 'bg-white' : ''}`
-        }`}
+        className={`relative w-full flex flex-col transition-all duration-300 backdrop-blur-2xl backdrop-saturate-200 max-w-7xl border rounded-[32px] ${
+          isDarkTheme 
+            ? (activeDropdown ? 'bg-[#111] border-[#333]' : 'bg-white/5 border-white/10') 
+            : (activeDropdown ? 'bg-white border-gray-100' : 'bg-white/20 border-gray-100')
+        } ${activeDropdown ? 'shadow-[0_25px_50px_-12px_rgba(255,69,0,0.3)]' : 'shadow-none'}`}
       >
         {/* Main Navbar Row */}
-        <div className={`w-full flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-2 px-6 md:px-8' : 'py-3 px-6 md:px-10'}`}>
+        <div className="w-full flex items-center justify-between transition-all duration-500 py-2 px-6 md:px-8">
         {/* Logo */}
         <a 
           href="/" 
