@@ -20,12 +20,12 @@ export default function Marquee() {
               </span>
               
               <span className="pr-2 tracking-tight">
-                <span className="text-[#FF4500]">scalo</span>
+                <span className="text-[#FD5800]">scalo</span>
                 <span className="text-black">MATRIX</span>
               </span>
 
               <span 
-                className="text-[#FF4500] inline-block animate-spin mr-4 ml-2" 
+                className="text-[#FD5800] inline-block animate-spin mr-4 ml-2" 
                 style={{ animationDuration: '4s' }}
               >
                 ✹

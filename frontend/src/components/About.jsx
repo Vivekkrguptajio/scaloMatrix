@@ -29,11 +29,11 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="md:col-span-2 bg-white rounded-3xl p-4 md:p-5 flex flex-col h-full border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:border-[#FF4500] hover:shadow-[0_10px_40px_-10px_rgba(255,69,0,0.2)] transition-all duration-500 group relative overflow-hidden">
+              className="md:col-span-2 bg-white rounded-3xl p-4 md:p-5 flex flex-col h-full border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:border-[#FD5800] hover:shadow-[0_10px_40px_-10px_rgba(255,69,0,0.2)] transition-all duration-500 group relative overflow-hidden">
               
 
               <div className="flex items-center gap-3 mb-3 relative z-10">
-                <span className="w-4 h-4 rounded-full bg-[#FF4500] shadow-[0_0_10px_rgba(255,69,0,0.5)] group-hover:scale-125 transition-transform duration-500"></span>
+                <span className="w-4 h-4 rounded-full bg-[#FD5800] shadow-[0_0_10px_rgba(255,69,0,0.5)] group-hover:scale-125 transition-transform duration-500"></span>
                 <h3 className="text-2xl lg:text-3xl font-black text-black tracking-tight">Brand</h3>
               </div>
               <motion.ul 
@@ -51,8 +51,8 @@ export default function About() {
                       hidden: { opacity: 0, x: -10 },
                       visible: { opacity: 1, x: 0 }
                     }}
-                    className="flex items-center gap-2 cursor-pointer hover:translate-x-2 hover:text-[#FF4500] transition-all duration-300">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF4500] group-hover:scale-150 transition-transform"></span>{item}
+                    className="flex items-center gap-2 cursor-pointer hover:translate-x-2 hover:text-[#FD5800] transition-all duration-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FD5800] group-hover:scale-150 transition-transform"></span>{item}
                   </motion.li>
                 ))}
               </motion.ul>
@@ -65,11 +65,11 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
               className="md:col-span-1 md:row-span-2 bg-[#111111] rounded-3xl p-4 md:p-5 flex flex-col border border-black hover:border-gray-700 hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] transition-all duration-500 group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF4500] opacity-10 blur-[50px] rounded-full group-hover:opacity-30 transition-opacity duration-700"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#FD5800] opacity-10 blur-[50px] rounded-full group-hover:opacity-30 transition-opacity duration-700"></div>
               
 
               <div className="flex items-center gap-3 mb-3 relative z-10">
-                <span className="w-4 h-4 rounded-full bg-[#FF4500] shadow-[0_0_15px_rgba(255,69,0,0.6)] group-hover:scale-125 transition-transform duration-500"></span>
+                <span className="w-4 h-4 rounded-full bg-[#FD5800] shadow-[0_0_15px_rgba(255,69,0,0.6)] group-hover:scale-125 transition-transform duration-500"></span>
                 <h3 className="text-2xl lg:text-3xl font-black text-white tracking-tight">Commerce</h3>
               </div>
               <motion.ul 
@@ -100,12 +100,12 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="md:col-span-2 bg-white rounded-3xl p-4 md:p-5 flex flex-col h-full border border-gray-200 hover:border-[#FF4500] hover:shadow-[0_10px_40px_-10px_rgba(255,69,0,0.2)] transition-all duration-500 group relative overflow-hidden">
+              className="md:col-span-2 bg-white rounded-3xl p-4 md:p-5 flex flex-col h-full border border-gray-200 hover:border-[#FD5800] hover:shadow-[0_10px_40px_-10px_rgba(255,69,0,0.2)] transition-all duration-500 group relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
 
               <div className="flex items-center gap-3 mb-3 relative z-10">
-                <span className="w-4 h-4 rounded-full bg-[#FF4500] shadow-[0_0_10px_rgba(255,69,0,0.5)] group-hover:scale-125 transition-transform duration-500"></span>
+                <span className="w-4 h-4 rounded-full bg-[#FD5800] shadow-[0_0_10px_rgba(255,69,0,0.5)] group-hover:scale-125 transition-transform duration-500"></span>
                 <h3 className="text-2xl lg:text-3xl font-black text-black tracking-tight">Growth</h3>
               </div>
               <motion.ul 
@@ -123,8 +123,8 @@ export default function About() {
                       hidden: { opacity: 0, x: -10 },
                       visible: { opacity: 1, x: 0 }
                     }}
-                    className="flex items-center gap-2 cursor-pointer hover:translate-x-2 hover:text-[#FF4500] transition-all duration-300">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF4500]/40 group-hover:bg-[#FF4500] group-hover:scale-150 transition-all"></span>{item}
+                    className="flex items-center gap-2 cursor-pointer hover:translate-x-2 hover:text-[#FD5800] transition-all duration-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FD5800]/40 group-hover:bg-[#FD5800] group-hover:scale-150 transition-all"></span>{item}
                   </motion.li>
                 ))}
               </motion.ul>

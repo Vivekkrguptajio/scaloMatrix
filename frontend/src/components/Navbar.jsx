@@ -34,7 +34,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
         { title: 'scalo Studio', desc: 'Content Transformation at scale', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /> },
         { title: 'scalo Fast', desc: 'Realtime edge processing & tracking', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /> }
       ],
-      featured: { title: 'Dashboard', subtitle: 'scalo Dashboard', desc: 'Build with the most accurate AI APIs. Access Text to Speech, Translation, Data Automation, and Vision from a single powerful dashboard.', gradient: 'from-[#FF4500] via-[#FF6A33] to-[#FF9066]' }
+      featured: { title: 'Dashboard', subtitle: 'scalo Dashboard', desc: 'Build with the most accurate AI APIs. Access Text to Speech, Translation, Data Automation, and Vision from a single powerful dashboard.', gradient: 'from-[#FD5800] via-[#FF6A33] to-[#FF9066]' }
     },
     About: {
       listTitle: 'Company',
@@ -81,7 +81,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
           className={`group flex items-center gap-3 font-semibold tracking-tight transition-transform duration-75 ease-out select-none whitespace-nowrap z-10 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}
         >
           <span className={`text-2xl md:text-3xl font-sans font-black transition-colors duration-300 tracking-tight`}>
-            <span className="text-[#FF4500]">scalo</span>
+            <span className="text-[#FD5800]">scalo</span>
             <span className={isDarkTheme ? 'text-white' : 'text-black'}>MATRIX</span>
           </span>
         </a>
@@ -98,17 +98,17 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                   onMouseEnter={() => link.hasDropdown ? setActiveDropdown(link.name) : setActiveDropdown(null)}
                   className={`flex items-center gap-1.5 text-[15px] lg:text-[17px] font-medium transition-colors duration-200 relative py-2 ${
                     isActive || activeDropdown === link.name
-                      ? 'text-[#FF4500]'
-                      : 'text-gray-600 hover:text-[#FF4500]'
+                      ? 'text-[#FD5800]'
+                      : 'text-gray-600 hover:text-[#FD5800]'
                   }`}
                 >
                   {link.name}
                   {link.hasDropdown && (
-                    <svg className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === link.name ? '-rotate-180 text-[#FF4500]' : 'text-gray-400 hover:text-[#FF4500]'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === link.name ? '-rotate-180 text-[#FD5800]' : 'text-gray-400 hover:text-[#FD5800]'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   )}
-                  <span className={`absolute left-0 bottom-1 w-full h-[2px] transition-transform duration-500 origin-left bg-[#FF4500] ${
+                  <span className={`absolute left-0 bottom-1 w-full h-[2px] transition-transform duration-500 origin-left bg-[#FD5800] ${
                     isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                   }`}></span>
                 </a>
@@ -121,7 +121,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
         <div className="hidden md:flex items-center z-10">
           <a 
             href="/contact" 
-            className={`group flex items-center gap-2 text-sm md:text-base font-medium transition-all duration-300 px-6 py-2.5 rounded-full bg-[#FF4500] text-white hover:bg-[#E63E00] shadow-md shadow-[#FF4500]/20`}
+            className={`group flex items-center gap-2 text-sm md:text-base font-medium transition-all duration-300 px-6 py-2.5 rounded-full bg-[#FD5800] text-white hover:bg-[#E63E00] shadow-md shadow-[#FD5800]/20`}
           >
             Contact Us
             <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -150,13 +150,13 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                   
                   {megaMenuData[activeDropdown].items.map((item, idx) => (
                     <a key={idx} href="#" className="flex items-start gap-4 p-3 rounded-2xl hover:bg-[#FFF8F5] transition-colors group/item">
-                      <div className="w-10 h-10 shrink-0 rounded-xl bg-orange-50 flex items-center justify-center text-[#FF4500] font-bold group-hover/item:scale-110 transition-transform">
+                      <div className="w-10 h-10 shrink-0 rounded-xl bg-orange-50 flex items-center justify-center text-[#FD5800] font-bold group-hover/item:scale-110 transition-transform">
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           {item.icon}
                         </svg>
                       </div>
                       <div>
-                        <div className="text-gray-900 font-bold text-sm group-hover/item:text-[#FF4500] transition-colors">{item.title}</div>
+                        <div className="text-gray-900 font-bold text-sm group-hover/item:text-[#FD5800] transition-colors">{item.title}</div>
                         <div className="text-gray-500 text-xs mt-0.5 font-medium leading-relaxed">{item.desc}</div>
                       </div>
                     </a>
@@ -185,9 +185,9 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
           onClick={() => setMobileMenu(!mobileMenu)}
           className="md:hidden flex flex-col gap-1.5 p-2"
         >
-          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FF4500] ${mobileMenu ? 'rotate-45 translate-y-[5px]' : ''}`}></span>
-          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FF4500] ${mobileMenu ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FF4500] ${mobileMenu ? '-rotate-45 -translate-y-[5px]' : ''}`}></span>
+          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${mobileMenu ? 'rotate-45 translate-y-[5px]' : ''}`}></span>
+          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${mobileMenu ? 'opacity-0' : ''}`}></span>
+          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${mobileMenu ? '-rotate-45 -translate-y-[5px]' : ''}`}></span>
         </button>
       </nav>
 
@@ -201,11 +201,11 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenu(false)}
-              className="flex items-center justify-between text-base font-medium text-[#FF4500]/80 hover:text-[#FF4500] hover:bg-orange-50/50 rounded-xl px-4 py-2 transition-all"
+              className="flex items-center justify-between text-base font-medium text-[#FD5800]/80 hover:text-[#FD5800] hover:bg-orange-50/50 rounded-xl px-4 py-2 transition-all"
             >
               {link.name}
               {link.hasDropdown && (
-                <svg className="w-4 h-4 text-[#FF4500]/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 text-[#FD5800]/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               )}
@@ -214,7 +214,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
           <a 
             href="/contact" 
             onClick={() => setMobileMenu(false)}
-            className="flex items-center justify-center gap-2 text-base font-medium text-white bg-[#FF4500] hover:bg-[#E63E00] shadow-md shadow-[#FF4500]/20 rounded-full px-4 py-3 mt-2 transition-all"
+            className="flex items-center justify-center gap-2 text-base font-medium text-white bg-[#FD5800] hover:bg-[#E63E00] shadow-md shadow-[#FD5800]/20 rounded-full px-4 py-3 mt-2 transition-all"
           >
             Contact Us
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
