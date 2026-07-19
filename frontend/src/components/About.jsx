@@ -18,7 +18,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-gray-900 leading-[1.1]"
+            className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-gray-900 leading-[1.1]"
           >
             Flexible solutions for{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#ff8c42]">
@@ -31,7 +31,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-sm md:text-base lg:text-lg text-gray-500 font-medium leading-relaxed max-w-2xl"
+            className="text-base md:text-lg lg:text-xl text-gray-500 font-medium leading-relaxed max-w-2xl"
           >
             Grow your business with a comprehensive set of strategy, commerce, and growth tools – designed to work individually or together.
           </motion.p>
