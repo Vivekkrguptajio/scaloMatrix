@@ -11,7 +11,7 @@ export default function About() {
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-[#FD5800] mb-2 leading-[1.1]">
             Flexible solutions for every business model.
           </h2>
-          <p className="text-sm md:text-base lg:text-lg text-gray-800 font-medium leading-relaxed max-w-2xl">
+          <p className="text-sm md:text-base lg:text-lg text-gray-800 font-bold leading-relaxed max-w-2xl">
             Grow your business with a comprehensive set of payments and financial tools – designed to work individually or together.
           </p>
         </div>
@@ -43,7 +43,7 @@ export default function About() {
                 variants={{
                   visible: { transition: { staggerChildren: 0.1 } }
                 }}
-                className="flex flex-col gap-2 md:gap-3 text-base lg:text-lg text-gray-700 font-medium mt-4 md:mt-6">
+                className="flex flex-col gap-2 md:gap-3 text-base lg:text-lg text-gray-700 font-bold mt-4 md:mt-6">
                 {['Positioning', 'Identity', 'Packaging', 'Offer Strategy'].map((item, idx) => (
                   <motion.li 
                     key={idx}
@@ -79,7 +79,7 @@ export default function About() {
                 variants={{
                   visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
                 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 text-base lg:text-lg text-gray-700 font-medium mt-auto pt-4 md:pt-6 relative z-10">
+                className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 text-base lg:text-lg text-gray-700 font-bold mt-auto pt-4 md:pt-6 relative z-10">
                 {['Shopify', 'CRO', 'Landing Pages', 'Analytics', 'Automation'].map((item, idx) => (
                   <motion.li 
                     key={idx}
@@ -115,7 +115,7 @@ export default function About() {
                 variants={{
                   visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } }
                 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 text-base lg:text-lg text-gray-700 font-medium mt-4 md:mt-6 relative z-10">
+                className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 text-base lg:text-lg text-gray-700 font-bold mt-4 md:mt-6 relative z-10">
                 {['Content', 'UGC', 'Creative Strategy', 'Performance Marketing', 'Retention'].map((item, idx) => (
                   <motion.li 
                     key={idx}

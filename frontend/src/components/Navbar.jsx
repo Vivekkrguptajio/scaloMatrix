@@ -96,7 +96,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                 <a 
                   href={link.href} 
                   onMouseEnter={() => link.hasDropdown ? setActiveDropdown(link.name) : setActiveDropdown(null)}
-                  className={`flex items-center gap-1.5 text-[15px] lg:text-[17px] font-medium transition-colors duration-200 relative py-2 ${
+                  className={`flex items-center gap-1.5 text-[15px] lg:text-[17px] font-bold transition-colors duration-200 relative py-2 ${
                     isActive || activeDropdown === link.name
                       ? 'text-[#FD5800]'
                       : 'text-gray-600 hover:text-[#FD5800]'
@@ -121,7 +121,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
         <div className="hidden md:flex items-center z-10">
           <a 
             href="/contact" 
-            className={`group flex items-center gap-2 text-sm md:text-base font-medium transition-all duration-300 px-6 py-2.5 rounded-full bg-[#FD5800] text-white hover:bg-[#E63E00] shadow-md shadow-[#FD5800]/20`}
+            className={`group flex items-center gap-2 text-sm md:text-base font-bold transition-all duration-300 px-6 py-2.5 rounded-full bg-[#FD5800] text-white hover:bg-[#E63E00] shadow-md shadow-[#FD5800]/20`}
           >
             Contact Us
             <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -157,7 +157,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                       </div>
                       <div>
                         <div className="text-gray-900 font-bold text-sm group-hover/item:text-[#FD5800] transition-colors">{item.title}</div>
-                        <div className="text-gray-500 text-xs mt-0.5 font-medium leading-relaxed">{item.desc}</div>
+                        <div className="text-gray-500 text-xs mt-0.5 font-bold leading-relaxed">{item.desc}</div>
                       </div>
                     </a>
                   ))}
@@ -171,7 +171,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                     <span className="relative z-10 group-hover/card:scale-105 transition-transform duration-500 tracking-tight">{megaMenuData[activeDropdown].featured.title}</span>
                   </div>
                   <h4 className="text-gray-900 font-black text-lg mb-2">{megaMenuData[activeDropdown].featured.subtitle}</h4>
-                  <p className="text-[13px] text-gray-500 font-medium leading-relaxed">
+                  <p className="text-[13px] text-gray-500 font-bold leading-relaxed">
                     {megaMenuData[activeDropdown].featured.desc}
                   </p>
                 </div>
@@ -201,7 +201,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenu(false)}
-              className="flex items-center justify-between text-base font-medium text-[#FD5800]/80 hover:text-[#FD5800] hover:bg-orange-50/50 rounded-xl px-4 py-2 transition-all"
+              className="flex items-center justify-between text-base font-bold text-[#FD5800]/80 hover:text-[#FD5800] hover:bg-orange-50/50 rounded-xl px-4 py-2 transition-all"
             >
               {link.name}
               {link.hasDropdown && (
@@ -214,7 +214,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
           <a 
             href="/contact" 
             onClick={() => setMobileMenu(false)}
-            className="flex items-center justify-center gap-2 text-base font-medium text-white bg-[#FD5800] hover:bg-[#E63E00] shadow-md shadow-[#FD5800]/20 rounded-full px-4 py-3 mt-2 transition-all"
+            className="flex items-center justify-center gap-2 text-base font-bold text-white bg-[#FD5800] hover:bg-[#E63E00] shadow-md shadow-[#FD5800]/20 rounded-full px-4 py-3 mt-2 transition-all"
           >
             Contact Us
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
