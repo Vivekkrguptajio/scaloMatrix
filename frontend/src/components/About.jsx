@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section id="about" className="w-full flex justify-center items-center p-4 md:p-6 font-sans">
       {/* Orange Border Container (Now solid orange background) */}
-      <div className="w-full border-[2px] md:border-[3px] border-[#FF4500] rounded-[30px] md:rounded-[50px] p-3 md:p-6 lg:p-6 flex flex-col gap-2 md:gap-4 bg-[#FF4500]">
+      <div className="w-full border-[2px] md:border-[3px] border-[#FD5800] rounded-[30px] md:rounded-[50px] p-3 md:p-6 lg:p-6 flex flex-col gap-2 md:gap-4 bg-[#FD5800]">
         
         {/* Inner Centered Container */}
         <div className="max-w-5xl w-full mx-auto flex flex-col gap-2 lg:gap-4 flex-grow justify-center">
