@@ -15,13 +15,13 @@ export default function About() {
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-white mb-3 leading-[1.1]">
               Flexible solutions for every business model.
             </h2>
-            <p className="text-sm md:text-base lg:text-lg text-black font-medium leading-relaxed max-w-2xl">
+            <p className="text-sm md:text-base lg:text-lg text-white font-medium leading-relaxed max-w-2xl">
               Grow your business with a comprehensive set of payments and financial tools – designed to work individually or together.
             </p>
           </div>
 
           {/* Premium Cards Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 w-full max-w-4xl mx-auto">
             
             {/* Brand Card - Top Left (White & Crisp) */}
             <motion.div 
@@ -29,20 +29,8 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="md:col-span-2 bg-white rounded-3xl p-5 md:p-6 flex flex-col border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:border-[#FF4500] hover:shadow-[0_10px_40px_-10px_rgba(255,69,0,0.2)] transition-all duration-500 group relative overflow-hidden">
+              className="md:col-span-2 bg-white rounded-3xl p-5 md:p-6 flex flex-col h-full border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:border-[#FF4500] hover:shadow-[0_10px_40px_-10px_rgba(255,69,0,0.2)] transition-all duration-500 group relative overflow-hidden">
               
-              {/* Figure / Graphic */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="absolute right-[-5%] bottom-[15%] w-48 h-48 sm:w-64 sm:h-64 opacity-[0.03] pointer-events-none group-hover:opacity-[0.06] group-hover:scale-110 group-hover:-rotate-6 transition-all duration-700"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="#FF4500" strokeWidth="0.5" className="w-full h-full">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </motion.div>
 
               <div className="flex items-center gap-3 mb-5 relative z-10">
                 <span className="w-4 h-4 rounded-full bg-[#FF4500] shadow-[0_0_10px_rgba(255,69,0,0.5)] group-hover:scale-125 transition-transform duration-500"></span>
@@ -79,17 +67,6 @@ export default function About() {
               className="md:col-span-1 md:row-span-2 bg-[#111111] rounded-3xl p-5 md:p-6 flex flex-col border border-black hover:border-gray-700 hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] transition-all duration-500 group relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF4500] opacity-10 blur-[50px] rounded-full group-hover:opacity-30 transition-opacity duration-700"></div>
               
-              {/* Figure / Graphic */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="absolute right-[-15%] top-[10%] w-64 h-64 opacity-[0.02] group-hover:opacity-[0.05] group-hover:translate-x-[-10px] transition-all duration-700 pointer-events-none"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="0.5" className="w-full h-full">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                </svg>
-              </motion.div>
 
               <div className="flex items-center gap-3 mb-5 relative z-10">
                 <span className="w-4 h-4 rounded-full bg-[#FF4500] shadow-[0_0_15px_rgba(255,69,0,0.6)] group-hover:scale-125 transition-transform duration-500"></span>
@@ -123,20 +100,9 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="md:col-span-2 bg-white rounded-3xl p-5 md:p-6 flex flex-col min-h-[160px] border border-gray-200 hover:border-[#FF4500] hover:shadow-[0_10px_40px_-10px_rgba(255,69,0,0.2)] transition-all duration-500 group relative overflow-hidden">
+              className="md:col-span-2 bg-white rounded-3xl p-5 md:p-6 flex flex-col h-full border border-gray-200 hover:border-[#FF4500] hover:shadow-[0_10px_40px_-10px_rgba(255,69,0,0.2)] transition-all duration-500 group relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
-              {/* Figure / Graphic */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="absolute right-[5%] bottom-[15%] w-48 h-48 sm:w-56 sm:h-56 opacity-[0.03] pointer-events-none group-hover:opacity-[0.06] group-hover:translate-y-[-10px] transition-all duration-700"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="#FF4500" strokeWidth="0.5" className="w-full h-full">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-              </motion.div>
 
               <div className="flex items-center gap-3 mb-5 relative z-10">
                 <span className="w-4 h-4 rounded-full bg-[#FF4500] shadow-[0_0_10px_rgba(255,69,0,0.5)] group-hover:scale-125 transition-transform duration-500"></span>

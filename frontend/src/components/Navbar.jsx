@@ -66,9 +66,9 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
         onMouseLeave={() => setActiveDropdown(null)}
         className={`relative w-full flex flex-col transition-all duration-300 backdrop-blur-2xl backdrop-saturate-200 max-w-7xl border rounded-[32px] ${
           isDarkTheme 
-            ? (activeDropdown ? 'bg-[#111] border-[#333]' : 'bg-white/5 border-white/10') 
-            : (activeDropdown ? 'bg-white border-gray-100' : 'bg-white/20 border-gray-100')
-        } ${activeDropdown ? 'shadow-[0_25px_50px_-12px_rgba(255,69,0,0.3)]' : 'shadow-none'}`}
+            ? (activeDropdown ? 'bg-[#111] border-[#FF4500]/50' : 'bg-white/5 border-[#FF4500]/20') 
+            : (activeDropdown ? 'bg-white border-[#FF4500]/40' : 'bg-white/20 border-[#FF4500]/25')
+        } ${activeDropdown ? 'shadow-[0_25px_50px_-12px_rgba(255,69,0,0.3)]' : 'shadow-[0_10px_30px_rgba(255,69,0,0.15)]'}`}
       >
         {/* Main Navbar Row */}
         <div className="w-full flex items-center justify-between transition-all duration-500 py-2 px-6 md:px-8">
