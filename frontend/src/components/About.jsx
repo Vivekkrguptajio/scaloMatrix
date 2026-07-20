@@ -42,7 +42,7 @@ export default function About() {
           {/* Subtle top glare for 3D effect */}
           <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/15 to-transparent pointer-events-none"></div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 w-full relative z-10">
           
           {/* Brand - Tall Left */}
           <motion.div 
@@ -50,7 +50,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="md:col-span-1 md:row-span-2 bg-white rounded-[32px] p-6 lg:p-8 flex flex-col border border-gray-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] hover:border-[#FD5800]/20 hover:shadow-[0_30px_60px_-12px_rgba(253,88,0,0.12)] transition-all duration-500 group relative overflow-hidden"
+            className="md:col-span-2 md:row-span-2 bg-white rounded-[32px] p-6 lg:p-8 flex flex-col border border-gray-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] hover:border-[#FD5800]/20 hover:shadow-[0_30px_60px_-12px_rgba(253,88,0,0.12)] transition-all duration-500 group relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#FD5800]/5 to-transparent rounded-full blur-[40px] group-hover:from-[#FD5800]/10 transition-colors duration-700 pointer-events-none"></div>
             
@@ -83,7 +83,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="md:col-span-2 bg-white rounded-[32px] p-6 lg:p-8 flex flex-col md:flex-row gap-6 lg:gap-10 justify-between border border-gray-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] hover:border-[#FD5800]/20 hover:shadow-[0_30px_60px_-12px_rgba(253,88,0,0.12)] transition-all duration-500 group relative overflow-hidden"
+            className="md:col-span-3 bg-white rounded-[32px] p-6 lg:p-8 flex flex-col md:flex-row gap-6 lg:gap-10 justify-between border border-gray-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] hover:border-[#FD5800]/20 hover:shadow-[0_30px_60px_-12px_rgba(253,88,0,0.12)] transition-all duration-500 group relative overflow-hidden"
           >
             <div className="flex flex-col max-w-sm relative z-10">
               <div className="w-12 h-12 rounded-2xl bg-[#FFF5F0] flex items-center justify-center mb-6 group-hover:bg-[#FD5800] transition-colors duration-500 shadow-sm">
@@ -115,7 +115,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: true }}
-            className="md:col-span-2 bg-white rounded-[32px] p-6 lg:p-8 flex flex-col md:flex-row gap-6 lg:gap-10 justify-between border border-gray-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] hover:border-[#FD5800]/20 hover:shadow-[0_30px_60px_-12px_rgba(253,88,0,0.12)] transition-all duration-500 group relative overflow-hidden"
+            className="md:col-span-3 bg-white rounded-[32px] p-6 lg:p-8 flex flex-col md:flex-row gap-6 lg:gap-10 justify-between border border-gray-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] hover:border-[#FD5800]/20 hover:shadow-[0_30px_60px_-12px_rgba(253,88,0,0.12)] transition-all duration-500 group relative overflow-hidden"
           >
             <div className="flex flex-col max-w-sm relative z-10">
               <div className="w-12 h-12 rounded-2xl bg-[#FFF5F0] flex items-center justify-center mb-6 group-hover:bg-[#FD5800] transition-colors duration-500 shadow-sm">
