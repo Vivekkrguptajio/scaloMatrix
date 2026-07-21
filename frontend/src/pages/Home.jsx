@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import About from '../components/About'
+import DefinesUs from '../components/DefinesUs'
 import Toolkit from '../components/Toolkit'
 import HowWeWork from '../components/HowWeWork'
 import SelectedWork from '../components/SelectedWork'
@@ -57,6 +58,7 @@ export default function Home() {
         <Hero startAnimation={true} />
         <ClientLogos />
         <About />
+        <DefinesUs />
         <Toolkit />
         <HowWeWork />
         <SelectedWork />
