@@ -87,7 +87,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
         </a>
         
         {/* Desktop Nav Links (Centered perfectly) */}
-        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-6 lg:gap-8 h-full">
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 lg:gap-2 h-full">
           {navLinks.map((link) => {
             const linkPath = link.href.replace(/^\//, '').replace(/^#/, '');
             const isActive = activeSection === linkPath;
@@ -96,21 +96,18 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                 <a 
                   href={link.href} 
                   onMouseEnter={() => link.hasDropdown ? setActiveDropdown(link.name) : setActiveDropdown(null)}
-                  className={`flex items-center gap-1.5 text-[15px] lg:text-[17px] font-bold transition-colors duration-200 relative py-2 ${
+                  className={`flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sans transition-all duration-300 relative px-4 py-2 rounded-lg ${
                     isActive || activeDropdown === link.name
-                      ? 'text-[#FD5800]'
-                      : 'text-gray-600 hover:text-[#FD5800]'
+                      ? 'bg-[#FD5800] text-white'
+                      : (isDarkTheme ? 'text-gray-300 hover:bg-[#FD5800] hover:text-white' : 'text-gray-600 hover:bg-[#FD5800] hover:text-white')
                   }`}
                 >
                   {link.name}
                   {link.hasDropdown && (
-                    <svg className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === link.name ? '-rotate-180 text-[#FD5800]' : 'text-gray-400 hover:text-[#FD5800]'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === link.name ? '-rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   )}
-                  <span className={`absolute left-0 bottom-1 w-full h-[2px] transition-transform duration-500 origin-left bg-[#FD5800] ${
-                    isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                  }`}></span>
                 </a>
               </div>
             );

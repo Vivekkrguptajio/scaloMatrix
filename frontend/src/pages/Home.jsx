@@ -6,9 +6,14 @@ import Hero from '../components/Hero'
 import About from '../components/About'
 import Toolkit from '../components/Toolkit'
 import HowWeWork from '../components/HowWeWork'
-import WorkShowcase from '../components/WorkShowcase'
-import LatestWork from '../components/LatestWork'
+import SelectedWork from '../components/SelectedWork'
+import Insights from '../components/Insights'
+import Founder from '../components/Founder'
 import Contact from '../components/Contact'
+import ClientLogos from '../components/ClientLogos'
+import Marquee from '../components/Marquee'
+import Testimonials from '../components/Testimonials'
+import FAQ from '../components/FAQ'
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -25,17 +30,14 @@ export default function Home() {
       // Check for dark theme
       let dark = false;
       const navBottom = window.scrollY + 80;
-      const workShowcase = document.getElementById('work-showcase');
-      const latestWork = document.getElementById('latest-work');
+      const founder = document.getElementById('founder');
+      const contact = document.getElementById('contact');
 
-      if (workShowcase) {
-        // WorkShowcase animates to black after 40% scroll (roughly 1.2 * windowHeight into the section)
-        const blackStart = workShowcase.offsetTop + (window.innerHeight * 1.2);
-        const blackEnd = workShowcase.offsetTop + workShowcase.offsetHeight;
-        if (navBottom >= blackStart && navBottom < blackEnd) dark = true;
+      if (founder && navBottom >= founder.offsetTop && navBottom < founder.offsetTop + founder.offsetHeight) {
+        dark = true;
       }
-      if (latestWork) {
-        if (navBottom >= latestWork.offsetTop && navBottom < latestWork.offsetTop + latestWork.offsetHeight) dark = true;
+      if (contact && navBottom >= contact.offsetTop) {
+        dark = true;
       }
       setIsDarkTheme(dark);
     }
@@ -53,11 +55,15 @@ export default function Home() {
       {/* ═══════ MAIN CONTENT ═══════ */}
       <main className="transition-all duration-1000 opacity-100 blur-0">
         <Hero startAnimation={true} />
+        <ClientLogos />
         <About />
         <Toolkit />
         <HowWeWork />
-        <WorkShowcase />
-        <LatestWork />
+        <SelectedWork />
+        <Testimonials />
+        <Insights />
+        <FAQ />
+        <Founder />
         <Contact />
       </main>
     </div>

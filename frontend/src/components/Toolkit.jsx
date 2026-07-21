@@ -57,7 +57,7 @@ const industries = [
 
 export default function Toolkit() {
   return (
-    <section className="w-full bg-white py-24 md:py-32 overflow-hidden border-t border-gray-100 font-sans relative">
+    <section className="w-full bg-[#FAFAFA] py-24 md:py-32 overflow-hidden border-t border-gray-100 font-sans relative">
       {/* Background ambient light */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#FD5800]/[0.03] to-transparent rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
 

@@ -83,7 +83,7 @@ export default function About() {
       <div className="w-full max-w-7xl mx-auto flex flex-col gap-16 md:gap-20 relative z-10">
         
         {/* ─── Header Section ─── */}
-        <div className="w-full max-w-5xl mx-auto text-center flex flex-col items-center gap-10 mb-3">
+        <div className="w-full max-w-7xl mx-auto text-center flex flex-col items-center gap-10 mb-3">
           
           {/* SVG Icons Row */}
           <motion.div 
@@ -91,7 +91,7 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="w-full flex flex-row flex-wrap items-center justify-center sm:justify-between gap-12 md:gap-6 px-2 md:px-[24px]"
+            className="w-full flex flex-row flex-wrap items-center justify-center gap-16 sm:gap-20 md:gap-28 lg:gap-[120px] px-2"
           >
             {approachIcons.map((item, index) => (
               <motion.div key={index} variants={itemVariants} className="relative group opacity-80 hover:opacity-100 transition-opacity duration-300 w-24 h-24 flex items-center justify-center">

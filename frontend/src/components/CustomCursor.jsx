@@ -1,17 +1,25 @@
 import { useEffect, useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-  useEffect(() => {
-    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
-  }, []);
+  // Motion values for smooth trailing effect
+  const mouseX = useMotionValue(-100);
+  const mouseY = useMotionValue(-100);
+
+  // Spring configuration for that buttery, liquid feel
+  const springConfig = { damping: 25, stiffness: 400, mass: 0.5 };
+  const cursorX = useSpring(mouseX, springConfig);
+  const cursorY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+
     const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      mouseX.set(e.clientX - 16); // Center the 32px cursor
+      mouseY.set(e.clientY - 16);
     };
 
     const handleMouseOver = (e) => {
@@ -41,18 +49,32 @@ export default function CustomCursor() {
   if (isTouchDevice) return null;
 
   return (
-    <div 
-      className="fixed top-0 left-0 w-8 h-8 rounded-full border border-gray-900 pointer-events-none z-[10000] flex items-center justify-center transition-all duration-100 ease-out mix-blend-difference"
-      style={{ 
-        transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%) scale(${isHovering ? 1.5 : 1})`,
-        opacity: position.x > 0 ? 1 : 0,
-        borderColor: 'rgba(255, 255, 255, 0.8)' // white border for mix-blend-difference
-      }}
+    <motion.div 
+      className="fixed top-0 left-0 pointer-events-none z-[10000] mix-blend-difference"
+      style={{ x: cursorX, y: cursorY }}
     >
-      <div 
-        className="w-1.5 h-1.5 rounded-full" 
-        style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
-      />
-    </div>
+      {/* Outer Ring */}
+      <motion.div
+        animate={{
+          width: isHovering ? 48 : 32,
+          height: isHovering ? 48 : 32,
+          x: isHovering ? -8 : 0, // offset for size change
+          y: isHovering ? -8 : 0,
+          backgroundColor: isHovering ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0)',
+          border: isHovering ? '2px solid rgba(255, 255, 255, 1)' : '2px solid rgba(255, 255, 255, 0.6)',
+        }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        className="rounded-full flex items-center justify-center overflow-hidden"
+      >
+        {/* Inner Dot */}
+        <motion.div 
+          animate={{
+            scale: isHovering ? 0 : 1,
+            opacity: isHovering ? 0 : 1
+          }}
+          className="w-2 h-2 bg-white rounded-full"
+        />
+      </motion.div>
+    </motion.div>
   );
 }
