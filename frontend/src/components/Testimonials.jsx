@@ -86,7 +86,7 @@ export default function Testimonials() {
                 </div>
                 
                 {/* Elegant Quote Text */}
-                <p className="text-xl md:text-[22px] font-['Libre_Caslon_Text'] italic leading-relaxed text-gray-600 group-hover:text-gray-900 transition-colors mb-12 relative z-10">
+                <p className="text-[17px] md:text-[19px] font-sans font-medium leading-[1.6] text-gray-600 group-hover:text-gray-900 transition-colors mb-12 relative z-10">
                   "{t.quote}"
                 </p>
               </div>

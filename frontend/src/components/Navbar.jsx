@@ -96,7 +96,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                 <a 
                   href={link.href} 
                   onMouseEnter={() => link.hasDropdown ? setActiveDropdown(link.name) : setActiveDropdown(null)}
-                  className={`flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sans transition-all duration-300 relative px-4 py-2 rounded-lg ${
+                  className={`flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sans transition-all duration-300 relative px-4 py-2 rounded-full ${
                     isActive || activeDropdown === link.name
                       ? 'bg-[#FD5800] text-white'
                       : (isDarkTheme ? 'text-gray-300 hover:bg-[#FD5800] hover:text-white' : 'text-gray-600 hover:bg-[#FD5800] hover:text-white')
