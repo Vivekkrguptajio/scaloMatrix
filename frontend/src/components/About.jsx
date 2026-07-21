@@ -23,86 +23,57 @@ function CheckItem({ text, delay = 0 }) {
 
 function BrandVisual() {
   return (
-    <div className="w-full h-40 sm:h-48 bg-gray-50 rounded-2xl mb-6 relative overflow-hidden group-hover:bg-[#FFF5F0]/30 transition-colors duration-500 border border-gray-100/50">
-      <div className="absolute inset-0 flex items-center justify-center">
-        {/* Pulsing rings */}
-        <motion.div 
-          animate={{ scale: [1, 2], opacity: [0.6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-          className="absolute w-16 h-16 bg-[#FD5800]/30 rounded-full"
-        />
-        {/* Rotating outer dash */}
-        <motion.div 
-          animate={{ rotate: 360 }}
-          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-          className="absolute w-32 h-32 border-[2px] border-dashed border-gray-300 rounded-full group-hover:border-[#FD5800]/40 transition-colors duration-500"
-        />
-        {/* Inner floating box */}
-        <motion.div 
-          animate={{ y: [-4, 4, -4], rotate: [12, 12, 12] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="w-16 h-16 bg-white rounded-2xl shadow-md border border-gray-100 flex items-center justify-center rotate-12 group-hover:shadow-[0_8px_30px_rgba(253,88,0,0.2)] group-hover:border-[#FD5800]/30 transition-all duration-500 relative z-10"
-        >
-          <motion.div 
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-8 h-8 bg-gradient-to-br from-[#FD5800] to-[#ff8c42] rounded-full shadow-[0_0_15px_rgba(253,88,0,0.4)]"
-          />
-        </motion.div>
-      </div>
+    <div className="w-full h-40 sm:h-48 rounded-2xl mb-4 relative overflow-hidden group-hover:opacity-90 transition-opacity duration-500 bg-gradient-to-br from-fuchsia-500 to-pink-500 flex items-center justify-center shadow-[0_8px_30px_rgba(236,72,153,0.3)]">
+      <svg className="w-16 h-16 sm:w-20 sm:h-20 text-white drop-shadow-md group-hover:scale-110 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+      </svg>
     </div>
   )
 }
 
 function CommerceVisual() {
-  const heights = [35, 55, 40, 80, 65, 100];
   return (
-    <div className="w-full md:w-56 h-32 md:h-full min-h-[120px] bg-gray-50 rounded-2xl relative overflow-hidden group-hover:bg-[#FFF5F0]/30 transition-colors duration-500 border border-gray-100/50 flex items-end justify-center gap-2 p-4 shrink-0">
-      {heights.map((height, i) => (
-        <motion.div
-          key={i}
-          animate={{ height: [`${height * 0.6}%`, `${height}%`, `${height * 0.6}%`] }}
-          transition={{ duration: 2 + (i % 3) * 0.3, repeat: Infinity, ease: "easeInOut", delay: i * 0.15 }}
-          className={`w-6 rounded-t-lg relative z-10 ${i === 5 ? 'bg-gradient-to-t from-[#FD5800] to-[#ff8c42] shadow-[0_0_20px_rgba(253,88,0,0.4)]' : 'bg-gray-200 group-hover:bg-gray-300 transition-colors duration-500'}`}
-        />
-      ))}
+    <div className="w-full md:w-56 h-32 md:h-full min-h-[120px] rounded-2xl relative overflow-hidden group-hover:opacity-90 transition-opacity duration-500 bg-gradient-to-br from-blue-500 to-cyan-400 shrink-0 flex items-center justify-center shadow-[0_8px_30px_rgba(59,130,246,0.3)]">
+      <svg className="w-16 h-16 sm:w-20 sm:h-20 text-white drop-shadow-md group-hover:scale-110 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+      </svg>
     </div>
   )
 }
 
 function GrowthVisual() {
   return (
-    <div className="w-full md:w-56 h-32 md:h-full min-h-[120px] bg-gray-50 rounded-2xl relative overflow-hidden group-hover:bg-[#FFF5F0]/30 transition-colors duration-500 border border-gray-100/50 flex items-center justify-center shrink-0">
-      <div className="relative flex items-center justify-center w-full px-6">
-        
-        {/* Trailing dots indicating growth trajectory */}
-        <div className="flex gap-2 absolute left-8 top-1/2 mt-3">
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              animate={{ x: [0, 15, 0], y: [0, -10, 0], opacity: [0.1, 0.8, 0.1] }}
-              transition={{ duration: 1.5, delay: i * 0.2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-2.5 h-2.5 rounded-full bg-[#FD5800]/40"
-            />
-          ))}
-        </div>
-
-        {/* Flying Arrow */}
-        <motion.div 
-          animate={{ x: [-5, 10, -5], y: [5, -10, 5] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg border border-[#FD5800]/20 z-10 ml-auto mr-4 group-hover:shadow-[0_10px_30px_rgba(253,88,0,0.2)] transition-all duration-500"
-        >
-          <svg className="w-7 h-7 text-[#FD5800]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-          </svg>
-        </motion.div>
-      </div>
+    <div className="w-full md:w-56 h-32 md:h-full min-h-[120px] rounded-2xl relative overflow-hidden group-hover:opacity-90 transition-opacity duration-500 bg-gradient-to-br from-amber-400 to-orange-500 shrink-0 flex items-center justify-center shadow-[0_8px_30px_rgba(245,158,11,0.3)]">
+      <svg className="w-16 h-16 sm:w-20 sm:h-20 text-white drop-shadow-md group-hover:scale-110 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+      </svg>
     </div>
   )
 }
 
+const approachIcons = [
+  { src: "/logo/Frame 1.svg", text: "love what we do" },
+  { src: "/logo/Frame 2.svg", text: "roots to visuals" },
+  { src: "/logo/Frame 3.svg", text: "calm process" },
+  { src: "/logo/Frame 4.svg", text: "efficiency first" },
+  { src: "/logo/Frame 5.svg", text: "creative minds" },
+  { src: "/logo/Frame 6.svg", text: "fueled by curiosity" }
+];
+
 export default function About() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
   return (
     <section id="about" className="relative w-full py-20 md:py-32 px-4 md:px-8 bg-[#FAFAFA] font-sans">
       
@@ -112,10 +83,42 @@ export default function About() {
       <div className="w-full max-w-7xl mx-auto flex flex-col gap-16 md:gap-20 relative z-10">
         
         {/* ─── Header Section ─── */}
-        <div className="w-full max-w-5xl mx-auto text-center flex flex-col items-center gap-4 mb-3">
+        <div className="w-full max-w-5xl mx-auto text-center flex flex-col items-center gap-10 mb-3">
+          
+          {/* SVG Icons Row */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="w-full flex flex-row flex-wrap items-center justify-center sm:justify-between gap-12 md:gap-6 px-2 md:px-[24px]"
+          >
+            {approachIcons.map((item, index) => (
+              <motion.div key={index} variants={itemVariants} className="relative group opacity-80 hover:opacity-100 transition-opacity duration-300 w-24 h-24 flex items-center justify-center">
+                
+                {/* Tooltip */}
+                <div className="absolute -top-20 left-1/2 -translate-x-1/2 bg-white px-5 py-2 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.1)] border border-gray-100 text-sm font-medium text-[#FD5800] opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10 translate-y-2 group-hover:translate-y-0">
+                  {item.text}
+                </div>
+
+                {/* Orange Masked SVG */}
+                <div 
+                  style={{ 
+                    WebkitMaskImage: `url('${item.src}')`, 
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                  }} 
+                  className="w-full h-full bg-[#FD5800]"
+                ></div>
+              </motion.div>
+            ))}
+          </motion.div>
+
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
             className="text-3xl md:text-4xl lg:text-[48px] font-extrabold tracking-tight text-[#111827] leading-[1.2] whitespace-nowrap"
@@ -148,14 +151,17 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               viewport={{ once: true }}
-              className="md:col-span-2 md:row-span-2 bg-white rounded-[32px] p-6 lg:p-7 flex flex-col border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_-12px_rgba(253,88,0,0.12)] hover:border-[#FD5800]/30 transition-all duration-500 group relative overflow-hidden"
+              className="md:col-span-2 md:row-span-2 bg-white rounded-[32px] p-5 lg:p-6 flex flex-col border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_-12px_rgba(236,72,153,0.15)] hover:border-fuchsia-500/30 transition-all duration-500 group relative overflow-hidden"
             >
+              {/* Subtle top gradient glow on hover */}
+              <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-fuchsia-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-[32px] pointer-events-none"></div>
+
               <BrandVisual />
               
-              <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">Brand</h3>
-              <p className="text-gray-500 font-medium leading-relaxed mb-5 text-sm lg:text-[15px]">Build a lasting legacy and connect deeply with your audience through powerful storytelling.</p>
+              <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight group-hover:text-fuchsia-600 transition-colors relative z-10">Brand</h3>
+              <p className="text-gray-500 font-medium leading-relaxed mb-4 text-sm lg:text-[15px] relative z-10">Build a lasting legacy and connect deeply with your audience through powerful storytelling.</p>
 
-              <ul className="flex flex-col gap-2.5 mt-auto relative z-10">
+              <ul className="flex flex-col gap-2 mt-auto relative z-10">
                 {['Brand Strategy', 'Visual Identity', 'Packaging Design', 'UI/UX Experience', 'Messaging & Voice'].map((item, idx) => (
                   <CheckItem key={idx} text={item} delay={0.2 + idx * 0.1} />
                 ))}
@@ -168,13 +174,16 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               viewport={{ once: true }}
-              className="md:col-span-3 bg-white rounded-[32px] p-6 lg:p-7 flex flex-col md:flex-row gap-6 lg:gap-8 justify-between items-center border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_-12px_rgba(253,88,0,0.12)] hover:border-[#FD5800]/30 transition-all duration-500 group relative overflow-hidden"
+              className="md:col-span-3 bg-white rounded-[32px] p-5 lg:p-6 flex flex-col md:flex-row gap-4 lg:gap-5 justify-between items-center border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_-12px_rgba(59,130,246,0.15)] hover:border-blue-500/30 transition-all duration-500 group relative overflow-hidden"
             >
+              {/* Subtle top gradient glow on hover */}
+              <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-[32px] pointer-events-none"></div>
+
               <div className="flex flex-col flex-1 w-full relative z-10">
-                <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">Commerce</h3>
-                <p className="text-gray-500 font-medium leading-relaxed text-sm lg:text-[15px] mb-5 max-w-sm">Scale your revenue seamlessly with high-converting, lightning-fast storefronts.</p>
+                <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight group-hover:text-blue-600 transition-colors">Commerce</h3>
+                <p className="text-gray-500 font-medium leading-relaxed text-sm lg:text-[15px] mb-4 max-w-sm">Scale your revenue seamlessly with high-converting, lightning-fast storefronts.</p>
                 
-                <ul className="flex flex-col gap-2.5 mt-auto">
+                <ul className="flex flex-col gap-2 mt-auto">
                   {['Shopify Plus Development', 'Conversion Rate (CRO)', 'Custom Landing Pages'].map((item, idx) => (
                     <CheckItem key={idx} text={item} delay={0.3 + idx * 0.1} />
                   ))}
@@ -189,13 +198,16 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
               viewport={{ once: true }}
-              className="md:col-span-3 bg-white rounded-[32px] p-6 lg:p-7 flex flex-col md:flex-row gap-6 lg:gap-8 justify-between items-center border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_-12px_rgba(253,88,0,0.12)] hover:border-[#FD5800]/30 transition-all duration-500 group relative overflow-hidden"
+              className="md:col-span-3 bg-white rounded-[32px] p-5 lg:p-6 flex flex-col md:flex-row gap-4 lg:gap-5 justify-between items-center border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_-12px_rgba(245,158,11,0.15)] hover:border-orange-500/30 transition-all duration-500 group relative overflow-hidden"
             >
+              {/* Subtle top gradient glow on hover */}
+              <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-[32px] pointer-events-none"></div>
+
               <div className="flex flex-col flex-1 w-full relative z-10">
-                <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">Growth</h3>
-                <p className="text-gray-500 font-medium leading-relaxed text-sm lg:text-[15px] mb-5 max-w-sm">Accelerate your market presence and acquire high-LTV customers worldwide.</p>
+                <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight group-hover:text-orange-500 transition-colors">Growth</h3>
+                <p className="text-gray-500 font-medium leading-relaxed text-sm lg:text-[15px] mb-4 max-w-sm">Accelerate your market presence and acquire high-LTV customers worldwide.</p>
                 
-                <ul className="flex flex-col gap-2.5 mt-auto">
+                <ul className="flex flex-col gap-2 mt-auto">
                   {['Performance Marketing', 'UGC & Creators', 'SEO, SEM & Retention'].map((item, idx) => (
                     <CheckItem key={idx} text={item} delay={0.4 + idx * 0.1} />
                   ))}

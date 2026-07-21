@@ -1,14 +1,6 @@
 import { motion } from 'framer-motion'
 
 export default function Approach() {
-  const icons = [
-    { src: "/logo/Frame 1.svg", text: "love what we do" },
-    { src: "/logo/Frame 2.svg", text: "roots to visuals" },
-    { src: "/logo/Frame 3.svg", text: "calm process" },
-    { src: "/logo/Frame 4.svg", text: "effeiceny first" },
-    { src: "/logo/Frame 5.svg", text: "creative minds" },
-    { src: "/logo/Frame 6.svg", text: "fueled by curiosity" }
-  ];
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -64,26 +56,7 @@ export default function Approach() {
           </div>
         </div>
 
-        {/* SVG Icons Row */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="w-full flex flex-row flex-wrap items-center justify-center sm:justify-between gap-12 md:gap-6 px-2 md:px-[24px]"
-        >
-          {icons.map((item, index) => (
-            <motion.div key={index} variants={itemVariants} className="relative group opacity-80 hover:opacity-100 transition-opacity duration-300 w-24 h-24 flex items-center justify-center">
-              
-              {/* Tooltip */}
-              <div className="absolute -top-20 left-1/2 -translate-x-1/2 bg-white px-5 py-2 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.1)] border border-gray-100 text-sm font-medium text-black opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10 translate-y-2 group-hover:translate-y-0">
-                {item.text}
-              </div>
-
-              <img src={item.src} alt={item.text} className="w-full h-full object-contain" />
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* End of content */}
 
       </div>
     </section>
