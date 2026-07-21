@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import About from '../components/About'
 import Toolkit from '../components/Toolkit'
-import Approach from '../components/Approach'
+import HowWeWork from '../components/HowWeWork'
 import WorkShowcase from '../components/WorkShowcase'
 import LatestWork from '../components/LatestWork'
 import Contact from '../components/Contact'
@@ -55,7 +55,7 @@ export default function Home() {
         <Hero startAnimation={true} />
         <About />
         <Toolkit />
-        <Approach />
+        <HowWeWork />
         <WorkShowcase />
         <LatestWork />
         <Contact />
