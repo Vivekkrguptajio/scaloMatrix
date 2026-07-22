@@ -29,26 +29,23 @@ export default function DefinesUs() {
   }, [])
 
   return (
-    <section className="relative w-full bg-white py-24 md:py-32 overflow-hidden font-sans border-t border-gray-100">
+    <section className="relative w-full bg-white py-12 md:py-16 overflow-hidden font-sans border-t border-gray-100">
       
       {/* Blueprint/Wireframe Background Pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.15] flex items-center justify-center overflow-hidden">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <pattern id="blueprint" x="0" y="0" width="400" height="300" patternUnits="userSpaceOnUse" patternTransform="scale(0.4)">
-              {/* Horizontal Lines */}
-              <line x1="0" y1="150" x2="400" y2="150" stroke="#FD5800" strokeWidth="2" />
-              <line x1="0" y1="300" x2="400" y2="300" stroke="#FD5800" strokeWidth="2" strokeDasharray="6 6" />
+            <pattern id="blueprint" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
+              {/* Horizontal Lines (Top, Center, Bottom) */}
+              <line x1="0" y1="0" x2="300" y2="0" stroke="#E5E7EB" strokeWidth="1" />
+              <line x1="0" y1="150" x2="300" y2="150" stroke="#E5E7EB" strokeWidth="1" />
+              <line x1="0" y1="300" x2="300" y2="300" stroke="#E5E7EB" strokeWidth="1" />
               
-              {/* Vertical Lines */}
-              <line x1="300" y1="0" x2="300" y2="300" stroke="#FD5800" strokeWidth="2" />
+              {/* Vertical Line (Right Edge) */}
+              <line x1="300" y1="0" x2="300" y2="300" stroke="#E5E7EB" strokeWidth="1" />
               
-              {/* Circles */}
-              <circle cx="300" cy="300" r="150" stroke="#FD5800" strokeWidth="2" fill="none" />
-              <circle cx="100" cy="300" r="300" stroke="#FD5800" strokeWidth="2" fill="none" />
-              
-              {/* Center Dot */}
-              <circle cx="300" cy="300" r="6" fill="#FD5800" />
+              {/* Centered Circle */}
+              <circle cx="150" cy="150" r="150" stroke="#E5E7EB" strokeWidth="1" fill="none" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#blueprint)" />
@@ -59,35 +56,33 @@ export default function DefinesUs() {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
           
           {/* Left Column */}
-          <div className="lg:w-1/3 shrink-0 relative">
+          <div className="lg:w-1/4 shrink-0 relative">
             <div className="sticky top-32">
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-5xl lg:text-[56px] font-black tracking-tight text-gray-900 leading-[1.1]"
+                className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-gray-900 leading-[1.1]"
               >
                 What defines us
               </motion.h2>
 
-              {/* Hand-drawn Arrow Pointing to Cursor */}
+              {/* Cursor-Following Black Arrow */}
               <motion.div 
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.6, type: "spring", stiffness: 200, damping: 15 }}
-                className="hidden md:flex mt-16 ml-8 lg:ml-12 relative z-20 w-[320px] h-[320px] items-center justify-center"
+                transition={{ delay: 0.4, type: "spring", stiffness: 200, damping: 15 }}
+                className="hidden md:flex mt-8 w-[180px] h-[180px] items-center justify-center text-[#FD5800]"
               >
                 <div 
                   ref={arrowRef}
-                  style={{ transform: `rotate(${rotation}deg)` }}
+                  style={{ transform: `rotate(${rotation}deg)`, transition: 'transform 0.1s ease-out' }}
                   className="w-full h-full flex items-center justify-center will-change-transform"
                 >
-                  <svg width="320" height="320" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#FD5800] drop-shadow-xl">
-                    {/* Extra Long Straight Arrow Tail */}
-                    <path d="M10 80 L140 80" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
-                    {/* Straight Arrow Head */}
-                    <path d="M100 40 L140 80 L100 120" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg width="180" height="100" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Thick Arrow Pointing Right (rotation handles direction) */}
+                    <path d="M5 25 L95 25 M70 5 L95 25 L70 45" stroke="currentColor" strokeWidth="8" strokeLinejoin="miter" strokeLinecap="square" />
                   </svg>
                 </div>
               </motion.div>
@@ -95,15 +90,15 @@ export default function DefinesUs() {
           </div>
 
           {/* Right Column */}
-          <div className="lg:w-2/3 flex flex-col gap-8 md:gap-10">
+          <div className="lg:w-3/4 flex flex-col gap-6 md:gap-8">
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-2xl md:text-3xl lg:text-[40px] font-extrabold text-gray-900 leading-[1.3] tracking-tight"
+              className="text-xl md:text-2xl lg:text-[34px] font-bold text-gray-900 leading-[1.3] tracking-tight w-full"
             >
-              We're brand builders at heart, creators by design, tech enthusiasts in practice, and integrated at our core.
+              We're brand builders at heart, creators by design, tech<br className="hidden md:block"/> enthusiasts in practice, and integrated at our core.
             </motion.h3>
             
             <motion.div 
@@ -118,8 +113,8 @@ export default function DefinesUs() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="text-base md:text-[17px] text-gray-500 font-medium leading-[1.8] max-w-3xl"
+              transition={{ delay: 0.2 }}
+              className="text-base md:text-[17px] text-gray-500 font-medium leading-[1.85] max-w-[850px]"
             >
               We're on a mission to take the very best of Indian creative talent to the world. Driven by a ferocious hunger to create tangible impact for your business, we work with in-house specialists, industry partners and technology leaders to push the boundaries of creativity and put your brand on the global stage.
             </motion.p>
@@ -128,14 +123,14 @@ export default function DefinesUs() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.3 }}
               className="pt-4"
             >
-              <a href="#contact" className="inline-flex items-center justify-center gap-3 bg-black text-white px-8 py-4 rounded-full font-bold hover:bg-[#FD5800] hover:scale-105 transition-all duration-300 group shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)] hover:shadow-[0_10px_30px_-10px_rgba(253,88,0,0.5)]">
-                Dive Into Our Culture
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+              <a href="#contact" className="group relative inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-[15px] w-max overflow-hidden bg-black text-white">
+                <span className="absolute inset-0 bg-[#FD5800] rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] origin-center"></span>
+                <span className="relative z-10 flex items-center">
+                  Dive Into Our Culture <span className="ml-2 font-normal text-lg leading-none">&rarr;</span>
+                </span>
               </a>
             </motion.div>
           </div>
