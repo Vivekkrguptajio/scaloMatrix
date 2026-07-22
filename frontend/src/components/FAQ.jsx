@@ -3,20 +3,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
-    question: "What makes your agency different?",
-    answer: "We don't just build websites; we build scalable digital businesses. Our approach combines data-driven strategy, award-winning design, and robust engineering to ensure every project delivers a massive ROI."
+    question: "How do you blend creativity with technology?",
+    answer: "We believe magic happens at the intersection of art and code. Our award-winning creatives work hand-in-hand with our engineering team from day one. This ensures every bold idea is not just visually stunning, but technically robust and infinitely scalable."
   },
   {
-    question: "How long does a typical project take?",
-    answer: "A standard website redesign takes 4-6 weeks from discovery to launch. For complex web applications or full brand identity systems, timelines typically range from 8-12 weeks. We move fast without ever compromising on quality."
+    question: "What is your approach to brand transformation?",
+    answer: "We don't just refresh logos; we engineer holistic brand experiences. By diving deep into consumer insights and cultural trends, we build immersive digital ecosystems that drive real business growth and leave a lasting cultural legacy."
   },
   {
-    question: "What is your pricing model?",
-    answer: "We work on a project-based or retainer model depending on your needs. Minimum engagements start at $5,000. Every project is uniquely scoped after an initial discovery call to ensure you only pay for exactly what you need to scale."
+    question: "How long does it take to see tangible results?",
+    answer: "While our rapid prototyping allows us to launch impactful campaigns within weeks, true transformation is a journey. We focus on quick wins to generate immediate ROI, while laying the robust groundwork for sustainable, long-term market dominance."
   },
   {
-    question: "Do you offer post-launch support?",
-    answer: "Absolutely. We view launch as the starting line, not the finish line. We offer monthly growth and maintenance retainers to ensure your product remains secure, fast, and continuously optimized for conversions."
+    question: "Do you collaborate with in-house marketing teams?",
+    answer: "Absolutely. We view ourselves as a seamless extension of your team. Whether you need us to take the reins completely or co-create alongside your internal experts, our agile pods adapt to your unique workflow to maximize impact."
   }
 ];
 
@@ -24,24 +24,26 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="py-24 md:py-32 bg-[#FAFAFA] font-sans border-t border-gray-100">
-      <div className="max-w-[1000px] mx-auto px-4 md:px-8">
+    <section className="py-24 md:py-32 bg-white font-sans">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
         
-        {/* Header */}
-        <div className="text-center mb-16 md:mb-24">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-6"
-          >
-            Got questions? <br />
-            <span className="text-gray-300">We have answers.</span>
-          </motion.h2>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+          
+          {/* Left Side: Header */}
+          <div className="lg:sticky lg:top-40 h-fit">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1] mb-6"
+            >
+              Got questions? <br />
+              <span className="text-gray-300">We have answers.</span>
+            </motion.h2>
+          </div>
 
-        {/* Accordion */}
-        <div className="space-y-4">
+          {/* Right Side: Accordion */}
+          <div className="space-y-4 pt-4 lg:pt-0">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             
@@ -86,6 +88,7 @@ export default function FAQ() {
               </motion.div>
             );
           })}
+          </div>
         </div>
 
       </div>

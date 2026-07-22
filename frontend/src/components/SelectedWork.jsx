@@ -62,58 +62,48 @@ function CaseCard({ study, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.15 }}
-      className="group flex flex-col bg-white rounded-3xl border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden cursor-pointer"
+      className="group flex flex-col w-full cursor-pointer"
     >
       {/* Image Header */}
-      <div className="relative w-full aspect-video overflow-hidden">
+      <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[20px] mb-5">
         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
         <img 
           src={study.image} 
           alt={study.title} 
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" 
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
         />
-        <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
-          <span className="text-[10px] font-black tracking-wider text-black uppercase">{study.client}</span>
+        <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">
+          <span className="text-[10px] font-bold tracking-widest text-black uppercase">{study.client}</span>
         </div>
       </div>
 
       {/* Card Body */}
-      <div className="p-4 flex flex-col flex-grow">
-        <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#FD5800] mb-2 block">
-          {study.category}
-        </span>
+      <div className="flex flex-col flex-grow">
+        <div className="flex items-center flex-wrap gap-2 mb-3">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400">
+            {study.category}
+          </span>
+          <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+          <span className="text-[11px] font-bold uppercase tracking-widest text-[#FD5800]">
+            {study.metric} {study.metricLabel}
+          </span>
+        </div>
         
-        <h3 className="text-base md:text-lg font-black mb-3 leading-snug text-gray-900 group-hover:text-[#FD5800] transition-colors line-clamp-2">
+        <h3 className="text-[20px] md:text-[22px] font-black mb-3 leading-tight text-gray-900 group-hover:text-[#FD5800] transition-colors line-clamp-2">
           {study.title}
         </h3>
 
-        {/* Big Metric Highlight */}
-        <div className={`mt-auto mb-3 p-2.5 rounded-xl ${study.bgLight} border border-gray-100/50 flex flex-col xl:flex-row xl:items-center gap-2`}>
-          <div className="flex-shrink-0">
-            <span className={`text-xl xl:text-2xl font-black ${study.textColor} tracking-tight block leading-none`}>
-              {study.metric}
-            </span>
-          </div>
-          <div className="xl:border-l-2 border-gray-200/50 xl:pl-2">
-            <span className="text-xs font-bold text-gray-800 leading-tight block">
-              {study.metricLabel}
-            </span>
-          </div>
-        </div>
-
-        <p className="text-xs text-gray-500 font-medium leading-relaxed mb-4 line-clamp-3">
+        <p className="text-[14px] text-gray-500 font-medium leading-relaxed mb-6 line-clamp-2">
           {study.description}
         </p>
 
-        <div className="flex items-center justify-between border-t border-gray-50 pt-3 mt-auto">
-          <span className="text-xs font-bold text-black group-hover:text-[#FD5800] transition-colors">
-            Read Case Study
+        <div className="mt-auto flex items-center gap-2">
+          <span className="text-[13px] font-bold text-black group-hover:text-[#FD5800] transition-colors uppercase tracking-wide">
+            View Case Study
           </span>
-          <span className="w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#FD5800] group-hover:text-white text-gray-400 transition-colors">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </span>
+          <svg className="w-4 h-4 text-black group-hover:text-[#FD5800] group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
         </div>
       </div>
     </motion.div>

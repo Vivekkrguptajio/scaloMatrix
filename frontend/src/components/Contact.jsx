@@ -1,119 +1,112 @@
-import { useContext } from 'react';
+import { useContext, useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { PortfolioContext } from '../context/PortfolioContext';
 
-export default function Contact() {
+export default function Contact({ reveal = false }) {
   const { profileDetails } = useContext(PortfolioContext);
   const currentYear = new Date().getFullYear();
+  const footerRef = useRef(null);
+  const [footerHeight, setFooterHeight] = useState(0);
 
-  return (
-    <footer id="contact" className="w-full bg-black text-white pt-16 md:pt-24 pb-6 relative overflow-hidden font-sans border-t border-white/10 scroll-mt-24">
-      
-      {/* Background Accent */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FD5800] rounded-full blur-[200px] opacity-10 pointer-events-none" />
+  useEffect(() => {
+    if (!reveal) return;
+    const updateHeight = () => {
+      if (footerRef.current) {
+        setFooterHeight(footerRef.current.offsetHeight);
+      }
+    };
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    return () => window.removeEventListener('resize', updateHeight);
+  }, [reveal]);
 
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">
+  const footerContent = (
+    <footer 
+      id={reveal ? "contact-footer" : "contact"}
+      ref={footerRef}
+      className={`w-full bg-black text-white pt-24 pb-8 min-h-screen flex flex-col justify-between overflow-hidden font-sans ${reveal ? 'fixed bottom-0 left-0 z-0' : 'relative scroll-mt-24'}`}
+    >
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col items-center h-full w-full flex-grow">
         
-        {/* Top Section: CTA & Email */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-16">
+        {/* Large Typography Logo (Moved Up) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="w-full flex flex-col justify-center items-center flex-grow -mt-[15vh] md:-mt-[20vh]"
+        >
+          <h2 className="text-[16vw] md:text-[18vw] font-sans font-black tracking-tighter leading-none select-none whitespace-nowrap">
+            <span className="text-[#FD5800]">scalo</span>
+            <span className="text-white">MATRIX</span>
+          </h2>
+        </motion.div>
+
+        {/* Bottom Section Wrapper */}
+        <div className="w-full mt-auto">
+          {/* Divider */}
+          <div className="w-full h-px bg-white/20 mb-8 md:mb-10"></div>
+
+        {/* Bottom Row */}
+        <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0 text-sm font-medium">
           
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl"
-          >
-            <h2 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[0.9] tracking-tighter mb-6">
-              Got a project? <br />
-              <span className="text-[#FD5800]">Let's talk.</span>
-            </h2>
-            <p className="text-gray-400 text-lg md:text-xl font-medium max-w-md">
-              We're always looking for ambitious brands to partner with. Drop us a line and let's build something extraordinary.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, delay: 0.1 }}
-            className="lg:text-right"
-          >
-            <p className="text-sm font-bold uppercase tracking-widest text-gray-500 mb-4">Email Us</p>
-            <a 
-              href={`mailto:${profileDetails?.email || 'hello@scalomatrix.com'}`} 
-              className="text-2xl md:text-4xl font-bold hover:text-[#FD5800] transition-colors inline-block border-b-2 border-transparent hover:border-[#FD5800] pb-1"
-            >
-              {profileDetails?.email || 'hello@scalomatrix.com'}
+          {/* Social Icons */}
+          <div className="flex items-center gap-6">
+            <a href={profileDetails?.socialLinks?.linkedin || '#'} target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+              </svg>
             </a>
-            
-            <div className="mt-8">
-              <p className="text-sm font-bold uppercase tracking-widest text-gray-500 mb-2">Call Us</p>
-              <a 
-                href={`tel:${profileDetails?.phone || '+91 98765 43210'}`} 
-                className="text-xl md:text-2xl font-medium hover:text-[#FD5800] transition-colors"
-              >
-                {profileDetails?.phone || '+91 98765 43210'}
-              </a>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Middle Section: Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 py-10 border-t border-white/10">
-          
-          {/* Navigation */}
-          <div className="flex flex-col space-y-4">
-            <h4 className="text-white font-bold mb-2 uppercase tracking-widest text-sm">Navigation</h4>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a>
-            <a href="#about" className="text-gray-400 hover:text-white transition-colors">About</a>
-            <a href="#work" className="text-gray-400 hover:text-white transition-colors">Work</a>
-            <a href="#how-we-work" className="text-gray-400 hover:text-white transition-colors">Process</a>
-          </div>
-
-          {/* Agency */}
-          <div className="flex flex-col space-y-4">
-            <h4 className="text-white font-bold mb-2 uppercase tracking-widest text-sm">Agency</h4>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">Insights</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-          </div>
-
-          {/* Socials */}
-          <div className="flex flex-col space-y-4">
-            <h4 className="text-white font-bold mb-2 uppercase tracking-widest text-sm">Socials</h4>
-            <a href={profileDetails?.socialLinks?.instagram || '#'} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#FD5800] transition-colors flex items-center gap-2">
-              Instagram <span className="text-xs">↗</span>
+            <a href={profileDetails?.socialLinks?.instagram || '#'} target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
             </a>
-            <a href={profileDetails?.socialLinks?.twitter || '#'} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#FD5800] transition-colors flex items-center gap-2">
-              Twitter <span className="text-xs">↗</span>
+            <a href={profileDetails?.socialLinks?.youtube || '#'} target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.582 6.186a2.63 2.63 0 0 0-1.854-1.854C18.09 4 12 4 12 4s-6.09 0-7.728.332A2.63 2.63 0 0 0 2.418 6.186C2.086 7.824 2 12 2 12s.086 4.176.418 5.814a2.63 2.63 0 0 0 1.854 1.854C5.91 20 12 20 12 20s6.09 0 7.728-.332a2.63 2.63 0 0 0 1.854-1.854C21.914 16.176 22 12 22 12s-.086-4.176-.418-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
             </a>
-            <a href={profileDetails?.socialLinks?.linkedin || '#'} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#FD5800] transition-colors flex items-center gap-2">
-              LinkedIn <span className="text-xs">↗</span>
+            <a href={profileDetails?.socialLinks?.facebook || '#'} target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+              </svg>
             </a>
           </div>
 
-          {/* Location */}
-          <div className="flex flex-col space-y-4 md:col-span-1 col-span-2 mt-8 md:mt-0">
-            <h4 className="text-white font-bold mb-2 uppercase tracking-widest text-sm">Location</h4>
-            <p className="text-gray-400 leading-relaxed max-w-[200px]">
-              {profileDetails?.location || 'Chas Bokaro Jharkhand, India'}
-            </p>
-            <div className="mt-4">
-              <h4 className="text-white font-bold mb-1 uppercase tracking-widest text-sm">Founder</h4>
-              <p className="text-[#FD5800] font-medium">{profileDetails?.firstName} {profileDetails?.lastName}</p>
-            </div>
+          {/* Navigation Links */}
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-white">
+            <a href="#about" className="hover:text-gray-400 transition-colors">About</a>
+            <a href="#contact" className="hover:text-gray-400 transition-colors">Contact</a>
+            <a href="#work" className="hover:text-gray-400 transition-colors">Case Studies</a>
+            <a href="#blog" className="hover:text-gray-400 transition-colors">Blog</a>
+            <a href="#privacy" className="hover:text-gray-400 transition-colors">Privacy</a>
+          </div>
+
+          {/* Copyright text */}
+          <div className="text-center lg:text-right text-white/80 leading-relaxed text-xs md:text-sm">
+            <p>Proudly created in India.</p>
+            <p>All Right Reserved, All Wrong Reversed.</p>
           </div>
 
         </div>
 
-        {/* Bottom Section: Copyright */}
-        <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] font-bold text-gray-500 uppercase tracking-widest">
-          <p>© {currentYear} scaloMATRIX. All rights reserved.</p>
-          <p>Made with ❤️ by Ranjeet</p>
         </div>
 
       </div>
     </footer>
   );
+
+  if (reveal) {
+    return (
+      <>
+        <div id="contact" style={{ height: footerHeight }} className="w-full relative z-0 pointer-events-none" />
+        {footerContent}
+      </>
+    );
+  }
+
+  return footerContent;
 }

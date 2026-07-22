@@ -24,79 +24,90 @@ export default function Work() {
       {/* Reusing existing Navbar, passing required props */}
       <Navbar scrolled={scrolled} activeSection="work" isDarkTheme={false} loading={false} />
 
-      {/* Hero Intro Section */}
-      <section className="pt-[20vh] px-6 md:px-[5vw] max-w-[1600px] mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-0">
-          <div className="w-full md:w-1/2">
-            <h1 className="text-3xl md:text-[3vw] font-mondwest font-medium leading-tight text-[#111111] tracking-tight">
-              {workPageDetails?.title || 'Work'}
-            </h1>
+      {/* ═══════ MAIN CONTENT ═══════ */}
+      <main className="relative z-10 bg-white transition-all duration-1000">
+        {/* Hero Intro Section */}
+        <section className="pt-[20vh] px-6 md:px-[5vw] max-w-[1600px] mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold leading-tight text-[#111111] tracking-tight mb-8">
+            Explore Our Latest Work
+          </h1>
+          
+          {/* Divider */}
+          <div className="w-full h-px bg-gray-300 mb-6"></div>
+          
+          {/* Filter Buttons */}
+          <div className="flex justify-end gap-3 mb-10">
+            <button className="px-6 py-2.5 rounded-full bg-black text-white text-sm font-semibold hover:bg-gray-800 transition shadow-sm">Casestudy</button>
+            <button className="px-6 py-2.5 rounded-full bg-black text-white text-sm font-semibold hover:bg-gray-800 transition shadow-sm">Daily Creativity</button>
           </div>
-          <div className="w-full md:w-1/3 flex md:justify-end mt-4 md:mt-0">
-            <p className="text-sm md:text-[1vw] text-gray-500 leading-relaxed font-sans">
-              {workPageDetails?.description || ''}
-            </p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Projects Grid Section */}
-      <section className="mt-[10vw] md:mt-[8vw] px-6 md:px-[5vw] pb-[10vw] max-w-[1600px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-[1.5vw] gap-y-16 md:gap-y-[5vw]">
-          {projects.map((project, index) => (
-            <motion.div 
-              onClick={() => navigate(`/work/${project._id || project.id}`)}
-              key={project._id || project.id || index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: index % 2 === 0 ? 0 : 0.2 }}
-              className="flex flex-col w-full group cursor-pointer"
-            >
-              {/* Image Container with Tags */}
-              <div className="w-full h-[60vw] md:h-[30vw] relative rounded-xl md:rounded-[0.5vw] overflow-hidden bg-gray-100">
-                {/* Floating Tags */}
-                <div className="absolute top-[1vw] left-[1vw] md:top-auto md:bottom-[1vw] flex flex-wrap items-end gap-2 md:gap-[0.5vw] z-10 p-4 md:p-0">
-                  {(Array.isArray(project.tags) ? project.tags : []).map(tag => (
-                    <span 
-                      key={tag} 
-                      className="rounded-lg md:rounded-[0.5vw] bg-white/90 px-3 py-1.5 md:px-[1vw] md:py-[0.4vw] text-xs md:text-[0.8vw] font-medium backdrop-blur-md shadow-sm"
-                    >
-                      {tag}
+        {/* Projects Grid Section */}
+        <section className="px-6 md:px-[5vw] pb-[10vw] max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {projects.map((project, index) => (
+              <motion.div 
+                onClick={() => navigate(`/work/${project._id || project.id}`)}
+                key={project._id || project.id || index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: (index % 3) * 0.15 }}
+                className="flex flex-col w-full group cursor-pointer"
+              >
+                {/* Image Container */}
+                <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden bg-gray-100 mb-4 shadow-sm">
+                  
+                  {/* Top Left Label */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="text-white text-[10px] md:text-xs font-bold uppercase tracking-wider drop-shadow-md">
+                      {project.tags?.[0] || 'scalo'}
                     </span>
-                  ))}
-                </div>
-                
-                {/* Image */}
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
+                  </div>
 
-              {/* Title & Details */}
-              <div className="mt-4 md:mt-[1.5vw] flex justify-between items-start">
-                <h3 className="font-mondwest text-2xl md:text-[2vw] text-[#111111] leading-none">
-                  {project.title}
-                </h3>
-                <div className="flex flex-col items-end text-right">
-                  <span className="text-[10px] md:text-[0.8vw] text-gray-400 uppercase tracking-widest mb-1">
-                    Location:
-                  </span>
-                  <span className="text-xs md:text-[0.9vw] text-[#111111] uppercase font-semibold tracking-wide">
-                    {project.location}
-                  </span>
+                  {/* Top Right Label */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <span className="text-white text-[10px] md:text-xs font-bold uppercase tracking-wider drop-shadow-md">
+                      {project.tags?.[1] || 'ARTICLE'}
+                    </span>
+                  </div>
+
+                  {/* Bottom Left Hash */}
+                  <div className="absolute bottom-4 left-4 z-10">
+                    <span className="text-white text-xl md:text-2xl font-black drop-shadow-md">
+                      #
+                    </span>
+                  </div>
+                  
+                  {/* Image */}
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  
+                  {/* Subtle Gradient Overlay for Text Readability */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20 pointer-events-none"></div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+
+                {/* Title & Description */}
+                <div className="flex flex-col gap-1.5 pr-4">
+                  <h3 className="font-sans font-bold text-lg md:text-xl text-[#111111] leading-snug group-hover:text-[#FD5800] transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 line-clamp-2">
+                    {project.description || project.location || 'Click to view this amazing project in detail.'}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      </main>
 
       {/* Contact Section */}
-      <Contact />
+      <Contact reveal={true} />
     </div>
   )
 }

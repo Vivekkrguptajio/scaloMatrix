@@ -2,7 +2,7 @@ import { useState, useContext } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { PortfolioContext } from '../context/PortfolioContext'
 export default function Navbar({ scrolled, activeSection, loading, isDarkTheme = false }) {
-  const { profileDetails } = useContext(PortfolioContext)
+  const { profileDetails, projects } = useContext(PortfolioContext)
   const [mobileMenu, setMobileMenu] = useState(false)
   const [logoPos, setLogoPos] = useState({ x: 0, y: 0 })
   const [activeDropdown, setActiveDropdown] = useState(null)
@@ -28,31 +28,76 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
 
   const megaMenuData = {
     Solutions: {
-      listTitle: 'Products',
+      type: 'projects',
       items: [
-        { title: 'scalo Samvaad', desc: 'Conversational AI for faster growth', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /> },
-        { title: 'scalo Studio', desc: 'Content Transformation at scale', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /> },
-        { title: 'scalo Fast', desc: 'Realtime edge processing & tracking', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /> }
+        { title: 'Brand Solutions', href: '/solutions/brand-solutions' },
+        { title: 'Tech Solutions', href: '/solutions/tech-solutions' },
+        { title: 'Media Solutions', href: '/solutions/media-solutions' },
       ],
-      featured: { title: 'Dashboard', subtitle: 'scalo Dashboard', desc: 'Build with the most accurate AI APIs. Access Text to Speech, Translation, Data Automation, and Vision from a single powerful dashboard.', gradient: 'from-[#FD5800] via-[#FF6A33] to-[#FF9066]' }
+      featuredProjects: [
+        {
+          title: 'How A Catchy Line Received 193M+ Views And Started A Cultural Conversation',
+          description: 'Case Study • TATA Capital',
+          image: 'https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/6a22d3c2280604b61b881a82_TATA%20capital%20women%27s%20day%20cover.jpg',
+          tags: ['TATA', 'CAMPAIGN'],
+          link: '#'
+        },
+        {
+          title: 'Location So Apt, This Overnight Billboard clocked in 15m+ views',
+          description: 'Case Study • Billboard',
+          image: 'https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/6a2297ed183f8f2e18778ea2_WhatsApp%20Image%202026-06-05%20at%202.44.38%20PM.jpeg',
+          tags: ['OOH', 'VIRAL'],
+          link: '#'
+        }
+      ]
     },
     About: {
-      listTitle: 'Company',
+      type: 'projects',
+      hideTags: true,
       items: [
-        { title: 'Our Story', desc: 'Learn how scalo started and where we are heading.', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /> },
-        { title: 'Team', desc: 'Meet the brilliant minds behind our AI technology.', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /> },
-        { title: 'Careers', desc: 'Join us in building the future of generative AI.', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /> }
+        { title: 'How We Work', href: '/about/how-we-work' },
+        { title: 'Our Partnerships', href: '/about/our-partnerships' },
+        { title: 'News Centre', href: '/about/news-centre' },
+        { title: 'Schbang Network', href: '/about/network' },
+        { title: 'CSR', href: '/about/csr' },
+        { title: 'Meet The Team', href: '/about/team' },
       ],
-      featured: { title: 'Mission', subtitle: 'Our Vision', desc: 'To empower businesses with cutting-edge AI tools that are easy to integrate, scalable, and built for the modern enterprise.', gradient: 'from-blue-600 via-blue-500 to-cyan-400' }
+      featuredProjects: [
+        {
+          title: 'Making Headlines with our omnichannel launch campaign for a bold original News Show',
+          description: 'Case Study • Vantage',
+          image: 'https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/64774c61a485e13dd8b2a165_VANTAGE%20STUDY%20m%20text%20(Large).png',
+          link: '#'
+        },
+        {
+          title: 'Hyper-personalized social campaign for India’s biggest food delivery startup',
+          description: 'Case Study • Swiggy',
+          image: 'https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/6477260dbbb4647b0057f061_SWIGGY%20CASE%20STUDY%20M%20TEXT-01%20(Large).png',
+          link: '#'
+        }
+      ]
     },
     Resources: {
-      listTitle: 'Learn',
+      type: 'projects',
+      hideTags: true,
       items: [
-        { title: 'Documentation', desc: 'Comprehensive guides and API references.', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /> },
-        { title: 'Blog', desc: 'Latest updates, articles, and industry insights.', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /> },
-        { title: 'Community', desc: 'Connect with other developers and experts.', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /> }
+        { title: 'Blogs', href: '/resources/blogs' },
+        { title: 'The Edge', href: '/resources/the-edge' },
       ],
-      featured: { title: 'Developers', subtitle: 'API Reference', desc: 'Get started quickly with our robust APIs and SDKs. Explore interactive tutorials and code examples.', gradient: 'from-purple-600 via-purple-500 to-pink-500' }
+      featuredProjects: [
+        {
+          title: 'The Complete GEO + AEO Checklist For Brand Marketers In 2026',
+          description: 'Blog Post • SEO',
+          image: 'https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/6a50f13e8e27025e5f498bb4_image%20(13).png',
+          link: '#'
+        },
+        {
+          title: "AEO 101: How Brands Get Featured In AI-Generated Answers (And What's Stopping You)",
+          description: 'Blog Post • AI',
+          image: 'https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/6a50c71e04a12bcaea2d6ee6_AEO-%20website.jpg',
+          link: '#'
+        }
+      ]
     }
   }
 
@@ -139,39 +184,93 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
               className="w-full overflow-hidden"
             >
               <div className="w-full px-8 pb-8 pt-2 flex gap-8">
-                {/* Left Side: Dynamic List */}
-                <div className="w-[45%] flex flex-col gap-2 border-r border-gray-100 pr-6">
-                  <div className="text-[11px] font-bold text-gray-400 mb-2 uppercase tracking-widest pl-2">
-                    {megaMenuData[activeDropdown].listTitle}
-                  </div>
-                  
-                  {megaMenuData[activeDropdown].items.map((item, idx) => (
-                    <a key={idx} href="#" className="flex items-start gap-4 p-3 rounded-2xl hover:bg-[#FFF8F5] transition-colors group/item">
-                      <div className="w-10 h-10 shrink-0 rounded-xl bg-orange-50 flex items-center justify-center text-[#FD5800] font-bold group-hover/item:scale-110 transition-transform">
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          {item.icon}
-                        </svg>
+                {megaMenuData[activeDropdown].type === 'projects' ? (
+                  <>
+                    {/* Left Side: Premium Links */}
+                    <div className="w-[35%] flex flex-col gap-1 border-r border-gray-100 pr-6 pt-1 group/list">
+                      {megaMenuData[activeDropdown].items.map((item, idx) => (
+                        <a key={idx} href={item.href} className="group/item flex items-center justify-start gap-2.5 py-3 transition-all duration-300">
+                          <span className="text-[17px] lg:text-[18px] font-bold text-gray-800 group-hover/list:text-gray-400 group-hover/item:!text-[#FD5800] transition-colors tracking-tight">
+                            {item.title}
+                          </span>
+                          <span className="text-[#FD5800] group-hover/list:opacity-40 group-hover/list:grayscale group-hover/item:!opacity-100 group-hover/item:!grayscale-0 transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 transition-all duration-300 mt-0.5">
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H8M17 7v9" />
+                            </svg>
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                    {/* Right Side: Project Cards */}
+                    <div className="w-[65%] pl-4 flex gap-6">
+                      {(megaMenuData[activeDropdown].featuredProjects || []).map((project, idx) => (
+                        <div key={idx} className="flex-1 flex flex-col group cursor-pointer" onClick={() => window.location.href = `/work/${project._id || project.id}`}>
+                          {/* Card Image */}
+                          <div className="w-full aspect-[16/10] relative rounded-2xl overflow-hidden bg-gray-100 shadow-sm">
+                            {!megaMenuData[activeDropdown].hideTags && (
+                              <>
+                                <div className="absolute top-3 left-4 z-10">
+                                  <span className="text-white text-[10px] font-bold uppercase tracking-wider drop-shadow-md">{project.tags?.[0] || 'scalo'}</span>
+                                </div>
+                                <div className="absolute top-3 right-4 z-10">
+                                  <span className="text-white text-[10px] font-bold uppercase tracking-wider drop-shadow-md">{project.tags?.[1] || 'ARTICLE'}</span>
+                                </div>
+                                <div className="absolute bottom-3 left-4 z-10">
+                                  <span className="text-white text-xl font-black drop-shadow-md">#</span>
+                                </div>
+                              </>
+                            )}
+                            <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20 pointer-events-none"></div>
+                          </div>
+                          {/* Card Title & Desc */}
+                          <div className="mt-4 pr-2">
+                            <h3 className="font-sans font-black text-[17px] text-gray-900 leading-tight group-hover:text-[#FD5800] transition-colors line-clamp-1 mb-1 tracking-tight">
+                              {project.title}
+                            </h3>
+                            <p className="text-[13px] text-gray-500 font-medium line-clamp-2 leading-relaxed">{project.description || project.location || 'Explore this project to see how we drove meaningful results and impact.'}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* Left Side: Dynamic List */}
+                    <div className="w-[45%] flex flex-col gap-2 border-r border-gray-100 pr-6">
+                      <div className="text-[11px] font-bold text-gray-400 mb-2 uppercase tracking-widest pl-2">
+                        {megaMenuData[activeDropdown].listTitle}
                       </div>
-                      <div>
-                        <div className="text-gray-900 font-bold text-sm group-hover/item:text-[#FD5800] transition-colors">{item.title}</div>
-                        <div className="text-gray-500 text-xs mt-0.5 font-bold leading-relaxed">{item.desc}</div>
-                      </div>
-                    </a>
-                  ))}
-                </div>
+                      
+                      {megaMenuData[activeDropdown].items.map((item, idx) => (
+                        <a key={idx} href="#" className="flex items-start gap-4 p-3 rounded-2xl hover:bg-[#FFF8F5] transition-colors group/item">
+                          <div className="w-10 h-10 shrink-0 rounded-xl bg-orange-50 flex items-center justify-center text-[#FD5800] font-bold group-hover/item:scale-110 transition-transform">
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              {item.icon}
+                            </svg>
+                          </div>
+                          <div>
+                            <div className="text-gray-900 font-bold text-sm group-hover/item:text-[#FD5800] transition-colors">{item.title}</div>
+                            <div className="text-gray-500 text-xs mt-0.5 font-bold leading-relaxed">{item.desc}</div>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
 
-                {/* Right Side: Dynamic Featured Card */}
-                <div className="w-[55%] pl-4 flex flex-col">
-                  <div className={`w-full h-[180px] rounded-2xl bg-gradient-to-br ${megaMenuData[activeDropdown].featured.gradient} flex items-center justify-center text-white font-black text-3xl shadow-[0_10px_30px_-10px_rgba(255,69,0,0.5)] mb-6 overflow-hidden relative group/card cursor-pointer`}>
-                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay"></div>
-                    <div className="absolute -inset-2 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-150%] group-hover/card:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
-                    <span className="relative z-10 group-hover/card:scale-105 transition-transform duration-500 tracking-tight">{megaMenuData[activeDropdown].featured.title}</span>
-                  </div>
-                  <h4 className="text-gray-900 font-black text-lg mb-2">{megaMenuData[activeDropdown].featured.subtitle}</h4>
-                  <p className="text-[13px] text-gray-500 font-bold leading-relaxed">
-                    {megaMenuData[activeDropdown].featured.desc}
-                  </p>
-                </div>
+                    {/* Right Side: Dynamic Featured Card */}
+                    <div className="w-[55%] pl-4 flex flex-col">
+                      <div className={`w-full h-[180px] rounded-2xl bg-gradient-to-br ${megaMenuData[activeDropdown].featured.gradient} flex items-center justify-center text-white font-black text-3xl shadow-[0_10px_30px_-10px_rgba(255,69,0,0.5)] mb-6 overflow-hidden relative group/card cursor-pointer`}>
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay"></div>
+                        <div className="absolute -inset-2 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-150%] group-hover/card:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
+                        <span className="relative z-10 group-hover/card:scale-105 transition-transform duration-500 tracking-tight">{megaMenuData[activeDropdown].featured.title}</span>
+                      </div>
+                      <h4 className="text-gray-900 font-black text-lg mb-2">{megaMenuData[activeDropdown].featured.subtitle}</h4>
+                      <p className="text-[13px] text-gray-500 font-bold leading-relaxed">
+                        {megaMenuData[activeDropdown].featured.desc}
+                      </p>
+                    </div>
+                  </>
+                )}
               </div>
             </motion.div>
           )}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
 /* ─── Animated Check List Item ─── */
@@ -138,6 +138,7 @@ const solutions = [
 ];
 
 export default function About() {
+  const [activePanel, setActivePanel] = useState(0);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -169,7 +170,7 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="w-full flex flex-row flex-wrap items-center justify-center gap-16 sm:gap-20 md:gap-28 lg:gap-[120px] px-2 mb-16 md:mb-24"
+            className="w-full flex flex-row flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-20 lg:gap-32 px-4 mb-16 md:mb-24"
           >
             {approachIcons.map((item, index) => (
               <motion.div key={index} variants={itemVariants} className="relative group opacity-80 hover:opacity-100 transition-opacity duration-300 w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
@@ -214,49 +215,72 @@ export default function About() {
           </motion.p>
         </div>
 
-        {/* ─── Cards Grid ─── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full">
-          {solutions.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-[28px] p-5 lg:p-7 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(253,88,0,0.1)] border border-gray-100 transition-all duration-300 group flex flex-col sm:flex-row gap-5 relative overflow-hidden"
-            >
-              
-              {/* Left Side: 3D Glossy Icon */}
-              <div className="flex items-start shrink-0">
-                {item.shape === 'hexagon' ? <GlossyHexagon icon={item.icon} /> : <GlossyCircle icon={item.icon} />}
-              </div>
-              
-              {/* Right Side: Content */}
-              <div className="flex flex-col flex-1">
-                {/* Title Row */}
-                <div className="flex items-center gap-3 mb-3 mt-1">
-                  <span className="text-[#FD5800] font-bold bg-white px-2.5 py-0.5 rounded-full text-[13px] border border-orange-200 shadow-sm shadow-orange-100">
-                    {item.id}
-                  </span>
-                  <h3 className="text-xl md:text-[22px] font-black text-gray-900 tracking-tight">{item.title}</h3>
+        {/* ─── Horizontal Accordion Grid ─── */}
+        <div className="w-full flex flex-col md:flex-row min-h-[500px] shadow-2xl rounded-3xl overflow-hidden mt-8">
+          {solutions.map((item, index) => {
+            const isActive = activePanel === index;
+            
+            // Define active colors for different panels to make it look premium
+            const activeColors = [
+              'bg-[#00D1FF]', // Cyan for Brand
+              'bg-[#FF3366]', // Pink for Commerce
+              'bg-[#00E676]', // Green for Growth
+              'bg-[#7E57C2]'  // Purple for Strategy
+            ];
+            const activeBg = activeColors[index % activeColors.length];
+
+            return (
+              <div 
+                key={item.id}
+                onMouseEnter={() => setActivePanel(index)}
+                onClick={() => setActivePanel(index)}
+                className={`transition-all duration-700 ease-in-out cursor-pointer flex flex-col justify-center px-8 md:px-12 py-12 md:py-0 border-b md:border-b-0 md:border-r border-gray-100 last:border-0 relative overflow-hidden group
+                  ${isActive ? `w-full md:w-[45%] ${activeBg}` : 'w-full md:w-[18.33%] bg-white hover:bg-gray-50'}`}
+              >
+                <div className={`transition-all duration-700 w-full flex flex-col ${isActive ? 'items-start' : 'items-center'}`}>
+                  <h3 className={`text-4xl md:text-5xl lg:text-[56px] font-black leading-[1.1] transition-all duration-500 whitespace-nowrap
+                    ${isActive ? 'text-white mb-6' : 'text-gray-400 md:-rotate-90 md:translate-y-16 group-hover:text-gray-500'}`}
+                  >
+                    {item.title} <br className={isActive ? "hidden" : "hidden md:block"}/> Solution
+                  </h3>
+                  
+                  {isActive && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                      className="flex flex-col w-full"
+                    >
+                      <p className="text-white text-sm md:text-[17px] font-medium leading-relaxed mb-8 max-w-sm drop-shadow-sm">
+                        {item.desc}
+                      </p>
+                      
+                      {/* Services Checklist */}
+                      <ul className={`grid gap-x-6 gap-y-3 mb-10 w-full max-w-md ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+                        {item.list.map((listItem, i) => (
+                          <li key={i} className="flex items-start gap-2.5">
+                            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-[2px]">
+                              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                              </svg>
+                            </div>
+                            <span className="text-white font-medium text-sm drop-shadow-sm">{listItem}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Circle Arrow Button */}
+                      <button className="w-14 h-14 bg-white rounded-full flex items-center justify-center group/btn hover:scale-105 transition-transform duration-300 shadow-lg shrink-0">
+                        <svg className="w-6 h-6 text-black group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </button>
+                    </motion.div>
+                  )}
                 </div>
-                
-                <p className="text-gray-500 text-[14px] font-medium leading-relaxed mb-4 pr-2">
-                  {item.desc}
-                </p>
-
-                {/* Horizontal Separator */}
-                <div className="w-full h-[1px] bg-gray-100 mb-4"></div>
-
-                {/* Checklist */}
-                <ul className={`grid gap-x-4 gap-y-3 ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
-                  {item.list.map((listItem, i) => (
-                    <CheckItem key={i} text={listItem} delay={0.2 + i * 0.1} />
-                  ))}
-                </ul>
               </div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

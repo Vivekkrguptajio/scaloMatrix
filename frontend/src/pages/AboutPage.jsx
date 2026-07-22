@@ -23,9 +23,9 @@ export default function AboutPage() {
       <Navbar scrolled={scrolled} activeSection={activeSection} loading={false} />
 
       {/* ═══════ MAIN CONTENT ═══════ */}
-      <main className="pt-[2.2%]">
+      <main className="relative z-10 bg-white pt-[2.2%]">
         {/* Image removed because asset is missing */}
-        <Contact />
+        <Contact reveal={true} />
       </main>
     </div>
   )

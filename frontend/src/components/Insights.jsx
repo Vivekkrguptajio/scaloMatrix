@@ -3,36 +3,27 @@ import { motion } from 'framer-motion';
 const insights = [
   {
     id: 1,
-    category: "Growth Breakdown",
-    title: "How We Scaled a SaaS to $1M ARR",
-    metric: "12",
-    metricLabel: "Months",
-    excerpt: "A deep dive into the marketing channels, sales funnels, and retention strategies that fueled hyper-growth.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070",
-    color: "text-blue-500",
-    bgLight: "bg-blue-50"
+    category: "Marketing Strategy",
+    title: "The Complete GEO + AEO Checklist For Brand Marketers In 2026",
+    date: "July 12, 2026",
+    excerpt: "Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) are the new frontiers of search. Here is your ultimate checklist to stay ahead.",
+    image: "https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/6a50f13e8e27025e5f498bb4_image%20(13).png"
   },
   {
     id: 2,
-    category: "Creative Analysis",
-    title: "Psychology of Micro-Interactions",
-    metric: "3x",
-    metricLabel: "Retention",
-    excerpt: "Why the smallest animations and transitions hold the biggest power for user retention and delight.",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=2000",
-    color: "text-[#FD5800]",
-    bgLight: "bg-orange-50"
+    category: "AI & Tech",
+    title: "AEO 101: How Brands Get Featured In AI-Generated Answers",
+    date: "June 28, 2026",
+    excerpt: "Discover the exact mechanics behind how AI search engines decide which brands to feature, and what might be stopping your brand from appearing.",
+    image: "https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/6a50c71e04a12bcaea2d6ee6_AEO-%20website.jpg"
   },
   {
     id: 3,
-    category: "Article",
-    title: "Headless Commerce Future",
-    metric: "50%",
-    metricLabel: "Faster Load",
-    excerpt: "Decoupling front-end from back-end isn't just a trend; it's a necessity for speed and scalability.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2015",
-    color: "text-emerald-500",
-    bgLight: "bg-emerald-50"
+    category: "Case Study",
+    title: "Making Headlines: Omnichannel Launch for an Original News Show",
+    date: "May 15, 2026",
+    excerpt: "How we crafted a bold, multi-platform campaign that disrupted the digital news space and garnered millions of views in its opening weekend.",
+    image: "https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/64774c61a485e13dd8b2a165_VANTAGE%20STUDY%20m%20text%20(Large).png"
   }
 ];
 
@@ -43,52 +34,40 @@ function InsightCard({ item, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.15 }}
-      className="group flex flex-col bg-white rounded-3xl border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden cursor-pointer"
+      className="group flex flex-col bg-white rounded-[24px] shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden cursor-pointer"
     >
       {/* Image Header */}
-      <div className="relative w-full aspect-video overflow-hidden">
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
         <img 
           src={item.image} 
           alt={item.title} 
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" 
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
         />
-        <div className="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
-          <span className="text-[10px] font-black tracking-wider text-black uppercase">{item.category}</span>
+        <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
+          <span className="text-[11px] font-bold tracking-widest text-black uppercase">{item.category}</span>
         </div>
       </div>
 
       {/* Card Body */}
-      <div className="p-4 flex flex-col flex-grow">
-        <h3 className="text-base md:text-lg font-black mb-3 leading-snug text-gray-900 group-hover:text-[#FD5800] transition-colors line-clamp-2">
+      <div className="p-5 flex flex-col flex-grow">
+        <div className="mb-3">
+          <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{item.date}</span>
+        </div>
+        
+        <h3 className="text-lg md:text-xl font-black mb-3 leading-tight text-gray-900 group-hover:text-[#FD5800] transition-colors">
           {item.title}
         </h3>
 
-        {/* Big Metric Highlight (Similar to Selected Work) */}
-        <div className={`mt-auto mb-3 p-2.5 rounded-xl ${item.bgLight} border border-gray-100/50 flex flex-col xl:flex-row xl:items-center gap-2`}>
-          <div className="flex-shrink-0">
-            <span className={`text-xl xl:text-2xl font-black ${item.color} tracking-tight block leading-none`}>
-              {item.metric}
-            </span>
-          </div>
-          <div className="xl:border-l-2 border-gray-200/50 xl:pl-2">
-            <span className="text-xs font-bold text-gray-800 leading-tight block">
-              {item.metricLabel}
-            </span>
-          </div>
-        </div>
-
-        <p className="text-xs text-gray-500 font-medium leading-relaxed mb-4 line-clamp-3">
+        <p className="text-sm text-gray-600 font-medium leading-relaxed mb-6">
           {item.excerpt}
         </p>
 
-        <div className="flex items-center justify-between border-t border-gray-50 pt-3 mt-auto">
-          <span className="text-xs font-bold text-black group-hover:text-[#FD5800] transition-colors">
+        <div className="flex items-center mt-auto">
+          <span className="text-sm font-bold text-black group-hover:text-[#FD5800] transition-colors flex items-center gap-2">
             Read Article
-          </span>
-          <span className="w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#FD5800] group-hover:text-white text-gray-400 transition-colors">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" stroke="currentColor" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </span>
         </div>
@@ -100,8 +79,8 @@ function InsightCard({ item, index }) {
 export default function Insights() {
   return (
     <section className="relative w-full bg-[#FAFAFA] text-black font-sans py-20 md:py-32">
-      <div className="w-full flex flex-col justify-center overflow-hidden">
-        <div className="max-w-[1400px] w-full mx-auto px-4 md:px-8">
+      <div className="w-full flex flex-col justify-center">
+        <div className="max-w-6xl w-full mx-auto px-4 md:px-8">
           
           {/* Header */}
           <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">

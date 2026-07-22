@@ -51,7 +51,7 @@ export default function ProjectDetail() {
     <div className="w-full min-h-screen bg-white text-gray-900 selection:bg-gray-200 selection:text-black overflow-x-hidden">
       <Navbar scrolled={scrolled} activeSection="" loading={false} isDarkTheme={false} />
       
-      <main className="pt-[100px] pb-20 px-4 md:px-6 w-full mx-auto">
+      <main className="relative z-10 bg-white pt-[100px] pb-20 px-4 md:px-6 w-full mx-auto">
         
         {/* Hero Section */}
         <div className="w-full mb-16">
@@ -177,7 +177,7 @@ export default function ProjectDetail() {
         </div>
       </main>
 
-      <Contact />
+      <Contact reveal={true} />
     </div>
   );
 }

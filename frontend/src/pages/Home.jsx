@@ -54,7 +54,7 @@ export default function Home() {
       <Navbar scrolled={scrolled} activeSection={activeSection} isDarkTheme={isDarkTheme} />
 
       {/* ═══════ MAIN CONTENT ═══════ */}
-      <main className="transition-all duration-1000 opacity-100 blur-0">
+      <main className="relative z-10 bg-white transition-all duration-1000 opacity-100 blur-0">
         <Hero startAnimation={true} />
         <ClientLogos />
         <About />
@@ -66,8 +66,8 @@ export default function Home() {
         <Insights />
         <FAQ />
         <Founder />
-        <Contact />
       </main>
+      <Contact reveal={true} />
     </div>
   )
 }

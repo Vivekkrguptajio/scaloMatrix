@@ -3,6 +3,8 @@ import Home from './pages/Home';
 import AdminDashboard from './pages/AdminDashboard';
 import Work from './pages/Work';
 import AboutPage from './pages/AboutPage';
+import SolutionsPage from './pages/SolutionsPage';
+import GenericPage from './pages/GenericPage';
 import CustomCursor from './components/CustomCursor';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -24,6 +26,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/about/:slug" element={<GenericPage />} />
+        <Route path="/resources/:slug" element={<GenericPage />} />
+        <Route path="/solutions/:slug" element={<SolutionsPage />} />
         <Route path="/work" element={<Work />} />
         <Route path="/work/:id" element={<ProjectDetail />} />
         <Route path="/admin/login" element={<Login />} />
