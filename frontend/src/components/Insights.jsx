@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
+import { memo } from 'react';
 import { insights } from '../data';
 
-function InsightCard({ item, index }) {
+const InsightCard = memo(function InsightCard({ item, index }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 40 }}
@@ -16,6 +17,7 @@ function InsightCard({ item, index }) {
         <img 
           src={item.image} 
           alt={item.title} 
+          loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
         />
         <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
@@ -48,12 +50,12 @@ function InsightCard({ item, index }) {
       </div>
     </motion.div>
   );
-}
+});
 
 export default function Insights() {
   return (
-    <section className="relative w-full bg-[#FAFAFA] text-black font-sans py-20 md:py-32">
-      <div className="w-full flex flex-col justify-center">
+    <section className="relative w-full bg-white text-black font-sans py-20 md:py-32">
+      <div className="w-full flex flex-col justify-center overflow-hidden">
         <div className="max-w-6xl w-full mx-auto px-4 md:px-8">
           
           {/* Header */}

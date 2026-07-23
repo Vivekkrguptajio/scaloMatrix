@@ -1,12 +1,10 @@
 import { useRef, useEffect, useState, useContext } from 'react'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { PortfolioContext } from '../context/PortfolioContext'
 
 export default function Projects() {
   const { projects } = useContext(PortfolioContext)
-  const sectionRef = useRef(null)
-  const trackRef = useRef(null)
-  const [translateX, setTranslateX] = useState(0)
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const targetRef = useRef(null)
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -16,44 +14,36 @@ export default function Projects() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  // Use Framer Motion for buttery smooth zero-render scrolling
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+
+  // Spring physics for smoother catch-up
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const x = useTransform(smoothProgress, [0, 1], ["0%", "-80%"]);
+  
+  // For the progress bar indicator
+  const barWidth = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
+  // Simple integer tracker for the counter
+  const [activeIdx, setActiveIdx] = useState(1);
+  
+  // Update counter occasionally (throttled by effect)
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current || !trackRef.current) return
-
-      const section = sectionRef.current
-      const track = trackRef.current
-      const rect = section.getBoundingClientRect()
-      const sectionHeight = section.offsetHeight
-      const windowHeight = window.innerHeight
-
-      // How far into the section we've scrolled
-      const scrolled = -rect.top
-      const totalScroll = sectionHeight - windowHeight
-
-      if (totalScroll <= 0) return
-
-      const progress = Math.min(Math.max(scrolled / totalScroll, 0), 1)
-      setScrollProgress(progress)
-
-      {/* Calculate horizontal translation */}
-      // Calculate horizontal translation
-      const trackWidth = track.scrollWidth
-      const containerWidth = track.parentElement.offsetWidth
-      const maxTranslate = Math.max(0, trackWidth - containerWidth)
-
-      setTranslateX(progress * maxTranslate)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll() // initial call
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-
+    return smoothProgress.onChange((latest) => {
+      const idx = Math.min(Math.max(Math.ceil(latest * projects.length), 1), projects.length);
+      setActiveIdx(idx);
+    });
+  }, [smoothProgress, projects.length]);
 
   return (
     <section
-      ref={sectionRef}
+      ref={targetRef}
       id="projects"
       style={{ height: isMobile ? 'auto' : '500vh' }}
       className={`relative w-full bg-white ${isMobile ? 'py-20' : ''}`}
@@ -69,31 +59,27 @@ export default function Projects() {
                 <span className="text-gray-700">Featured </span><br className="hidden md:block" />
                 <span>Projects</span>
               </h2>
-              <p className="text-gray-500 mt-6 text-lg max-w-sm">
-              
-              </p>
             </div>
             
             {/* Scroll Progress Indicator */}
             <div className="mt-12 flex items-center gap-4">
               <div className="w-48 h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                <div 
-                  className="h-full bg-gray-900 rounded-full transition-all duration-100"
-                  style={{ width: `${scrollProgress * 100}%` }}
-                ></div>
+                <motion.div 
+                  className="h-full bg-gray-900 rounded-full"
+                  style={{ width: barWidth }}
+                />
               </div>
               <span className="text-sm text-gray-400 font-bold tracking-widest">
-                {Math.min(Math.ceil(scrollProgress * projects.length), projects.length)} / {projects.length}
+                {activeIdx} / {projects.length}
               </span>
             </div>
           </div>
 
           {/* Right Side: Horizontal scrolling track */}
           <div className={`w-full md:w-[60%] relative flex items-center ${isMobile ? 'overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide' : 'h-full overflow-visible'}`}>
-            <div
-              ref={trackRef}
-              className={`flex gap-6 md:gap-10 transition-transform duration-100 ease-out will-change-transform ${isMobile ? 'w-max px-5' : 'w-max absolute left-0'}`}
-              style={{ transform: isMobile ? 'none' : `translateX(-${translateX}px)` }}
+            <motion.div
+              className={`flex gap-6 md:gap-10 ${isMobile ? 'w-max px-5' : 'w-max absolute left-0'}`}
+              style={{ x: isMobile ? 0 : x }}
             >
               {projects.map((project, index) => (
                 <div
@@ -103,7 +89,7 @@ export default function Projects() {
                   {/* Card Image Area */}
                   <div className={`w-full bg-gradient-to-br ${project.bgGradient} relative flex items-center justify-center ${project.image ? '' : 'p-8'} overflow-hidden`} style={{ height: '360px' }}>
                     {project.image ? (
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700 ease-out" />
+                      <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700 ease-out" />
                     ) : project.isDark ? (
                       <div className="w-10/12 h-4/5 bg-neutral-900 rounded-xl shadow-md p-5 transform group-hover:scale-105 transition-all duration-500 flex flex-col justify-between border border-neutral-800 text-white">
                         <div className="flex items-center justify-between">
@@ -150,7 +136,7 @@ export default function Projects() {
                   </div>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
           </div>
         </div>

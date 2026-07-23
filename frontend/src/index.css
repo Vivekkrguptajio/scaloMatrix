@@ -170,6 +170,8 @@ body {
 
 .animate-marquee {
   animation: marquee 55s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 @keyframes marquee-viewport {
@@ -206,4 +208,11 @@ html.lenis body {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+/* ═══════ PERFORMANCE OPTIMIZATIONS ═══════ */
+/* Use on heavy below-the-fold sections to skip rendering off-screen */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
 }

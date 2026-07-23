@@ -23,27 +23,36 @@ export default function Home() {
 
   // Monitor Scroll
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 20;
+          setScrolled(prev => prev !== isScrolled ? isScrolled : prev);
 
-      // Scroll spy logic removed based on user request
+          // Check for dark theme efficiently
+          let dark = false;
+          const navBottom = window.scrollY + 80;
+          const founder = document.getElementById('founder');
+          const contact = document.getElementById('contact');
 
-      // Check for dark theme
-      let dark = false;
-      const navBottom = window.scrollY + 80;
-      const founder = document.getElementById('founder');
-      const contact = document.getElementById('contact');
-
-      if (founder && navBottom >= founder.offsetTop && navBottom < founder.offsetTop + founder.offsetHeight) {
-        dark = true;
+          if (founder && navBottom >= founder.offsetTop && navBottom < (founder.offsetTop + founder.offsetHeight)) {
+            dark = true;
+          }
+          if (contact && navBottom >= contact.offsetTop) {
+            dark = true;
+          }
+          
+          setIsDarkTheme(prev => prev !== dark ? dark : prev);
+          
+          ticking = false;
+        });
+        ticking = true;
       }
-      if (contact && navBottom >= contact.offsetTop) {
-        dark = true;
-      }
-      setIsDarkTheme(dark);
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

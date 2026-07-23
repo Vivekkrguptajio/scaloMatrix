@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
+import { memo } from 'react';
 import { caseStudies } from '../data';
 
-function CaseCard({ study, index }) {
+const CaseCard = memo(function CaseCard({ study, index }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 40 }}
@@ -16,6 +17,7 @@ function CaseCard({ study, index }) {
         <img 
           src={study.image} 
           alt={study.title} 
+          loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
         />
         <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">
@@ -54,11 +56,11 @@ function CaseCard({ study, index }) {
       </div>
     </motion.div>
   );
-}
+});
 
 export default function SelectedWork() {
   return (
-    <section className="relative w-full bg-[#FAFAFA] text-black font-sans py-20 md:py-32">
+    <section id="work" className="relative w-full bg-[#FAFAFA] text-black font-sans py-20 md:py-32">
       <div className="w-full flex flex-col justify-center overflow-hidden">
         <div className="max-w-[1400px] w-full mx-auto px-4 md:px-8">
           

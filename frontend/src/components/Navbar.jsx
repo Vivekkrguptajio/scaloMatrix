@@ -1,22 +1,23 @@
-import { useState, useContext } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useContext, useMemo, useCallback } from 'react'
+import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
 import { PortfolioContext } from '../context/PortfolioContext'
 export default function Navbar({ scrolled, activeSection, loading, isDarkTheme = false }) {
   const { profileDetails, projects } = useContext(PortfolioContext)
   const [mobileMenu, setMobileMenu] = useState(false)
-  const [logoPos, setLogoPos] = useState({ x: 0, y: 0 })
+  const logoX = useMotionValue(0)
+  const logoY = useMotionValue(0)
   const [activeDropdown, setActiveDropdown] = useState(null)
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = useCallback((e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect()
-    const x = (e.clientX - (left + width / 2)) * 0.2
-    const y = (e.clientY - (top + height / 2)) * 0.2
-    setLogoPos({ x, y })
-  }
+    logoX.set((e.clientX - (left + width / 2)) * 0.2)
+    logoY.set((e.clientY - (top + height / 2)) * 0.2)
+  }, [logoX, logoY])
 
-  const handleMouseLeave = () => {
-    setLogoPos({ x: 0, y: 0 })
-  }
+  const handleMouseLeave = useCallback(() => {
+    logoX.set(0)
+    logoY.set(0)
+  }, [logoX, logoY])
 
   const navLinks = [
     { name: 'Work', href: '/work' },
@@ -118,18 +119,18 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
         {/* Main Navbar Row */}
         <div className="w-full flex items-center justify-between transition-all duration-500 py-2 px-6 md:px-8">
         {/* Logo */}
-        <a 
+        <motion.a 
           href="/" 
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          style={{ transform: `translate(${logoPos.x}px, ${logoPos.y}px)` }}
-          className={`group flex items-center gap-3 font-semibold tracking-tight transition-transform duration-75 ease-out select-none whitespace-nowrap z-10 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}
+          style={{ x: logoX, y: logoY }}
+          className={`group flex items-center gap-3 font-semibold tracking-tight select-none whitespace-nowrap z-10 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}
         >
           <span className={`text-2xl md:text-3xl font-sans font-black transition-colors duration-300 tracking-tight`}>
             <span className="text-[#FD5800]">scalo</span>
             <span className={isDarkTheme ? 'text-white' : 'text-black'}>MATRIX</span>
           </span>
-        </a>
+        </motion.a>
         
         {/* Desktop Nav Links (Centered perfectly) */}
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 lg:gap-2 h-full">

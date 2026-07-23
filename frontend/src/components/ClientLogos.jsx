@@ -29,6 +29,7 @@ export default function ClientLogos() {
               <img 
                 src={logo.url} 
                 alt={logo.name} 
+                loading="lazy"
                 className="w-full h-auto object-contain max-h-12" 
               />
             </div>

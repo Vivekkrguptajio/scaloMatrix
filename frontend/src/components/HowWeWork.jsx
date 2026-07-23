@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, memo } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const steps = [
@@ -36,7 +36,7 @@ const nodes = [
   { x: 87.5, y: 25, isValley: false },
 ];
 
-function StepCard({ step, index, scrollYProgress }) {
+const StepCard = memo(function StepCard({ step, index, scrollYProgress }) {
   const node = nodes[index];
   
   // Stagger the animation based on scroll progress (0 to 0.8)
@@ -107,7 +107,7 @@ function StepCard({ step, index, scrollYProgress }) {
       </motion.div>
     </div>
   );
-}
+});
 
 export default function HowWeWork() {
   const targetRef = useRef(null);

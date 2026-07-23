@@ -6,11 +6,8 @@ export default function ScrollToTop() {
 
   // Show button when page is scrolled down
   const toggleVisibility = () => {
-    if (window.scrollY > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+    const shouldBeVisible = window.scrollY > 300;
+    setIsVisible(prev => prev !== shouldBeVisible ? shouldBeVisible : prev);
   };
 
   // Scroll to top smoothly
@@ -22,8 +19,18 @@ export default function ScrollToTop() {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          toggleVisibility();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (

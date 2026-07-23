@@ -19,29 +19,28 @@ export default function CustomCursor() {
       cursorY.set(e.clientY - 16);
     };
 
+    let lastTarget = null;
+    let hoverRafId = null;
+
     const handleMouseOver = (e) => {
       const target = e.target;
-      if (!target) return;
+      if (!target || target === lastTarget) return;
+      lastTarget = target;
 
-      if (
-        target.tagName.toLowerCase() === 'a' ||
-        target.tagName.toLowerCase() === 'button' ||
-        target.closest('a') ||
-        target.closest('button') ||
-        target.classList.contains('cursor-pointer')
-      ) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
-      
-      // Check for dark sections (bg-black, bg-[#0a0a0a], footer, etc.)
-      const darkContainer = target.closest('.bg-black, .bg-\\[\\#0a0a0a\\], .bg-gray-900, footer, [data-dark="true"]');
-      if (darkContainer) {
-        setIsOnDark(true);
-      } else {
-        setIsOnDark(false);
-      }
+      cancelAnimationFrame(hoverRafId);
+      hoverRafId = requestAnimationFrame(() => {
+        const isInteractive = target.tagName.toLowerCase() === 'a' ||
+          target.tagName.toLowerCase() === 'button' ||
+          target.closest('a') ||
+          target.closest('button') ||
+          target.classList.contains('cursor-pointer');
+          
+        setIsHovering(!!isInteractive);
+        
+        // Check for dark sections
+        const darkContainer = target.closest('.bg-black, .bg-\\[\\#0a0a0a\\], .bg-gray-900, footer, [data-dark="true"]');
+        setIsOnDark(!!darkContainer);
+      });
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });

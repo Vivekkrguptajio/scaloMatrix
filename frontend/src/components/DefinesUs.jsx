@@ -1,55 +1,57 @@
-import { motion } from 'framer-motion'
-import { useState, useEffect, useRef } from 'react'
+import { motion, useMotionValue, useTransform } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 
 export default function DefinesUs() {
   const arrowRef = useRef(null)
-  const [rotation, setRotation] = useState(0)
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  const rotation = useMotionValue(0)
 
   useEffect(() => {
+    let animationFrameId;
+    
     const handleMouseMove = (e) => {
+      mouseX.set(e.clientX)
+      mouseY.set(e.clientY)
+      
       if (!arrowRef.current) return
       
-      const arrowRect = arrowRef.current.getBoundingClientRect()
-      // Center of the arrow
-      const arrowCenterX = arrowRect.left + arrowRect.width / 2
-      const arrowCenterY = arrowRect.top + arrowRect.height / 2
-      
-      const mouseX = e.clientX
-      const mouseY = e.clientY
-      
-      // Calculate angle in radians and convert to degrees
-      const angleRad = Math.atan2(mouseY - arrowCenterY, mouseX - arrowCenterX)
-      const angleDeg = (angleRad * 180) / Math.PI
-      
-      setRotation(angleDeg)
+      // Calculate rotation in a requestAnimationFrame for smoothness
+      cancelAnimationFrame(animationFrameId)
+      animationFrameId = requestAnimationFrame(() => {
+        const arrowRect = arrowRef.current.getBoundingClientRect()
+        const arrowCenterX = arrowRect.left + arrowRect.width / 2
+        const arrowCenterY = arrowRect.top + arrowRect.height / 2
+        
+        const angleRad = Math.atan2(e.clientY - arrowCenterY, e.clientX - arrowCenterX)
+        const angleDeg = (angleRad * 180) / Math.PI
+        
+        rotation.set(angleDeg)
+      })
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      cancelAnimationFrame(animationFrameId)
+    }
   }, [])
 
   return (
     <section className="relative w-full bg-white py-12 md:py-16 overflow-hidden font-sans border-t border-gray-100">
       
-      {/* Blueprint/Wireframe Background Pattern */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.15] flex items-center justify-center overflow-hidden">
+      {/* Subtle Diagonal Grid Pattern */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <pattern id="blueprint" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
-              {/* Horizontal Lines (Top, Center, Bottom) */}
-              <line x1="0" y1="0" x2="300" y2="0" stroke="#E5E7EB" strokeWidth="1" />
-              <line x1="0" y1="150" x2="300" y2="150" stroke="#E5E7EB" strokeWidth="1" />
-              <line x1="0" y1="300" x2="300" y2="300" stroke="#E5E7EB" strokeWidth="1" />
-              
-              {/* Vertical Line (Right Edge) */}
-              <line x1="300" y1="0" x2="300" y2="300" stroke="#E5E7EB" strokeWidth="1" />
-              
-              {/* Centered Circle */}
-              <circle cx="150" cy="150" r="150" stroke="#E5E7EB" strokeWidth="1" fill="none" />
+            <pattern id="diagonalGrid" width="80" height="80" patternUnits="userSpaceOnUse">
+              <path d="M80 0 L0 80 M0 0 L80 80" stroke="#e5e7eb" strokeWidth="1" fill="none" opacity="0.6"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#blueprint)" />
+          <rect width="100%" height="100%" fill="url(#diagonalGrid)" />
         </svg>
+        {/* Subtle gradient overlay to fade pattern at edges and make it look natural */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white opacity-90" />
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
@@ -75,16 +77,17 @@ export default function DefinesUs() {
                 transition={{ delay: 0.4, type: "spring", stiffness: 200, damping: 15 }}
                 className="hidden md:flex mt-8 w-[180px] h-[180px] items-center justify-center text-[#FD5800]"
               >
-                <div 
+                <motion.div 
                   ref={arrowRef}
-                  style={{ transform: `rotate(${rotation}deg)`, transition: 'transform 0.1s ease-out' }}
+                  style={{ rotate: rotation }}
+                  transition={{ ease: "linear", duration: 0 }}
                   className="w-full h-full flex items-center justify-center will-change-transform"
                 >
                   <svg width="180" height="100" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     {/* Thick Arrow Pointing Right (rotation handles direction) */}
                     <path d="M5 25 L95 25 M70 5 L95 25 L70 45" stroke="currentColor" strokeWidth="8" strokeLinejoin="miter" strokeLinecap="square" />
                   </svg>
-                </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
