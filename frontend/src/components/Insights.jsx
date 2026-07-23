@@ -1,31 +1,5 @@
 import { motion } from 'framer-motion';
-
-const insights = [
-  {
-    id: 1,
-    category: "Marketing Strategy",
-    title: "The Complete GEO + AEO Checklist For Brand Marketers In 2026",
-    date: "July 12, 2026",
-    excerpt: "Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) are the new frontiers of search. Here is your ultimate checklist to stay ahead.",
-    image: "https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/6a50f13e8e27025e5f498bb4_image%20(13).png"
-  },
-  {
-    id: 2,
-    category: "AI & Tech",
-    title: "AEO 101: How Brands Get Featured In AI-Generated Answers",
-    date: "June 28, 2026",
-    excerpt: "Discover the exact mechanics behind how AI search engines decide which brands to feature, and what might be stopping your brand from appearing.",
-    image: "https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/6a50c71e04a12bcaea2d6ee6_AEO-%20website.jpg"
-  },
-  {
-    id: 3,
-    category: "Case Study",
-    title: "Making Headlines: Omnichannel Launch for an Original News Show",
-    date: "May 15, 2026",
-    excerpt: "How we crafted a bold, multi-platform campaign that disrupted the digital news space and garnered millions of views in its opening weekend.",
-    image: "https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/64774c61a485e13dd8b2a165_VANTAGE%20STUDY%20m%20text%20(Large).png"
-  }
-];
+import { insights } from '../data';
 
 function InsightCard({ item, index }) {
   return (

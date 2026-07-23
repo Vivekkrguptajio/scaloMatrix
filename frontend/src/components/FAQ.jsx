@@ -1,24 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const faqs = [
-  {
-    question: "How do you blend creativity with technology?",
-    answer: "We believe magic happens at the intersection of art and code. Our award-winning creatives work hand-in-hand with our engineering team from day one. This ensures every bold idea is not just visually stunning, but technically robust and infinitely scalable."
-  },
-  {
-    question: "What is your approach to brand transformation?",
-    answer: "We don't just refresh logos; we engineer holistic brand experiences. By diving deep into consumer insights and cultural trends, we build immersive digital ecosystems that drive real business growth and leave a lasting cultural legacy."
-  },
-  {
-    question: "How long does it take to see tangible results?",
-    answer: "While our rapid prototyping allows us to launch impactful campaigns within weeks, true transformation is a journey. We focus on quick wins to generate immediate ROI, while laying the robust groundwork for sustainable, long-term market dominance."
-  },
-  {
-    question: "Do you collaborate with in-house marketing teams?",
-    answer: "Absolutely. We view ourselves as a seamless extension of your team. Whether you need us to take the reins completely or co-create alongside your internal experts, our agile pods adapt to your unique workflow to maximize impact."
-  }
-];
+import { faqs } from '../data';
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);

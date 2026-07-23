@@ -216,7 +216,7 @@ export default function About() {
         </div>
 
         {/* ─── Horizontal Accordion Grid ─── */}
-        <div className="w-full flex flex-col md:flex-row min-h-[500px] shadow-2xl rounded-3xl overflow-hidden mt-8">
+        <div className="w-full flex flex-col md:flex-row min-h-[700px] shadow-2xl rounded-3xl overflow-hidden mt-8">
           {solutions.map((item, index) => {
             const isActive = activePanel === index;
             

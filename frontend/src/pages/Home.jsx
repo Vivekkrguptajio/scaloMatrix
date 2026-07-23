@@ -48,7 +48,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="relative min-h-screen bg-white overflow-x-clip font-sans">
+    <div className="relative min-h-screen bg-white font-sans">
       
       {/* ═══════ NAVBAR ═══════ */}
       <Navbar scrolled={scrolled} activeSection={activeSection} isDarkTheme={isDarkTheme} />

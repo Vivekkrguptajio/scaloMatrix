@@ -16,11 +16,7 @@ import { ReactLenis } from 'lenis/react';
 function App() {
   return (
     <ReactLenis root options={{ lerp: 0.06, smoothWheel: true, wheelMultiplier: 1.2 }}>
-      {/* Premium Cinematic Grain Overlay */}
-      <div 
-        className="fixed inset-0 z-[9999] opacity-[0.03] pointer-events-none mix-blend-overlay"
-        style={{ backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png")' }}
-      />
+
       <CustomCursor />
       <ScrollToTop />
       <Routes>

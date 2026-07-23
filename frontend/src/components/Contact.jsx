@@ -31,12 +31,11 @@ export default function Contact({ reveal = false }) {
         {/* Large Typography Logo (Moved Up) */}
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
           className="w-full flex flex-col justify-center items-center flex-grow -mt-[15vh] md:-mt-[20vh]"
         >
-          <h2 className="text-[16vw] md:text-[18vw] font-sans font-black tracking-tighter leading-none select-none whitespace-nowrap">
+          <h2 className="text-[14.5vw] md:text-[16vw] font-sans font-black tracking-tighter leading-none select-none whitespace-nowrap">
             <span className="text-[#FD5800]">scalo</span>
             <span className="text-white">MATRIX</span>
           </h2>
@@ -102,7 +101,7 @@ export default function Contact({ reveal = false }) {
   if (reveal) {
     return (
       <>
-        <div id="contact" style={{ height: footerHeight }} className="w-full relative z-0 pointer-events-none" />
+        <div id="contact" style={{ height: footerHeight || '100vh' }} className="w-full relative z-0 pointer-events-none" />
         {footerContent}
       </>
     );

@@ -1,28 +1,5 @@
 import { motion } from 'framer-motion';
-
-const testimonials = [
-  {
-    id: 1,
-    quote: "Working with scaloMATRIX was a game-changer. They completely transformed our brand identity and helped us 10x our organic traffic in just 6 months.",
-    name: "Sarah Jenkins",
-    role: "CMO, TechNova",
-    rating: 5,
-  },
-  {
-    id: 2,
-    quote: "Their attention to detail and strategic approach is unmatched. The web app they built for us not only looks stunning but performs flawlessly under heavy load.",
-    name: "David Chen",
-    role: "Founder, ScaleUp SaaS",
-    rating: 5,
-  },
-  {
-    id: 3,
-    quote: "We hired them for a complete rebrand. What we got was a masterclass in modern digital strategy. I highly recommend Ranjeet and his incredible team.",
-    name: "Elena Rodriguez",
-    role: "VP of Growth, FinEdge",
-    rating: 5,
-  }
-];
+import { testimonials } from '../data';
 
 export default function Testimonials() {
   return (
