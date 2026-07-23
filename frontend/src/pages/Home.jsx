@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 // Components
 import Navbar from '../components/Navbar'
@@ -21,9 +21,32 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('home')
   const [isDarkTheme, setIsDarkTheme] = useState(false)
 
+  const sectionOffsets = useRef({ founder: { top: 0, bottom: 0 }, contact: { top: 0, bottom: 0 } })
+
   // Monitor Scroll
   useEffect(() => {
     let ticking = false;
+
+    const updateOffsets = () => {
+      const founder = document.getElementById('founder');
+      const contact = document.getElementById('contact');
+      if (founder) {
+        sectionOffsets.current.founder = {
+          top: founder.offsetTop,
+          bottom: founder.offsetTop + founder.offsetHeight
+        };
+      }
+      if (contact) {
+        sectionOffsets.current.contact = {
+          top: contact.offsetTop,
+          bottom: contact.offsetTop + contact.offsetHeight
+        };
+      }
+    };
+
+    // Initial offset calculation
+    setTimeout(updateOffsets, 500);
+    window.addEventListener('resize', updateOffsets);
 
     const handleScroll = () => {
       if (!ticking) {
@@ -34,13 +57,12 @@ export default function Home() {
           // Check for dark theme efficiently
           let dark = false;
           const navBottom = window.scrollY + 80;
-          const founder = document.getElementById('founder');
-          const contact = document.getElementById('contact');
+          const { founder, contact } = sectionOffsets.current;
 
-          if (founder && navBottom >= founder.offsetTop && navBottom < (founder.offsetTop + founder.offsetHeight)) {
+          if (founder.bottom > 0 && navBottom >= founder.top && navBottom < founder.bottom) {
             dark = true;
           }
-          if (contact && navBottom >= contact.offsetTop) {
+          if (contact.top > 0 && navBottom >= contact.top) {
             dark = true;
           }
           
@@ -53,7 +75,10 @@ export default function Home() {
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateOffsets);
+    }
   }, [])
 
   return (

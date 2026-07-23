@@ -142,10 +142,10 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                 <a 
                   href={link.href} 
                   onMouseEnter={() => link.hasDropdown ? setActiveDropdown(link.name) : setActiveDropdown(null)}
-                  className={`flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sans transition-all duration-300 relative px-4 py-2 rounded-full ${
+                  className={`flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sans transition-all duration-500 ease-out relative px-4 py-2 rounded-full ${
                     isActive || activeDropdown === link.name
-                      ? 'bg-[#FD5800] text-white'
-                      : (isDarkTheme ? 'text-gray-300 hover:bg-[#FD5800] hover:text-white' : 'text-gray-600 hover:bg-[#FD5800] hover:text-white')
+                      ? 'bg-[#FD5800]/10 text-[#FD5800]'
+                      : (isDarkTheme ? 'text-gray-300 hover:bg-[#FD5800]/10 hover:text-[#FD5800]' : 'text-gray-600 hover:bg-[#FD5800]/10 hover:text-[#FD5800]')
                   }`}
                 >
                   {link.name}
@@ -184,7 +184,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="w-full overflow-hidden"
             >
-              <div className="w-full px-8 pb-8 pt-2 flex gap-8">
+              <div className="w-full px-8 pb-8 pt-2 flex gap-8 h-[400px]">
                 {megaMenuData[activeDropdown].type === 'projects' ? (
                   <>
                     {/* Left Side: Premium Links */}
