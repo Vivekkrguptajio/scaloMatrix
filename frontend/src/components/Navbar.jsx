@@ -1,7 +1,7 @@
 import { useState, useContext, useMemo, useCallback } from 'react'
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
 import { PortfolioContext } from '../context/PortfolioContext'
-export default function Navbar({ scrolled, activeSection, loading, isDarkTheme = false }) {
+export default function Navbar({ scrolled, activeSection, loading, isDarkTheme = false, isHidden = false }) {
   const { profileDetails, projects } = useContext(PortfolioContext)
   const [mobileMenu, setMobileMenu] = useState(false)
   const logoX = useMotionValue(0)
@@ -105,7 +105,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
   return (
     <header 
       className={`fixed left-0 right-0 z-50 flex justify-center transition-all duration-700 ease-in-out ${
-        loading ? 'opacity-0 -translate-y-full' : 'opacity-100 translate-y-0'
+        loading || isHidden ? 'opacity-0 -translate-y-[150%] pointer-events-none' : 'opacity-100 translate-y-0'
       } top-4 px-4`}
     >
       <nav 
@@ -142,7 +142,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                 <a 
                   href={link.href} 
                   onMouseEnter={() => link.hasDropdown ? setActiveDropdown(link.name) : setActiveDropdown(null)}
-                  className={`flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sans transition-all duration-500 ease-out relative px-4 py-2 rounded-full ${
+                  className={`flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sora transition-all duration-500 ease-out relative px-4 py-2 rounded-full ${
                     isActive || activeDropdown === link.name
                       ? 'bg-[#FD5800]/10 text-[#FD5800]'
                       : (isDarkTheme ? 'text-gray-300 hover:bg-[#FD5800]/10 hover:text-[#FD5800]' : 'text-gray-600 hover:bg-[#FD5800]/10 hover:text-[#FD5800]')
@@ -182,7 +182,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="w-full overflow-hidden"
+              className="w-full overflow-hidden font-sora"
             >
               <div className="w-full px-8 pb-8 pt-2 flex gap-8 h-[400px]">
                 {megaMenuData[activeDropdown].type === 'projects' ? (
@@ -191,7 +191,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                     <div className="w-[35%] flex flex-col gap-1 border-r border-gray-100 pr-6 pt-1 group/list">
                       {megaMenuData[activeDropdown].items.map((item, idx) => (
                         <a key={idx} href={item.href} className="group/item flex items-center justify-start gap-2.5 py-3 transition-all duration-300">
-                          <span className="text-[17px] lg:text-[18px] font-bold text-gray-800 group-hover/list:text-gray-400 group-hover/item:!text-[#FD5800] transition-colors tracking-tight">
+                          <span className="text-lg lg:text-xl font-bold text-gray-800 group-hover/list:text-gray-400 group-hover/item:!text-[#FD5800] transition-colors tracking-tight">
                             {item.title}
                           </span>
                           <span className="text-[#FD5800] group-hover/list:opacity-40 group-hover/list:grayscale group-hover/item:!opacity-100 group-hover/item:!grayscale-0 transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 transition-all duration-300 mt-0.5">
@@ -226,10 +226,10 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                           </div>
                           {/* Card Title & Desc */}
                           <div className="mt-4 pr-2">
-                            <h3 className="font-sans font-black text-[17px] text-gray-900 leading-tight group-hover:text-[#FD5800] transition-colors line-clamp-1 mb-1 tracking-tight">
+                            <h3 className="font-sora font-black text-lg text-gray-900 leading-tight group-hover:text-[#FD5800] transition-colors line-clamp-1 mb-1 tracking-tight">
                               {project.title}
                             </h3>
-                            <p className="text-[13px] text-gray-500 font-medium line-clamp-2 leading-relaxed">{project.description || project.location || 'Explore this project to see how we drove meaningful results and impact.'}</p>
+                            <p className="text-[14px] text-gray-500 font-medium line-clamp-2 leading-relaxed">{project.description || project.location || 'Explore this project to see how we drove meaningful results and impact.'}</p>
                           </div>
                         </div>
                       ))}
@@ -251,8 +251,8 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                             </svg>
                           </div>
                           <div>
-                            <div className="text-gray-900 font-bold text-sm group-hover/item:text-[#FD5800] transition-colors">{item.title}</div>
-                            <div className="text-gray-500 text-xs mt-0.5 font-bold leading-relaxed">{item.desc}</div>
+                            <div className="text-gray-900 font-bold text-[15px] group-hover/item:text-[#FD5800] transition-colors">{item.title}</div>
+                            <div className="text-gray-500 text-[13px] mt-0.5 font-bold leading-relaxed">{item.desc}</div>
                           </div>
                         </a>
                       ))}
@@ -266,7 +266,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                         <span className="relative z-10 group-hover/card:scale-105 transition-transform duration-500 tracking-tight">{megaMenuData[activeDropdown].featured.title}</span>
                       </div>
                       <h4 className="text-gray-900 font-black text-lg mb-2">{megaMenuData[activeDropdown].featured.subtitle}</h4>
-                      <p className="text-[13px] text-gray-500 font-bold leading-relaxed">
+                      <p className="text-[14px] text-gray-500 font-bold leading-relaxed">
                         {megaMenuData[activeDropdown].featured.desc}
                       </p>
                     </div>

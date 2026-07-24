@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function Founder() {
   return (
-    <section id="founder" className="py-24 md:py-32 bg-[#0a0a0a] text-white font-sans relative overflow-hidden">
+    <section id="founder" className="py-12 md:py-16 bg-[#0a0a0a] text-white font-sans relative overflow-hidden border-t border-gray-900">
       {/* Background Accent */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-1/4 -right-1/4 w-[500px] h-[500px] bg-[#FD5800] rounded-full blur-[150px] opacity-20" />

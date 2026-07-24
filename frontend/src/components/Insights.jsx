@@ -54,8 +54,8 @@ const InsightCard = memo(function InsightCard({ item, index }) {
 
 export default function Insights() {
   return (
-    <section className="relative w-full bg-white text-black font-sans py-20 md:py-32">
-      <div className="w-full flex flex-col justify-center overflow-hidden">
+    <section className="relative w-full bg-white text-black font-sans py-12 md:py-16">
+      <div className="w-full flex flex-col justify-center">
         <div className="max-w-6xl w-full mx-auto px-4 md:px-8">
           
           {/* Header */}

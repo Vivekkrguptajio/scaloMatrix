@@ -60,7 +60,7 @@ const CaseCard = memo(function CaseCard({ study, index }) {
 
 export default function SelectedWork() {
   return (
-    <section id="work" className="relative w-full bg-[#FAFAFA] text-black font-sans py-20 md:py-32">
+    <section id="work" className="relative w-full bg-white text-black font-sans py-12 md:py-16">
       <div className="w-full flex flex-col justify-center overflow-hidden">
         <div className="max-w-[1400px] w-full mx-auto px-4 md:px-8">
           

@@ -56,28 +56,22 @@ export default function CustomCursor() {
 
   return (
     <motion.div 
-      className="fixed top-0 left-0 pointer-events-none z-[10000]"
+      className="fixed top-0 left-0 pointer-events-none z-[10000] mix-blend-difference"
       style={{ x: cursorX, y: cursorY }}
     >
       <motion.div
         animate={{
-          width: isHovering ? 48 : 24,
-          height: isHovering ? 48 : 24,
-          x: isHovering ? -8 : 4,
-          y: isHovering ? -8 : 4,
-          backgroundColor: isHovering ? 'rgba(253, 88, 0, 0.1)' : 'rgba(253, 88, 0, 0)',
-          border: isHovering 
-            ? '2px solid rgba(253, 88, 0, 0.8)' 
-            : (isOnDark ? '2px solid rgba(253, 88, 0, 0.8)' : '2px solid rgba(0, 0, 0, 0.5)'),
+          width: 24,
+          height: 24,
+          x: 4,
+          y: 4,
         }}
-        transition={{ duration: 0.15, ease: "easeOut" }}
-        className="rounded-full flex items-center justify-center overflow-hidden"
+        className="flex items-center justify-center"
       >
         <motion.div 
           animate={{
-            scale: isHovering ? 0 : 1,
-            opacity: isHovering ? 0 : 1,
-            backgroundColor: isOnDark ? '#FD5800' : '#000000'
+            scale: isHovering ? 1.5 : 1,
+            backgroundColor: '#ffffff'
           }}
           transition={{ duration: 0.15 }}
           className="w-2 h-2 rounded-full"

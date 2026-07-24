@@ -125,14 +125,14 @@ export default function HowWeWork() {
   return (
     <section 
       ref={targetRef} 
-      className="relative w-full h-[200vh] bg-[#FAFAFA] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] font-sans" 
+      className="relative w-full h-[200vh] bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] font-sans" 
       id="how-we-work"
     >
       {/* Sticky container that stays on screen while we scroll 200vh */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
         
         {/* Background Gradient & Glow Orbs */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAFAFA] via-transparent to-[#FAFAFA] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none" />
         <div className="absolute top-[20%] left-[15%] w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-[20%] right-[15%] w-96 h-96 bg-[#FD5800]/10 rounded-full blur-[100px] pointer-events-none" />
 

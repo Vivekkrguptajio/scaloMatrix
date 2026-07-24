@@ -5,7 +5,7 @@ export default function Hero({ startAnimation }) {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex flex-col justify-center pt-24 pb-8 px-6 md:px-16 lg:px-24 bg-[#FAFAFA] relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center pt-24 pb-8 px-6 md:px-16 lg:px-24 bg-white relative overflow-hidden"
     >
       {/* (Orange glow removed) */}
 

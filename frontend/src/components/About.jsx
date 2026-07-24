@@ -125,15 +125,52 @@ const solutions = [
   },
   {
     id: "04",
-    title: "Strategy",
-    desc: "Turn insights into action with data-driven strategies tailored to your business goals.",
+    title: "Media",
+    desc: "Drive growth and maximize ROI with data-driven media and performance marketing solutions.",
     shape: "hexagon",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
       </svg>
     ),
-    list: ["Market Research", "Growth Planning", "Competitive Analysis"]
+    list: ["Media Planning", "Media Buying", "Content Creation"]
+  },
+  {
+    id: "05",
+    title: "MarketPlace",
+    desc: "Dominate online marketplaces with optimized product listings and ad strategies.",
+    shape: "circle",
+    icon: (
+      <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    ),
+    list: ["Amazon Optimization", "E-commerce SEO", "Listing Management"]
+  },
+  {
+    id: "06",
+    title: "Finance",
+    desc: "Optimize your budget allocation and scale your marketing efficiently with clear ROI tracking.",
+    shape: "hexagon",
+    icon: (
+      <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    list: ["Financial Planning", "Budget Allocation", "ROI Tracking"]
+  },
+  {
+    id: "07",
+    title: "Lead Gen",
+    desc: "Build highly converting funnels to capture and nurture quality inbound leads at scale.",
+    shape: "circle",
+    icon: (
+      <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    ),
+    list: ["B2B Leads", "Funnel Optimization", "Inbound Marketing"]
   }
 ];
 
@@ -153,53 +190,23 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="relative w-full py-20 md:py-32 px-4 md:px-8 bg-[#FAFAFA] font-sans">
+    <section id="about" className="relative w-full flex flex-col pt-16 bg-white font-sans overflow-hidden">
       
       {/* ─── Background Ambient Waves ─── */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#FD5800]/[0.05] to-transparent rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#FD5800]/[0.05] to-transparent rounded-full blur-[100px] pointer-events-none translate-y-1/2 -translate-x-1/3"></div>
       
-      <div className="w-full max-w-7xl mx-auto flex flex-col relative z-10">
+      <div className="w-full h-full flex flex-col relative z-10">
         
         {/* ─── Header Section ─── */}
-        <div className="w-full text-center flex flex-col items-center mb-16 md:mb-20">
+        <div className="w-full text-center flex flex-col items-center mb-8 md:mb-10 px-4">
           
-          {/* SVG Icons Row */}
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="w-full flex flex-row flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-20 lg:gap-32 px-4 mb-16 md:mb-24"
-          >
-            {approachIcons.map((item, index) => (
-              <motion.div key={index} variants={itemVariants} className="relative group opacity-80 hover:opacity-100 transition-opacity duration-300 w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
-                
-                {/* Tooltip */}
-                <div className="absolute -top-16 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.1)] border border-gray-100 text-xs md:text-sm font-medium text-[#FD5800] opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10 translate-y-2 group-hover:translate-y-0">
-                  {item.text}
-                </div>
-
-                {/* Orange Masked SVG */}
-                <div 
-                  style={{ 
-                    WebkitMaskImage: `url('${item.src}')`, 
-                    WebkitMaskSize: 'contain',
-                    WebkitMaskRepeat: 'no-repeat',
-                    WebkitMaskPosition: 'center',
-                  }} 
-                  className="w-full h-full bg-[#FD5800]"
-                ></div>
-              </motion.div>
-            ))}
-          </motion.div>
-
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-[40px] md:text-5xl lg:text-[60px] font-black tracking-tight text-gray-900 leading-[1.1] mb-6"
+            className="text-[32px] md:text-[40px] lg:text-[48px] font-black tracking-tight text-gray-900 leading-[1.1] mb-3"
           >
             Solutions That Drive <span className="text-[#FD5800]">Real Impact</span>
           </motion.h2>
@@ -209,25 +216,37 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-[17px] md:text-[20px] text-gray-500 font-medium leading-relaxed max-w-2xl"
+            className="text-[15px] md:text-[17px] text-gray-500 font-medium leading-relaxed max-w-xl"
           >
             From building strong brands to scaling businesses, we craft strategies that deliver measurable growth.
           </motion.p>
         </div>
 
         {/* ─── Horizontal Accordion Grid ─── */}
-        <div className="w-full flex flex-col md:flex-row min-h-[700px] shadow-2xl rounded-3xl overflow-hidden mt-8">
+        <div className="w-full h-[70vh] md:h-[75vh] min-h-[600px] flex flex-col md:flex-row shadow-2xl overflow-hidden rounded-none border-t border-gray-200">
           {solutions.map((item, index) => {
             const isActive = activePanel === index;
             
-            // Define active colors for different panels to make it look premium
             const activeColors = [
-              'bg-[#00D1FF]', // Cyan for Brand
-              'bg-[#FF3366]', // Pink for Commerce
-              'bg-[#00E676]', // Green for Growth
-              'bg-[#7E57C2]'  // Purple for Strategy
+              'bg-[#00D1FF]', // Cyan
+              'bg-[#FF3366]', // Pink
+              'bg-[#00E676]', // Green
+              'bg-[#7E57C2]', // Purple
+              'bg-[#FF9D00]', // Orange
+              'bg-[#3B82F6]', // Blue
+              'bg-[#EC4899]'  // Magenta
+            ];
+            const textColors = [
+              'text-[#00D1FF]',
+              'text-[#FF3366]',
+              'text-[#00E676]',
+              'text-[#7E57C2]',
+              'text-[#FF9D00]',
+              'text-[#3B82F6]',
+              'text-[#EC4899]'
             ];
             const activeBg = activeColors[index % activeColors.length];
+            const activeText = textColors[index % textColors.length];
 
             return (
               <div 
@@ -235,23 +254,32 @@ export default function About() {
                 onMouseEnter={() => setActivePanel(index)}
                 onClick={() => setActivePanel(index)}
                 className={`transition-all duration-700 ease-in-out cursor-pointer flex flex-col justify-center px-8 md:px-12 py-12 md:py-0 border-b md:border-b-0 md:border-r border-gray-100 last:border-0 relative overflow-hidden group
-                  ${isActive ? `w-full md:w-[45%] ${activeBg}` : 'w-full md:w-[18.33%] bg-white hover:bg-gray-50'}`}
+                  ${isActive ? `w-full md:w-auto md:flex-[4_4_0%] ${activeBg}` : 'w-full md:w-auto md:flex-1 bg-white hover:bg-gray-50'}`}
               >
-                <div className={`transition-all duration-700 w-full flex flex-col ${isActive ? 'items-start' : 'items-center'}`}>
-                  <h3 className={`text-4xl md:text-5xl lg:text-[56px] font-black leading-[1.1] transition-all duration-500 whitespace-nowrap
-                    ${isActive ? 'text-white mb-6' : 'text-gray-400 md:-rotate-90 md:translate-y-16 group-hover:text-gray-500'}`}
-                  >
-                    {item.title} <br className={isActive ? "hidden" : "hidden md:block"}/> Solution
-                  </h3>
+                <div className="w-full h-full flex flex-col justify-center relative">
                   
+                  {/* INACTIVE STATE (Vertical Text) */}
+                  <div className={`absolute inset-0 flex flex-col items-center justify-end pb-10 transition-opacity duration-300 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-200'}`}>
+                    <h3 
+                      className={`text-[36px] md:text-[44px] lg:text-[52px] font-black leading-[1.05] whitespace-nowrap ${activeText} group-hover:opacity-80 transition-opacity`}
+                      style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                    >
+                      {item.title} <br/> Solution
+                    </h3>
+                  </div>
+
+                  {/* ACTIVE STATE (Content) */}
                   {isActive && (
                     <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      className="flex flex-col w-full"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                      className="flex flex-col w-full min-w-[280px] md:min-w-[400px] relative z-10"
                     >
-                      <p className="text-white text-sm md:text-[17px] font-medium leading-relaxed mb-8 max-w-sm drop-shadow-sm">
+                      <h3 className="text-[32px] md:text-[40px] lg:text-[48px] font-black leading-[1.1] text-white mb-6 whitespace-nowrap">
+                        {item.title} Solution
+                      </h3>
+                      <p className="text-white text-base md:text-[18px] font-medium leading-relaxed mb-8 max-w-sm drop-shadow-sm">
                         {item.desc}
                       </p>
                       

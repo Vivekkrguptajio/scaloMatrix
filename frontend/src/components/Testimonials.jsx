@@ -3,7 +3,7 @@ import { testimonials } from '../data';
 
 export default function Testimonials() {
   return (
-    <section className="py-24 md:py-32 bg-[#FAFAFA] font-sans border-t border-gray-100">
+    <section className="py-12 md:py-16 bg-white font-sans border-t border-gray-100">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8">
         
         {/* Header */}
