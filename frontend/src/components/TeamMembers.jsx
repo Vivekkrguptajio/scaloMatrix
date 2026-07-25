@@ -43,11 +43,8 @@ export default function TeamMembers() {
   const [activePanel, setActivePanel] = useState(0);
 
   return (
-    <section id="team" className="relative w-full h-[100svh] flex flex-col bg-[#0a0a0a] font-sans overflow-hidden rounded-b-[40px] md:rounded-b-[80px] border-b-[4px] border-[#FD5800]">
-      
-      {/* ─── Background Ambient Waves ─── */}
-      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-[#FD5800]/[0.1] to-transparent rounded-full blur-[100px] pointer-events-none -translate-y-1/2 -translate-x-1/3"></div>
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#FD5800]/[0.1] to-transparent rounded-full blur-[100px] pointer-events-none translate-y-1/2 translate-x-1/3"></div>
+    <section id="team" className="relative w-full h-[100svh] flex flex-col bg-[#0a0a0a] font-sans overflow-hidden">
+
       
       <div className="w-full h-full flex flex-col relative z-10 pt-4 md:pt-6">
         
@@ -64,19 +61,11 @@ export default function TeamMembers() {
             Meet Our <span className="text-[#FD5800]">Experts</span>
           </motion.h2>
           
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-[14px] md:text-[16px] text-gray-400 font-medium leading-relaxed max-w-xl"
-          >
-            The brilliant minds behind the strategies. A collective of passionate professionals dedicated to your success.
-          </motion.p>
+
         </div>
 
         {/* ─── Horizontal Accordion Grid ─── */}
-        <div className="w-full h-[70vh] md:h-[75vh] min-h-[500px] max-h-[750px] flex flex-col md:flex-row shadow-2xl overflow-hidden rounded-none border-t border-white/10 mx-auto">
+        <div className="w-full flex-1 min-h-[500px] flex flex-col md:flex-row shadow-2xl overflow-hidden rounded-none border-t border-white/10 mx-auto">
           {teamMembers.map((item, index) => {
             const isActive = activePanel === index;
             

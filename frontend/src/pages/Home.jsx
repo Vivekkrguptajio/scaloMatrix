@@ -26,16 +26,21 @@ export default function Home() {
 
   const sectionOffsets = useRef({ about: { top: 0, bottom: 0 }, team: { top: 0, bottom: 0 }, founder: { top: 0, bottom: 0 }, contact: { top: 0, bottom: 0 } })
   const teamSpacerRef = useRef(null)
+  const teamSpacerRef2 = useRef(null)
 
-  // When the bottom of the spacer leaves the bottom of the viewport ("end end") 
-  // until the bottom of the spacer hits the top of the viewport ("end start")
+  // First TeamMembers scrolls out to reveal the second
   const { scrollYProgress: teamScroll } = useScroll({
     target: teamSpacerRef,
     offset: ["end end", "end start"]
   });
-  
-  // Translate the fixed TeamMembers component up along with the page scroll
   const teamY = useTransform(teamScroll, [0, 1], ["0%", "-100%"]);
+
+  // Second TeamMembers scrolls out to reveal the Footer
+  const { scrollYProgress: teamScroll2 } = useScroll({
+    target: teamSpacerRef2,
+    offset: ["end end", "end start"]
+  });
+  const teamY2 = useTransform(teamScroll2, [0, 1], ["0%", "-100%"]);
 
   // Monitor Scroll
   useEffect(() => {
@@ -148,17 +153,25 @@ export default function Home() {
         <SelectedWork />
         <Testimonials />
         <Insights />
-        <FAQ />
         <Founder />
       </main>
       
-      {/* ═══════ TEAM MEMBERS (z-10) ═══════ */}
+      {/* ═══════ TEAM MEMBERS 1 (z-15) ═══════ */}
       <div id="team-spacer" ref={teamSpacerRef} className="w-full h-screen relative z-10 pointer-events-none" />
       <motion.div 
         style={{ y: teamY }} 
-        className="fixed bottom-0 left-0 w-full h-screen z-10 bg-[#0a0a0a]"
+        className="fixed bottom-0 left-0 w-full h-screen z-[15] bg-[#0a0a0a]"
       >
         <TeamMembers />
+      </motion.div>
+
+      {/* ═══════ FAQ (z-10) ═══════ */}
+      <div id="faq-spacer" ref={teamSpacerRef2} className="w-full h-screen relative z-10 pointer-events-none" />
+      <motion.div 
+        style={{ y: teamY2 }} 
+        className="fixed bottom-0 left-0 w-full h-screen z-10 bg-[#0a0a0a]"
+      >
+        <FAQ />
       </motion.div>
 
       {/* ═══════ CONTACT / FOOTER (z-0) ═══════ */}
