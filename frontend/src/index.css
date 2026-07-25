@@ -70,13 +70,14 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* ═══════ CUSTOM SCROLLBAR ═══════ */
+/* ═══════ HIDE SCROLLBAR ═══════ */
 ::-webkit-scrollbar {
-  width: 6px;
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background: #f9fafb;
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -86,15 +87,6 @@ body {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #d1d5dc;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #99a1af;
 }
 
 /* ═══════ ANIMATIONS ═══════ */
