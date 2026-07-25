@@ -130,54 +130,55 @@ export default function About() {
             return (
               <div 
                 key={item.id}
-                className={`flex flex-col justify-center border-r border-white/20 last:border-0 relative overflow-hidden group 
-                  w-[80vw] sm:w-[350px] md:w-[400px] lg:w-[450px] shrink-0 snap-center py-12 md:py-0 px-6 md:px-10 ${activeBg}`}
+                className={`flex flex-col justify-between border-r border-white/20 last:border-0 relative overflow-hidden group 
+                  w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] shrink-0 snap-center py-10 md:py-12 px-6 md:px-10 ${activeBg} transition-all duration-500 cursor-pointer`}
               >
-                <div className="w-full h-full flex flex-col justify-center relative">
+                {/* Large Background Card Number */}
+                <div className="absolute top-4 right-6 text-white/20 font-black text-6xl md:text-8xl select-none pointer-events-none group-hover:opacity-10 transition-opacity">
+                  {item.id}
+                </div>
+
+                <div className="w-full h-full flex flex-col justify-between relative z-10">
                   
-                  {/* ACTIVE STATE (Content) */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: -80 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="flex flex-col w-full relative z-10"
-                  >
-                    <h3 className="text-[32px] md:text-[40px] lg:text-[48px] font-black leading-[1.1] text-white mb-6 whitespace-nowrap">
-                      {item.title} Solution
+                  {/* CARD COVER / TITLE SECTION */}
+                  <div className="flex flex-col items-start transition-all duration-500">
+                    <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-6 text-white shadow-sm group-hover:scale-110 transition-transform">
+                      {item.icon}
+                    </div>
+
+                    <h3 className="text-[32px] md:text-[38px] lg:text-[44px] font-black leading-[1.1] text-white tracking-tight">
+                      {item.title} <br className="hidden md:inline"/>Solution
                     </h3>
-                    <p className="text-white text-base md:text-[18px] font-medium leading-relaxed mb-8 max-w-sm drop-shadow-sm">
+                  </div>
+
+                  {/* HOVER DETAILS SECTION (Collapsed by default, revealed on hover) */}
+                  <div className="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[500px] transition-all duration-500 ease-out overflow-hidden flex flex-col pt-4">
+                    <p className="text-white/90 text-sm md:text-base font-medium leading-relaxed mb-6 max-w-sm drop-shadow-sm">
                       {item.desc}
                     </p>
                     
                     {/* Services Checklist */}
-                    <ul className={`grid gap-x-6 gap-y-3 mb-10 w-full max-w-md ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+                    <ul className={`grid gap-x-4 gap-y-2.5 mb-8 w-full max-w-md ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
                       {item.list.map((listItem, i) => (
-                        <motion.li 
-                          key={i} 
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.5, delay: 0.1 + (i * 0.1) }}
-                          className="flex items-start gap-2.5"
-                        >
-                          <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-[2px]">
-                            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <li key={i} className="flex items-start gap-2">
+                          <div className="w-4 h-4 rounded-full bg-white/30 flex items-center justify-center shrink-0 mt-[3px]">
+                            <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                           </div>
-                          <span className="text-white font-medium text-sm drop-shadow-sm">{listItem}</span>
-                        </motion.li>
+                          <span className="text-white font-medium text-xs md:text-sm drop-shadow-sm">{listItem}</span>
+                        </li>
                       ))}
                     </ul>
 
                     {/* Circle Arrow Button */}
-                    <button className="w-14 h-14 bg-white rounded-full flex items-center justify-center group/btn hover:scale-105 transition-transform duration-300 shadow-lg shrink-0">
-                      <svg className="w-6 h-6 text-black group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center group/btn hover:scale-105 transition-transform duration-300 shadow-lg shrink-0">
+                      <svg className="w-5 h-5 text-black group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </button>
-                  </motion.div>
+                  </div>
+
                 </div>
               </div>
             );
