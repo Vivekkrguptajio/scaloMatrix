@@ -6,9 +6,9 @@ export default function Showreel() {
   const videoId = 'L9V2lbljBa4';
 
   return (
-    <section id="showreel" className="w-full bg-white relative z-20 pb-0 px-0 mt-0">
+    <section id="showreel" className="w-full bg-white relative z-20 py-8 md:py-[5%] mt-0">
       <motion.div 
-        className="w-full relative aspect-video bg-black overflow-hidden shadow-2xl"
+        className="w-[90%] mx-auto relative aspect-[2/1] bg-black overflow-hidden shadow-2xl rounded-3xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

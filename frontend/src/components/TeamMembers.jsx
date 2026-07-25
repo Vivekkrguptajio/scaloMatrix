@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 
 const teamMembers = [
@@ -40,8 +40,6 @@ const teamMembers = [
 ];
 
 export default function TeamMembers() {
-  const [activePanel, setActivePanel] = useState(0);
-
   return (
     <section id="team" className="relative w-full h-[100svh] flex flex-col bg-[#0a0a0a] font-sans overflow-hidden">
 
@@ -64,71 +62,36 @@ export default function TeamMembers() {
 
         </div>
 
-        {/* ─── Horizontal Accordion Grid ─── */}
-        <div className="w-full flex-1 h-auto md:h-auto min-h-[500px] flex flex-col md:flex-row shadow-2xl overflow-hidden rounded-none border-t border-white/10 mx-auto">
-          {teamMembers.map((item, index) => {
-            const isActive = activePanel === index;
-            
-            return (
+        {/* ─── Team Grid ─── */}
+        <div className="w-full max-w-[1400px] mx-auto flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 px-4 md:px-8 pb-12">
+          {teamMembers.map((item) => (
+            <div 
+              key={item.id}
+              className="relative w-full aspect-[3/4] md:aspect-[3/4] lg:h-[500px] lg:aspect-auto rounded-3xl overflow-hidden group cursor-pointer shadow-xl"
+            >
+              {/* Background Image */}
               <div 
-                key={item.id}
-                onMouseEnter={() => setActivePanel(index)}
-                onClick={() => setActivePanel(index)}
-                className={`transition-[flex,background-color] duration-700 ease-in-out cursor-pointer flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10 last:border-0 relative overflow-hidden group
-                  ${isActive ? 'w-full md:w-auto h-auto md:h-full md:flex-[4_4_0%]' : 'w-full md:w-auto h-20 md:h-full md:flex-1 bg-black hover:bg-gray-900/50'}`}
-              >
-                {/* Background Image for Active Panel */}
-                <div 
-                  className={`absolute inset-0 bg-cover bg-[center_10%] transition-opacity duration-700 ${isActive ? 'opacity-40' : 'opacity-0'} grayscale`}
-                  style={{ backgroundImage: `url(${item.image})` }}
-                ></div>
-                
-                {/* Active Panel Gradient Overlay */}
-                {isActive && (
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
-                )}
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                style={{ backgroundImage: `url(${item.image})` }}
+              ></div>
+              
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                <div className="w-full h-full flex flex-col justify-center relative px-6 md:px-12 py-12 md:py-0">
-                  
-                  {/* INACTIVE STATE */}
-                  <div className={`absolute inset-0 flex flex-col items-start justify-center md:items-center md:justify-end px-6 md:px-0 md:pb-10 transition-opacity duration-300 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-200'}`}>
-                    <h3 
-                      className={`text-xl md:text-[44px] lg:text-[52px] font-black leading-[1.05] md:whitespace-nowrap text-white group-hover:text-[#FD5800] transition-colors md:[writing-mode:vertical-rl] md:rotate-180`}
-                    >
-                      {item.name}
-                    </h3>
-                  </div>
-
-                  {/* ACTIVE STATE (Content) */}
-                  {isActive && (
-                    <motion.div 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.4, delay: 0.2 }}
-                      className="flex flex-col w-full min-w-[280px] md:min-w-[400px] relative z-10 h-full justify-end pb-16"
-                    >
-                      <h4 className="text-[#FD5800] font-bold tracking-widest uppercase text-sm mb-2">
-                        {item.role}
-                      </h4>
-                      <h3 className="text-[32px] md:text-[40px] lg:text-[48px] font-black leading-[1.1] text-white mb-4 whitespace-nowrap">
-                        {item.name}
-                      </h3>
-                      <p className="text-gray-300 text-base md:text-[18px] font-medium leading-relaxed mb-8 max-w-md drop-shadow-sm">
-                        {item.desc}
-                      </p>
-                      
-                      {/* Circle Arrow Button */}
-                      <button className="w-14 h-14 bg-[#FD5800] rounded-full flex items-center justify-center group/btn hover:scale-105 transition-transform duration-300 shadow-[0_0_15px_rgba(253,88,0,0.4)] shrink-0">
-                        <svg className="w-6 h-6 text-white group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </button>
-                    </motion.div>
-                  )}
-                </div>
+              {/* Content */}
+              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end z-10">
+                <h4 className="text-[#FD5800] font-bold tracking-widest uppercase text-xs md:text-sm mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  {item.role}
+                </h4>
+                <h3 className="text-2xl md:text-3xl font-black leading-tight text-white mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                  {item.name}
+                </h3>
+                <p className="text-gray-300 text-sm font-medium leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-150 line-clamp-4">
+                  {item.desc}
+                </p>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
       </div>

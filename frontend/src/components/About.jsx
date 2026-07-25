@@ -135,11 +135,11 @@ export default function About() {
                   {item.id}
                 </div>
 
-                <div className="w-full h-full flex flex-col justify-between relative z-10">
+                <div className="w-full h-full flex flex-col justify-center relative z-10">
                   
                   {/* CARD COVER / TITLE SECTION */}
-                  <div className="flex flex-col items-start transition-all duration-500">
-                    <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-6 text-white shadow-sm group-hover:scale-110 transition-transform">
+                  <div className="flex flex-col items-center text-center transition-all duration-500">
+                    <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-6 text-white shadow-sm group-hover:scale-110 transition-transform">
                       {item.icon}
                     </div>
 
@@ -149,7 +149,7 @@ export default function About() {
                   </div>
 
                   {/* HOVER DETAILS SECTION (Collapsed by default, revealed on hover) */}
-                  <div className="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[500px] transition-all duration-500 ease-out overflow-hidden flex flex-col pt-4">
+                  <div className="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[500px] transition-all duration-500 ease-out overflow-hidden flex flex-col items-center text-center pt-8">
                     <p className="text-white/90 text-sm md:text-base font-medium leading-relaxed mb-6 max-w-sm drop-shadow-sm">
                       {item.desc}
                     </p>

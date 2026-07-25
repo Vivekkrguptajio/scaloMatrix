@@ -9,7 +9,7 @@ const CaseCard = memo(function CaseCard({ study, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.15 }}
-      className="group flex flex-col w-full cursor-pointer"
+      className="group flex flex-col w-full h-full cursor-pointer"
     >
       {/* Image Header */}
       <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[20px] mb-5">
