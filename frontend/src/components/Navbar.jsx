@@ -172,6 +172,17 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
             </svg>
           </a>
         </div>
+        
+        {/* Mobile menu button */}
+        <button 
+          onClick={() => setMobileMenu(!mobileMenu)}
+          className="md:hidden flex flex-col gap-1.5 p-2 z-20"
+        >
+          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${mobileMenu ? 'rotate-45 translate-y-[5px]' : ''}`}></span>
+          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${mobileMenu ? 'opacity-0' : ''}`}></span>
+          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${mobileMenu ? '-rotate-45 -translate-y-[5px]' : ''}`}></span>
+        </button>
+
         </div> {/* End Main Navbar Row */}
 
         {/* Expanding Mega Menu Panel (Inside Nav) */}
@@ -277,15 +288,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
           )}
         </AnimatePresence>
 
-        {/* Mobile menu button */}
-        <button 
-          onClick={() => setMobileMenu(!mobileMenu)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
-        >
-          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${mobileMenu ? 'rotate-45 translate-y-[5px]' : ''}`}></span>
-          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${mobileMenu ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${mobileMenu ? '-rotate-45 -translate-y-[5px]' : ''}`}></span>
-        </button>
+
       </nav>
 
       {/* Mobile Nav Menu Dropdown */}
