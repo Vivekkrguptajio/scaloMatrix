@@ -232,7 +232,7 @@ export default function About() {
               <div 
                 key={item.id}
                 className={`flex flex-col justify-center border-r border-white/20 last:border-0 relative overflow-hidden group 
-                  w-[85vw] md:w-[450px] lg:w-[550px] shrink-0 snap-center py-12 md:py-0 px-8 md:px-12 ${activeBg}`}
+                  w-[80vw] sm:w-[350px] md:w-[400px] lg:w-[450px] shrink-0 snap-center py-12 md:py-0 px-6 md:px-10 ${activeBg}`}
               >
                 <div className="w-full h-full flex flex-col justify-center relative">
                   
