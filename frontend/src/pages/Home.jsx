@@ -18,6 +18,7 @@ import ClientLogos from '../components/ClientLogos'
 import Marquee from '../components/Marquee'
 import Testimonials from '../components/Testimonials'
 import FAQ from '../components/FAQ'
+import LazySection from '../components/LazySection'
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -121,13 +122,13 @@ export default function Home() {
         <Hero startAnimation={true} />
         <Showreel />
         <About />
-        <div className="content-auto"><DefinesUs /></div>
-        <div className="content-auto"><Toolkit /></div>
-        <div className="content-auto"><HowWeWork /></div>
-        <div className="content-auto"><SelectedWork /></div>
-        <div className="content-auto"><Testimonials /></div>
-        <div className="content-auto"><Insights /></div>
-        <div className="content-auto"><ClientLogos /></div>
+        <LazySection minHeight="600px"><DefinesUs /></LazySection>
+        <LazySection minHeight="600px"><Toolkit /></LazySection>
+        <LazySection minHeight="600px"><HowWeWork /></LazySection>
+        <LazySection minHeight="600px"><SelectedWork /></LazySection>
+        <LazySection minHeight="600px"><Testimonials /></LazySection>
+        <LazySection minHeight="600px"><Insights /></LazySection>
+        <LazySection minHeight="300px"><ClientLogos /></LazySection>
         <Founder />
       </main>
       
