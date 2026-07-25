@@ -264,10 +264,10 @@ export default function About() {
                   
                   {/* ACTIVE STATE (Content) */}
                   <motion.div 
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
+                    initial={{ opacity: 0, x: -80 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, amount: 0.4 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
                     className="flex flex-col w-full relative z-10"
                   >
                     <h3 className="text-[32px] md:text-[40px] lg:text-[48px] font-black leading-[1.1] text-white mb-6 whitespace-nowrap">
@@ -280,14 +280,21 @@ export default function About() {
                     {/* Services Checklist */}
                     <ul className={`grid gap-x-6 gap-y-3 mb-10 w-full max-w-md ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
                       {item.list.map((listItem, i) => (
-                        <li key={i} className="flex items-start gap-2.5">
+                        <motion.li 
+                          key={i} 
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: false }}
+                          transition={{ duration: 0.5, delay: 0.1 + (i * 0.1) }}
+                          className="flex items-start gap-2.5"
+                        >
                           <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-[2px]">
                             <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                           </div>
                           <span className="text-white font-medium text-sm drop-shadow-sm">{listItem}</span>
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
 
