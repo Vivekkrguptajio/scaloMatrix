@@ -175,6 +175,33 @@ const solutions = [
 ];
 
 export default function About() {
+  const scrollRef = React.useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5; // Smooth scroll multiplier
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -214,7 +241,15 @@ export default function About() {
         </div>
 
         {/* ─── Horizontal Scroll Grid ─── */}
-        <div className="w-full h-auto md:h-[75vh] min-h-[600px] flex flex-row shadow-2xl overflow-x-auto snap-x snap-mandatory rounded-none border-t border-gray-200" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <div 
+          ref={scrollRef}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          className={`w-full h-auto md:h-[75vh] min-h-[600px] flex flex-row shadow-2xl overflow-x-auto ${isDragging ? 'cursor-grabbing' : 'cursor-grab snap-x snap-mandatory'} rounded-none border-t border-gray-200`} 
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {solutions.map((item, index) => {
             
             const activeColors = [
