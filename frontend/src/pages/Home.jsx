@@ -121,13 +121,13 @@ export default function Home() {
         <Hero startAnimation={true} />
         <Showreel />
         <About />
-        <DefinesUs />
-        <Toolkit />
-        <HowWeWork />
-        <SelectedWork />
-        <Testimonials />
-        <Insights />
-        <ClientLogos />
+        <div className="content-auto"><DefinesUs /></div>
+        <div className="content-auto"><Toolkit /></div>
+        <div className="content-auto"><HowWeWork /></div>
+        <div className="content-auto"><SelectedWork /></div>
+        <div className="content-auto"><Testimonials /></div>
+        <div className="content-auto"><Insights /></div>
+        <div className="content-auto"><ClientLogos /></div>
         <Founder />
       </main>
       
