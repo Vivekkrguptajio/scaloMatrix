@@ -38,7 +38,7 @@ export default function DefinesUs() {
   }, [])
 
   return (
-    <section className="relative w-full bg-white py-12 md:py-16 overflow-hidden font-sans border-t border-gray-100">
+    <section className="relative w-full bg-white py-8 md:py-12 lg:py-16 overflow-hidden font-sans border-t border-gray-100">
       
       {/* Subtle Diagonal Grid Pattern */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -75,7 +75,7 @@ export default function DefinesUs() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, type: "spring", stiffness: 200, damping: 15 }}
-                className="hidden md:flex mt-8 w-[180px] h-[180px] items-center justify-center text-[#FD5800]"
+                className="hidden md:flex mt-12 w-[160px] h-[160px] items-center justify-center text-[#FD5800]"
               >
                 <motion.div 
                   ref={arrowRef}
@@ -83,9 +83,9 @@ export default function DefinesUs() {
                   transition={{ ease: "linear", duration: 0 }}
                   className="w-full h-full flex items-center justify-center will-change-transform"
                 >
-                  <svg width="180" height="100" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="150" height="75" viewBox="0 0 150 75" fill="none" xmlns="http://www.w3.org/2000/svg">
                     {/* Thick Arrow Pointing Right (rotation handles direction) */}
-                    <path d="M5 25 L95 25 M70 5 L95 25 L70 45" stroke="currentColor" strokeWidth="8" strokeLinejoin="miter" strokeLinecap="square" />
+                    <path d="M10 37.5 L140 37.5 M115 12.5 L140 37.5 L115 62.5" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" strokeLinecap="round" />
                   </svg>
                 </motion.div>
               </motion.div>
