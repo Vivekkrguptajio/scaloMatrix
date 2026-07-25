@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { useScroll, useTransform, motion } from 'framer-motion'
+import { useScroll, useTransform, motion, useMotionValueEvent } from 'framer-motion'
 
 // Components
 import Navbar from '../components/Navbar'
@@ -42,17 +42,17 @@ export default function Home() {
   });
   const teamY2 = useTransform(teamScroll2, [0, 1], ["0%", "-100%"]);
 
-  // Monitor Scroll
+  // Monitor Scroll using Framer Motion (Off-thread)
+  const { scrollY } = useScroll();
+  
   useEffect(() => {
-    let ticking = false;
-
     const updateOffsets = () => {
-      const scrollY = window.scrollY;
       const getOffset = (id) => {
         const el = document.getElementById(id);
         if (!el) return { top: 0, bottom: 0 };
+        // window.scrollY is safe here for offset calculation
         const rect = el.getBoundingClientRect();
-        return { top: rect.top + scrollY, bottom: rect.bottom + scrollY };
+        return { top: rect.top + window.scrollY, bottom: rect.bottom + window.scrollY };
       };
 
       sectionOffsets.current = {
@@ -65,51 +65,39 @@ export default function Home() {
       };
     };
 
-    // Initial offset calculation
     updateOffsets();
     const t1 = setTimeout(updateOffsets, 300);
     const t2 = setTimeout(updateOffsets, 1000);
-    const t3 = setTimeout(updateOffsets, 3000);
-    window.addEventListener('resize', updateOffsets);
+    window.addEventListener('resize', updateOffsets, { passive: true });
 
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const isScrolled = window.scrollY > 20;
-          setScrolled(prev => prev !== isScrolled ? isScrolled : prev);
-
-          let dark = false;
-          let hidden = false;
-          const navBottom = window.scrollY + 80;
-          const { showreel, about, team, faq, founder, contact } = sectionOffsets.current;
-
-          if (founder && founder.bottom > 0 && navBottom >= founder.top && navBottom < founder.bottom) dark = true;
-          if (team && team.bottom > 0 && navBottom >= team.top && navBottom < team.bottom) dark = true;
-          if (contact && contact.top > 0 && navBottom >= contact.top) dark = true;
-          
-          if (showreel && showreel.bottom > 0 && window.scrollY >= showreel.top - 100 && window.scrollY < showreel.bottom) hidden = true;
-          if (about && about.bottom > 0 && window.scrollY >= about.top - 100 && window.scrollY < about.bottom - 100) hidden = true;
-          if (team && team.bottom > 0 && window.scrollY >= team.top - 500 && window.scrollY < team.bottom - 100) hidden = true;
-          if (faq && faq.bottom > 0 && window.scrollY >= faq.top - 100 && window.scrollY < faq.bottom - 100) hidden = true;
-          
-          setIsDarkTheme(prev => prev !== dark ? dark : prev);
-          setIsNavbarHidden(prev => prev !== hidden ? hidden : prev);
-          
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
-      clearTimeout(t3);
-      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateOffsets);
-    }
-  }, [])
+    };
+  }, []);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const isScrolled = latest > 20;
+    if (scrolled !== isScrolled) setScrolled(isScrolled);
+
+    let dark = false;
+    let hidden = false;
+    const navBottom = latest + 80;
+    const { showreel, about, team, faq, founder, contact } = sectionOffsets.current;
+
+    if (founder && founder.bottom > 0 && navBottom >= founder.top && navBottom < founder.bottom) dark = true;
+    if (team && team.bottom > 0 && navBottom >= team.top && navBottom < team.bottom) dark = true;
+    if (contact && contact.top > 0 && navBottom >= contact.top) dark = true;
+    
+    if (showreel && showreel.bottom > 0 && latest >= showreel.top - 100 && latest < showreel.bottom) hidden = true;
+    if (about && about.bottom > 0 && latest >= about.top - 100 && latest < about.bottom - 100) hidden = true;
+    if (team && team.bottom > 0 && latest >= team.top - 500 && latest < team.bottom - 100) hidden = true;
+    if (faq && faq.bottom > 0 && latest >= faq.top - 100 && latest < faq.bottom - 100) hidden = true;
+    
+    if (isDarkTheme !== dark) setIsDarkTheme(dark);
+    if (isNavbarHidden !== hidden) setIsNavbarHidden(hidden);
+  });
 
   return (
     <div className="relative min-h-screen bg-white font-sans overflow-x-clip">
@@ -122,13 +110,13 @@ export default function Home() {
         <Hero startAnimation={true} />
         <Showreel />
         <About />
-        <div className="content-auto"><DefinesUs /></div>
-        <div className="content-auto"><Toolkit /></div>
-        <div className="content-auto"><HowWeWork /></div>
-        <div className="content-auto"><SelectedWork /></div>
-        <div className="content-auto"><Testimonials /></div>
-        <div className="content-auto"><Insights /></div>
-        <div className="content-auto"><ClientLogos /></div>
+        <div className="content-auto min-h-[600px]"><DefinesUs /></div>
+        <div className="content-auto min-h-[600px]"><Toolkit /></div>
+        <div className="content-auto min-h-[800px]"><HowWeWork /></div>
+        <div className="content-auto min-h-[600px]"><SelectedWork /></div>
+        <div className="content-auto min-h-[600px]"><Testimonials /></div>
+        <div className="content-auto min-h-[600px]"><Insights /></div>
+        <div className="content-auto min-h-[300px]"><ClientLogos /></div>
         <Founder />
       </main>
       
