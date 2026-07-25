@@ -24,43 +24,48 @@ function CheckItem({ text, delay = 0 }) {
 
 export default function About() {
   const scrollRef = useRef(null);
-  const containerRect = useRef({ left: 0, width: 0 });
-  const rafPending = useRef(false);
+  const targetScroll = useRef(0);
+  const currentScroll = useRef(0);
+  const animFrameId = useRef(null);
+  const isHovering = useRef(false);
 
   const handleMouseEnter = () => {
+    isHovering.current = true;
     if (scrollRef.current) {
-      const rect = scrollRef.current.getBoundingClientRect();
-      containerRect.current = { left: rect.left, width: rect.width };
+      currentScroll.current = scrollRef.current.scrollLeft;
+      targetScroll.current = scrollRef.current.scrollLeft;
     }
   };
 
-  const handleMouseMove = (e) => {
-    if (!scrollRef.current || rafPending.current) return;
-    
-    const clientX = e.clientX;
-    rafPending.current = true;
-    
-    requestAnimationFrame(() => {
-      rafPending.current = false;
-      if (!scrollRef.current) return;
-      
-      let { left, width } = containerRect.current;
-      if (width === 0) {
-        const rect = scrollRef.current.getBoundingClientRect();
-        left = rect.left;
-        width = rect.width;
-        containerRect.current = { left, width };
-      }
-      
-      const mouseX = clientX - left;
-      const percentage = Math.max(0, Math.min(1, mouseX / width));
-      
-      const container = scrollRef.current;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      
-      container.scrollLeft = maxScroll * percentage;
-    });
+  const handleMouseLeave = () => {
+    isHovering.current = false;
   };
+
+  const handleMouseMove = (e) => {
+    if (!scrollRef.current) return;
+    const rect = scrollRef.current.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const percentage = Math.max(0, Math.min(1, mouseX / rect.width));
+    const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
+    targetScroll.current = maxScroll * percentage;
+  };
+
+  React.useEffect(() => {
+    const animate = () => {
+      if (scrollRef.current && isHovering.current) {
+        const diff = targetScroll.current - currentScroll.current;
+        if (Math.abs(diff) > 0.2) {
+          currentScroll.current += diff * 0.1;
+          scrollRef.current.scrollLeft = currentScroll.current;
+        }
+      }
+      animFrameId.current = requestAnimationFrame(animate);
+    };
+    animFrameId.current = requestAnimationFrame(animate);
+    return () => {
+      if (animFrameId.current) cancelAnimationFrame(animFrameId.current);
+    };
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -79,8 +84,8 @@ export default function About() {
     <section id="about" className="relative w-full flex flex-col pt-16 bg-white font-sans overflow-hidden">
       
       {/* ─── Background Ambient Waves ─── */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#FD5800]/[0.05] to-transparent rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#FD5800]/[0.05] to-transparent rounded-full blur-[100px] pointer-events-none translate-y-1/2 -translate-x-1/3"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#FD5800]/[0.03] to-transparent rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#FD5800]/[0.03] to-transparent rounded-full pointer-events-none translate-y-1/2 -translate-x-1/3"></div>
       
       <div className="w-full h-full flex flex-col relative z-10">
         
@@ -104,8 +109,9 @@ export default function About() {
         <div 
           ref={scrollRef}
           onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           onMouseMove={handleMouseMove}
-          className="w-full h-auto md:h-[75vh] min-h-[600px] flex flex-row shadow-2xl overflow-x-auto rounded-none border-t border-gray-200 cursor-ew-resize transition-all duration-300 ease-out" 
+          className="w-full h-auto md:h-[75vh] min-h-[600px] flex flex-row shadow-2xl overflow-x-auto rounded-none border-t border-gray-200 cursor-ew-resize select-none" 
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {solutions.map((item, index) => {
