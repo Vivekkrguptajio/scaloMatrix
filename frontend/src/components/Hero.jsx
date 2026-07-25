@@ -11,7 +11,7 @@ export default function Hero({ startAnimation }) {
 
       <div className="max-w-[1400px] mx-auto w-full relative z-10 -mt-20 md:-mt-32">
         <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] font-black font-sans text-black leading-[1.05] tracking-tight mb-8"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-black font-sans text-black leading-[0.95] tracking-tight mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -21,13 +21,31 @@ export default function Hero({ startAnimation }) {
         </motion.h1>
 
         <motion.p 
-          className="text-sm sm:text-base md:text-[17px] text-[#222] font-medium max-w-[800px] leading-relaxed"
+          className="text-sm sm:text-base md:text-[17px] text-[#222] font-medium max-w-[800px] leading-relaxed mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
           We're a team of 1200+ Specialists delivering award-winning work for 350+ brands worldwide, 11 years and counting!
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        >
+          <button className="bg-black text-white px-8 py-4 rounded-full font-bold text-sm md:text-base uppercase tracking-wider hover:bg-[#FD5800] transition-colors duration-300 flex items-center gap-2 group">
+            Explore Our Work
+            <svg 
+              className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </motion.div>
       </div>
       
       {/* Marquee at the bottom of the hero section */}
