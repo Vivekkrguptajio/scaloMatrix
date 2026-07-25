@@ -81,29 +81,13 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="relative w-full flex flex-col pt-16 bg-white font-sans overflow-hidden">
+    <section id="about" className="relative w-full flex flex-col pt-0 bg-white font-sans overflow-hidden">
       
       {/* ─── Background Ambient Waves ─── */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#FD5800]/[0.03] to-transparent rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#FD5800]/[0.03] to-transparent rounded-full pointer-events-none translate-y-1/2 -translate-x-1/3"></div>
       
       <div className="w-full h-full flex flex-col relative z-10">
-        
-        {/* ─── Header Section ─── */}
-        <div className="w-full text-center flex flex-col items-center mb-8 md:mb-10 px-4">
-          
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-[32px] md:text-[40px] lg:text-[48px] font-black tracking-tight text-gray-900 leading-[1.1] mb-3"
-          >
-            Solutions That Drive <span className="text-[#FD5800]">Real Impact</span>
-          </motion.h2>
-          
-
-        </div>
 
         {/* ─── Horizontal Scroll Grid ─── */}
         <div 

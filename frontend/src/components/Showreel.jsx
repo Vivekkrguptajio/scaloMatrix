@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function Showreel() {
   return (
-    <section className="w-full bg-white relative z-20 pb-12 md:pb-24 px-4 md:px-12 lg:px-24 mt-4 md:mt-8">
+    <section className="w-full bg-white relative z-20 pb-0 md:pb-4 px-4 md:px-12 lg:px-24 mt-4 md:mt-8">
       <motion.div 
         className="w-full max-w-[1400px] mx-auto rounded-[24px] md:rounded-[40px] overflow-hidden shadow-[0_20px_50px_rgba(253,88,0,0.15)] relative aspect-video bg-gray-100"
         initial={{ opacity: 0, y: 30 }}
