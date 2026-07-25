@@ -1,5 +1,5 @@
 import { useRef, memo } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const steps = [
   { 
@@ -113,9 +113,16 @@ export default function HowWeWork() {
   const targetRef = useRef(null);
 
   // useScroll tracks the progress of the container's scroll
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress: rawScrollProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end end"]
+  });
+
+  // Apply smooth spring physics ONLY to this section's scroll animation
+  const scrollYProgress = useSpring(rawScrollProgress, {
+    stiffness: 90,
+    damping: 25,
+    restDelta: 0.001
   });
 
   // Animated line draws from 0 to 1 based on 0 to 0.85 scroll progress
