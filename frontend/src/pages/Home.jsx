@@ -4,6 +4,7 @@ import { useScroll, useTransform, motion } from 'framer-motion'
 // Components
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
+import Showreel from '../components/Showreel'
 import About from '../components/About'
 import DefinesUs from '../components/DefinesUs'
 import Toolkit from '../components/Toolkit'
@@ -163,6 +164,7 @@ export default function Home() {
       {/* ═══════ MAIN CONTENT (z-20) ═══════ */}
       <main className="relative z-20 bg-white transition-all duration-1000 opacity-100 blur-0 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero startAnimation={true} />
+        <Showreel />
         <ClientLogos />
         <About />
         <DefinesUs />
