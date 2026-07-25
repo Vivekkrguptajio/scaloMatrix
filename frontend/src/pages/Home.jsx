@@ -109,34 +109,45 @@ export default function Home() {
 
           let dark = false;
           let hidden = false;
-          const navBottom = window.scrollY + 80;
-          const { 
-            about = { top: 0, bottom: 0 }, 
-            team = { top: 0, bottom: 0 }, 
-            faq = { top: 0, bottom: 0 }, 
-            founder = { top: 0, bottom: 0 }, 
-            contact = { top: 0, bottom: 0 } 
-          } = sectionOffsets.current || {};
+          const navBottom = 80; // height of navbar from top of viewport
 
-          if (founder.bottom > 0 && navBottom >= founder.top && navBottom < founder.bottom) {
-            dark = true;
+          const founder = document.getElementById('founder');
+          const team = document.getElementById('team-spacer');
+          const contact = document.getElementById('contact');
+          const about = document.getElementById('about');
+          const faq = document.getElementById('faq-spacer');
+
+          if (founder) {
+            const rect = founder.getBoundingClientRect();
+            if (rect.top <= navBottom && rect.bottom > 0) dark = true;
           }
-          if (team.bottom > 0 && navBottom >= team.top && navBottom < team.bottom) {
-            dark = true;
+          if (team) {
+            const rect = team.getBoundingClientRect();
+            if (rect.top <= navBottom && rect.bottom > 0) {
+              dark = true;
+              // Also hide navbar in Team Members section
+              if (rect.top <= 100 && rect.bottom > 100) hidden = true;
+            }
           }
-          if (contact.top > 0 && navBottom >= contact.top) {
-            dark = true;
+          if (contact) {
+            const rect = contact.getBoundingClientRect();
+            if (rect.top <= navBottom) dark = true;
           }
           
-          // Hide navbar when about, team, or faq section is significantly in view
-          if (about.bottom > 0 && window.scrollY >= about.top - 100 && window.scrollY < about.bottom - 100) {
-            hidden = true;
+          if (about) {
+            const rect = about.getBoundingClientRect();
+            // Hide navbar when About section is in view
+            if (rect.top <= 100 && rect.bottom > 100) {
+              hidden = true;
+            }
           }
-          if (team.bottom > 0 && window.scrollY >= team.top - 100 && window.scrollY < team.bottom - 100) {
-            hidden = true;
-          }
-          if (faq.bottom > 0 && window.scrollY >= faq.top - 100 && window.scrollY < faq.bottom - 100) {
-            hidden = true;
+          
+          if (faq) {
+            const rect = faq.getBoundingClientRect();
+            // Hide navbar when FAQ is in view
+            if (rect.top <= 100 && rect.bottom > 100) {
+              hidden = true;
+            }
           }
           
           setIsDarkTheme(prev => prev !== dark ? dark : prev);
