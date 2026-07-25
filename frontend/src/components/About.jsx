@@ -176,30 +176,24 @@ const solutions = [
 
 export default function About() {
   const scrollRef = React.useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
 
   const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5; // Smooth scroll multiplier
-    scrollRef.current.scrollLeft = scrollLeft - walk;
+    if (!scrollRef.current) return;
+    
+    const container = scrollRef.current;
+    const { left, width } = container.getBoundingClientRect();
+    const mouseX = e.clientX - left;
+    
+    // Ensure percentage is between 0 and 1
+    const percentage = Math.max(0, Math.min(1, mouseX / width));
+    
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    
+    // Smoothly pan the container based on cursor position
+    container.scrollTo({
+      left: maxScroll * percentage,
+      behavior: 'auto'
+    });
   };
 
   const containerVariants = {
@@ -243,11 +237,8 @@ export default function About() {
         {/* ─── Horizontal Scroll Grid ─── */}
         <div 
           ref={scrollRef}
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
-          className={`w-full h-auto md:h-[75vh] min-h-[600px] flex flex-row shadow-2xl overflow-x-auto ${isDragging ? 'cursor-grabbing' : 'cursor-grab snap-x snap-mandatory'} rounded-none border-t border-gray-200`} 
+          className="w-full h-auto md:h-[75vh] min-h-[600px] flex flex-row shadow-2xl overflow-x-auto rounded-none border-t border-gray-200 cursor-ew-resize transition-all duration-300 ease-out" 
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {solutions.map((item, index) => {
