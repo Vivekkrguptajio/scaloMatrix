@@ -65,7 +65,7 @@ export default function TeamMembers() {
         </div>
 
         {/* ─── Horizontal Accordion Grid ─── */}
-        <div className="w-full flex-1 min-h-[500px] flex flex-col md:flex-row shadow-2xl overflow-hidden rounded-none border-t border-white/10 mx-auto">
+        <div className="w-full flex-1 h-auto md:h-auto min-h-[500px] flex flex-col md:flex-row shadow-2xl overflow-hidden rounded-none border-t border-white/10 mx-auto">
           {teamMembers.map((item, index) => {
             const isActive = activePanel === index;
             
@@ -75,7 +75,7 @@ export default function TeamMembers() {
                 onMouseEnter={() => setActivePanel(index)}
                 onClick={() => setActivePanel(index)}
                 className={`transition-all duration-700 ease-in-out cursor-pointer flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10 last:border-0 relative overflow-hidden group
-                  ${isActive ? 'w-full md:w-auto md:flex-[4_4_0%]' : 'w-full md:w-auto md:flex-1 bg-black hover:bg-gray-900/50'}`}
+                  ${isActive ? 'w-full md:w-auto h-auto md:h-full md:flex-[4_4_0%]' : 'w-full md:w-auto h-20 md:h-full md:flex-1 bg-black hover:bg-gray-900/50'}`}
               >
                 {/* Background Image for Active Panel */}
                 <div 
@@ -88,13 +88,12 @@ export default function TeamMembers() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                 )}
 
-                <div className="w-full h-full flex flex-col justify-center relative px-8 md:px-12 py-12 md:py-0">
+                <div className="w-full h-full flex flex-col justify-center relative px-6 md:px-12 py-12 md:py-0">
                   
-                  {/* INACTIVE STATE (Vertical Text) */}
-                  <div className={`absolute inset-0 flex flex-col items-center justify-end pb-10 transition-opacity duration-300 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-200'}`}>
+                  {/* INACTIVE STATE */}
+                  <div className={`absolute inset-0 flex flex-col items-start justify-center md:items-center md:justify-end px-6 md:px-0 md:pb-10 transition-opacity duration-300 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-200'}`}>
                     <h3 
-                      className={`text-[36px] md:text-[44px] lg:text-[52px] font-black leading-[1.05] whitespace-nowrap text-white group-hover:text-[#FD5800] transition-colors`}
-                      style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                      className={`text-xl md:text-[44px] lg:text-[52px] font-black leading-[1.05] md:whitespace-nowrap text-white group-hover:text-[#FD5800] transition-colors md:[writing-mode:vertical-rl] md:rotate-180`}
                     >
                       {item.name}
                     </h3>

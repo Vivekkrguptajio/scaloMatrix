@@ -215,7 +215,7 @@ export default function About() {
         </div>
 
         {/* ─── Horizontal Accordion Grid ─── */}
-        <div className="w-full h-[70vh] md:h-[75vh] min-h-[600px] flex flex-col md:flex-row shadow-2xl overflow-hidden rounded-none border-t border-gray-200">
+        <div className="w-full h-auto md:h-[75vh] min-h-[600px] flex flex-col md:flex-row shadow-2xl overflow-hidden rounded-none border-t border-gray-200">
           {solutions.map((item, index) => {
             const isActive = activePanel === index;
             
@@ -245,18 +245,18 @@ export default function About() {
                 key={item.id}
                 onMouseEnter={() => setActivePanel(index)}
                 onClick={() => setActivePanel(index)}
-                className={`transition-all duration-700 ease-in-out cursor-pointer flex flex-col justify-center px-8 md:px-12 py-12 md:py-0 border-b md:border-b-0 md:border-r border-gray-100 last:border-0 relative overflow-hidden group
-                  ${isActive ? `w-full md:w-auto md:flex-[4_4_0%] ${activeBg}` : 'w-full md:w-auto md:flex-1 bg-white hover:bg-gray-50'}`}
+                className={`transition-all duration-700 ease-in-out cursor-pointer flex flex-col justify-center border-b md:border-b-0 md:border-r border-gray-100 last:border-0 relative overflow-hidden group
+                  ${isActive ? `w-full md:w-auto h-auto md:h-full md:flex-[4_4_0%] py-12 md:py-0 px-6 md:px-12 ${activeBg}` : 'w-full md:w-auto h-20 md:h-full md:flex-1 py-0 px-6 md:px-12 bg-white hover:bg-gray-50'}`}
               >
                 <div className="w-full h-full flex flex-col justify-center relative">
                   
-                  {/* INACTIVE STATE (Vertical Text) */}
-                  <div className={`absolute inset-0 flex flex-col items-center justify-end pb-10 transition-opacity duration-300 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-200'}`}>
+                  {/* INACTIVE STATE */}
+                  <div className={`absolute inset-0 flex flex-col items-start justify-center md:items-center md:justify-end px-6 md:px-0 md:pb-10 transition-opacity duration-300 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-200'}`}>
                     <h3 
-                      className={`text-[36px] md:text-[44px] lg:text-[52px] font-black leading-[1.05] whitespace-nowrap ${activeText} group-hover:opacity-80 transition-opacity`}
-                      style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                      className={`text-xl md:text-[44px] lg:text-[52px] font-black leading-[1.05] md:whitespace-nowrap ${activeText} group-hover:opacity-80 transition-opacity md:[writing-mode:vertical-rl] md:rotate-180`}
                     >
-                      {item.title} <br/> Solution
+                      {item.title} <span className="md:hidden">Solution</span>
+                      <span className="hidden md:inline"><br/>Solution</span>
                     </h3>
                   </div>
 
