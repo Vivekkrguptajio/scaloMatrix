@@ -65,19 +65,11 @@ export default function Home() {
       };
     };
 
-    // Use ResizeObserver to detect any layout shifts (e.g., iframe loads, lazy images)
-    const resizeObserver = new ResizeObserver(() => {
-      window.requestAnimationFrame(updateOffsets);
-    });
-    
-    const mainContent = document.querySelector('main');
-    if (mainContent) resizeObserver.observe(mainContent);
-    resizeObserver.observe(document.body);
-
-    // Initial calculations
-    setTimeout(updateOffsets, 100);
-    setTimeout(updateOffsets, 1000);
-    setTimeout(updateOffsets, 3000); // Failsafe for slow loading assets
+    // Initial offset calculation
+    updateOffsets();
+    const t1 = setTimeout(updateOffsets, 300);
+    const t2 = setTimeout(updateOffsets, 1000);
+    const t3 = setTimeout(updateOffsets, 3000);
     window.addEventListener('resize', updateOffsets);
 
     const handleScroll = () => {
@@ -110,9 +102,11 @@ export default function Home() {
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateOffsets);
-      resizeObserver.disconnect();
     }
   }, [])
 

@@ -25,6 +25,7 @@ function CheckItem({ text, delay = 0 }) {
 export default function About() {
   const scrollRef = useRef(null);
   const containerRect = useRef({ left: 0, width: 0 });
+  const rafPending = useRef(false);
 
   const handleMouseEnter = () => {
     if (scrollRef.current) {
@@ -34,23 +35,30 @@ export default function About() {
   };
 
   const handleMouseMove = (e) => {
-    if (!scrollRef.current) return;
+    if (!scrollRef.current || rafPending.current) return;
     
-    const { left, width } = containerRect.current;
-    if (width === 0) return; // Fallback if rect wasn't cached properly
+    const clientX = e.clientX;
+    rafPending.current = true;
     
-    const mouseX = e.clientX - left;
-    
-    // Ensure percentage is between 0 and 1
-    const percentage = Math.max(0, Math.min(1, mouseX / width));
-    
-    const container = scrollRef.current;
-    const maxScroll = container.scrollWidth - container.clientWidth;
-    
-    // Smoothly pan the container based on cursor position
-    container.scrollTo({
-      left: maxScroll * percentage,
-      behavior: 'auto'
+    requestAnimationFrame(() => {
+      rafPending.current = false;
+      if (!scrollRef.current) return;
+      
+      let { left, width } = containerRect.current;
+      if (width === 0) {
+        const rect = scrollRef.current.getBoundingClientRect();
+        left = rect.left;
+        width = rect.width;
+        containerRect.current = { left, width };
+      }
+      
+      const mouseX = clientX - left;
+      const percentage = Math.max(0, Math.min(1, mouseX / width));
+      
+      const container = scrollRef.current;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      
+      container.scrollLeft = maxScroll * percentage;
     });
   };
 
