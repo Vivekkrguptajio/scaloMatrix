@@ -3,7 +3,6 @@ import { lazy, Suspense } from 'react';
 import CustomCursor from './components/CustomCursor';
 import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoute from './components/ProtectedRoute';
-import { ReactLenis } from 'lenis/react';
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import('./pages/Home'));
@@ -17,7 +16,7 @@ const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 
 function App() {
   return (
-    <ReactLenis root options={{ lerp: 0.08, smoothWheel: true, wheelMultiplier: 1.2, touchMultiplier: 2, autoResize: true }}>
+    <>
       <CustomCursor />
       <ScrollToTop />
       <Suspense fallback={<div className="min-h-screen w-full bg-white flex items-center justify-center"><div className="w-8 h-8 border-4 border-[#FD5800] border-t-transparent rounded-full animate-spin"></div></div>}>
@@ -37,7 +36,7 @@ function App() {
           } />
         </Routes>
       </Suspense>
-    </ReactLenis>
+    </>
   );
 }
 
