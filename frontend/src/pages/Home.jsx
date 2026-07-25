@@ -58,6 +58,7 @@ export default function Home() {
       };
 
       sectionOffsets.current = {
+        showreel: getOffset('showreel'),
         about: getOffset('about'),
         team: getOffset('team-spacer'),
         faq: getOffset('faq-spacer'),
@@ -82,12 +83,13 @@ export default function Home() {
           let dark = false;
           let hidden = false;
           const navBottom = window.scrollY + 80;
-          const { about, team, faq, founder, contact } = sectionOffsets.current;
+          const { showreel, about, team, faq, founder, contact } = sectionOffsets.current;
 
           if (founder && founder.bottom > 0 && navBottom >= founder.top && navBottom < founder.bottom) dark = true;
           if (team && team.bottom > 0 && navBottom >= team.top && navBottom < team.bottom) dark = true;
           if (contact && contact.top > 0 && navBottom >= contact.top) dark = true;
           
+          if (showreel && showreel.bottom > 0 && window.scrollY >= showreel.top - 100 && window.scrollY < showreel.bottom) hidden = true;
           if (about && about.bottom > 0 && window.scrollY >= about.top - 100 && window.scrollY < about.bottom - 100) hidden = true;
           if (team && team.bottom > 0 && window.scrollY >= team.top - 100 && window.scrollY < team.bottom - 100) hidden = true;
           if (faq && faq.bottom > 0 && window.scrollY >= faq.top - 100 && window.scrollY < faq.bottom - 100) hidden = true;
