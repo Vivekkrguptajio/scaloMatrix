@@ -9,7 +9,7 @@ const InsightCard = memo(function InsightCard({ item, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.15 }}
-      className="group flex flex-col bg-white rounded-[24px] shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden cursor-pointer"
+      className="group flex flex-col bg-white rounded-[24px] shadow-sm hover:shadow-xl transition-shadow duration-500 overflow-hidden cursor-pointer"
     >
       {/* Image Header */}
       <div className="relative w-full aspect-[4/3] overflow-hidden">

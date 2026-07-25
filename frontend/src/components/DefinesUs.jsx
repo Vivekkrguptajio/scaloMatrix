@@ -3,22 +3,25 @@ import { useEffect, useRef } from 'react'
 
 export default function DefinesUs() {
   const arrowRef = useRef(null)
+  const sectionRef = useRef(null)
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
   const rotation = useMotionValue(0)
 
   useEffect(() => {
     let animationFrameId;
+    let isVisible = false;
     
     const handleMouseMove = (e) => {
+      if (!isVisible) return;
       mouseX.set(e.clientX)
       mouseY.set(e.clientY)
       
       if (!arrowRef.current) return
       
-      // Calculate rotation in a requestAnimationFrame for smoothness
       cancelAnimationFrame(animationFrameId)
       animationFrameId = requestAnimationFrame(() => {
+        if (!arrowRef.current) return;
         const arrowRect = arrowRef.current.getBoundingClientRect()
         const arrowCenterX = arrowRect.left + arrowRect.width / 2
         const arrowCenterY = arrowRect.top + arrowRect.height / 2
@@ -30,15 +33,23 @@ export default function DefinesUs() {
       })
     }
 
+    // Only listen when section is visible
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
       cancelAnimationFrame(animationFrameId)
+      observer.disconnect()
     }
   }, [])
 
   return (
-    <section className="relative w-full bg-white py-8 md:py-12 lg:py-16 overflow-hidden font-sans border-t border-gray-100">
+    <section ref={sectionRef} className="relative w-full bg-white py-8 md:py-12 lg:py-16 overflow-hidden font-sans border-t border-gray-100">
       
       {/* Subtle Diagonal Grid Pattern */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">

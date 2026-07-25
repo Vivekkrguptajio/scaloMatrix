@@ -51,19 +51,32 @@ export default function About() {
   };
 
   React.useEffect(() => {
+    let running = false;
     const animate = () => {
       if (scrollRef.current && isHovering.current) {
         const diff = targetScroll.current - currentScroll.current;
         if (Math.abs(diff) > 0.2) {
           currentScroll.current += diff * 0.1;
           scrollRef.current.scrollLeft = currentScroll.current;
+          animFrameId.current = requestAnimationFrame(animate);
+          return;
         }
       }
-      animFrameId.current = requestAnimationFrame(animate);
+      running = false;
     };
-    animFrameId.current = requestAnimationFrame(animate);
+    // Start loop only on mouseenter, stop when mouse leaves
+    const startLoop = () => { if (!running) { running = true; animFrameId.current = requestAnimationFrame(animate); } };
+    const el = scrollRef.current;
+    if (el) {
+      el.addEventListener('mouseenter', startLoop, { passive: true });
+      el.addEventListener('mousemove', startLoop, { passive: true });
+    }
     return () => {
       if (animFrameId.current) cancelAnimationFrame(animFrameId.current);
+      if (el) {
+        el.removeEventListener('mouseenter', startLoop);
+        el.removeEventListener('mousemove', startLoop);
+      }
     };
   }, []);
 

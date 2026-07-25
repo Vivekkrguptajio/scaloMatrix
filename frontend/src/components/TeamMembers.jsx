@@ -74,7 +74,7 @@ export default function TeamMembers() {
                 key={item.id}
                 onMouseEnter={() => setActivePanel(index)}
                 onClick={() => setActivePanel(index)}
-                className={`transition-all duration-700 ease-in-out cursor-pointer flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10 last:border-0 relative overflow-hidden group
+                className={`transition-[flex,background-color] duration-700 ease-in-out cursor-pointer flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10 last:border-0 relative overflow-hidden group
                   ${isActive ? 'w-full md:w-auto h-auto md:h-full md:flex-[4_4_0%]' : 'w-full md:w-auto h-20 md:h-full md:flex-1 bg-black hover:bg-gray-900/50'}`}
               >
                 {/* Background Image for Active Panel */}

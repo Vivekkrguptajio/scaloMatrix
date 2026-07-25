@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 export default function Founder() {
   return (
     <section id="founder" className="py-12 md:py-16 bg-[#0a0a0a] text-white font-sans relative overflow-hidden border-t border-gray-900">
-      {/* Background Accent */}
+      {/* Background Accent (GPU-free) */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-1/4 -right-1/4 w-[500px] h-[500px] bg-[#FD5800] rounded-full blur-[150px] opacity-20" />
+        <div className="absolute -top-1/4 -right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(253,88,0,0.2)_0%,transparent_70%)] rounded-full" />
       </div>
 
       <div className="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">

@@ -59,7 +59,7 @@ export default function Toolkit() {
   return (
     <section className="w-full bg-white py-12 md:py-16 overflow-hidden border-t border-gray-100 font-sans relative">
       {/* Background ambient light */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#FD5800]/[0.03] to-transparent rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(253,88,0,0.03)_0%,transparent_70%)] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
 
       <motion.div 
         className="max-w-7xl mx-auto px-6 md:px-8 mb-16 text-center relative z-10"
@@ -86,7 +86,7 @@ export default function Toolkit() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className="flex flex-col bg-white rounded-[32px] p-8 lg:p-10 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.08)] transition-all duration-500 group relative overflow-hidden"
+              className="flex flex-col bg-white rounded-[32px] p-8 lg:p-10 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow duration-500 group relative overflow-hidden"
             >
               {/* Subtle top gradient glow on hover */}
               <div className={`absolute top-0 left-0 w-full h-32 bg-gradient-to-b ${item.glow} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-[32px] pointer-events-none`}></div>

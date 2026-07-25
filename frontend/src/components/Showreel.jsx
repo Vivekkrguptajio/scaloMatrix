@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Showreel() {
+  const [loadIframe, setLoadIframe] = useState(false);
+  const videoId = 'L9V2lbljBa4';
+
   return (
     <section id="showreel" className="w-full bg-white relative z-20 pb-0 px-0 mt-0">
       <motion.div 
@@ -11,14 +14,36 @@ export default function Showreel() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <iframe 
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          src="https://www.youtube.com/embed/L9V2lbljBa4?autoplay=1&mute=1&loop=1&playlist=L9V2lbljBa4&controls=0&showinfo=0&rel=0&modestbranding=1&background=1" 
-          title="scaloMATRIX Showreel" 
-          frameBorder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowFullScreen
-        ></iframe>
+        {loadIframe ? (
+          <iframe 
+            className="absolute inset-0 w-full h-full"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1`}
+            title="scaloMATRIX Showreel" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowFullScreen
+          ></iframe>
+        ) : (
+          <button 
+            onClick={() => setLoadIframe(true)}
+            className="absolute inset-0 w-full h-full cursor-pointer group"
+          >
+            <img 
+              src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+              alt="Play Showreel"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            {/* Play Button Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+              <div className="w-20 h-20 md:w-24 md:h-24 bg-[#FD5800] rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(253,88,0,0.5)] group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          </button>
+        )}
       </motion.div>
     </section>
   );

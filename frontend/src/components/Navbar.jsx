@@ -23,20 +23,20 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
 
   return (
     <header 
-      className={`fixed left-0 right-0 z-50 flex justify-center transition-all duration-700 ease-in-out ${
+      className={`fixed left-0 right-0 z-50 flex justify-center transition-[opacity,transform] duration-700 ease-in-out ${
         loading || isHidden ? 'opacity-0 -translate-y-[150%] pointer-events-none' : 'opacity-100 translate-y-0'
       } top-4 px-4`}
     >
       <nav 
         onMouseLeave={() => setActiveDropdown(null)}
-        className={`relative w-full flex flex-col transition-all duration-300 backdrop-blur-2xl backdrop-saturate-200 max-w-7xl border rounded-[32px] ${
+        className={`relative w-full flex flex-col transition-colors duration-300 backdrop-blur-md max-w-7xl border rounded-[32px] ${
           isDarkTheme 
-            ? (activeDropdown ? 'bg-[#111] border-[#333]' : 'bg-white/5 border-white/10') 
-            : (activeDropdown ? 'bg-white border-gray-200' : 'bg-white/20 border-gray-200')
+            ? (activeDropdown ? 'bg-[#111]/95 border-[#333]' : 'bg-black/80 border-white/10') 
+            : (activeDropdown ? 'bg-white/95 border-gray-200' : 'bg-white/85 border-gray-200')
         } ${activeDropdown ? 'shadow-[0_25px_50px_-12px_rgba(255,69,0,0.3)]' : 'shadow-[0_10px_30px_rgba(255,69,0,0.15)]'}`}
       >
         {/* Main Navbar Row */}
-        <div className="w-full flex items-center justify-between transition-all duration-500 py-2 px-6 md:px-8">
+        <div className="w-full flex items-center justify-between py-2 px-6 md:px-8">
         {/* Logo */}
         <motion.a 
           href="/" 
@@ -61,7 +61,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                 <a 
                   href={link.href} 
                   onMouseEnter={() => link.hasDropdown ? setActiveDropdown(link.name) : setActiveDropdown(null)}
-                  className={`flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sora transition-all duration-500 ease-out relative px-4 py-2 rounded-full ${
+                  className={`flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sora transition-colors duration-300 ease-out relative px-4 py-2 rounded-full ${
                     isActive || activeDropdown === link.name
                       ? 'bg-[#FD5800]/10 text-[#FD5800]'
                       : (isDarkTheme ? 'text-gray-300 hover:bg-[#FD5800]/10 hover:text-[#FD5800]' : 'text-gray-600 hover:bg-[#FD5800]/10 hover:text-[#FD5800]')
@@ -83,7 +83,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
         <div className="hidden md:flex items-center z-10">
           <a 
             href="/contact" 
-            className={`group flex items-center gap-2 text-sm md:text-base font-bold transition-all duration-300 px-6 py-2.5 rounded-full bg-[#FD5800] text-white hover:bg-[#E63E00] shadow-md shadow-[#FD5800]/20`}
+            className={`group flex items-center gap-2 text-sm md:text-base font-bold transition-colors duration-300 px-6 py-2.5 rounded-full bg-[#FD5800] text-white hover:bg-[#E63E00] shadow-md shadow-[#FD5800]/20`}
           >
             Contact Us
             <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -124,7 +124,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                           <span className="text-lg lg:text-xl font-bold text-gray-800 group-hover/list:text-gray-400 group-hover/item:!text-[#FD5800] transition-colors tracking-tight">
                             {item.title}
                           </span>
-                          <span className="text-[#FD5800] group-hover/list:opacity-40 group-hover/list:grayscale group-hover/item:!opacity-100 group-hover/item:!grayscale-0 transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 transition-all duration-300 mt-0.5">
+                          <span className="text-[#FD5800] group-hover/list:opacity-40 group-hover/list:grayscale group-hover/item:!opacity-100 group-hover/item:!grayscale-0 transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 transition-[transform,opacity] duration-300 mt-0.5">
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H8M17 7v9" />
                             </svg>
@@ -191,7 +191,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                     {/* Right Side: Dynamic Featured Card */}
                     <div className="w-[55%] pl-4 flex flex-col">
                       <div className={`w-full h-[180px] rounded-2xl bg-gradient-to-br ${megaMenuData[activeDropdown].featured.gradient} flex items-center justify-center text-white font-black text-3xl shadow-[0_10px_30px_-10px_rgba(255,69,0,0.5)] mb-6 overflow-hidden relative group/card cursor-pointer`}>
-                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay"></div>
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
                         <div className="absolute -inset-2 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-150%] group-hover/card:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
                         <span className="relative z-10 group-hover/card:scale-105 transition-transform duration-500 tracking-tight">{megaMenuData[activeDropdown].featured.title}</span>
                       </div>

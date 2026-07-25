@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Marquee() {
-  const repetitions = 10;
+  const repetitions = 4;
   
   return (
     <section className="w-full bg-[#FD5800] overflow-hidden py-3 md:py-4 flex items-center transform -rotate-2 scale-105 z-20 relative shadow-xl">

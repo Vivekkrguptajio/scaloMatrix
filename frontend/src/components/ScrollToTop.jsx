@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const { scrollY } = useScroll();
 
-  // Show button when page is scrolled down
-  const toggleVisibility = () => {
-    const shouldBeVisible = window.scrollY > 300;
-    setIsVisible(prev => prev !== shouldBeVisible ? shouldBeVisible : prev);
-  };
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const shouldBeVisible = latest > 300;
+    if (isVisible !== shouldBeVisible) setIsVisible(shouldBeVisible);
+  });
 
   // Scroll to top smoothly
   const scrollToTop = () => {
@@ -17,21 +17,6 @@ export default function ScrollToTop() {
       behavior: 'smooth'
     });
   };
-
-  useEffect(() => {
-    let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          toggleVisibility();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
     <AnimatePresence>
@@ -42,7 +27,7 @@ export default function ScrollToTop() {
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3 }}
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-[999] w-12 h-12 md:w-14 md:h-14 bg-black text-white rounded-full flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-gray-800 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+          className="fixed bottom-6 right-6 z-[999] w-12 h-12 md:w-14 md:h-14 bg-black text-white rounded-full flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-gray-800 hover:-translate-y-1 hover:shadow-xl transition-shadow duration-300"
           aria-label="Scroll to top"
         >
           <svg 
@@ -60,3 +45,4 @@ export default function ScrollToTop() {
     </AnimatePresence>
   );
 }
+

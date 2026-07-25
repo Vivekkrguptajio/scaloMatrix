@@ -8,9 +8,9 @@ export default function FAQ() {
   return (
     <section className="relative w-full min-h-[100svh] flex flex-col justify-center py-16 md:py-24 bg-[#0a0a0a] font-sans overflow-hidden border-b-[4px] border-[#FD5800] rounded-b-[40px] md:rounded-b-[80px]">
       
-      {/* ─── Background Ambient Waves ─── */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#FD5800]/[0.1] to-transparent rounded-full blur-[100px] pointer-events-none -translate-y-1/3 translate-x-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#FD5800]/[0.05] to-transparent rounded-full blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3"></div>
+      {/* ─── Background Ambient Waves (GPU-free radial gradients) ─── */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(253,88,0,0.1)_0%,transparent_70%)] rounded-full pointer-events-none -translate-y-1/3 translate-x-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(253,88,0,0.05)_0%,transparent_70%)] rounded-full pointer-events-none translate-y-1/3 -translate-x-1/3"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 relative z-10 w-full">
         

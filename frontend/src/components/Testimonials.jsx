@@ -38,7 +38,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.6, ease: "easeOut" }}
-              className="group relative bg-white p-8 md:p-10 rounded-[32px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_20px_40px_-12px_rgba(253,88,0,0.15)] hover:border-[#FD5800]/30 transition-all duration-500 flex flex-col justify-between overflow-hidden"
+              className="group relative bg-white p-8 md:p-10 rounded-[32px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_20px_40px_-12px_rgba(253,88,0,0.15)] hover:border-[#FD5800]/30 transition-[shadow,border-color] duration-500 flex flex-col justify-between overflow-hidden"
             >
               {/* Giant Background Quote Mark */}
               <span className="absolute top-0 right-6 text-[140px] leading-none font-serif text-[#FD5800]/[0.04] group-hover:text-[#FD5800]/10 transition-colors duration-500 select-none pointer-events-none font-black">
