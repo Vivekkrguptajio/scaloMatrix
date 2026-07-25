@@ -89,7 +89,7 @@ export default function Home() {
           
           if (showreel && showreel.bottom > 0 && window.scrollY >= showreel.top - 100 && window.scrollY < showreel.bottom) hidden = true;
           if (about && about.bottom > 0 && window.scrollY >= about.top - 100 && window.scrollY < about.bottom - 100) hidden = true;
-          if (team && team.bottom > 0 && window.scrollY >= team.top - 100 && window.scrollY < team.bottom - 100) hidden = true;
+          if (team && team.bottom > 0 && window.scrollY >= team.top - 500 && window.scrollY < team.bottom - 100) hidden = true;
           if (faq && faq.bottom > 0 && window.scrollY >= faq.top - 100 && window.scrollY < faq.bottom - 100) hidden = true;
           
           setIsDarkTheme(prev => prev !== dark ? dark : prev);
