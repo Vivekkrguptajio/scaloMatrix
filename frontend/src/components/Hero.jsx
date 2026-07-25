@@ -17,7 +17,7 @@ export default function Hero({ startAnimation }) {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           Your Creative, Media & Technology<br className="hidden lg:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066] drop-shadow-sm">Transformation Partner</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066] drop-shadow-sm">Transformation Growth Partner</span>
         </motion.h1>
 
         <motion.p 
