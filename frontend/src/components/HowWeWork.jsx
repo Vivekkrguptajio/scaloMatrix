@@ -95,7 +95,7 @@ const StepCard = memo(function StepCard({ step, index, scrollYProgress }) {
         />
         
         {/* Colorful Card with edge collision prevention */}
-        <div className={`w-[240px] md:w-[280px] p-5 md:p-6 rounded-[24px] bg-white border-2 ${step.theme.border} shadow-[0_8px_30px_rgba(0,0,0,0.06)] ${step.theme.shadow} hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 ${node.isValley ? '' : 'order-1'} bg-gradient-to-br from-white to-${step.theme.bg.replace('bg-', '')} ${index === 0 ? 'translate-x-[25%] md:translate-x-0' : index === 3 ? '-translate-x-[25%] md:translate-x-0' : ''}`}>
+        <div className={`w-[240px] md:w-[280px] p-5 md:p-6 rounded-[24px] bg-white border-2 ${step.theme.border} shadow-[0_8px_30px_rgba(0,0,0,0.06)] ${step.theme.shadow} hover:-translate-y-2 hover:shadow-2xl transition-shadow duration-300 ${node.isValley ? '' : 'order-1'} bg-gradient-to-br from-white to-${step.theme.bg.replace('bg-', '')} ${index === 0 ? 'translate-x-[25%] md:translate-x-0' : index === 3 ? '-translate-x-[25%] md:translate-x-0' : ''}`}>
           <div className="flex items-center gap-4 mb-3">
             <span className={`w-10 h-10 rounded-full ${step.theme.bg} ${step.theme.text} text-sm font-black flex items-center justify-center flex-shrink-0 border-2 ${step.theme.border}`}>
               {step.id}
@@ -118,10 +118,11 @@ export default function HowWeWork() {
     offset: ["start start", "end end"]
   });
 
-  // Apply smooth spring physics ONLY to this section's scroll animation
+  // Apply ultra-smooth liquid spring physics ONLY to this section's scroll animation
   const scrollYProgress = useSpring(rawScrollProgress, {
-    stiffness: 90,
-    damping: 25,
+    stiffness: 45,
+    damping: 18,
+    mass: 0.6,
     restDelta: 0.001
   });
 
@@ -138,10 +139,8 @@ export default function HowWeWork() {
       {/* Sticky container that stays on screen while we scroll 200vh */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
         
-        {/* Background Gradient & Glow Orbs */}
+        {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none" />
-        <div className="absolute top-[20%] left-[15%] w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-[20%] right-[15%] w-96 h-96 bg-[#FD5800]/10 rounded-full blur-[100px] pointer-events-none" />
 
         {/* Giant Watermark Title */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
@@ -179,7 +178,6 @@ export default function HowWeWork() {
               <motion.path
                 d="M -100,100 L 0,100 C 62.5,100 62.5,150 125,150 C 250,150 250,50 375,50 C 500,50 500,150 625,150 C 750,150 750,50 875,50 C 937.5,50 937.5,100 1000,100 L 1100,100"
                 fill="none" stroke="#FD5800" strokeWidth="6" strokeLinecap="round"
-                className="drop-shadow-[0_0_12px_rgba(253,88,0,0.5)]"
                 style={{ pathLength }}
               />
             </svg>
