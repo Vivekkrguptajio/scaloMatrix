@@ -118,41 +118,23 @@ export default function Home() {
       {/* ═══════ NAVBAR ═══════ */}
       <Navbar scrolled={scrolled} activeSection={activeSection} isDarkTheme={isDarkTheme} isHidden={isNavbarHidden} />
 
-      {/* ═══════ MAIN CONTENT (z-20) ═══════ */}
-      <main className="relative z-20 bg-white transition-all duration-1000 opacity-100 blur-0 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+      {/* ═══════ MAIN CONTENT ═══════ */}
+      <main className="relative z-20 bg-white">
         <Hero startAnimation={true} />
         <Showreel />
         <About />
-        <LazySection minHeight="600px"><DefinesUs /></LazySection>
-        <LazySection minHeight="600px"><Toolkit /></LazySection>
-        <LazySection minHeight="600px"><HowWeWork /></LazySection>
-        <LazySection minHeight="600px"><SelectedWork /></LazySection>
-        <LazySection minHeight="600px"><Testimonials /></LazySection>
-        <LazySection minHeight="600px"><Insights /></LazySection>
-        <LazySection minHeight="300px"><ClientLogos /></LazySection>
-        <Founder />
+        <div className="content-auto"><DefinesUs /></div>
+        <div className="content-auto"><Toolkit /></div>
+        <div className="content-auto"><HowWeWork /></div>
+        <div className="content-auto"><SelectedWork /></div>
+        <div className="content-auto"><Testimonials /></div>
+        <div className="content-auto"><Insights /></div>
+        <div className="content-auto"><ClientLogos /></div>
+        <div className="content-auto"><Founder /></div>
+        <div className="content-auto" id="team"><TeamMembers /></div>
+        <div className="content-auto" id="faq"><FAQ /></div>
+        <Contact reveal={true} />
       </main>
-      
-      {/* ═══════ TEAM MEMBERS 1 (z-15) ═══════ */}
-      <div id="team-spacer" ref={teamSpacerRef} className="w-full h-screen relative z-10 pointer-events-none" />
-      <motion.div 
-        style={{ y: teamY }} 
-        className="fixed bottom-0 left-0 w-full h-screen z-[15] bg-[#0a0a0a]"
-      >
-        <TeamMembers />
-      </motion.div>
-
-      {/* ═══════ FAQ (z-10) ═══════ */}
-      <div id="faq-spacer" ref={teamSpacerRef2} className="w-full h-screen relative z-10 pointer-events-none" />
-      <motion.div 
-        style={{ y: teamY2 }} 
-        className="fixed bottom-0 left-0 w-full h-screen z-10 bg-[#0a0a0a]"
-      >
-        <FAQ />
-      </motion.div>
-
-      {/* ═══════ CONTACT / FOOTER (z-0) ═══════ */}
-      <Contact reveal={true} />
     </div>
   )
 }
