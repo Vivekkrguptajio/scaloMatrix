@@ -48,57 +48,36 @@ export default function Home() {
     let ticking = false;
 
     const updateOffsets = () => {
-      const about = document.getElementById('about');
-      const team = document.getElementById('team-spacer'); // Measure the spacer
-      const faq = document.getElementById('faq-spacer'); // Measure the FAQ spacer
-      const founder = document.getElementById('founder');
-      const contact = document.getElementById('contact');
-      
       const scrollY = window.scrollY;
+      const getOffset = (id) => {
+        const el = document.getElementById(id);
+        if (!el) return { top: 0, bottom: 0 };
+        const rect = el.getBoundingClientRect();
+        return { top: rect.top + scrollY, bottom: rect.bottom + scrollY };
+      };
 
-      if (about) {
-        const rect = about.getBoundingClientRect();
-        sectionOffsets.current.about = {
-          top: rect.top + scrollY,
-          bottom: rect.bottom + scrollY
-        };
-      }
-      
-      if (team) {
-        const rect = team.getBoundingClientRect();
-        sectionOffsets.current.team = {
-          top: rect.top + scrollY,
-          bottom: rect.bottom + scrollY
-        };
-      }
-      
-      if (faq) {
-        const rect = faq.getBoundingClientRect();
-        sectionOffsets.current.faq = {
-          top: rect.top + scrollY,
-          bottom: rect.bottom + scrollY
-        };
-      }
-
-      if (founder) {
-        const rect = founder.getBoundingClientRect();
-        sectionOffsets.current.founder = {
-          top: rect.top + scrollY,
-          bottom: rect.bottom + scrollY
-        };
-      }
-      
-      if (contact) {
-        const rect = contact.getBoundingClientRect();
-        sectionOffsets.current.contact = {
-          top: rect.top + scrollY,
-          bottom: rect.bottom + scrollY
-        };
-      }
+      sectionOffsets.current = {
+        about: getOffset('about'),
+        team: getOffset('team-spacer'),
+        faq: getOffset('faq-spacer'),
+        founder: getOffset('founder'),
+        contact: getOffset('contact')
+      };
     };
 
-    // Initial offset calculation
-    setTimeout(updateOffsets, 500);
+    // Use ResizeObserver to detect any layout shifts (e.g., iframe loads, lazy images)
+    const resizeObserver = new ResizeObserver(() => {
+      window.requestAnimationFrame(updateOffsets);
+    });
+    
+    const mainContent = document.querySelector('main');
+    if (mainContent) resizeObserver.observe(mainContent);
+    resizeObserver.observe(document.body);
+
+    // Initial calculations
+    setTimeout(updateOffsets, 100);
+    setTimeout(updateOffsets, 1000);
+    setTimeout(updateOffsets, 3000); // Failsafe for slow loading assets
     window.addEventListener('resize', updateOffsets);
 
     const handleScroll = () => {
@@ -109,46 +88,16 @@ export default function Home() {
 
           let dark = false;
           let hidden = false;
-          const navBottom = 80; // height of navbar from top of viewport
+          const navBottom = window.scrollY + 80;
+          const { about, team, faq, founder, contact } = sectionOffsets.current;
 
-          const founder = document.getElementById('founder');
-          const team = document.getElementById('team-spacer');
-          const contact = document.getElementById('contact');
-          const about = document.getElementById('about');
-          const faq = document.getElementById('faq-spacer');
-
-          if (founder) {
-            const rect = founder.getBoundingClientRect();
-            if (rect.top <= navBottom && rect.bottom > 0) dark = true;
-          }
-          if (team) {
-            const rect = team.getBoundingClientRect();
-            if (rect.top <= navBottom && rect.bottom > 0) {
-              dark = true;
-              // Also hide navbar in Team Members section
-              if (rect.top <= 100 && rect.bottom > 100) hidden = true;
-            }
-          }
-          if (contact) {
-            const rect = contact.getBoundingClientRect();
-            if (rect.top <= navBottom) dark = true;
-          }
+          if (founder && founder.bottom > 0 && navBottom >= founder.top && navBottom < founder.bottom) dark = true;
+          if (team && team.bottom > 0 && navBottom >= team.top && navBottom < team.bottom) dark = true;
+          if (contact && contact.top > 0 && navBottom >= contact.top) dark = true;
           
-          if (about) {
-            const rect = about.getBoundingClientRect();
-            // Hide navbar when About section is in view
-            if (rect.top <= 100 && rect.bottom > 100) {
-              hidden = true;
-            }
-          }
-          
-          if (faq) {
-            const rect = faq.getBoundingClientRect();
-            // Hide navbar when FAQ is in view
-            if (rect.top <= 100 && rect.bottom > 100) {
-              hidden = true;
-            }
-          }
+          if (about && about.bottom > 0 && window.scrollY >= about.top - 100 && window.scrollY < about.bottom - 100) hidden = true;
+          if (team && team.bottom > 0 && window.scrollY >= team.top - 100 && window.scrollY < team.bottom - 100) hidden = true;
+          if (faq && faq.bottom > 0 && window.scrollY >= faq.top - 100 && window.scrollY < faq.bottom - 100) hidden = true;
           
           setIsDarkTheme(prev => prev !== dark ? dark : prev);
           setIsNavbarHidden(prev => prev !== hidden ? hidden : prev);
@@ -163,6 +112,7 @@ export default function Home() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateOffsets);
+      resizeObserver.disconnect();
     }
   }, [])
 
