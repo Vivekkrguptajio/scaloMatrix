@@ -175,7 +175,6 @@ const solutions = [
 ];
 
 export default function About() {
-  const [activePanel, setActivePanel] = useState(0);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -214,10 +213,9 @@ export default function About() {
 
         </div>
 
-        {/* ─── Horizontal Accordion Grid ─── */}
-        <div className="w-full h-auto md:h-[75vh] min-h-[600px] flex flex-col md:flex-row shadow-2xl overflow-hidden rounded-none border-t border-gray-200">
+        {/* ─── Horizontal Scroll Grid ─── */}
+        <div className="w-full h-auto md:h-[75vh] min-h-[600px] flex flex-row shadow-2xl overflow-x-auto snap-x snap-mandatory rounded-none border-t border-gray-200" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {solutions.map((item, index) => {
-            const isActive = activePanel === index;
             
             const activeColors = [
               'bg-[#00D1FF]', // Cyan
@@ -228,75 +226,52 @@ export default function About() {
               'bg-[#3B82F6]', // Blue
               'bg-[#EC4899]'  // Magenta
             ];
-            const textColors = [
-              'text-[#00D1FF]',
-              'text-[#FF3366]',
-              'text-[#00E676]',
-              'text-[#7E57C2]',
-              'text-[#FF9D00]',
-              'text-[#3B82F6]',
-              'text-[#EC4899]'
-            ];
             const activeBg = activeColors[index % activeColors.length];
-            const activeText = textColors[index % textColors.length];
 
             return (
               <div 
                 key={item.id}
-                onMouseEnter={() => setActivePanel(index)}
-                onClick={() => setActivePanel(index)}
-                className={`transition-all duration-700 ease-in-out cursor-pointer flex flex-col justify-center border-b md:border-b-0 md:border-r border-gray-100 last:border-0 relative overflow-hidden group
-                  ${isActive ? `w-full md:w-auto h-auto md:h-full md:flex-[4_4_0%] py-12 md:py-0 px-6 md:px-12 ${activeBg}` : 'w-full md:w-auto h-20 md:h-full md:flex-1 py-0 px-6 md:px-12 bg-white hover:bg-gray-50'}`}
+                className={`flex flex-col justify-center border-r border-white/20 last:border-0 relative overflow-hidden group 
+                  w-[85vw] md:w-[450px] lg:w-[550px] shrink-0 snap-center py-12 md:py-0 px-8 md:px-12 ${activeBg}`}
               >
                 <div className="w-full h-full flex flex-col justify-center relative">
                   
-                  {/* INACTIVE STATE */}
-                  <div className={`absolute inset-0 flex flex-col items-start justify-center md:items-center md:justify-end px-6 md:px-0 md:pb-10 transition-opacity duration-300 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-200'}`}>
-                    <h3 
-                      className={`text-xl md:text-[44px] lg:text-[52px] font-black leading-[1.05] md:whitespace-nowrap ${activeText} group-hover:opacity-80 transition-opacity md:[writing-mode:vertical-rl] md:rotate-180`}
-                    >
-                      {item.title} <span className="md:hidden">Solution</span>
-                      <span className="hidden md:inline"><br/>Solution</span>
-                    </h3>
-                  </div>
-
                   {/* ACTIVE STATE (Content) */}
-                  {isActive && (
-                    <motion.div 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.4, delay: 0.2 }}
-                      className="flex flex-col w-full min-w-[280px] md:min-w-[400px] relative z-10"
-                    >
-                      <h3 className="text-[32px] md:text-[40px] lg:text-[48px] font-black leading-[1.1] text-white mb-6 whitespace-nowrap">
-                        {item.title} Solution
-                      </h3>
-                      <p className="text-white text-base md:text-[18px] font-medium leading-relaxed mb-8 max-w-sm drop-shadow-sm">
-                        {item.desc}
-                      </p>
-                      
-                      {/* Services Checklist */}
-                      <ul className={`grid gap-x-6 gap-y-3 mb-10 w-full max-w-md ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
-                        {item.list.map((listItem, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-[2px]">
-                              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                              </svg>
-                            </div>
-                            <span className="text-white font-medium text-sm drop-shadow-sm">{listItem}</span>
-                          </li>
-                        ))}
-                      </ul>
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                    className="flex flex-col w-full relative z-10"
+                  >
+                    <h3 className="text-[32px] md:text-[40px] lg:text-[48px] font-black leading-[1.1] text-white mb-6 whitespace-nowrap">
+                      {item.title} Solution
+                    </h3>
+                    <p className="text-white text-base md:text-[18px] font-medium leading-relaxed mb-8 max-w-sm drop-shadow-sm">
+                      {item.desc}
+                    </p>
+                    
+                    {/* Services Checklist */}
+                    <ul className={`grid gap-x-6 gap-y-3 mb-10 w-full max-w-md ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+                      {item.list.map((listItem, i) => (
+                        <li key={i} className="flex items-start gap-2.5">
+                          <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-[2px]">
+                            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                          <span className="text-white font-medium text-sm drop-shadow-sm">{listItem}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                      {/* Circle Arrow Button */}
-                      <button className="w-14 h-14 bg-white rounded-full flex items-center justify-center group/btn hover:scale-105 transition-transform duration-300 shadow-lg shrink-0">
-                        <svg className="w-6 h-6 text-black group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </button>
-                    </motion.div>
-                  )}
+                    {/* Circle Arrow Button */}
+                    <button className="w-14 h-14 bg-white rounded-full flex items-center justify-center group/btn hover:scale-105 transition-transform duration-300 shadow-lg shrink-0">
+                      <svg className="w-6 h-6 text-black group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </button>
+                  </motion.div>
                 </div>
               </div>
             );
