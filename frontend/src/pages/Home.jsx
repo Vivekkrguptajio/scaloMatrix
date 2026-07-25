@@ -120,7 +120,6 @@ export default function Home() {
       <main className="relative z-20 bg-white transition-all duration-1000 opacity-100 blur-0 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero startAnimation={true} />
         <Showreel />
-        <ClientLogos />
         <About />
         <DefinesUs />
         <Toolkit />
@@ -128,6 +127,7 @@ export default function Home() {
         <SelectedWork />
         <Testimonials />
         <Insights />
+        <ClientLogos />
         <Founder />
       </main>
       
