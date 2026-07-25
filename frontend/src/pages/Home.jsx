@@ -24,7 +24,7 @@ export default function Home() {
   const [isDarkTheme, setIsDarkTheme] = useState(false)
   const [isNavbarHidden, setIsNavbarHidden] = useState(false)
 
-  const sectionOffsets = useRef({ about: { top: 0, bottom: 0 }, team: { top: 0, bottom: 0 }, founder: { top: 0, bottom: 0 }, contact: { top: 0, bottom: 0 } })
+  const sectionOffsets = useRef({ about: { top: 0, bottom: 0 }, team: { top: 0, bottom: 0 }, faq: { top: 0, bottom: 0 }, founder: { top: 0, bottom: 0 }, contact: { top: 0, bottom: 0 } })
   const teamSpacerRef = useRef(null)
   const teamSpacerRef2 = useRef(null)
 
@@ -49,6 +49,7 @@ export default function Home() {
     const updateOffsets = () => {
       const about = document.getElementById('about');
       const team = document.getElementById('team-spacer'); // Measure the spacer
+      const faq = document.getElementById('faq-spacer'); // Measure the FAQ spacer
       const founder = document.getElementById('founder');
       const contact = document.getElementById('contact');
       
@@ -65,6 +66,14 @@ export default function Home() {
       if (team) {
         const rect = team.getBoundingClientRect();
         sectionOffsets.current.team = {
+          top: rect.top + scrollY,
+          bottom: rect.bottom + scrollY
+        };
+      }
+      
+      if (faq) {
+        const rect = faq.getBoundingClientRect();
+        sectionOffsets.current.faq = {
           top: rect.top + scrollY,
           bottom: rect.bottom + scrollY
         };
@@ -100,7 +109,13 @@ export default function Home() {
           let dark = false;
           let hidden = false;
           const navBottom = window.scrollY + 80;
-          const { about, team, founder, contact } = sectionOffsets.current;
+          const { 
+            about = { top: 0, bottom: 0 }, 
+            team = { top: 0, bottom: 0 }, 
+            faq = { top: 0, bottom: 0 }, 
+            founder = { top: 0, bottom: 0 }, 
+            contact = { top: 0, bottom: 0 } 
+          } = sectionOffsets.current || {};
 
           if (founder.bottom > 0 && navBottom >= founder.top && navBottom < founder.bottom) {
             dark = true;
@@ -112,11 +127,14 @@ export default function Home() {
             dark = true;
           }
           
-          // Hide navbar when about or team section is significantly in view
+          // Hide navbar when about, team, or faq section is significantly in view
           if (about.bottom > 0 && window.scrollY >= about.top - 100 && window.scrollY < about.bottom - 100) {
             hidden = true;
           }
           if (team.bottom > 0 && window.scrollY >= team.top - 100 && window.scrollY < team.bottom - 100) {
+            hidden = true;
+          }
+          if (faq.bottom > 0 && window.scrollY >= faq.top - 100 && window.scrollY < faq.bottom - 100) {
             hidden = true;
           }
           
