@@ -81,7 +81,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="relative w-full flex flex-col pt-0 bg-white font-sans overflow-hidden">
+    <section id="about" className="relative w-full h-screen min-h-[100vh] flex flex-col pt-0 bg-white font-sans overflow-hidden">
       
       {/* ─── Background Ambient Waves ─── */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#FD5800]/[0.03] to-transparent rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
@@ -95,7 +95,7 @@ export default function About() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onMouseMove={handleMouseMove}
-          className="w-full h-auto md:h-[75vh] min-h-[600px] flex flex-row shadow-2xl overflow-x-auto rounded-none border-t border-gray-200 cursor-ew-resize select-none" 
+          className="w-full h-full min-h-screen flex flex-row shadow-2xl overflow-x-auto rounded-none border-t border-gray-200 cursor-ew-resize select-none" 
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {solutions.map((item, index) => {
