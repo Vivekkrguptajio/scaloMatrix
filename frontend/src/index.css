@@ -162,6 +162,12 @@ html, body {
 }
 
 .animate-marquee {
+  animation: marquee 55s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.animate-marquee-reverse {
   animation: marquee 55s linear infinite reverse;
   will-change: transform;
   transform: translateZ(0);
