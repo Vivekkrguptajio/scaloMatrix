@@ -17,7 +17,6 @@ import Contact from '../components/Contact'
 import ClientLogos from '../components/ClientLogos'
 import Testimonials from '../components/Testimonials'
 import FAQ from '../components/FAQ'
-import LazySection from '../components/LazySection'
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -118,8 +117,8 @@ export default function Home() {
       {/* ═══════ NAVBAR ═══════ */}
       <Navbar scrolled={scrolled} activeSection={activeSection} isDarkTheme={isDarkTheme} isHidden={isNavbarHidden} />
 
-      {/* ═══════ MAIN CONTENT ═══════ */}
-      <main className="relative z-20 bg-white">
+      {/* ═══════ MAIN CONTENT (z-20) ═══════ */}
+      <main className="relative z-20 bg-white transition-all duration-1000 opacity-100 blur-0 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero startAnimation={true} />
         <Showreel />
         <About />
@@ -130,11 +129,29 @@ export default function Home() {
         <div className="content-auto"><Testimonials /></div>
         <div className="content-auto"><Insights /></div>
         <div className="content-auto"><ClientLogos /></div>
-        <div className="content-auto"><Founder /></div>
-        <div className="content-auto" id="team"><TeamMembers /></div>
-        <div className="content-auto" id="faq"><FAQ /></div>
-        <Contact reveal={true} />
+        <Founder />
       </main>
+      
+      {/* ═══════ TEAM MEMBERS 1 (z-15) ═══════ */}
+      <div id="team-spacer" ref={teamSpacerRef} className="w-full h-screen relative z-10 pointer-events-none" />
+      <motion.div 
+        style={{ y: teamY }} 
+        className="fixed bottom-0 left-0 w-full h-screen z-[15] bg-[#0a0a0a] will-change-transform transform-gpu"
+      >
+        <TeamMembers />
+      </motion.div>
+
+      {/* ═══════ FAQ (z-10) ═══════ */}
+      <div id="faq-spacer" ref={teamSpacerRef2} className="w-full h-screen relative z-10 pointer-events-none" />
+      <motion.div 
+        style={{ y: teamY2 }} 
+        className="fixed bottom-0 left-0 w-full h-screen z-10 bg-[#0a0a0a] will-change-transform transform-gpu"
+      >
+        <FAQ />
+      </motion.div>
+
+      {/* ═══════ CONTACT / FOOTER (z-0) ═══════ */}
+      <Contact reveal={true} />
     </div>
   )
 }
