@@ -134,8 +134,8 @@ export default function DefinesUs() {
                   <g fill="none" stroke="currentColor" strokeWidth="34">
                     {/* Tail is 40% longer backwards (M18) and slightly pulled back from the tip (L305) */}
                     <path d="M18 200 L305 200" strokeLinecap="square" />
-                    {/* The V-shape arrow head with tip at X=320 */}
-                    <path d="M230 110 L320 200 L230 290" strokeLinecap="square" strokeLinejoin="miter" />
+                    {/* The V-shape arrow head with tip at X=320, wings 50% longer */}
+                    <path d="M185 65 L320 200 L185 335" strokeLinecap="square" strokeLinejoin="miter" />
                   </g>
                 </svg>
               </motion.div>
