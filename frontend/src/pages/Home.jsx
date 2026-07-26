@@ -26,30 +26,6 @@ export default function Home() {
   const [isNavbarHidden, setIsNavbarHidden] = useState(false)
 
   const sectionOffsets = useRef({ about: { top: 0, bottom: 0 }, team: { top: 0, bottom: 0 }, faq: { top: 0, bottom: 0 }, founder: { top: 0, bottom: 0 }, contact: { top: 0, bottom: 0 } })
-  const teamSpacerRef = useRef(null)
-  const teamSpacerRef2 = useRef(null)
-  const teamSpacerRef3 = useRef(null)
-
-  // First TeamMembers scrolls out to reveal the second
-  const { scrollYProgress: teamScroll } = useScroll({
-    target: teamSpacerRef,
-    offset: ["end end", "end start"]
-  });
-  const teamY = useTransform(teamScroll, [0, 1], ["0%", "-100%"]);
-
-  // Second TeamMembers scrolls out to reveal the FAQ
-  const { scrollYProgress: teamScroll2 } = useScroll({
-    target: teamSpacerRef2,
-    offset: ["end end", "end start"]
-  });
-  const teamY2 = useTransform(teamScroll2, [0, 1], ["0%", "-100%"]);
-
-  // FAQ scrolls out to reveal ContactUs
-  const { scrollYProgress: teamScroll3 } = useScroll({
-    target: teamSpacerRef3,
-    offset: ["end end", "end start"]
-  });
-  const teamY3 = useTransform(teamScroll3, [0, 1], ["0%", "-100%"]);
 
   // Monitor Scroll using Framer Motion (Off-thread)
   const { scrollY } = useScroll();
@@ -67,8 +43,8 @@ export default function Home() {
       sectionOffsets.current = {
         showreel: getOffset('showreel'),
         about: getOffset('about'),
-        team: getOffset('team-spacer'),
-        faq: getOffset('faq-spacer'),
+        team: getOffset('team'),
+        faq: getOffset('faq'),
         founder: getOffset('founder'),
         contact: getOffset('contact')
       };
@@ -116,7 +92,7 @@ export default function Home() {
       <Navbar scrolled={scrolled} activeSection={activeSection} isDarkTheme={isDarkTheme} isHidden={isNavbarHidden} />
 
       {/* ═══════ MAIN CONTENT (z-20) ═══════ */}
-      <main className="relative z-20 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+      <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[80px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero startAnimation={true} />
         <Showreel />
         <About />
@@ -128,34 +104,10 @@ export default function Home() {
         <div className="content-auto min-h-[600px]"><Insights /></div>
         <div className="content-auto min-h-[300px]"><ClientLogos /></div>
         <Founder />
-      </main>
-      
-      {/* ═══════ TEAM MEMBERS 1 (z-15) ═══════ */}
-      <div id="team-spacer" ref={teamSpacerRef} className="w-full h-screen relative z-10 pointer-events-none" />
-      <motion.div 
-        style={{ y: teamY }} 
-        className="fixed bottom-0 left-0 w-full h-screen z-[15] bg-[#0a0a0a] will-change-transform transform-gpu"
-      >
         <TeamMembers />
-      </motion.div>
-
-      {/* ═══════ FAQ (z-10) ═══════ */}
-      <div id="faq-spacer" ref={teamSpacerRef2} className="w-full h-screen relative z-10 pointer-events-none" />
-      <motion.div 
-        style={{ y: teamY2 }} 
-        className="fixed bottom-0 left-0 w-full h-screen z-10 bg-[#0a0a0a] will-change-transform transform-gpu"
-      >
         <FAQ />
-      </motion.div>
-
-      {/* ═══════ CONTACT US (z-[5]) ═══════ */}
-      <div id="contactus-spacer" ref={teamSpacerRef3} className="w-full h-screen relative z-10 pointer-events-none" />
-      <motion.div 
-        style={{ y: teamY3 }} 
-        className="fixed bottom-0 left-0 w-full h-screen z-[5] bg-[#0a0a0a] will-change-transform transform-gpu"
-      >
         <ContactUs />
-      </motion.div>
+      </main>
 
       {/* ═══════ CONTACT / FOOTER (z-0) ═══════ */}
       <Contact reveal={true} />

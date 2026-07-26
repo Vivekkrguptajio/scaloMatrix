@@ -6,7 +6,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="relative w-full min-h-[100svh] flex flex-col justify-center py-16 md:py-24 bg-white font-sans overflow-hidden">
+    <section id="faq" className="relative w-full min-h-[100svh] flex flex-col justify-center py-16 md:py-24 bg-white font-sans overflow-hidden">
       
       {/* ─── Background Ambient Waves (GPU-free radial gradients) ─── */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(253,88,0,0.1)_0%,transparent_70%)] rounded-full pointer-events-none -translate-y-1/3 translate-x-1/3"></div>
