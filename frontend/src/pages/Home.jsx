@@ -86,7 +86,7 @@ export default function Home() {
   });
 
   return (
-    <div className="relative min-h-screen bg-white font-sans overflow-x-clip">
+    <div className="relative min-h-screen bg-[#0a0a0a] font-sans overflow-x-clip">
       
       {/* ═══════ NAVBAR ═══════ */}
       <Navbar scrolled={scrolled} activeSection={activeSection} isDarkTheme={isDarkTheme} isHidden={isNavbarHidden} />

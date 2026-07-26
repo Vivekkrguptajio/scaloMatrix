@@ -78,6 +78,18 @@ export const faqs = [
   {
     question: "Do you collaborate with in-house marketing teams?",
     answer: "Absolutely. We view ourselves as a seamless extension of your team. Whether you need us to take the reins completely or co-create alongside your internal experts, our agile pods adapt to your unique workflow to maximize impact."
+  },
+  {
+    question: "Do you offer post-launch support and maintenance?",
+    answer: "Yes, our relationship doesn't end at launch. We provide comprehensive post-launch support, continuous performance monitoring, and iterative improvements to ensure your product stays ahead of the curve."
+  },
+  {
+    question: "What technologies do you specialize in?",
+    answer: "We are technology agnostic, but we specialize in modern, scalable tech stacks including React, Next.js, Node.js, and cloud-native architectures to deliver lightning-fast and secure digital products."
+  },
+  {
+    question: "How do you handle project management and communication?",
+    answer: "Transparency is key. We use agile methodologies, providing you with dedicated project managers, regular milestone updates, and open communication channels to keep you in the loop at all times."
   }
 ];
 

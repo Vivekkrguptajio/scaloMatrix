@@ -14,7 +14,7 @@ export default function Showreel() {
       </div>
 
       <motion.div 
-        className="w-[70%] mx-auto relative aspect-[2/1] bg-black overflow-hidden shadow-[0_0_25px_rgba(253,88,0,0.3)] border-2 border-[#FD5800]/50 rounded-3xl"
+        className="w-[70%] mx-auto relative aspect-[2/1] bg-black overflow-hidden shadow-[0_0_40px_rgba(253,88,0,0.4)] border-2 border-[#FD5800]/60 rounded-3xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
