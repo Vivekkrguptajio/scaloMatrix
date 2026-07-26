@@ -9,10 +9,10 @@ const CaseCard = memo(function CaseCard({ study, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.15 }}
-      className="group flex flex-col w-full h-full cursor-pointer"
+      className="group flex flex-col w-full h-full bg-white rounded-[24px] shadow-sm hover:shadow-xl transition-shadow duration-500 overflow-hidden cursor-pointer"
     >
       {/* Image Header */}
-      <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[20px] mb-5">
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
         <img 
           src={study.image} 
@@ -26,7 +26,7 @@ const CaseCard = memo(function CaseCard({ study, index }) {
       </div>
 
       {/* Card Body */}
-      <div className="flex flex-col flex-grow">
+      <div className="p-5 flex flex-col flex-grow">
         <div className="flex items-center flex-wrap gap-2 mb-3">
           <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400">
             {study.category}
@@ -61,7 +61,7 @@ const CaseCard = memo(function CaseCard({ study, index }) {
 export default function SelectedWork() {
   return (
     <section id="work" className="relative w-full bg-white text-black font-sans py-12 md:py-16">
-      <div className="w-full flex flex-col justify-center overflow-hidden">
+      <div className="w-full flex flex-col justify-center">
         <div className="max-w-[1400px] w-full mx-auto px-4 md:px-8">
           
           {/* Header - Compact to save space */}

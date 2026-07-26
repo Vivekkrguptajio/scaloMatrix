@@ -93,7 +93,7 @@ export default function Home() {
       <Navbar scrolled={scrolled} activeSection={activeSection} isDarkTheme={isDarkTheme} isHidden={isNavbarHidden} />
 
       {/* ═══════ MAIN CONTENT (z-20) ═══════ */}
-      <main className="relative z-20 bg-white rounded-b-[20px] md:rounded-b-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+      <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero startAnimation={true} />
         <Showreel />
         <ServicesCards />
