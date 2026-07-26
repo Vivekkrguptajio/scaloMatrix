@@ -11,7 +11,7 @@ export default function Hero({ startAnimation }) {
 
       <div className="max-w-[1400px] mx-auto w-full relative z-10 -mt-10 md:-mt-16">
         <motion.h1 
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[72px] font-black font-sans text-black leading-[0.95] tracking-tight mb-8"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[77px] font-black font-sans text-black leading-[0.95] tracking-tight mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
