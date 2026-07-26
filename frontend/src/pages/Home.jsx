@@ -5,6 +5,7 @@ import { useScroll, useTransform, motion, useMotionValueEvent } from 'framer-mot
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Showreel from '../components/Showreel'
+import ServicesCards from '../components/ServicesCards'
 import About from '../components/About'
 import DefinesUs from '../components/DefinesUs'
 import Toolkit from '../components/Toolkit'
@@ -95,6 +96,7 @@ export default function Home() {
       <main className="relative z-20 bg-white rounded-b-[20px] md:rounded-b-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero startAnimation={true} />
         <Showreel />
+        <ServicesCards />
         <About />
         <div className="content-auto"><DefinesUs /></div>
         <div className="content-auto min-h-[600px]"><Toolkit /></div>
