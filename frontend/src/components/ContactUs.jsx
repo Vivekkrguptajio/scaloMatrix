@@ -47,12 +47,12 @@ const partners = [
   {
     logo: "Zoho",
     title: "Zoho Premium Partner",
-    desc: "Design and implement integrated business architectures and digital transformation solutions."
+    desc: "Design and implement integrated business architectures "
   },
   {
     logo: "MoEngage",
     title: "MoEngage Partner",
-    desc: "Leverage automatic customer engagement to drive retention and growth."
+    desc: "Leverage automatic customer engagement to drive retention "
   }
 ];
 
