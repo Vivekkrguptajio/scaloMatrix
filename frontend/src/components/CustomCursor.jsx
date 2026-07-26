@@ -37,9 +37,18 @@ export default function CustomCursor() {
           
         setIsHovering(!!isInteractive);
         
-        // Check for dark sections
-        const darkContainer = target.closest('.bg-black, .bg-\\[\\#0a0a0a\\], .bg-gray-900, footer, [data-dark="true"]');
-        setIsOnDark(!!darkContainer);
+        // Check for the closest background-defining container
+        const bgContainer = target.closest('.bg-black, .bg-\\[\\#0a0a0a\\], .bg-gray-900, .bg-white, footer, [data-dark="true"]');
+        
+        let isDark = false;
+        if (bgContainer) {
+          isDark = bgContainer.classList.contains('bg-black') || 
+                   bgContainer.classList.contains('bg-[#0a0a0a]') || 
+                   bgContainer.classList.contains('bg-gray-900') ||
+                   bgContainer.tagName.toLowerCase() === 'footer' ||
+                   bgContainer.getAttribute('data-dark') === 'true';
+        }
+        setIsOnDark(isDark);
       });
     };
 
