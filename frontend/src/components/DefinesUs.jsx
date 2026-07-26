@@ -43,21 +43,41 @@ export default function DefinesUs() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white font-sans overflow-hidden border-t border-gray-100 min-h-[300px] flex flex-col justify-center py-6 md:py-10">
+    <section ref={sectionRef} className="relative w-full bg-white font-sans overflow-hidden border-t border-gray-100 min-h-[500px] flex flex-col justify-center py-16 md:py-24">
       
-      {/* Background Circle Pattern */}
+      {/* Background Peanut & Circle Pattern */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center">
-        {/* The perfect horizontal center line that aligns with the circles */}
-        <div className="relative w-full h-[1px] bg-gray-200">
-          <svg className="w-full h-[600px] absolute top-1/2 left-0 -translate-y-1/2" xmlns="http://www.w3.org/2000/svg">
+        <div className="relative w-full h-[200px]">
+          <svg className="w-full h-full absolute top-1/2 left-0 -translate-y-1/2" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              {/* x="50%" centers the pattern horizontally so it looks balanced */}
-              <pattern id="circlePattern" width="300" height="300" patternUnits="userSpaceOnUse" x="50%" y="50%">
-                <circle cx="150" cy="150" r="150" stroke="#e5e7eb" strokeWidth="1" fill="none" />
-                <line x1="150" y1="0" x2="150" y2="300" stroke="#e5e7eb" strokeWidth="1" />
+              <pattern id="peanutPattern" width="600" height="200" patternUnits="userSpaceOnUse" x="50%" y="0">
+                {/* Horizontal lines */}
+                <line x1="0" y1="0" x2="600" y2="0" stroke="#e5e7eb" strokeWidth="1" />
+                <line x1="0" y1="100" x2="600" y2="100" stroke="#e5e7eb" strokeWidth="1" />
+                <line x1="0" y1="200" x2="600" y2="200" stroke="#e5e7eb" strokeWidth="1" />
+                
+                {/* Vertical lines */}
+                <line x1="0" y1="0" x2="0" y2="200" stroke="#e5e7eb" strokeWidth="1" />
+                <line x1="400" y1="0" x2="400" y2="200" stroke="#e5e7eb" strokeWidth="1" />
+                <line x1="600" y1="0" x2="600" y2="200" stroke="#e5e7eb" strokeWidth="1" />
+                
+                {/* Peanut Shape */}
+                <path d="M 0 100 
+                         A 100 100 0 0 1 100 0 
+                         C 150 0, 150 60, 200 60 
+                         C 250 60, 250 0, 300 0 
+                         A 100 100 0 0 1 400 100 
+                         A 100 100 0 0 1 300 200 
+                         C 250 200, 250 140, 200 140 
+                         C 150 140, 150 200, 100 200 
+                         A 100 100 0 0 1 0 100 Z" 
+                      stroke="#e5e7eb" strokeWidth="1" fill="none" />
+                
+                {/* Circle Shape */}
+                <circle cx="500" cy="100" r="100" stroke="#e5e7eb" strokeWidth="1" fill="none" />
               </pattern>
             </defs>
-            <rect width="100%" height="100%" fill="url(#circlePattern)" />
+            <rect width="100%" height="100%" fill="url(#peanutPattern)" />
           </svg>
         </div>
       </div>
@@ -95,7 +115,7 @@ export default function DefinesUs() {
         {/* Bottom Row */}
         <div className="flex flex-col lg:flex-row pt-6 lg:pt-8 w-full">
           {/* Left: Arrow */}
-          <div className="lg:w-[35%] shrink-0 flex items-start lg:pl-4 pb-6 lg:pb-0 -mt-4 lg:-mt-8">
+          <div className="lg:w-[35%] shrink-0 flex items-start lg:pl-4 pb-6 lg:pb-0 -mt-8 lg:-mt-16">
             {/* Cursor-Following Black Arrow (thick blocky style like the image) */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.5 }}
@@ -140,7 +160,7 @@ export default function DefinesUs() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <a href="#contact" className="inline-flex items-center justify-center px-10 py-4 rounded-full font-bold text-[14px] bg-black text-white hover:bg-gray-900 transition-colors tracking-wide">
+              <a href="#contact" className="inline-flex items-center justify-center px-10 py-4 rounded-full font-bold text-[14px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide">
                 Dive Into Our Culture <span className="ml-3 font-normal">&rarr;</span>
               </a>
             </motion.div>

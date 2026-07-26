@@ -97,8 +97,8 @@ export default function Home() {
         <Hero startAnimation={true} />
         <Showreel />
         <ServicesCards />
-        <About />
         <div className="content-auto"><DefinesUs /></div>
+        <About />
         <div className="content-auto min-h-[600px]"><Toolkit /></div>
         <div className="content-auto min-h-[800px]"><HowWeWork /></div>
         <div className="content-auto min-h-[600px]"><SelectedWork /></div>
