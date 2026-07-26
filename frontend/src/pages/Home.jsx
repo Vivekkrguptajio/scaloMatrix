@@ -76,11 +76,9 @@ export default function Home() {
     if (team && team.bottom > 0 && navBottom >= team.top && navBottom < team.bottom) dark = true;
     if (contact && contact.top > 0 && navBottom >= contact.top) dark = true;
     
-    if (showreel && showreel.bottom > 0 && latest >= showreel.top - 100 && latest < showreel.bottom) hidden = true;
     if (about && about.bottom > 0 && latest >= about.top - 100 && latest < about.bottom - 100) hidden = true;
-    if (founder && founder.bottom > 0 && latest >= founder.top - 200 && latest < founder.bottom) hidden = true;
-    if (team && team.bottom > 0 && latest >= team.top - 800 && latest < team.bottom - 100) hidden = true;
-    if (faq && faq.bottom > 0 && latest >= faq.top - 100 && latest < faq.bottom - 100) hidden = true;
+    if (team && team.bottom > 0 && latest >= team.top - 100 && latest < team.bottom - 100) hidden = true;
+    if (contact && contact.top > 0 && navBottom >= contact.top) hidden = true;
     
     if (isDarkTheme !== dark) setIsDarkTheme(dark);
     if (isNavbarHidden !== hidden) setIsNavbarHidden(hidden);
