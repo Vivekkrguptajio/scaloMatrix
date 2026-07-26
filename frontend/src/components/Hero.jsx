@@ -9,9 +9,9 @@ export default function Hero({ startAnimation }) {
     >
       {/* (Orange glow removed) */}
 
-      <div className="max-w-[1400px] mx-auto w-full relative z-10 -mt-20 md:-mt-32">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 -mt-10 md:-mt-16">
         <motion.h1 
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-black font-sans text-black leading-[0.95] tracking-tight mb-8"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-[80px] font-black font-sans text-black leading-[0.95] tracking-tight mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -21,7 +21,7 @@ export default function Hero({ startAnimation }) {
         </motion.h1>
 
         <motion.p 
-          className="text-sm sm:text-base md:text-[17px] text-[#222] font-medium max-w-[800px] leading-relaxed mb-10"
+          className="text-base sm:text-lg md:text-xl text-[#222] font-medium max-w-[800px] leading-relaxed mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}

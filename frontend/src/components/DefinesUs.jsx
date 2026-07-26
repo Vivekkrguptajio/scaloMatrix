@@ -43,7 +43,7 @@ export default function DefinesUs() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white font-sans overflow-hidden border-t border-gray-100 min-h-[400px] flex flex-col justify-center py-10 md:py-16">
+    <section ref={sectionRef} className="relative w-full bg-white font-sans overflow-hidden border-t border-gray-100 min-h-[300px] flex flex-col justify-center py-6 md:py-10">
       
       {/* Background Circle Pattern */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center">
@@ -95,7 +95,7 @@ export default function DefinesUs() {
         {/* Bottom Row */}
         <div className="flex flex-col lg:flex-row pt-6 lg:pt-8 w-full">
           {/* Left: Arrow */}
-          <div className="lg:w-[35%] shrink-0 flex items-start lg:pl-4 pb-6 lg:pb-0">
+          <div className="lg:w-[35%] shrink-0 flex items-start lg:pl-4 pb-6 lg:pb-0 -mt-4 lg:-mt-8">
             {/* Cursor-Following Black Arrow (thick blocky style like the image) */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.5 }}
