@@ -29,23 +29,7 @@ export default function Hero({ startAnimation }) {
           We're a team of 1200+ Specialists delivering award-winning work for 350+ brands worldwide, 11 years and counting!
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-        >
-          <button className="bg-black text-white px-8 py-4 rounded-full font-bold text-sm md:text-base uppercase tracking-wider hover:bg-[#FD5800] transition-colors duration-300 flex items-center gap-2 group">
-            Explore Our Work
-            <svg 
-              className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
-        </motion.div>
+
       </div>
       
       {/* Marquee at the bottom of the hero section */}

@@ -7,8 +7,14 @@ export default function Showreel() {
 
   return (
     <section id="showreel" className="w-full bg-white relative z-20 py-8 md:py-[5%] mt-0">
+      <div className="max-w-[1400px] w-full mx-auto px-4 md:px-8 mb-10 text-center">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight">
+          Streamline Business with our <span className="text-[#FD5800]">Flexible options</span>
+        </h2>
+      </div>
+
       <motion.div 
-        className="w-[90%] mx-auto relative aspect-[2/1] bg-black overflow-hidden shadow-2xl rounded-3xl"
+        className="w-[70%] mx-auto relative aspect-[2/1] bg-black overflow-hidden shadow-[0_0_60px_rgba(253,88,0,0.6)] border-2 border-[#FD5800]/80 rounded-3xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

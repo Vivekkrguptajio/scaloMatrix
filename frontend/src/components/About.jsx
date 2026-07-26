@@ -114,24 +114,24 @@ export default function About() {
           {solutions.map((item, index) => {
             
             const activeColors = [
-              'bg-[#00D1FF]', // Cyan
-              'bg-[#FF3366]', // Pink
-              'bg-[#00E676]', // Green
-              'bg-[#7E57C2]', // Purple
-              'bg-[#FF9D00]', // Orange
-              'bg-[#3B82F6]', // Blue
-              'bg-[#EC4899]'  // Magenta
+              'bg-[#F0F9FF]', // Pastel Cyan/Sky
+              'bg-[#FFF1F2]', // Pastel Pink/Rose
+              'bg-[#F0FDF4]', // Pastel Green
+              'bg-[#FAF5FF]', // Pastel Purple
+              'bg-[#FFF7ED]', // Pastel Orange
+              'bg-[#EFF6FF]', // Pastel Blue
+              'bg-[#FDF4FF]'  // Pastel Fuchsia
             ];
             const activeBg = activeColors[index % activeColors.length];
 
             return (
               <div 
                 key={item.id}
-                className={`flex flex-col justify-between border-r border-white/20 last:border-0 relative overflow-hidden group 
+                className={`flex flex-col justify-between border-r border-black/5 last:border-0 relative overflow-hidden group 
                   w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] shrink-0 snap-center py-10 md:py-12 px-6 md:px-10 ${activeBg} transition-all duration-500 cursor-pointer`}
               >
                 {/* Large Background Card Number */}
-                <div className="absolute top-4 right-6 text-white/20 font-black text-6xl md:text-8xl select-none pointer-events-none group-hover:opacity-10 transition-opacity">
+                <div className="absolute top-4 right-6 text-black/5 font-black text-6xl md:text-8xl select-none pointer-events-none group-hover:opacity-[0.08] transition-opacity">
                   {item.id}
                 </div>
 
@@ -139,38 +139,38 @@ export default function About() {
                   
                   {/* CARD COVER / TITLE SECTION */}
                   <div className="flex flex-col items-center text-center transition-all duration-500">
-                    <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-6 text-white shadow-sm group-hover:scale-110 transition-transform">
+                    <div className="w-16 h-16 rounded-2xl bg-black/5 backdrop-blur-md flex items-center justify-center mb-6 text-gray-800 shadow-sm group-hover:scale-110 transition-transform">
                       {item.icon}
                     </div>
 
-                    <h3 className="text-[32px] md:text-[38px] lg:text-[44px] font-black leading-[1.1] text-white tracking-tight">
+                    <h3 className="text-[32px] md:text-[38px] lg:text-[44px] font-black leading-[1.1] text-gray-900 tracking-tight">
                       {item.title} <br className="hidden md:inline"/>Solution
                     </h3>
                   </div>
 
                   {/* HOVER DETAILS SECTION (Collapsed by default, revealed on hover) */}
                   <div className="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[500px] transition-all duration-500 ease-out overflow-hidden flex flex-col items-center text-center pt-8">
-                    <p className="text-white/90 text-sm md:text-base font-medium leading-relaxed mb-6 max-w-sm drop-shadow-sm">
+                    <p className="text-gray-600 text-sm md:text-base font-medium leading-relaxed mb-6 max-w-sm drop-shadow-sm">
                       {item.desc}
                     </p>
                     
                     {/* Services Checklist */}
                     <ul className={`grid gap-x-4 gap-y-2.5 mb-8 w-full max-w-md ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
                       {item.list.map((listItem, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <div className="w-4 h-4 rounded-full bg-white/30 flex items-center justify-center shrink-0 mt-[3px]">
-                            <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
+                        <li key={i} className="flex items-start gap-2 text-left">
+                          <div className="w-4 h-4 rounded-full bg-[#FD5800]/20 flex items-center justify-center shrink-0 mt-[3px]">
+                            <svg className="w-2.5 h-2.5 text-[#FD5800]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                           </div>
-                          <span className="text-white font-medium text-xs md:text-sm drop-shadow-sm">{listItem}</span>
+                          <span className="text-gray-700 font-semibold text-xs md:text-sm">{listItem}</span>
                         </li>
                       ))}
                     </ul>
 
                     {/* Circle Arrow Button */}
-                    <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center group/btn hover:scale-105 transition-transform duration-300 shadow-lg shrink-0">
-                      <svg className="w-5 h-5 text-black group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <button className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center group/btn hover:scale-105 transition-transform duration-300 shadow-lg shrink-0">
+                      <svg className="w-5 h-5 text-white group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </button>

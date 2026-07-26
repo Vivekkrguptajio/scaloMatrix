@@ -63,7 +63,7 @@ export default function Toolkit() {
       >
         <div className="max-w-2xl">
           <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight text-gray-900 leading-[1.1]">
-            Who We <span className="text-[#FD5800] italic">Work With</span>
+            Who We <span className="text-[#FD5800]">Work With</span>
           </h2>
         </div>
         <div className="max-w-md">

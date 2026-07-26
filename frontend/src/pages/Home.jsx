@@ -17,6 +17,7 @@ import Contact from '../components/Contact'
 import ClientLogos from '../components/ClientLogos'
 import Testimonials from '../components/Testimonials'
 import FAQ from '../components/FAQ'
+import ContactUs from '../components/ContactUs'
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -27,6 +28,7 @@ export default function Home() {
   const sectionOffsets = useRef({ about: { top: 0, bottom: 0 }, team: { top: 0, bottom: 0 }, faq: { top: 0, bottom: 0 }, founder: { top: 0, bottom: 0 }, contact: { top: 0, bottom: 0 } })
   const teamSpacerRef = useRef(null)
   const teamSpacerRef2 = useRef(null)
+  const teamSpacerRef3 = useRef(null)
 
   // First TeamMembers scrolls out to reveal the second
   const { scrollYProgress: teamScroll } = useScroll({
@@ -35,12 +37,19 @@ export default function Home() {
   });
   const teamY = useTransform(teamScroll, [0, 1], ["0%", "-100%"]);
 
-  // Second TeamMembers scrolls out to reveal the Footer
+  // Second TeamMembers scrolls out to reveal the FAQ
   const { scrollYProgress: teamScroll2 } = useScroll({
     target: teamSpacerRef2,
     offset: ["end end", "end start"]
   });
   const teamY2 = useTransform(teamScroll2, [0, 1], ["0%", "-100%"]);
+
+  // FAQ scrolls out to reveal ContactUs
+  const { scrollYProgress: teamScroll3 } = useScroll({
+    target: teamSpacerRef3,
+    offset: ["end end", "end start"]
+  });
+  const teamY3 = useTransform(teamScroll3, [0, 1], ["0%", "-100%"]);
 
   // Monitor Scroll using Framer Motion (Off-thread)
   const { scrollY } = useScroll();
@@ -137,6 +146,15 @@ export default function Home() {
         className="fixed bottom-0 left-0 w-full h-screen z-10 bg-[#0a0a0a] will-change-transform transform-gpu"
       >
         <FAQ />
+      </motion.div>
+
+      {/* ═══════ CONTACT US (z-[5]) ═══════ */}
+      <div id="contactus-spacer" ref={teamSpacerRef3} className="w-full h-screen relative z-10 pointer-events-none" />
+      <motion.div 
+        style={{ y: teamY3 }} 
+        className="fixed bottom-0 left-0 w-full h-screen z-[5] bg-[#0a0a0a] will-change-transform transform-gpu"
+      >
+        <ContactUs />
       </motion.div>
 
       {/* ═══════ CONTACT / FOOTER (z-0) ═══════ */}
