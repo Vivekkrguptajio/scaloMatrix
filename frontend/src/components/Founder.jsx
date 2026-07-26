@@ -8,8 +8,8 @@ export default function Founder() {
         <div className="absolute -top-1/4 -right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(253,88,0,0.2)_0%,transparent_70%)] rounded-full" />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+      <div className="max-w-[1260px] mx-auto px-4 md:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
           {/* Image & Quote Side */}
           <motion.div 
@@ -19,7 +19,7 @@ export default function Founder() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full lg:w-5/12 relative"
           >
-            <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 rounded-[2rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
+            <div className="relative aspect-[3/4] w-full max-w-[400px] mx-auto lg:mx-0 rounded-[1.75rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
               <img 
                 src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=2000" 
                 alt="Founder" 
@@ -28,13 +28,13 @@ export default function Founder() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               
-              <div className="absolute bottom-8 left-8 right-8">
-                <p className="text-2xl font-black italic text-white leading-tight mb-4">
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-xl font-black italic text-white leading-tight mb-3">
                   "We don't just build software. We architect unfair advantages."
                 </p>
                 <div>
-                  <h4 className="font-bold text-[#FD5800] uppercase tracking-widest text-sm">John Doe</h4>
-                  <p className="text-gray-400 text-sm font-medium">Founder & CEO, scaloMATRIX</p>
+                  <h4 className="font-bold text-[#FD5800] uppercase tracking-widest text-xs">John Doe</h4>
+                  <p className="text-gray-400 text-xs font-medium">Founder & CEO, scaloMATRIX</p>
                 </div>
               </div>
             </div>
@@ -48,12 +48,12 @@ export default function Founder() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="w-full lg:w-7/12"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-[1.1] tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-[1.1] tracking-tight">
               Why our approach is <br />
               <span className="text-[#FD5800]">radically different.</span>
             </h2>
             
-            <div className="space-y-6 text-lg md:text-xl text-gray-300 font-medium leading-relaxed mb-12">
+            <div className="space-y-5 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-10">
               <p>
                 Most agencies focus on delivering features. We focus on delivering <span className="text-white font-bold">business outcomes</span>. 
               </p>
@@ -66,14 +66,14 @@ export default function Founder() {
             </div>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row items-center gap-6 pt-6 border-t border-white/10">
+            <div className="flex flex-col sm:flex-row items-center gap-5 pt-5 border-t border-white/10">
               <a 
                 href="#contact" 
-                className="w-full sm:w-auto px-8 py-4 bg-[#FD5800] text-white rounded-full font-black text-lg text-center hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(253,88,0,0.3)]"
+                className="w-full sm:w-auto px-7 py-3.5 bg-[#FD5800] text-white rounded-full font-black text-base text-center hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 shadow-[0_0_15px_rgba(253,88,0,0.3)]"
               >
                 Let's Talk Growth
               </a>
-              <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">
+              <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">
                 Or see our pricing plans
               </span>
             </div>

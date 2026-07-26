@@ -1,5 +1,60 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+
+const TimeDisplay = ({ city, timeZone }) => {
+  const [time, setTime] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      try {
+        const formatter = new Intl.DateTimeFormat('en-US', {
+          timeZone,
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true,
+        });
+        setTime(formatter.format(new Date()));
+      } catch (e) {
+        setTime('');
+      }
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 30000);
+    return () => clearInterval(interval);
+  }, [timeZone]);
+
+  if (!time) return null;
+
+  return (
+    <div className="border border-black/30 rounded-full px-5 py-2 md:px-6 md:py-2 flex items-center justify-center text-sm md:text-base hover:border-black/50 transition-colors bg-transparent">
+      <span className="font-bold text-black mr-1.5">{city}:</span>
+      <span className="text-gray-700 font-medium">{time}</span>
+    </div>
+  );
+};
+
+const partners = [
+  {
+    logo: "ONDC",
+    title: "ONDC Partner",
+    desc: "Complete e-commerce solutions to meet your business goals."
+  },
+  {
+    logo: "Google",
+    title: "Google Premier Partner",
+    desc: "Leverage the power of Google Ads to scale your business."
+  },
+  {
+    logo: "Zoho",
+    title: "Zoho Premium Partner",
+    desc: "Design and implement integrated business architectures and digital transformation solutions."
+  },
+  {
+    logo: "MoEngage",
+    title: "MoEngage Partner",
+    desc: "Leverage automatic customer engagement to drive retention and growth."
+  }
+];
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -22,7 +77,7 @@ export default function ContactUs() {
   const inputClasses = "w-full bg-black/5 border-b-2 border-transparent px-5 py-4 md:py-5 text-black placeholder:text-gray-500 focus:outline-none focus:border-[#FD5800] focus:bg-black/[0.02] transition-colors font-medium rounded-t-xl";
 
   return (
-    <section className="relative w-full min-h-[100svh] flex flex-col justify-center pt-16 pb-32 md:pt-24 md:pb-48 bg-white font-sans overflow-hidden rounded-b-[40px] md:rounded-b-[80px]">
+    <section className="relative w-full min-h-[100svh] flex flex-col justify-center pt-16 pb-32 md:pt-24 md:pb-48 bg-white font-sans overflow-hidden rounded-b-[20px] md:rounded-b-[40px]">
       
       {/* ─── Background Ambient Waves ─── */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(253,88,0,0.1)_0%,transparent_70%)] rounded-full pointer-events-none -translate-y-1/3 translate-x-1/3"></div>
@@ -201,7 +256,43 @@ export default function ContactUs() {
 
         </div>
 
+        {/* Partners Section */}
+        <div className="mt-24 md:mt-32 pt-16 md:pt-20 border-t border-gray-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+            {partners.map((partner, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + (idx * 0.1) }}
+                className="flex flex-col items-center text-center group cursor-default"
+              >
+                {/* Logo Placeholder */}
+                <div className="h-16 flex items-center justify-center mb-4 opacity-40 group-hover:opacity-100 transition-all duration-300">
+                  <span className="font-black text-2xl tracking-tighter text-gray-800">{partner.logo}</span>
+                </div>
+                <h4 className="font-bold text-gray-400 group-hover:text-black transition-colors duration-300 mb-3">{partner.title}</h4>
+                <p className="text-sm text-gray-400 group-hover:text-gray-600 transition-colors duration-300 leading-relaxed px-4">{partner.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
       </div>
+
+      {/* Timezones */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.6 }}
+        className="absolute bottom-10 md:bottom-12 left-0 right-0 z-20 flex flex-wrap justify-center items-center gap-4 md:gap-8 w-full px-6"
+      >
+        <TimeDisplay city="India" timeZone="Asia/Kolkata" />
+        <TimeDisplay city="London" timeZone="Europe/London" />
+        <TimeDisplay city="Amsterdam" timeZone="Europe/Amsterdam" />
+      </motion.div>
     </section>
   );
 }

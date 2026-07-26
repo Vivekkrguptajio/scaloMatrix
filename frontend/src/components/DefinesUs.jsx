@@ -43,7 +43,7 @@ export default function DefinesUs() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white font-sans overflow-hidden border-t border-gray-100 min-h-[600px] flex flex-col justify-center py-20">
+    <section ref={sectionRef} className="relative w-full bg-white font-sans overflow-hidden border-t border-gray-100 min-h-[400px] flex flex-col justify-center py-10 md:py-16">
       
       {/* Background Circle Pattern */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center">

@@ -2,38 +2,6 @@ import { useContext, useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { PortfolioContext } from '../context/PortfolioContext';
 
-const TimeDisplay = ({ city, timeZone }) => {
-  const [time, setTime] = useState('');
-
-  useEffect(() => {
-    const updateTime = () => {
-      try {
-        const formatter = new Intl.DateTimeFormat('en-US', {
-          timeZone,
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: true,
-        });
-        setTime(formatter.format(new Date()));
-      } catch (e) {
-        setTime('');
-      }
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 30000);
-    return () => clearInterval(interval);
-  }, [timeZone]);
-
-  if (!time) return null;
-
-  return (
-    <div className="border border-white/20 rounded-full px-5 py-2 md:px-6 md:py-2.5 flex items-center justify-center text-sm md:text-base hover:border-white/40 transition-colors bg-white/5 backdrop-blur-sm">
-      <span className="font-bold text-white mr-1.5">{city}:</span>
-      <span className="text-white/80">{time}</span>
-    </div>
-  );
-};
-
 export default function Contact({ reveal = false }) {
   const { profileDetails } = useContext(PortfolioContext);
   const currentYear = new Date().getFullYear();
@@ -60,29 +28,17 @@ export default function Contact({ reveal = false }) {
     >
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col items-center h-full w-full flex-grow">
         
-        {/* Large Typography Logo (Moved Up) */}
+        {/* Large Typography Logo */}
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full flex flex-col justify-center items-center flex-grow -mt-10 md:-mt-16"
+          className="w-full flex flex-col justify-center items-center flex-grow mt-10 md:mt-20"
         >
           <h2 className="text-[13vw] md:text-[14.5vw] font-sans font-black tracking-tighter leading-none select-none whitespace-nowrap">
             <span className="text-[#FD5800]">scalo</span>
             <span className="text-white">MATRIX</span>
           </h2>
-          
-          {/* Timezones */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="flex flex-wrap justify-center items-center gap-3 md:gap-4 mt-20 md:mt-32"
-          >
-            <TimeDisplay city="India" timeZone="Asia/Kolkata" />
-            <TimeDisplay city="London" timeZone="Europe/London" />
-            <TimeDisplay city="Amsterdam" timeZone="Europe/Amsterdam" />
-          </motion.div>
         </motion.div>
 
         {/* Bottom Section Wrapper */}
@@ -145,7 +101,7 @@ export default function Contact({ reveal = false }) {
   if (reveal) {
     return (
       <>
-        <div id="contact" style={{ height: footerHeight || '100vh' }} className="w-full relative z-0 pointer-events-none" />
+        <div id="contact" style={{ height: footerHeight ? footerHeight * 0.8 : '100vh' }} className="w-full relative z-0 pointer-events-none" />
         {footerContent}
       </>
     );

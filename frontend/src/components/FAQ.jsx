@@ -47,7 +47,7 @@ export default function FAQ() {
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
                   className="w-full flex justify-between items-center py-6 md:py-8 text-left focus:outline-none group"
                 >
-                  <h3 className={`text-2xl md:text-3xl lg:text-[32px] font-black tracking-tight leading-snug transition-colors duration-300 ${isOpen ? 'text-[#FD5800]' : 'text-black group-hover:text-[#FD5800]'}`}>
+                  <h3 className={`text-lg md:text-xl lg:text-2xl font-black tracking-tight leading-snug transition-colors duration-300 ${isOpen ? 'text-[#FD5800]' : 'text-black group-hover:text-[#FD5800]'}`}>
                     {faq.question}
                   </h3>
                   <div className={`ml-6 flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${isOpen ? 'border-[#FD5800] text-[#FD5800] rotate-45' : 'border-black/20 text-gray-400 group-hover:border-[#FD5800] group-hover:text-[#FD5800]'}`}>
@@ -66,7 +66,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="text-gray-600 text-base md:text-lg font-medium leading-relaxed pb-8 pr-8 lg:pr-12">
+                      <p className="text-gray-600 text-sm md:text-base font-medium leading-relaxed pb-8 pr-8 lg:pr-12">
                         {faq.answer}
                       </p>
                     </motion.div>
