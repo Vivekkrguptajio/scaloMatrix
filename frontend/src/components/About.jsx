@@ -127,8 +127,8 @@ export default function About() {
             return (
               <div 
                 key={item.id}
-                className={`flex flex-col justify-between border-r border-black/5 last:border-0 relative overflow-hidden group 
-                  w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] shrink-0 snap-center py-10 md:py-12 px-6 md:px-10 ${activeBg} transition-all duration-500 cursor-pointer`}
+                className={`flex flex-col justify-between border-r border-black/5 hover:border-black/10 last:border-0 relative overflow-hidden group 
+                  w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] shrink-0 snap-center py-10 md:py-12 px-6 md:px-10 ${activeBg} transition-all duration-500 cursor-pointer hover:saturate-150 hover:brightness-[0.97] hover:shadow-2xl hover:z-10`}
               >
                 {/* Large Background Card Number */}
                 <div className="absolute top-4 right-6 text-black/5 font-black text-6xl md:text-8xl select-none pointer-events-none group-hover:opacity-[0.08] transition-opacity">
