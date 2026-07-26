@@ -4,29 +4,29 @@ import { motion } from 'framer-motion';
 const cardsData = [
   {
     id: 1,
-    titleTop: "OWLED",
-    titleScript: "Films",
+    titleTop: "SCALO",
+    titleScript: "Brand",
     gradient: "from-[#FF4E6E] via-[#E93B55] to-[#801323]",
-    heading: "We Build\nVideos",
-    description: "An AI-native content studio built for the future. We produce over 700 videos a month - ad films, AI films, animated videos, CGI/VFX, and digital content —using in-house studios, cutting-edge AI tools that compress timelines without compromising craft.",
+    heading: "We Build\nBrands",
+    description: "We craft compelling brand identities and narratives that resonate with your target audience. From stunning visual design to comprehensive brand strategy, we ensure your brand stands out in a crowded market and builds lasting, meaningful connections.",
     link: "#"
   },
   {
     id: 2,
-    titleTop: "OWLED",
-    titleScript: "Social",
+    titleTop: "SCALO",
+    titleScript: "Commerce",
     gradient: "from-[#8B5CF6] via-[#6366F1] to-[#312E81]",
-    heading: "We Build\nCampaigns",
-    description: "Marketing Campaigns, Influencer partnerships, bold outdoor moments, and hands-on social media management, all working together to keep your brand relevant every day.",
+    heading: "We Build\nCommerce",
+    description: "We engineer seamless, high-converting e-commerce experiences designed to drive sales and foster customer loyalty. Our solutions integrate cutting-edge technology with intuitive UI/UX to optimize the entire buyer's journey from discovery to checkout.",
     link: "#"
   },
   {
     id: 3,
-    titleTop: "hooc",
-    titleScript: "",
+    titleTop: "SCALO",
+    titleScript: "Growth",
     gradient: "from-[#F97316] via-[#EA580C] to-[#7C2D12]",
-    heading: "We Build\nIPs & Distribution",
-    description: "We create digital IPs like Podcasts, YT channels, IG Creator / Community Pages",
+    heading: "We Build\nGrowth",
+    description: "We execute data-driven growth strategies that scale your business rapidly. By leveraging advanced analytics, performance marketing, and relentless conversion rate optimization, we maximize your ROI and accelerate your market penetration.",
     link: "#"
   }
 ];
@@ -49,7 +49,7 @@ export default function ServicesCards() {
         {/* Heading */}
         <div className="flex flex-col items-center justify-center text-center pb-8 pt-2">
           <span className="text-[#FD5800] uppercase tracking-[0.2em] text-[13px] font-bold mb-2">Ecosystem</span>
-          <h2 className="text-5xl md:text-7xl lg:text-[100px] font-['Impact',sans-serif] font-black leading-none uppercase tracking-tight text-[#f4f2e6]">
+          <h2 className="text-5xl md:text-7xl lg:text-[100px] font-sans font-black leading-none uppercase tracking-tight text-[#f4f2e6]">
             What We <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#ee7c59] to-[#b43242]">Build</span>
           </h2>
         </div>
