@@ -143,13 +143,13 @@ export default function DefinesUs() {
           </div>
 
           {/* Right: Paragraph and Button */}
-          <div className="lg:w-[65%] flex flex-col gap-10 items-start">
+          <div className="lg:w-[65%] flex flex-col gap-16 items-start">
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-[15px] lg:text-[16px] text-gray-500 font-medium leading-[1.6] max-w-[950px]"
+              className="text-[16px] md:text-[18px] lg:text-[20px] text-gray-500 font-medium leading-[1.6] max-w-[950px]"
             >
               We're on a mission to take the very best of Indian creative talent to the world. Driven by a ferocious hunger to create tangible impact for your business, we work with in-house specialists, industry partners and technology leaders to push the boundaries of creativity and put your brand on the global stage.
             </motion.p>
@@ -159,8 +159,9 @@ export default function DefinesUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
+              className="mt-8"
             >
-              <a href="#contact" className="inline-flex items-center justify-center px-10 py-4 rounded-full font-bold text-[14px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide">
+              <a href="#contact" style={{ fontFamily: "'Sora', sans-serif" }} className="inline-flex items-center justify-center px-10 py-4 rounded-full font-bold text-[16px] md:text-[18px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide">
                 Dive Into Our Culture <span className="ml-3 font-normal">&rarr;</span>
               </a>
             </motion.div>

@@ -43,8 +43,17 @@ export default function ServicesCards() {
   };
 
   return (
-    <section className="bg-white py-8 relative overflow-hidden" id="services">
+    <section className="bg-black py-8 relative overflow-hidden" id="services">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+        
+        {/* Heading */}
+        <div className="flex flex-col items-center justify-center text-center pb-8 pt-2">
+          <span className="text-[#FD5800] uppercase tracking-[0.2em] text-[13px] font-bold mb-2">Ecosystem</span>
+          <h2 className="text-5xl md:text-7xl lg:text-[100px] font-['Impact',sans-serif] font-black leading-none uppercase tracking-tight text-[#f4f2e6]">
+            What We <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#ee7c59] to-[#b43242]">Build</span>
+          </h2>
+        </div>
+
         {/* Cards Container */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6 pt-2 px-2">
           {cardsData.map((card) => (
