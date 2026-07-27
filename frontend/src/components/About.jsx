@@ -141,7 +141,7 @@ export default function About() {
                 key={item.id}
                 onClick={() => setActiveCardId(isActive ? null : item.id)}
                 className={`flex flex-col justify-between border-b md:border-b-0 md:border-r border-black/5 hover:border-black/10 last:border-0 md:last:border-r-0 relative overflow-hidden group 
-                  w-full md:w-[380px] lg:w-[420px] shrink-0 md:snap-center py-6 md:py-12 px-6 md:px-10 transition-all duration-500 cursor-pointer hover:shadow-2xl hover:z-10
+                  w-full md:w-[380px] lg:w-[420px] shrink-0 md:snap-center py-5 md:py-12 px-6 md:px-10 transition-all duration-500 cursor-pointer hover:shadow-2xl hover:z-10
                   ${isActive ? forceBg : 'bg-white'} ${activeBg}`}
               >
                 {/* Large Background Card Number */}
@@ -163,19 +163,31 @@ export default function About() {
                       ${isActive ? 'text-white' : 'text-gray-500'}`}>
                       {item.title} <br className="hidden md:inline"/>Solution
                     </h3>
+
+                    {/* Permanent Circle Arrow Link */}
+                    <a 
+                      href="#" 
+                      onClick={(e) => e.stopPropagation()} 
+                      className={`mt-4 md:mt-8 w-12 h-12 rounded-full flex items-center justify-center group/btn hover:scale-105 transition-all duration-300 shadow-md shrink-0 border border-transparent
+                        ${isActive ? 'bg-white text-gray-900' : 'bg-gray-100 text-gray-800 hover:bg-gray-900 hover:text-white group-hover:bg-white group-hover:text-gray-900'}`}
+                    >
+                      <svg className={`w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-500`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
                   </div>
 
                   {/* HOVER DETAILS SECTION (Collapsed by default, revealed on hover) */}
-                  <div className={`group-hover:opacity-100 group-hover:max-h-[500px] transition-all duration-500 ease-out overflow-hidden flex flex-col items-center text-center pt-8 
+                  <div className={`group-hover:opacity-100 group-hover:max-h-[500px] transition-all duration-500 ease-out overflow-hidden flex flex-col items-center text-center pt-4 md:pt-8 
                     ${isActive ? 'opacity-100 max-h-[500px]' : 'opacity-0 max-h-0'}`}>
                     
-                    <p className={`text-sm md:text-base font-medium leading-relaxed mb-6 max-w-sm drop-shadow-sm transition-all duration-500 transform delay-75 group-hover:text-white/90 group-hover:translate-y-0 group-hover:opacity-100 
+                    <p className={`text-sm md:text-base font-medium leading-relaxed mb-4 md:mb-6 max-w-sm drop-shadow-sm transition-all duration-500 transform delay-75 group-hover:text-white/90 group-hover:translate-y-0 group-hover:opacity-100 
                       ${isActive ? 'text-white/90 translate-y-0 opacity-100' : 'text-gray-500 translate-y-8 opacity-0'}`}>
                       {item.desc}
                     </p>
                     
                     {/* Services Checklist */}
-                    <ul className={`grid gap-x-4 gap-y-2.5 mb-8 w-full max-w-md ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'} transition-all duration-500 transform delay-150 group-hover:translate-y-0 group-hover:opacity-100 
+                    <ul className={`grid gap-x-4 gap-y-2.5 mb-4 md:mb-8 w-full max-w-md ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'} transition-all duration-500 transform delay-150 group-hover:translate-y-0 group-hover:opacity-100 
                       ${isActive ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
                       {item.list.map((listItem, i) => (
                         <li key={i} className="flex items-start gap-2 text-left">
@@ -192,14 +204,6 @@ export default function About() {
                       ))}
                     </ul>
 
-                    {/* Circle Arrow Button */}
-                    <button className={`w-12 h-12 rounded-full flex items-center justify-center group/btn hover:scale-105 transition-all duration-500 shadow-lg shrink-0 transform delay-200 group-hover:bg-white group-hover:translate-y-0 group-hover:opacity-100 
-                      ${isActive ? 'bg-white translate-y-0 opacity-100' : 'bg-gray-900 translate-y-8 opacity-0'}`}>
-                      <svg className={`w-5 h-5 group-hover:text-gray-900 group-hover/btn:translate-x-1 transition-all duration-500 
-                        ${isActive ? 'text-gray-900' : 'text-white'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </button>
                   </div>
 
                 </div>
