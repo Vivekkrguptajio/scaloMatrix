@@ -109,11 +109,11 @@ export default function ServicesCards() {
                 </p>
                 
                 <div className="mt-6 flex justify-end">
-                  <a href={card.link} className="group flex items-center gap-2 text-sm font-bold px-5 py-2 rounded-full bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors uppercase tracking-wide">
+                  <a href={card.link} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition-colors text-sm font-semibold text-[#FD5800] group">
                     Explore {card.titleScript}
-                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
+                    <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </span>
                   </a>
                 </div>
               </div>
