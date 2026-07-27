@@ -57,13 +57,13 @@ export default function Hero({ startAnimation }) {
 
           {/* Tags */}
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-5 mt-2">
-            <div className="text-[13px] sm:text-[14px] font-bold text-gray-600 border-b-2 border-gray-200 pb-1">
+            <div className="text-[13px] sm:text-[14px] font-bold text-gray-600">
               <span className="text-[#FD5800]">Brand</span> creates demand
             </div>
-            <div className="text-[13px] sm:text-[14px] font-bold text-gray-600 border-b-2 border-gray-200 pb-1">
+            <div className="text-[13px] sm:text-[14px] font-bold text-gray-600">
               <span className="text-[#FD5800]">Commerce</span> converts it
             </div>
-            <div className="text-[13px] sm:text-[14px] font-bold text-gray-600 border-b-2 border-gray-200 pb-1">
+            <div className="text-[13px] sm:text-[14px] font-bold text-gray-600">
               <span className="text-[#FD5800]">Growth</span> scales it
             </div>
           </div>
