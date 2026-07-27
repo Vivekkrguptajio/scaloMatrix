@@ -1,28 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const words = [
-  { text: "BRAND", color: "text-[#FD5800]" },
-  { text: "COMMERCE", color: "text-black" },
-  { text: "GROWTH", color: "text-black" }
-];
-
 export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
-  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    // Cycle through the words
-    const interval = setInterval(() => {
-      setIndex((prev) => {
-        if (prev < words.length - 1) return prev + 1;
-        return prev;
-      });
-    }, 800); // 800ms per word
-
     const handleLoad = () => {
-      // Delay closing until animation finishes
-      setTimeout(() => setIsLoading(false), 2800);
+      // Small delay after load for premium feel
+      setTimeout(() => setIsLoading(false), 1500);
     };
 
     if (document.readyState === 'complete') {
@@ -31,12 +16,12 @@ export default function Preloader() {
       window.addEventListener('load', handleLoad);
     }
 
+    // Fallback if window.onload never fires (e.g. some resources fail)
     const fallback = setTimeout(() => {
       setIsLoading(false);
     }, 3500);
 
     return () => {
-      clearInterval(interval);
       window.removeEventListener('load', handleLoad);
       clearTimeout(fallback);
     };
@@ -50,22 +35,52 @@ export default function Preloader() {
           exit={{ opacity: 0, y: "-100%" }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white overflow-hidden"
-          style={{ perspective: "1000px" }}
         >
-          <div className="relative flex items-center justify-center h-20 w-full">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={index}
-                initial={{ rotateX: -90, opacity: 0, y: 40 }}
-                animate={{ rotateX: 0, opacity: 1, y: 0 }}
-                exit={{ rotateX: 90, opacity: 0, y: -40 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className={`absolute text-3xl md:text-5xl lg:text-7xl font-black uppercase tracking-widest font-sans ${words[index].color}`}
-                style={{ transformStyle: "preserve-3d", transformOrigin: "center center" }}
-              >
-                {words[index].text}
-              </motion.div>
-            </AnimatePresence>
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-5 text-xl md:text-3xl lg:text-5xl font-black uppercase tracking-widest font-sans px-4 text-center">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-[#FD5800]"
+            >
+              BRAND
+            </motion.span>
+            
+            <motion.span 
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+              className="text-black"
+            >
+              •
+            </motion.span>
+
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="text-black"
+            >
+              COMMERCE
+            </motion.span>
+            
+            <motion.span 
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.7, duration: 0.4 }}
+              className="text-black"
+            >
+              •
+            </motion.span>
+
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="text-black"
+            >
+              GROWTH
+            </motion.span>
           </div>
         </motion.div>
       )}
