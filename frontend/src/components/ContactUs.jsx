@@ -259,11 +259,11 @@ export default function ContactUs() {
           <div className="absolute top-0 left-0 w-16 md:w-32 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none mt-16 md:mt-24" />
           <div className="absolute top-0 right-0 w-16 md:w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none mt-16 md:mt-24" />
 
-          <div className="animate-marquee flex gap-12 sm:gap-16 items-start hover:[animation-play-state:paused]">
+          <div className="animate-marquee flex gap-8 sm:gap-12 items-start hover:[animation-play-state:paused]" style={{ animationDuration: '30s' }}>
             {[...partners, ...partners, ...partners, ...partners, ...partners].map((partner, idx) => (
               <div 
                 key={`${partner.logo}-${idx}`}
-                className="shrink-0 w-[260px] sm:w-[300px] flex flex-col items-center text-center group/partner cursor-default"
+                className="shrink-0 w-[200px] sm:w-[240px] md:w-[260px] flex flex-col items-center text-center group/partner cursor-default"
               >
                 {/* Logo Placeholder */}
                 <div className="h-16 flex items-center justify-center mb-4 opacity-40 group-hover/partner:opacity-100 transition-all duration-300">
