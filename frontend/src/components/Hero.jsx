@@ -72,7 +72,7 @@ export default function Hero({ startAnimation }) {
       
       {/* Marquee at the bottom of the hero section */}
       <motion.div 
-        className="absolute bottom-0 md:bottom-1 left-0 w-full"
+        className="absolute bottom-4 md:bottom-8 left-0 w-full"
         initial={{ opacity: 0, y: 50 }}
         animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
