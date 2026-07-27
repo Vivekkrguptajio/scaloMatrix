@@ -43,7 +43,7 @@ export default function DefinesUs() {
   }, [])
 
   return (
-    <section id="definesus" ref={sectionRef} className="relative w-full bg-white font-sans overflow-hidden border-t border-gray-100 min-h-[500px] flex flex-col justify-center py-16 md:py-24">
+    <section id="definesus" ref={sectionRef} className="relative w-full bg-white font-sans overflow-hidden border-t border-gray-100 min-h-[500px] flex flex-col justify-center py-8 md:py-24">
       
       {/* Background Peanut & Circle Pattern */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center">
@@ -143,7 +143,7 @@ export default function DefinesUs() {
           </div>
 
           {/* Right: Paragraph and Button */}
-          <div className="lg:w-[65%] flex flex-col gap-16 items-start">
+          <div className="lg:w-[65%] flex flex-col gap-8 md:gap-16 items-start">
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -159,10 +159,10 @@ export default function DefinesUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="mt-8"
+              className="mt-0 md:mt-8"
             >
-              <a href="#contact" style={{ fontFamily: "'Sora', sans-serif" }} className="inline-flex items-center justify-center px-8 py-3 rounded-full font-bold text-[15px] md:text-[16px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide">
-                Dive Into Our Culture <span className="ml-3 font-normal">&rarr;</span>
+              <a href="#contact" style={{ fontFamily: "'Sora', sans-serif" }} className="inline-flex items-center justify-center px-6 py-2.5 md:px-8 md:py-3 rounded-full font-bold text-[13px] md:text-[16px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide">
+                Dive Into Our Culture <span className="ml-2 md:ml-3 font-normal">&rarr;</span>
               </a>
             </motion.div>
           </div>

@@ -23,6 +23,7 @@ function CheckItem({ text, delay = 0 }) {
 }
 
 export default function About() {
+  const [activeCardId, setActiveCardId] = useState(null);
   const scrollRef = useRef(null);
   const targetScroll = useRef(0);
   const currentScroll = useRef(0);
@@ -108,11 +109,12 @@ export default function About() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onMouseMove={handleMouseMove}
-          className="w-full h-full min-h-[75vh] md:min-h-screen flex flex-row shadow-2xl overflow-x-auto overflow-y-hidden rounded-none border-t border-gray-200 cursor-ew-resize select-none" 
+          className="w-full h-full md:min-h-screen flex flex-col md:flex-row shadow-2xl overflow-x-hidden md:overflow-x-auto md:overflow-y-hidden rounded-none border-t border-gray-200 cursor-auto md:cursor-ew-resize select-none" 
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {solutions.map((item, index) => {
             
+            const isActive = activeCardId === item.id;
             const activeColors = [
               'hover:bg-blue-600',    // Vibrant Blue
               'hover:bg-rose-500',    // Vibrant Rose
@@ -122,16 +124,29 @@ export default function About() {
               'hover:bg-indigo-500',  // Vibrant Indigo
               'hover:bg-fuchsia-600'  // Vibrant Fuchsia
             ];
+            const activeBgColors = [
+              'bg-blue-600',
+              'bg-rose-500',
+              'bg-emerald-500',
+              'bg-purple-600',
+              'bg-[#FD5800]',
+              'bg-indigo-500',
+              'bg-fuchsia-600'
+            ];
             const activeBg = activeColors[index % activeColors.length];
+            const forceBg = activeBgColors[index % activeBgColors.length];
 
             return (
               <div 
                 key={item.id}
-                className={`flex flex-col justify-between border-r border-black/5 hover:border-black/10 last:border-0 relative overflow-hidden group 
-                  w-[85vw] sm:w-[320px] md:w-[380px] lg:w-[420px] shrink-0 snap-center py-10 md:py-12 px-6 md:px-10 bg-white ${activeBg} transition-all duration-500 cursor-pointer hover:shadow-2xl hover:z-10`}
+                onClick={() => setActiveCardId(isActive ? null : item.id)}
+                className={`flex flex-col justify-between border-b md:border-b-0 md:border-r border-black/5 hover:border-black/10 last:border-0 md:last:border-r-0 relative overflow-hidden group 
+                  w-full md:w-[380px] lg:w-[420px] shrink-0 md:snap-center py-6 md:py-12 px-6 md:px-10 transition-all duration-500 cursor-pointer hover:shadow-2xl hover:z-10
+                  ${isActive ? forceBg : 'bg-white'} ${activeBg}`}
               >
                 {/* Large Background Card Number */}
-                <div className="absolute top-4 right-6 text-black/5 font-black text-6xl md:text-8xl select-none pointer-events-none group-hover:opacity-[0.08] transition-opacity">
+                <div className={`absolute top-4 right-6 font-black text-6xl md:text-8xl select-none pointer-events-none group-hover:opacity-[0.08] transition-opacity 
+                  ${isActive ? 'opacity-[0.08] text-black/10' : 'opacity-100 text-black/5'}`}>
                   {item.id}
                 </div>
 
@@ -139,38 +154,49 @@ export default function About() {
                   
                   {/* CARD COVER / TITLE SECTION */}
                   <div className="flex flex-col items-center text-center transition-all duration-500">
-                    <div className="w-16 h-16 rounded-2xl bg-black/5 backdrop-blur-md flex items-center justify-center mb-6 text-gray-500 group-hover:text-white shadow-sm group-hover:scale-110 group-hover:bg-white/20 transition-all duration-500">
+                    <div className={`hidden md:flex w-16 h-16 rounded-2xl backdrop-blur-md items-center justify-center mb-6 shadow-sm group-hover:text-white group-hover:scale-110 group-hover:bg-white/20 transition-all duration-500 
+                      ${isActive ? 'text-white scale-110 bg-white/20' : 'text-gray-500 bg-black/5'}`}>
                       {item.icon}
                     </div>
 
-                    <h3 className="text-[32px] md:text-[38px] lg:text-[44px] font-black leading-[1.1] text-gray-500 group-hover:text-white transition-colors duration-500 tracking-tight">
+                    <h3 className={`text-[32px] md:text-[38px] lg:text-[44px] font-black leading-[1.1] group-hover:text-white transition-colors duration-500 tracking-tight 
+                      ${isActive ? 'text-white' : 'text-gray-500'}`}>
                       {item.title} <br className="hidden md:inline"/>Solution
                     </h3>
                   </div>
 
                   {/* HOVER DETAILS SECTION (Collapsed by default, revealed on hover) */}
-                  <div className="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[500px] transition-all duration-500 ease-out overflow-hidden flex flex-col items-center text-center pt-8">
-                    <p className="text-gray-500 group-hover:text-white/90 text-sm md:text-base font-medium leading-relaxed mb-6 max-w-sm drop-shadow-sm transition-all duration-500 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 delay-75">
+                  <div className={`group-hover:opacity-100 group-hover:max-h-[500px] transition-all duration-500 ease-out overflow-hidden flex flex-col items-center text-center pt-8 
+                    ${isActive ? 'opacity-100 max-h-[500px]' : 'opacity-0 max-h-0'}`}>
+                    
+                    <p className={`text-sm md:text-base font-medium leading-relaxed mb-6 max-w-sm drop-shadow-sm transition-all duration-500 transform delay-75 group-hover:text-white/90 group-hover:translate-y-0 group-hover:opacity-100 
+                      ${isActive ? 'text-white/90 translate-y-0 opacity-100' : 'text-gray-500 translate-y-8 opacity-0'}`}>
                       {item.desc}
                     </p>
                     
                     {/* Services Checklist */}
-                    <ul className={`grid gap-x-4 gap-y-2.5 mb-8 w-full max-w-md ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'} transition-all duration-500 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 delay-150`}>
+                    <ul className={`grid gap-x-4 gap-y-2.5 mb-8 w-full max-w-md ${item.list.length > 3 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'} transition-all duration-500 transform delay-150 group-hover:translate-y-0 group-hover:opacity-100 
+                      ${isActive ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
                       {item.list.map((listItem, i) => (
                         <li key={i} className="flex items-start gap-2 text-left">
-                          <div className="w-4 h-4 rounded-full bg-[#FD5800]/20 group-hover:bg-white/20 flex items-center justify-center shrink-0 mt-[3px] transition-colors duration-500">
-                            <svg className="w-2.5 h-2.5 text-[#FD5800] group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
+                          <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-[3px] transition-colors duration-500 group-hover:bg-white/20 
+                            ${isActive ? 'bg-white/20' : 'bg-[#FD5800]/20'}`}>
+                            <svg className={`w-2.5 h-2.5 group-hover:text-white transition-colors duration-500 
+                              ${isActive ? 'text-white' : 'text-[#FD5800]'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                           </div>
-                          <span className="text-gray-600 group-hover:text-white font-semibold text-xs md:text-sm transition-colors duration-500">{listItem}</span>
+                          <span className={`font-semibold text-xs md:text-sm transition-colors duration-500 group-hover:text-white 
+                            ${isActive ? 'text-white' : 'text-gray-600'}`}>{listItem}</span>
                         </li>
                       ))}
                     </ul>
 
                     {/* Circle Arrow Button */}
-                    <button className="w-12 h-12 bg-gray-900 group-hover:bg-white rounded-full flex items-center justify-center group/btn hover:scale-105 transition-all duration-500 shadow-lg shrink-0 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 delay-200">
-                      <svg className="w-5 h-5 text-white group-hover:text-gray-900 group-hover/btn:translate-x-1 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <button className={`w-12 h-12 rounded-full flex items-center justify-center group/btn hover:scale-105 transition-all duration-500 shadow-lg shrink-0 transform delay-200 group-hover:bg-white group-hover:translate-y-0 group-hover:opacity-100 
+                      ${isActive ? 'bg-white translate-y-0 opacity-100' : 'bg-gray-900 translate-y-8 opacity-0'}`}>
+                      <svg className={`w-5 h-5 group-hover:text-gray-900 group-hover/btn:translate-x-1 transition-all duration-500 
+                        ${isActive ? 'text-gray-900' : 'text-white'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </button>

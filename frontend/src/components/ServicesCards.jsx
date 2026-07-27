@@ -66,7 +66,7 @@ export default function ServicesCards() {
               className="bg-[#181818] text-white rounded-2xl border border-white/5 flex flex-col overflow-hidden shadow-2xl relative w-full"
             >
               {/* Top Gradient Image Area */}
-              <div className="relative h-[200px] w-full p-4">
+              <div className="relative h-[140px] md:h-[200px] w-full p-3 md:p-4">
                  {/* The unique gradient shape */}
                  <div className="absolute inset-0 p-4 pb-0">
                     <div 
@@ -81,16 +81,16 @@ export default function ServicesCards() {
                  </div>
 
                  {/* Text Overlay */}
-                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-[-20px]">
+                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-[-10px] md:mt-[-20px]">
                    {card.titleTop === 'hooc' ? (
-                      <h3 className="text-5xl font-light tracking-wider text-white drop-shadow-xl" style={{ fontFamily: "'Comfortaa', sans-serif" }}>
+                      <h3 className="text-4xl md:text-5xl font-light tracking-wider text-white drop-shadow-xl" style={{ fontFamily: "'Comfortaa', sans-serif" }}>
                         h<span className="text-[1.1em] font-normal tracking-tighter">oo</span>c
                       </h3>
                    ) : (
-                      <h3 className="text-5xl font-black tracking-tight text-white drop-shadow-xl flex flex-col items-center font-sans">
+                      <h3 className="text-4xl md:text-5xl font-black tracking-tight text-white drop-shadow-xl flex flex-col items-center font-sans">
                         {card.titleTop}
                         {card.titleScript && (
-                          <span className="font-serif text-[#F3CD7A] text-4xl font-normal -mt-4 italic" style={{ fontFamily: "'Playfair Display', serif" }}>
+                          <span className="font-serif text-[#F3CD7A] text-3xl md:text-4xl font-normal -mt-3 md:-mt-4 italic" style={{ fontFamily: "'Playfair Display', serif" }}>
                             {card.titleScript}
                           </span>
                         )}
@@ -100,16 +100,16 @@ export default function ServicesCards() {
               </div>
 
               {/* Content Area */}
-              <div className="p-5 pt-4 flex-grow flex flex-col z-10">
-                <h4 className="text-2xl font-bold mb-3 whitespace-pre-line text-white leading-tight">
+              <div className="p-4 pt-3 md:p-5 md:pt-4 flex-grow flex flex-col z-10">
+                <h4 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 whitespace-pre-line text-white leading-tight">
                   {card.heading}
                 </h4>
-                <p className="text-[#a1a1aa] text-sm leading-relaxed flex-grow font-medium">
+                <p className="text-[#a1a1aa] text-sm leading-relaxed flex-grow font-medium line-clamp-2 md:line-clamp-none">
                   {card.description}
                 </p>
                 
-                <div className="mt-6 flex justify-end">
-                  <a href={card.link} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FD5800] text-white hover:bg-white hover:text-black transition-colors text-sm font-semibold group">
+                <div className="mt-4 md:mt-6 flex justify-end">
+                  <a href={card.link} className="inline-flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-xl bg-[#FD5800] text-white hover:bg-white hover:text-black transition-colors text-sm font-semibold group">
                     Explore {card.titleScript}
                     <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>

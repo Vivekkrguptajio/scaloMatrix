@@ -6,15 +6,15 @@ export default function Showreel() {
   const videoId = 'L9V2lbljBa4';
 
   return (
-    <section id="showreel" className="w-full bg-white relative z-20 py-8 md:py-[5%] mt-12 md:mt-24">
-      <div className="max-w-[1400px] w-full mx-auto px-4 md:px-8 mb-10 text-center">
+    <section id="showreel" className="w-full bg-white relative z-20 pt-6 pb-0 md:py-[5%] mt-8 md:mt-24">
+      <div className="max-w-[1400px] w-full mx-auto px-4 md:px-8 mb-4 md:mb-10 text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight">
           Streamline Business with our <span className="text-[#FD5800]">Flexible options</span>
         </h2>
       </div>
 
       <motion.div 
-        className="w-[92%] md:w-[70%] mx-auto relative aspect-[2/1] bg-black overflow-hidden shadow-[0_0_40px_rgba(253,88,0,0.4)] border-2 border-[#FD5800]/60 rounded-xl md:rounded-3xl"
+        className="w-full md:w-[70%] mx-auto relative aspect-[2/1] bg-black overflow-hidden shadow-[0_0_40px_rgba(253,88,0,0.4)] border-y-2 md:border-2 border-[#FD5800]/60 rounded-none md:rounded-3xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

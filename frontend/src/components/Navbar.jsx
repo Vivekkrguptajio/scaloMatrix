@@ -6,6 +6,7 @@ import { navLinks, megaMenuData } from '../data/navData'
 export default function Navbar({ scrolled, activeSection, loading, isDarkTheme = false, isHidden = false }) {
   const { profileDetails, projects } = useContext(PortfolioContext)
   const [mobileMenu, setMobileMenu] = useState(false)
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState(null)
   const logoX = useMotionValue(0)
   const logoY = useMotionValue(0)
   const [activeDropdown, setActiveDropdown] = useState(null)
@@ -239,24 +240,68 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
       </nav>
 
       {/* Mobile Nav Menu Dropdown */}
-      <div className={`md:hidden absolute top-[calc(100%+12px)] left-4 right-4 rounded-2xl glass-navbar border-t border-gray-100 overflow-hidden transition-all duration-300 shadow-xl ${
-        mobileMenu ? 'max-h-60 opacity-100 py-2' : 'max-h-0 opacity-0 py-0 border-transparent'
+      <div className={`md:hidden absolute top-[calc(100%+12px)] left-4 right-4 rounded-2xl glass-navbar border-t border-gray-100 overflow-y-auto overflow-x-hidden transition-all duration-300 shadow-xl ${
+        mobileMenu ? 'max-h-[75vh] opacity-100 py-2' : 'max-h-0 opacity-0 py-0 border-transparent'
       }`}>
         <div className="flex flex-col px-4 py-2 gap-3">
           {navLinks.map((link) => (
-            <a 
-              key={link.name}
-              href={link.href}
-              onClick={() => setMobileMenu(false)}
-              className="flex items-center justify-between text-base font-bold text-[#FD5800]/80 hover:text-[#FD5800] hover:bg-orange-50/50 rounded-xl px-4 py-2 transition-all"
-            >
-              {link.name}
-              {link.hasDropdown && (
-                <svg className="w-4 h-4 text-[#FD5800]/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+            <div key={link.name} className="flex flex-col">
+              <a 
+                href={link.hasDropdown ? '#' : link.href}
+                onClick={(e) => {
+                  if (link.hasDropdown) {
+                    e.preventDefault();
+                    setActiveMobileDropdown(activeMobileDropdown === link.name ? null : link.name);
+                  } else {
+                    setMobileMenu(false);
+                  }
+                }}
+                className={`flex items-center justify-between text-base font-bold px-4 py-2 transition-all rounded-xl ${activeMobileDropdown === link.name ? 'text-[#FD5800] bg-orange-50/50' : 'text-[#FD5800]/80 hover:text-[#FD5800] hover:bg-orange-50/50'}`}
+              >
+                {link.name}
+                {link.hasDropdown && (
+                  <svg className={`w-4 h-4 transition-transform duration-300 ${activeMobileDropdown === link.name ? '-rotate-180 text-[#FD5800]' : 'text-[#FD5800]/60'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                )}
+              </a>
+              
+              {/* Mobile Submenu Dropdown */}
+              {link.hasDropdown && activeMobileDropdown === link.name && megaMenuData[link.name] && (
+                <div className="flex flex-col gap-2 pl-6 pr-4 py-2 mt-1">
+                  {megaMenuData[link.name].type === 'columns' ? (
+                    megaMenuData[link.name].columns.map((col, idx) => (
+                      <div key={idx} className="mb-2">
+                        <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">{col.title}</div>
+                        <div className="flex flex-col gap-2">
+                          {col.items.map((item, itemIdx) => (
+                            <a 
+                              key={itemIdx} 
+                              href={item.href}
+                              onClick={() => setMobileMenu(false)}
+                              className="text-sm font-bold text-gray-700 hover:text-[#FD5800] py-1 transition-colors"
+                            >
+                              {item.title}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    megaMenuData[link.name].items.map((item, idx) => (
+                      <a 
+                        key={idx} 
+                        href={item.href}
+                        onClick={() => setMobileMenu(false)}
+                        className="text-sm font-bold text-gray-700 hover:text-[#FD5800] py-1 transition-colors"
+                      >
+                        {item.title}
+                      </a>
+                    ))
+                  )}
+                </div>
               )}
-            </a>
+            </div>
           ))}
           <a 
             href="/contact" 

@@ -41,7 +41,7 @@ const teamMembers = [
 
 export default function TeamMembers() {
   return (
-    <section id="team" className="relative w-full min-h-[100svh] md:h-[100svh] flex flex-col bg-[#0a0a0a] font-sans overflow-hidden">
+    <section id="team" className="relative w-full h-auto md:h-[100svh] md:min-h-[100svh] flex flex-col bg-[#0a0a0a] font-sans overflow-hidden py-12 md:py-0">
 
       
       <div className="w-full h-full flex flex-col relative z-10 pt-4 md:pt-6">
