@@ -11,7 +11,7 @@ export default function Hero({ startAnimation }) {
 
       <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-4 md:mt-8">
         <motion.h1 
-          className="text-[32px] sm:text-4xl md:text-5xl lg:text-[74px] font-black font-sans text-black leading-[1.05] md:leading-[0.95] tracking-tight mb-6 md:mb-8 text-center md:text-left"
+          className="text-[32px] sm:text-4xl md:text-5xl lg:text-[74px] font-black font-sans text-black leading-[1.05] md:leading-[0.95] tracking-tight mb-4 md:mb-5 text-center md:text-left"
           initial={{ opacity: 0, y: 20 }}
           animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -21,7 +21,7 @@ export default function Hero({ startAnimation }) {
         </motion.h1>
 
         <motion.p 
-          className="text-[15px] sm:text-base md:text-lg text-[#222] font-medium max-w-[800px] leading-relaxed mb-8 md:mb-10 text-center md:text-left mx-auto md:mx-0"
+          className="text-[15px] sm:text-base md:text-lg text-[#222] font-medium max-w-[800px] leading-normal mb-6 md:mb-8 text-center md:text-left mx-auto md:mx-0"
           initial={{ opacity: 0, y: 20 }}
           animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -30,7 +30,7 @@ export default function Hero({ startAnimation }) {
         </motion.p>
 
         <motion.div 
-          className="flex flex-col gap-4 lg:gap-5 mb-12"
+          className="flex flex-col gap-3 lg:gap-4 mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
