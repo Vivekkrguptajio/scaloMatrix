@@ -160,7 +160,8 @@ export default function DefinesUs() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
               className="mt-8"
-              <a href="#contact" style={{ fontFamily: "'Sora', sans-serif" }} className="flex w-full sm:w-auto items-center justify-center px-8 py-3.5 sm:py-3 rounded-full font-bold text-[15px] md:text-[16px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide">
+            >
+              <a href="#contact" style={{ fontFamily: "'Sora', sans-serif" }} className="inline-flex items-center justify-center px-8 py-3 rounded-full font-bold text-[15px] md:text-[16px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide">
                 Dive Into Our Culture <span className="ml-3 font-normal">&rarr;</span>
               </a>
             </motion.div>
