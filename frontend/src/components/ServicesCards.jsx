@@ -49,8 +49,8 @@ export default function ServicesCards() {
         {/* Heading */}
         <div className="flex flex-col items-center justify-center text-center pb-8 pt-2">
           <span className="text-[#FD5800] uppercase tracking-[0.2em] text-[13px] font-bold mb-2">Ecosystem</span>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[100px] font-sans font-black leading-none uppercase tracking-tight text-[#f4f2e6]">
-            What We <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#ee7c59] to-[#b43242]">Build</span>
+          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[100px] font-sans font-black leading-none uppercase tracking-tight text-[#FD5800]">
+            What We Build
           </h2>
         </div>
 
