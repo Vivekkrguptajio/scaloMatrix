@@ -9,11 +9,15 @@ export default function Marquee() {
         <div className="animate-marquee-reverse inline-block whitespace-nowrap flex items-center">
           {Array(repetitions).fill(0).map((_, i) => (
             <div key={i} className="inline-flex items-center text-xl md:text-2xl lg:text-4xl font-black font-sans tracking-tighter uppercase text-white">
+              <span className="px-6">Brand</span>
+              <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
+              <span className="px-6">Commerce</span>
+              <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
+              <span className="px-6">Growth</span>
+              <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
               <span className="px-6">Strategy</span>
               <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
               <span className="px-6">Design</span>
-              <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
-              <span className="px-6">Growth</span>
               <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
               <span className="px-6">scaloMATRIX</span>
               <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
