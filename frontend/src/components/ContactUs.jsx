@@ -238,7 +238,7 @@ export default function ContactUs() {
               >
                 <button 
                   type="submit"
-                  className="group w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-none font-bold text-lg bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
+                  className="group w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-bold text-lg bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
                 >
                   <span>Send Message</span>
                   
