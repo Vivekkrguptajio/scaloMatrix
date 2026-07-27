@@ -254,24 +254,24 @@ export default function ContactUs() {
         </div>
 
         {/* Partners Section */}
-        <div className="mt-16 md:mt-24 pt-10 md:pt-16 border-t border-gray-100">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
-            {partners.map((partner, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + (idx * 0.1) }}
-                className="flex flex-col items-center text-center group cursor-default"
+        <div className="mt-16 md:mt-24 pt-10 md:pt-16 border-t border-gray-100 relative overflow-hidden group">
+          
+          <div className="absolute top-0 left-0 w-16 md:w-32 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none mt-16 md:mt-24" />
+          <div className="absolute top-0 right-0 w-16 md:w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none mt-16 md:mt-24" />
+
+          <div className="animate-marquee flex gap-12 sm:gap-16 items-start hover:[animation-play-state:paused]">
+            {[...partners, ...partners, ...partners, ...partners, ...partners].map((partner, idx) => (
+              <div 
+                key={`${partner.logo}-${idx}`}
+                className="shrink-0 w-[260px] sm:w-[300px] flex flex-col items-center text-center group/partner cursor-default"
               >
                 {/* Logo Placeholder */}
-                <div className="h-16 flex items-center justify-center mb-4 opacity-40 group-hover:opacity-100 transition-all duration-300">
+                <div className="h-16 flex items-center justify-center mb-4 opacity-40 group-hover/partner:opacity-100 transition-all duration-300">
                   <span className="font-black text-2xl tracking-tighter text-gray-800">{partner.logo}</span>
                 </div>
-                <h4 className="font-bold text-gray-400 group-hover:text-black transition-colors duration-300 mb-3">{partner.title}</h4>
-                <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-600 transition-colors duration-300 leading-relaxed px-2 sm:px-4">{partner.desc}</p>
-              </motion.div>
+                <h4 className="font-bold text-gray-400 group-hover/partner:text-black transition-colors duration-300 mb-3">{partner.title}</h4>
+                <p className="text-xs sm:text-sm text-gray-400 group-hover/partner:text-gray-600 transition-colors duration-300 leading-relaxed px-2 sm:px-4">{partner.desc}</p>
+              </div>
             ))}
           </div>
         </div>
