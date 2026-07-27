@@ -109,7 +109,7 @@ export default function ServicesCards() {
                 </p>
                 
                 <div className="mt-6 flex justify-end">
-                  <a href={card.link} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white hover:text-black transition-colors text-sm font-semibold text-[#FD5800] group">
+                  <a href={card.link} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FD5800] text-white hover:bg-white hover:text-black transition-colors text-sm font-semibold group">
                     Explore {card.titleScript}
                     <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
