@@ -64,7 +64,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                   className={`flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sans tracking-wide transition-colors duration-300 ease-out relative px-4 py-2 rounded-full ${
                     isActive || activeDropdown === link.name
                       ? 'bg-[#FD5800]/10 text-[#FD5800]'
-                      : (isDarkTheme ? 'text-white hover:bg-[#FD5800]/10 hover:text-[#FD5800]' : 'text-gray-700 hover:bg-[#FD5800]/10 hover:text-[#FD5800]')
+                      : (isDarkTheme ? 'text-gray-300 hover:bg-[#FD5800]/10 hover:text-[#FD5800]' : 'text-gray-700 hover:bg-[#FD5800]/10 hover:text-[#FD5800]')
                   }`}
                 >
                   {link.name}
