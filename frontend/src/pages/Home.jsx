@@ -76,10 +76,12 @@ export default function Home() {
     const navBottom = latest + 80;
     const { definesus, showreel, services, about, team, faq, founder, contact } = sectionOffsets.current;
 
+    if (showreel && showreel.bottom > 0 && navBottom >= showreel.top && navBottom < showreel.bottom) dark = true;
+    if (services && services.bottom > 0 && navBottom >= services.top && navBottom < services.bottom) dark = true;
     if (founder && founder.bottom > 0 && navBottom >= founder.top && navBottom < founder.bottom) dark = true;
     if (team && team.bottom > 0 && navBottom >= team.top && navBottom < team.bottom) dark = true;
+    if (contact && contact.top > 0 && navBottom >= contact.top) dark = true;
     
-    // The user didn't mention contact, but if it has a dark bg it should also be true. We can leave it out or keep it. Let's strictly follow the 4 sections.
     if (definesus && definesus.bottom > 0 && latest >= definesus.top - 100 && latest < about.bottom - 100) hidden = true;
     
     if (isDarkTheme !== dark) setIsDarkTheme(dark);
