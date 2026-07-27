@@ -11,12 +11,12 @@ export default function Hero({ startAnimation }) {
 
       <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-16 md:mt-24">
         <motion.h1 
-          className="text-[32px] sm:text-4xl md:text-5xl lg:text-[74px] font-black font-sans text-black leading-[1.05] md:leading-[0.95] tracking-tight mb-6 md:mb-8 text-center md:text-left"
+          className="text-[28px] sm:text-4xl md:text-5xl lg:text-[74px] font-black font-sans text-black leading-[1.15] md:leading-[0.95] tracking-tight mb-6 md:mb-8 text-center md:text-left break-words"
           initial={{ opacity: 0, y: 20 }}
           animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Your Creative, Media & Technology<br className="hidden lg:block" />
+          Your Creative, Media & Technology <br className="hidden lg:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066] drop-shadow-sm">Transformation Growth Partner</span>
         </motion.h1>
 
