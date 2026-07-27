@@ -9,7 +9,7 @@ export default function Hero({ startAnimation }) {
     >
       {/* (Orange glow removed) */}
 
-      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-4 md:mt-8">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-16 md:mt-24">
         <motion.h1 
           className="text-[32px] sm:text-4xl md:text-5xl lg:text-[74px] font-black font-sans text-black leading-[1.05] md:leading-[0.95] tracking-tight mb-6 md:mb-8 text-center md:text-left"
           initial={{ opacity: 0, y: 20 }}
