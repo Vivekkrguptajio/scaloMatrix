@@ -9,7 +9,7 @@ export default function Hero({ startAnimation }) {
     >
       {/* (Orange glow removed) */}
 
-      <div className="max-w-[1400px] mx-auto w-full relative z-10 -mt-10 md:-mt-16">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-4 md:mt-8">
         <motion.h1 
           className="text-3xl sm:text-4xl md:text-5xl lg:text-[74px] font-black font-sans text-black leading-[0.95] tracking-tight mb-8"
           initial={{ opacity: 0, y: 20 }}
@@ -29,12 +29,50 @@ export default function Hero({ startAnimation }) {
           We're a team of 1200+ Specialists delivering award-winning work for 350+ brands worldwide, 11 years and counting!
         </motion.p>
 
+        <motion.div 
+          className="flex flex-col gap-4 lg:gap-5 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        >
+          {/* Main Buttons */}
+          <div className="flex flex-wrap items-center gap-4">
+            <a 
+              href="#contact" 
+              className="group flex items-center justify-center gap-2 px-7 py-3 rounded-full font-bold text-[14px] sm:text-[15px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
+            >
+              Book a free growth audit
+              <svg className="w-4 h-4 sm:w-[18px] sm:h-[18px] transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+            
+            <a 
+              href="#work" 
+              className="flex items-center justify-center px-7 py-3 rounded-full font-bold text-[14px] sm:text-[15px] text-gray-700 border border-black/10 hover:border-black/20 hover:bg-black/5 transition-all duration-300"
+            >
+              Explore what we do
+            </a>
+          </div>
 
+          {/* Tags */}
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="px-4 py-2 rounded-full border border-gray-200 text-[12px] sm:text-[13px] font-semibold text-gray-600 bg-white">
+              <span className="text-[#FD5800]">Brand</span> creates demand
+            </div>
+            <div className="px-4 py-2 rounded-full border border-gray-200 text-[12px] sm:text-[13px] font-semibold text-gray-600 bg-white">
+              <span className="text-[#FD5800]">Commerce</span> converts it
+            </div>
+            <div className="px-4 py-2 rounded-full border border-gray-200 text-[12px] sm:text-[13px] font-semibold text-gray-600 bg-white">
+              <span className="text-[#FD5800]">Growth</span> scales it
+            </div>
+          </div>
+        </motion.div>
       </div>
       
       {/* Marquee at the bottom of the hero section */}
       <motion.div 
-        className="absolute bottom-10 md:bottom-14 left-0 w-full"
+        className="absolute bottom-4 md:bottom-6 left-0 w-full"
         initial={{ opacity: 0, y: 50 }}
         animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}

@@ -238,14 +238,11 @@ export default function ContactUs() {
               >
                 <button 
                   type="submit"
-                  className="group relative w-full md:w-auto inline-flex items-center justify-center gap-3 bg-[#FD5800] text-white px-8 py-4 rounded-full font-bold text-lg overflow-hidden transition-transform hover:scale-[1.02] shadow-[0_10px_30px_rgba(253,88,0,0.3)]"
+                  className="group w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-bold text-lg bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
                 >
-                  {/* Button Background effect */}
-                  <span className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
+                  <span>Send Message</span>
                   
-                  <span className="relative z-10">Send Message</span>
-                  
-                  <svg className="w-5 h-5 relative z-10 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </button>

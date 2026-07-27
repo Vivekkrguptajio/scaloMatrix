@@ -7,7 +7,7 @@ const teamMembers = [
     name: "Dhiraj",
     role: "Founder & CEO",
     desc: "Visionary leader driving the strategic direction of scaloMATRIX, focused on scalable growth and innovation.",
-    image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=1000",
+    image: "/image.png",
   },
   {
     id: "02",

@@ -21,7 +21,7 @@ export default function Founder() {
           >
             <div className="relative aspect-[3/4] w-full max-w-[400px] mx-auto lg:mx-0 rounded-[1.75rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=2000" 
+                src="/image.png" 
                 alt="Founder" 
                 loading="lazy"
                 className="w-full h-full object-cover"
@@ -69,7 +69,7 @@ export default function Founder() {
             <div className="flex flex-col sm:flex-row items-center gap-5 pt-5 border-t border-white/10">
               <a 
                 href="#contact" 
-                className="w-full sm:w-auto px-7 py-3.5 bg-[#FD5800] text-white rounded-full font-black text-base text-center hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 shadow-[0_0_15px_rgba(253,88,0,0.3)]"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-full font-black text-base text-center bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
               >
                 Let's Talk Growth
               </a>
