@@ -69,7 +69,7 @@ export default function Founder() {
             <div className="flex flex-col sm:flex-row items-center gap-5 pt-5 border-t border-white/10">
               <a 
                 href="#contact" 
-                className="w-full sm:w-auto px-7 py-3.5 rounded-full font-black text-base text-center bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
+                className="flex w-full sm:w-auto items-center justify-center px-7 py-3.5 rounded-full font-black text-base text-center bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
               >
                 Let's Talk Growth
               </a>

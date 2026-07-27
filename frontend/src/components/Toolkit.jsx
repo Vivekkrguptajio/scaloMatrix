@@ -84,7 +84,7 @@ export default function Toolkit() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative flex flex-col h-[400px] p-8 md:p-10 border-r border-b border-gray-200 bg-white overflow-hidden cursor-pointer"
+              className="group relative flex flex-col h-[300px] md:h-[400px] p-6 md:p-10 border-r border-b border-gray-200 bg-white overflow-hidden cursor-pointer"
             >
               
               {/* Color Flood Fill Animation */}

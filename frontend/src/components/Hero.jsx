@@ -11,7 +11,7 @@ export default function Hero({ startAnimation }) {
 
       <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-4 md:mt-8">
         <motion.h1 
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[74px] font-black font-sans text-black leading-[0.95] tracking-tight mb-8"
+          className="text-[32px] sm:text-4xl md:text-5xl lg:text-[74px] font-black font-sans text-black leading-[1.05] md:leading-[0.95] tracking-tight mb-6 md:mb-8 text-center md:text-left"
           initial={{ opacity: 0, y: 20 }}
           animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -21,7 +21,7 @@ export default function Hero({ startAnimation }) {
         </motion.h1>
 
         <motion.p 
-          className="text-sm sm:text-base md:text-lg text-[#222] font-medium max-w-[800px] leading-relaxed mb-10"
+          className="text-[15px] sm:text-base md:text-lg text-[#222] font-medium max-w-[800px] leading-relaxed mb-8 md:mb-10 text-center md:text-left mx-auto md:mx-0"
           initial={{ opacity: 0, y: 20 }}
           animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -36,10 +36,10 @@ export default function Hero({ startAnimation }) {
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
           {/* Main Buttons */}
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-4">
             <a 
               href="#contact" 
-              className="group flex items-center justify-center gap-2 px-7 py-3 rounded-full font-bold text-[14px] sm:text-[15px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
+              className="group flex w-full sm:w-auto items-center justify-center gap-2 px-7 py-3.5 sm:py-3 rounded-full font-bold text-[14px] sm:text-[15px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
             >
               Book a free growth audit
               <svg className="w-4 h-4 sm:w-[18px] sm:h-[18px] transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -49,14 +49,14 @@ export default function Hero({ startAnimation }) {
             
             <a 
               href="#work" 
-              className="flex items-center justify-center px-7 py-3 rounded-full font-bold text-[14px] sm:text-[15px] text-gray-700 border border-black/10 hover:border-black/20 hover:bg-black/5 transition-all duration-300"
+              className="flex w-full sm:w-auto items-center justify-center px-7 py-3.5 sm:py-3 rounded-full font-bold text-[14px] sm:text-[15px] text-gray-700 border border-black/10 hover:border-black/20 hover:bg-black/5 transition-all duration-300"
             >
               Explore what we do
             </a>
           </div>
 
           {/* Tags */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5 sm:gap-3">
             <div className="px-4 py-2 rounded-full border border-gray-200 text-[12px] sm:text-[13px] font-semibold text-gray-600 bg-white">
               <span className="text-[#FD5800]">Brand</span> creates demand
             </div>
@@ -72,7 +72,7 @@ export default function Hero({ startAnimation }) {
       
       {/* Marquee at the bottom of the hero section */}
       <motion.div 
-        className="absolute bottom-4 md:bottom-6 left-0 w-full"
+        className="absolute bottom-2 md:bottom-6 left-0 w-full"
         initial={{ opacity: 0, y: 50 }}
         animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}

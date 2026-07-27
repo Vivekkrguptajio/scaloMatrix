@@ -133,11 +133,57 @@ export default function HowWeWork() {
   return (
     <section 
       ref={targetRef} 
-      className="relative w-full h-[200vh] bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] font-sans" 
+      className="relative w-full h-[auto] md:h-[200vh] bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] font-sans" 
       id="how-we-work"
     >
-      {/* Sticky container that stays on screen while we scroll 200vh */}
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
+      {/* ── MOBILE VIEW (Vertical Stack) ── */}
+      <div className="flex flex-col md:hidden py-16 px-6 relative w-full overflow-hidden">
+        {/* Background Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none z-0" />
+        
+        {/* Title */}
+        <div className="relative z-10 text-center mb-12">
+          <h2 className="text-[12vw] font-black tracking-tighter text-gray-200 uppercase leading-none">
+            How We Work
+          </h2>
+        </div>
+
+        {/* Vertical Timeline */}
+        <div className="relative z-10 flex flex-col gap-8 max-w-sm mx-auto w-full">
+          {/* Connecting Line behind */}
+          <div className="absolute left-[28px] top-4 bottom-4 w-1 bg-gray-200 z-0"></div>
+
+          {steps.map((step, i) => (
+            <motion.div 
+              key={step.id}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.2 }}
+              className="relative flex items-start gap-6 z-10"
+            >
+              {/* Dot */}
+              <div className="w-14 h-14 rounded-full bg-white border-[3px] border-gray-200 shadow-md flex items-center justify-center flex-shrink-0 relative mt-1">
+                <div className={`w-5 h-5 rounded-full ${step.theme.bg.replace('50', '500')} ${step.theme.text.includes('#') ? 'bg-[#FD5800]' : ''}`} style={step.theme.text.includes('#') ? {} : { backgroundColor: 'currentColor' }} />
+              </div>
+
+              {/* Card */}
+              <div className={`flex-1 p-5 rounded-[20px] bg-white border-2 ${step.theme.border} shadow-[0_4px_20px_rgba(0,0,0,0.04)] bg-gradient-to-br from-white to-${step.theme.bg.replace('bg-', '')}`}>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className={`w-8 h-8 rounded-full ${step.theme.bg} ${step.theme.text} text-xs font-black flex items-center justify-center flex-shrink-0 border-2 ${step.theme.border}`}>
+                    {step.id}
+                  </span>
+                  <h3 className="text-[17px] font-extrabold text-black">{step.title}</h3>
+                </div>
+                <p className="text-gray-600 text-[14px] font-medium leading-relaxed">{step.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── DESKTOP VIEW (Sticky Scroll) ── */}
+      <div className="hidden md:flex sticky top-0 h-screen w-full flex-col justify-center overflow-hidden">
         
         {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none" />

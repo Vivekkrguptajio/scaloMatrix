@@ -26,8 +26,8 @@ const TimeDisplay = ({ city, timeZone }) => {
   if (!time) return null;
 
   return (
-    <div className="border border-black/30 rounded-full px-5 py-2 md:px-6 md:py-2 flex items-center justify-center text-sm md:text-base hover:border-black/50 transition-colors bg-transparent">
-      <span className="font-bold text-black mr-1.5">{city}:</span>
+    <div className="border border-black/30 rounded-full px-4 py-1.5 sm:px-5 sm:py-2 flex items-center justify-center text-xs sm:text-sm md:text-base hover:border-black/50 transition-colors bg-transparent">
+      <span className="font-bold text-black mr-1 sm:mr-1.5">{city}:</span>
       <span className="text-gray-700 font-medium">{time}</span>
     </div>
   );
@@ -255,7 +255,7 @@ export default function ContactUs() {
 
         {/* Partners Section */}
         <div className="mt-16 md:mt-24 pt-10 md:pt-16 border-t border-gray-100">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
             {partners.map((partner, idx) => (
               <motion.div 
                 key={idx}
@@ -270,7 +270,7 @@ export default function ContactUs() {
                   <span className="font-black text-2xl tracking-tighter text-gray-800">{partner.logo}</span>
                 </div>
                 <h4 className="font-bold text-gray-400 group-hover:text-black transition-colors duration-300 mb-3">{partner.title}</h4>
-                <p className="text-sm text-gray-400 group-hover:text-gray-600 transition-colors duration-300 leading-relaxed px-4">{partner.desc}</p>
+                <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-600 transition-colors duration-300 leading-relaxed px-2 sm:px-4">{partner.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -284,7 +284,7 @@ export default function ContactUs() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.6 }}
-        className="absolute bottom-10 md:bottom-12 left-0 right-0 z-20 flex flex-wrap justify-center items-center gap-4 md:gap-8 w-full px-6"
+        className="absolute bottom-6 sm:bottom-10 md:bottom-12 left-0 right-0 z-20 flex flex-wrap justify-center items-center gap-2 sm:gap-4 md:gap-8 w-full px-4 sm:px-6"
       >
         <TimeDisplay city="India" timeZone="Asia/Kolkata" />
         <TimeDisplay city="London" timeZone="Europe/London" />

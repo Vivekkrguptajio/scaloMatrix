@@ -41,7 +41,7 @@ const teamMembers = [
 
 export default function TeamMembers() {
   return (
-    <section id="team" className="relative w-full h-[100svh] flex flex-col bg-[#0a0a0a] font-sans overflow-hidden">
+    <section id="team" className="relative w-full min-h-[100svh] md:h-[100svh] flex flex-col bg-[#0a0a0a] font-sans overflow-hidden">
 
       
       <div className="w-full h-full flex flex-col relative z-10 pt-4 md:pt-6">
@@ -62,12 +62,12 @@ export default function TeamMembers() {
 
         </div>
 
-        {/* ─── Team Grid ─── */}
-        <div className="w-full max-w-[1400px] mx-auto flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 px-4 md:px-8 pb-12">
+        {/* ─── Team Grid / Carousel ─── */}
+        <div className="w-full max-w-[1400px] mx-auto flex-1 flex md:grid md:grid-cols-5 gap-4 md:gap-6 px-4 md:px-8 pb-12 overflow-x-auto md:overflow-visible snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {teamMembers.map((item) => (
             <div 
               key={item.id}
-              className="relative w-full aspect-[3/4] md:aspect-[3/4] lg:h-[500px] lg:aspect-auto rounded-3xl overflow-hidden group cursor-pointer shadow-xl"
+              className="relative w-[85vw] md:w-full shrink-0 snap-center aspect-[3/4] md:aspect-auto lg:h-[500px] rounded-3xl overflow-hidden group cursor-pointer shadow-xl"
             >
               {/* Background Image */}
               <div 
@@ -86,7 +86,7 @@ export default function TeamMembers() {
                 <h3 className="text-2xl md:text-3xl font-black leading-tight text-white mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
                   {item.name}
                 </h3>
-                <p className="text-gray-300 text-sm font-medium leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-150 line-clamp-4">
+                <p className="text-gray-300 text-sm font-medium leading-relaxed opacity-100 md:opacity-0 md:group-hover:opacity-100 transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-500 delay-150 line-clamp-4">
                   {item.desc}
                 </p>
               </div>

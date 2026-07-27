@@ -15,7 +15,7 @@ const Testimonials = memo(function Testimonials() {
             viewport={{ once: true }}
             className="max-w-2xl"
           >
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9]">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-[1.05] md:leading-[0.9]">
               Don't just take <br />
               <span className="text-gray-400">our word for it.</span>
             </h2>

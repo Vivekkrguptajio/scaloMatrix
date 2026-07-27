@@ -94,7 +94,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="relative w-full h-screen min-h-[100vh] flex flex-col pt-0 bg-white font-sans overflow-hidden">
+    <section id="about" className="relative w-full h-[auto] md:h-screen min-h-[100vh] flex flex-col pt-0 bg-white font-sans overflow-hidden">
       
       {/* ─── Background Ambient Waves ─── */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#FD5800]/[0.03] to-transparent rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
@@ -108,7 +108,7 @@ export default function About() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onMouseMove={handleMouseMove}
-          className="w-full h-full min-h-screen flex flex-row shadow-2xl overflow-x-auto rounded-none border-t border-gray-200 cursor-ew-resize select-none" 
+          className="w-full h-full min-h-[75vh] md:min-h-screen flex flex-row shadow-2xl overflow-x-auto overflow-y-hidden rounded-none border-t border-gray-200 cursor-ew-resize select-none" 
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {solutions.map((item, index) => {
@@ -128,7 +128,7 @@ export default function About() {
               <div 
                 key={item.id}
                 className={`flex flex-col justify-between border-r border-black/5 hover:border-black/10 last:border-0 relative overflow-hidden group 
-                  w-[80vw] sm:w-[320px] md:w-[380px] lg:w-[420px] shrink-0 snap-center py-10 md:py-12 px-6 md:px-10 bg-white ${activeBg} transition-all duration-500 cursor-pointer hover:shadow-2xl hover:z-10`}
+                  w-[85vw] sm:w-[320px] md:w-[380px] lg:w-[420px] shrink-0 snap-center py-10 md:py-12 px-6 md:px-10 bg-white ${activeBg} transition-all duration-500 cursor-pointer hover:shadow-2xl hover:z-10`}
               >
                 {/* Large Background Card Number */}
                 <div className="absolute top-4 right-6 text-black/5 font-black text-6xl md:text-8xl select-none pointer-events-none group-hover:opacity-[0.08] transition-opacity">
