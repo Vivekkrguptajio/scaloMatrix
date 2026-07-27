@@ -36,20 +36,20 @@ export default function Hero({ startAnimation }) {
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
           {/* Main Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-3 sm:gap-4">
             <a 
               href="#contact" 
-              className="group flex w-full sm:w-auto items-center justify-center gap-2 px-7 py-3.5 sm:py-3 rounded-full font-bold text-[14px] sm:text-[15px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
+              className="group flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 sm:py-2.5 rounded-full font-bold text-[13px] sm:text-[14px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
             >
               Book a free growth audit
-              <svg className="w-4 h-4 sm:w-[18px] sm:h-[18px] transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <svg className="w-4 h-4 sm:w-[16px] sm:h-[16px] transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
             
             <a 
               href="#work" 
-              className="flex w-full sm:w-auto items-center justify-center px-7 py-3.5 sm:py-3 rounded-full font-bold text-[14px] sm:text-[15px] text-gray-700 border border-black/10 hover:border-black/20 hover:bg-black/5 transition-all duration-300"
+              className="flex w-full sm:w-auto items-center justify-center px-6 py-3 sm:py-2.5 rounded-full font-bold text-[13px] sm:text-[14px] text-gray-700 border border-black/10 hover:border-black/20 hover:bg-black/5 transition-all duration-300"
             >
               Explore what we do
             </a>
