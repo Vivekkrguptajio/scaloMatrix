@@ -5,22 +5,21 @@ import { useScroll, useTransform, motion, useMotionValueEvent } from 'framer-mot
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 
-// Below-the-fold components (lazy load for faster initial paint)
-const Showreel = lazy(() => import('../components/Showreel'))
-const ServicesCards = lazy(() => import('../components/ServicesCards'))
-const About = lazy(() => import('../components/About'))
-const DefinesUs = lazy(() => import('../components/DefinesUs'))
-const Toolkit = lazy(() => import('../components/Toolkit'))
-const HowWeWork = lazy(() => import('../components/HowWeWork'))
-const SelectedWork = lazy(() => import('../components/SelectedWork'))
-const Insights = lazy(() => import('../components/Insights'))
-const Founder = lazy(() => import('../components/Founder'))
-const TeamMembers = lazy(() => import('../components/TeamMembers'))
-const Contact = lazy(() => import('../components/Contact'))
-const ClientLogos = lazy(() => import('../components/ClientLogos'))
-const Testimonials = lazy(() => import('../components/Testimonials'))
-const FAQ = lazy(() => import('../components/FAQ'))
-const ContactUs = lazy(() => import('../components/ContactUs'))
+import Showreel from '../components/Showreel'
+import ServicesCards from '../components/ServicesCards'
+import About from '../components/About'
+import DefinesUs from '../components/DefinesUs'
+import Toolkit from '../components/Toolkit'
+import HowWeWork from '../components/HowWeWork'
+import SelectedWork from '../components/SelectedWork'
+import Insights from '../components/Insights'
+import Founder from '../components/Founder'
+import TeamMembers from '../components/TeamMembers'
+import Contact from '../components/Contact'
+import ClientLogos from '../components/ClientLogos'
+import Testimonials from '../components/Testimonials'
+import FAQ from '../components/FAQ'
+import ContactUs from '../components/ContactUs'
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -79,28 +78,24 @@ export default function Home() {
       {/* ═══════ MAIN CONTENT (z-20) ═══════ */}
       <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero startAnimation={true} />
-        <Suspense fallback={null}>
-          <Showreel />
-          <ServicesCards />
-          <div className="content-auto"><DefinesUs /></div>
-          <About />
-          <div className="content-auto min-h-[600px]"><Toolkit /></div>
-          <div className="content-auto min-h-[800px]"><HowWeWork /></div>
-          <div className="content-auto min-h-[600px]"><SelectedWork /></div>
-          <div className="content-auto min-h-[600px]"><Testimonials /></div>
-          <div className="content-auto min-h-[600px]"><Insights /></div>
-          <div className="content-auto min-h-[300px]"><ClientLogos /></div>
-          <Founder />
-          <TeamMembers />
-          <FAQ />
-          <ContactUs />
-        </Suspense>
+        <Showreel />
+        <ServicesCards />
+        <div className="content-auto"><DefinesUs /></div>
+        <About />
+        <div className="content-auto min-h-[600px]"><Toolkit /></div>
+        <div className="content-auto min-h-[800px]"><HowWeWork /></div>
+        <div className="content-auto min-h-[600px]"><SelectedWork /></div>
+        <div className="content-auto min-h-[600px]"><Testimonials /></div>
+        <div className="content-auto min-h-[600px]"><Insights /></div>
+        <div className="content-auto min-h-[300px]"><ClientLogos /></div>
+        <Founder />
+        <TeamMembers />
+        <FAQ />
+        <ContactUs />
       </main>
 
       {/* ═══════ CONTACT / FOOTER (z-0) ═══════ */}
-      <Suspense fallback={null}>
-        <Contact reveal={true} />
-      </Suspense>
+      <Contact reveal={true} />
     </div>
   )
 }
