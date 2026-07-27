@@ -5,7 +5,7 @@ export default function Hero({ startAnimation }) {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex flex-col justify-center pt-24 pb-16 md:pb-24 px-6 md:px-16 lg:px-24 bg-white relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center pt-24 pb-16 md:pb-24 px-6 md:px-16 lg:px-24 bg-white relative"
     >
       {/* (Orange glow removed) */}
 
@@ -72,7 +72,7 @@ export default function Hero({ startAnimation }) {
       
       {/* Marquee at the bottom of the hero section */}
       <motion.div 
-        className="absolute bottom-2 md:bottom-4 left-0 w-full"
+        className="absolute bottom-2 md:bottom-4 left-0 w-full z-30"
         initial={{ opacity: 0, y: 50 }}
         animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
