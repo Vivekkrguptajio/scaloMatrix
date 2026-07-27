@@ -8,26 +8,29 @@ export const navLinks = [
 
 export const megaMenuData = {
   Solutions: {
-    type: 'projects',
-    items: [
-      { title: 'Brand Solutions', href: '/solutions/brand-solutions' },
-      { title: 'Tech Solutions', href: '/solutions/tech-solutions' },
-      { title: 'Media Solutions', href: '/solutions/media-solutions' },
-    ],
-    featuredProjects: [
+    type: 'columns',
+    columns: [
       {
-        title: 'How A Catchy Line Received 193M+ Views And Started A Cultural Conversation',
-        description: 'Case Study • TATA Capital',
-        image: 'https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/6a22d3c2280604b61b881a82_TATA%20capital%20women%27s%20day%20cover.jpg',
-        tags: ['TATA', 'CAMPAIGN'],
-        link: '#'
+        title: 'BRAND',
+        items: [
+          { title: 'Brand Solution', href: '#' }
+        ]
       },
       {
-        title: 'Location So Apt, This Overnight Billboard clocked in 15m+ views',
-        description: 'Case Study • Billboard',
-        image: 'https://cdn.prod.website-files.com/64117da520cdfb7ab62144a5/6a2297ed183f8f2e18778ea2_WhatsApp%20Image%202026-06-05%20at%202.44.38%20PM.jpeg',
-        tags: ['OOH', 'VIRAL'],
-        link: '#'
+        title: 'COMMERCE',
+        items: [
+          { title: 'Shopify Development', href: '#' },
+          { title: 'Marketplace', href: '#' },
+          { title: 'Finance', href: '#' },
+          { title: 'Funnel & Lead-Gen', href: '#' }
+        ]
+      },
+      {
+        title: 'GROWTH',
+        items: [
+          { title: 'Growth Solution', href: '#' },
+          { title: 'Media', href: '#' }
+        ]
       }
     ]
   },

@@ -115,7 +115,35 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
               className="w-full overflow-hidden font-sora"
             >
               <div className="w-full px-8 pb-8 pt-2 flex gap-8 h-[400px]">
-                {megaMenuData[activeDropdown].type === 'projects' ? (
+                {megaMenuData[activeDropdown].type === 'columns' ? (
+                  <div className="w-full flex gap-12 py-4 px-8">
+                    {megaMenuData[activeDropdown].columns.map((col, idx) => (
+                      <div key={idx} className="flex-1 flex flex-col">
+                        <h4 className={`text-[13px] font-black text-[#FD5800] uppercase tracking-widest mb-6 pb-4 border-b ${isDarkTheme ? 'border-white/10' : 'border-gray-200'}`}>
+                          {col.title}
+                        </h4>
+                        <div className="flex flex-col gap-5">
+                          {col.items.map((item, itemIdx) => (
+                            <a 
+                              key={itemIdx} 
+                              href={item.href}
+                              className={`group/item flex items-center justify-start gap-2.5 transition-all duration-300`}
+                            >
+                              <span className={`text-lg lg:text-xl font-bold tracking-tight transition-colors ${isDarkTheme ? 'text-gray-300 group-hover/item:text-[#FD5800]' : 'text-gray-800 group-hover/item:text-[#FD5800]'}`}>
+                                {item.title}
+                              </span>
+                              <span className="text-[#FD5800] transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 transition-transform duration-300 mt-0.5">
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H8M17 7v9" />
+                                </svg>
+                              </span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : megaMenuData[activeDropdown].type === 'projects' ? (
                   <>
                     {/* Left Side: Premium Links */}
                     <div className="w-[35%] flex flex-col gap-1 border-r border-gray-100 pr-6 pt-1 group/list">
