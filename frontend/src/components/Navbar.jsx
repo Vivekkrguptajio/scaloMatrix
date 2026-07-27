@@ -240,8 +240,8 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
       </nav>
 
       {/* Mobile Nav Menu Dropdown */}
-      <div className={`md:hidden absolute top-[calc(100%+12px)] left-4 right-4 rounded-2xl glass-navbar border-t border-gray-100 overflow-y-auto overflow-x-hidden transition-all duration-300 shadow-xl ${
-        mobileMenu ? 'max-h-[75vh] opacity-100 py-2' : 'max-h-0 opacity-0 py-0 border-transparent'
+      <div className={`md:hidden absolute top-[calc(100%+12px)] left-4 right-4 rounded-2xl bg-white border border-gray-100 overflow-y-auto overflow-x-hidden transition-all duration-300 shadow-[0_20px_40px_rgba(0,0,0,0.15)] ${
+        mobileMenu ? 'max-h-[75vh] opacity-100 py-2' : 'max-h-0 opacity-0 py-0 border-transparent shadow-none'
       }`}>
         <div className="flex flex-col px-4 py-2 gap-3">
           {navLinks.map((link) => (
