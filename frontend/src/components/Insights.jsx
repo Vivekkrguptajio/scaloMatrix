@@ -77,8 +77,8 @@ export default function Insights() {
             </div>
           </div>
 
-          {/* Grid Layout - 3 Cards Side by Side, animated by scroll */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Grid Layout - 4 Cards Side by Side, animated by scroll */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {insights.map((item, i) => (
               <InsightCard key={item.id} item={item} index={i} />
             ))}

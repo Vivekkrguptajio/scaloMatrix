@@ -141,5 +141,13 @@ export const insights = [
     date: "May 15, 2026",
     excerpt: "How we crafted a bold, multi-platform campaign that disrupted the digital news space and garnered millions of views in its opening weekend.",
     image: omnichannelImg
+  },
+  {
+    id: 4,
+    category: "Design & UX",
+    title: "Designing for Conversion: How Micro-Interactions Drive Sales",
+    date: "April 02, 2026",
+    excerpt: "Learn how subtle UI animations and micro-interactions can significantly boost your e-commerce conversion rates and improve user retention.",
+    image: geoAeoImg
   }
 ];
