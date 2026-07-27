@@ -29,11 +29,11 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
     >
       <nav 
         onMouseLeave={() => setActiveDropdown(null)}
-        className={`relative w-full flex flex-col transition-colors duration-300 backdrop-blur-md max-w-7xl border rounded-[32px] ${
+        className={`relative w-full flex flex-col transition-all duration-300 backdrop-blur-2xl backdrop-saturate-200 max-w-7xl border rounded-[32px] ${
           isDarkTheme 
-            ? (activeDropdown ? 'bg-[#111]/95 border-[#333]' : 'bg-black/80 border-white/10') 
-            : (activeDropdown ? 'bg-white/95 border-gray-200' : 'bg-white/85 border-gray-200')
-        } ${activeDropdown ? 'shadow-[0_25px_50px_-12px_rgba(255,69,0,0.3)]' : 'shadow-[0_10px_30px_rgba(255,69,0,0.15)]'}`}
+            ? (activeDropdown ? 'bg-[#111]/95 border-[#333]' : 'bg-white/5 border-white/10') 
+            : (activeDropdown ? 'bg-white/95 border-gray-200' : 'bg-white/20 border-white/30')
+        } ${activeDropdown ? 'shadow-[0_25px_50px_-12px_rgba(253,88,0,0.3)]' : 'shadow-[0_10px_30px_rgba(253,88,0,0.15)]'}`}
       >
         {/* Main Navbar Row */}
         <div className="w-full flex items-center justify-between py-2 px-6 md:px-8">
