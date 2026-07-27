@@ -24,9 +24,13 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
 
   return (
     <header 
-      className={`fixed left-0 right-0 z-50 flex justify-center transition-[opacity,transform] duration-700 ease-in-out ${
-        loading || isHidden ? 'opacity-0 -translate-y-[150%] pointer-events-none' : 'opacity-100 translate-y-0'
-      } top-4 px-4`}
+      className={`fixed left-0 right-0 z-50 flex justify-center transition-[opacity,transform] duration-700 ease-in-out top-4 px-4 ${
+        loading 
+          ? 'opacity-0 -translate-y-[150%] pointer-events-none' 
+          : isHidden 
+            ? 'opacity-100 translate-y-0 md:opacity-0 md:-translate-y-[150%] md:pointer-events-none' 
+            : 'opacity-100 translate-y-0'
+      }`}
     >
       <nav 
         onMouseLeave={() => setActiveDropdown(null)}
