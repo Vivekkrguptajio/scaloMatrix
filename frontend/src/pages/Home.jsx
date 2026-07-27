@@ -76,8 +76,6 @@ export default function Home() {
     const navBottom = latest + 80;
     const { definesus, showreel, services, about, team, faq, founder, contact } = sectionOffsets.current;
 
-    if (showreel && showreel.bottom > 0 && navBottom >= showreel.top && navBottom < showreel.bottom) dark = true;
-    if (services && services.bottom > 0 && navBottom >= services.top && navBottom < services.bottom) dark = true;
     if (founder && founder.bottom > 0 && navBottom >= founder.top && navBottom < founder.bottom) dark = true;
     if (team && team.bottom > 0 && navBottom >= team.top && navBottom < team.bottom) dark = true;
     
