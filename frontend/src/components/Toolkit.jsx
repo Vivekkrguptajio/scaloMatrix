@@ -111,7 +111,12 @@ export default function Toolkit() {
                     setActiveCardId(index);
                   }
                 }}
-                viewport={{ margin: "-45% 0px -45% 0px" }}
+                onViewportLeave={() => {
+                  if (window.innerWidth < 768 && activeCardId === index) {
+                    setActiveCardId(null);
+                  }
+                }}
+                viewport={{ margin: "-30% 0px -30% 0px", amount: "some" }}
                 className="relative z-10 flex flex-col h-full p-6 md:p-10"
               >
                 
