@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
+import { memo } from 'react';
 import { testimonials } from '../data';
 
-export default function Testimonials() {
+const Testimonials = memo(function Testimonials() {
   return (
     <section className="py-12 md:py-16 bg-white font-sans border-t border-gray-100">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8">
@@ -85,4 +86,6 @@ export default function Testimonials() {
       </div>
     </section>
   );
-}
+});
+
+export default Testimonials;

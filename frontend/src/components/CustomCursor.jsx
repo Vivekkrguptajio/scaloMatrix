@@ -1,55 +1,45 @@
-import { useEffect, useState } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 export default function CustomCursor() {
-  const [isHovering, setIsHovering] = useState(false);
-  const [isOnDark, setIsOnDark] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-
-  // Exact coordinates without lag
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
+  const dotRef = useRef(null);
+  const outerRef = useRef(null);
 
   useEffect(() => {
-    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    // Skip on touch devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
 
+    const dot = dotRef.current;
+    const outer = outerRef.current;
+    if (!dot || !outer) return;
+
+    // Use raw DOM manipulation instead of React state to avoid re-renders
     const handleMouseMove = (e) => {
-      // Update instantly without lerp or requestAnimationFrame
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
+      const x = e.clientX;
+      const y = e.clientY;
+      outer.style.transform = `translate3d(${x - 16}px, ${y - 16}px, 0)`;
     };
 
     let lastTarget = null;
-    let hoverRafId = null;
-
     const handleMouseOver = (e) => {
       const target = e.target;
-      if (!target || target === lastTarget) return;
+      if (target === lastTarget) return;
       lastTarget = target;
 
-      cancelAnimationFrame(hoverRafId);
-      hoverRafId = requestAnimationFrame(() => {
-        const isInteractive = target.tagName.toLowerCase() === 'a' ||
-          target.tagName.toLowerCase() === 'button' ||
-          target.closest('a') ||
-          target.closest('button') ||
-          target.classList.contains('cursor-pointer');
-          
-        setIsHovering(!!isInteractive);
-        
-        // Check for the closest background-defining container
-        const bgContainer = target.closest('.bg-black, .bg-\\[\\#0a0a0a\\], .bg-gray-900, .bg-white, footer, [data-dark="true"]');
-        
-        let isDark = false;
-        if (bgContainer) {
-          isDark = bgContainer.classList.contains('bg-black') || 
-                   bgContainer.classList.contains('bg-[#0a0a0a]') || 
-                   bgContainer.classList.contains('bg-gray-900') ||
-                   bgContainer.tagName.toLowerCase() === 'footer' ||
-                   bgContainer.getAttribute('data-dark') === 'true';
-        }
-        setIsOnDark(isDark);
-      });
+      const isInteractive = target.tagName === 'A' ||
+        target.tagName === 'BUTTON' ||
+        target.closest('a') ||
+        target.closest('button') ||
+        target.classList.contains('cursor-pointer');
+
+      dot.style.transform = isInteractive ? 'scale(1.5)' : 'scale(1)';
+
+      // Check dark background
+      const bgContainer = target.closest('[data-dark="true"], footer');
+      const isDark = bgContainer && (
+        bgContainer.tagName.toLowerCase() === 'footer' ||
+        bgContainer.getAttribute('data-dark') === 'true'
+      );
+      dot.style.backgroundColor = isDark ? '#ffffff' : '#000000';
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
@@ -59,34 +49,30 @@ export default function CustomCursor() {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseover', handleMouseOver);
     };
-  }, [cursorX, cursorY]);
+  }, []);
 
-  if (isTouchDevice) return null;
+  // Check touch device on first render
+  if (typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
+    return null;
+  }
 
   return (
-    <motion.div 
+    <div 
+      ref={outerRef}
       className="fixed top-0 left-0 pointer-events-none z-[10000]"
-      style={{ x: cursorX, y: cursorY }}
+      style={{ willChange: 'transform' }}
     >
-      <motion.div
-        animate={{
-          width: 24,
-          height: 24,
-          x: 4,
-          y: 4,
-        }}
-        className="flex items-center justify-center"
-      >
-        <motion.div 
-          animate={{
-            scale: isHovering ? 1.5 : 1,
-            backgroundColor: isOnDark ? '#ffffff' : '#000000',
-            opacity: 0.8
+      <div className="flex items-center justify-center w-8 h-8">
+        <div 
+          ref={dotRef}
+          className="w-2 h-2 rounded-full opacity-80"
+          style={{ 
+            backgroundColor: '#000000',
+            transition: 'transform 0.15s ease, background-color 0.15s ease',
+            willChange: 'transform',
           }}
-          transition={{ duration: 0.15 }}
-          className="w-2 h-2 rounded-full"
         />
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }

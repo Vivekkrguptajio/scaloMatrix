@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 
 const topRowBrands = [
@@ -8,7 +9,7 @@ const bottomRowBrands = [
   'Cipla', 'Garnier', 'BBLUNT', 'Britannia', 'Bath & Body Works', 'Loreal', 'Mamaearth', 'Myntra'
 ];
 
-export default function ClientLogos() {
+const ClientLogos = memo(function ClientLogos() {
   return (
     <section className="w-full bg-white py-8 md:py-12 border-b border-gray-100 overflow-hidden">
       
@@ -46,4 +47,6 @@ export default function ClientLogos() {
       
     </section>
   );
-}
+});
+
+export default ClientLogos;

@@ -146,10 +146,10 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                 ) : megaMenuData[activeDropdown].type === 'projects' ? (
                   <>
                     {/* Left Side: Premium Links */}
-                    <div className="w-[35%] flex flex-col gap-1 border-r border-gray-100 pr-6 pt-1 group/list">
+                    <div className={`w-[35%] flex flex-col gap-1 border-r ${isDarkTheme ? 'border-white/10' : 'border-gray-100'} pr-6 pt-1 group/list`}>
                       {megaMenuData[activeDropdown].items.map((item, idx) => (
                         <a key={idx} href={item.href} className="group/item flex items-center justify-start gap-2.5 py-3 transition-all duration-300">
-                          <span className="text-lg lg:text-xl font-bold text-gray-800 group-hover/list:text-gray-400 group-hover/item:!text-[#FD5800] transition-colors tracking-tight">
+                          <span className={`text-lg lg:text-xl font-bold ${isDarkTheme ? 'text-gray-300' : 'text-gray-800'} group-hover/list:text-gray-400 group-hover/item:!text-[#FD5800] transition-colors tracking-tight`}>
                             {item.title}
                           </span>
                           <span className="text-[#FD5800] group-hover/list:opacity-40 group-hover/list:grayscale group-hover/item:!opacity-100 group-hover/item:!grayscale-0 transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 transition-[transform,opacity] duration-300 mt-0.5">
@@ -184,10 +184,10 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                           </div>
                           {/* Card Title & Desc */}
                           <div className="mt-4 pr-2">
-                            <h3 className="font-sora font-black text-lg text-gray-900 leading-tight group-hover:text-[#FD5800] transition-colors line-clamp-1 mb-1 tracking-tight">
+                            <h3 className={`font-sora font-black text-lg ${isDarkTheme ? 'text-gray-200' : 'text-gray-900'} leading-tight group-hover:text-[#FD5800] transition-colors line-clamp-1 mb-1 tracking-tight`}>
                               {project.title}
                             </h3>
-                            <p className="text-[14px] text-gray-500 font-medium line-clamp-2 leading-relaxed">{project.description || project.location || 'Explore this project to see how we drove meaningful results and impact.'}</p>
+                            <p className={`text-[14px] ${isDarkTheme ? 'text-gray-400' : 'text-gray-500'} font-medium line-clamp-2 leading-relaxed`}>{project.description || project.location || 'Explore this project to see how we drove meaningful results and impact.'}</p>
                           </div>
                         </div>
                       ))}
