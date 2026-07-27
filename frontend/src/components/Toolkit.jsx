@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 const industries = [
   {
@@ -48,6 +49,8 @@ const industries = [
 ];
 
 export default function Toolkit() {
+  const [activeCardId, setActiveCardId] = useState(null);
+
   return (
     <section className="w-full bg-white py-16 md:py-24 overflow-hidden border-t border-gray-100 font-sans relative">
       
@@ -77,54 +80,81 @@ export default function Toolkit() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-l border-t border-gray-200">
           
-          {industries.map((item, index) => (
+          {industries.map((item, index) => {
+            const isActive = activeCardId === index;
+            return (
             <motion.div 
               key={index}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative flex flex-col h-[300px] md:h-[400px] p-6 md:p-10 border-r border-b border-gray-200 bg-white overflow-hidden cursor-pointer"
+              className="group relative flex flex-col h-[300px] md:h-[400px] border-r border-b border-gray-200 bg-white overflow-hidden cursor-pointer"
             >
               
               {/* Color Flood Fill Animation */}
-              <div className={`absolute bottom-0 left-0 w-full h-0 ${item.hoverColor} transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:h-full z-0`}></div>
+              <div className={`absolute bottom-0 left-0 w-full transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] z-0 ${item.hoverColor} ${
+                isActive ? 'h-full' : 'h-0 md:group-hover:h-full'
+              }`}></div>
 
               {/* Massive Background Number */}
-              <div className="absolute -bottom-8 -right-4 text-[180px] leading-none font-black text-gray-100 group-hover:text-white/10 transition-colors duration-500 z-0 pointer-events-none select-none">
+              <div className={`absolute -bottom-8 -right-4 text-[180px] leading-none font-black transition-colors duration-500 z-0 pointer-events-none select-none ${
+                isActive ? 'text-white/10' : 'text-gray-100 md:group-hover:text-white/10'
+              }`}>
                 {item.num}
               </div>
 
-              {/* Content (Z-10 to stay above flood) */}
-              <div className="relative z-10 flex flex-col h-full">
+              {/* Viewport Tracker & Content */}
+              <motion.div 
+                onViewportEnter={() => {
+                  if (window.innerWidth < 768) {
+                    setActiveCardId(index);
+                  }
+                }}
+                viewport={{ margin: "-45% 0px -45% 0px" }}
+                className="relative z-10 flex flex-col h-full p-6 md:p-10"
+              >
                 
                 {/* Icon */}
-                <div className="w-14 h-14 mb-8 text-gray-900 group-hover:text-white transition-colors duration-500 transform group-hover:scale-110 group-hover:-rotate-3 ease-out">
+                <div className={`w-14 h-14 mb-8 transition-all duration-500 transform ease-out ${
+                  isActive ? 'text-white scale-110 -rotate-3' : 'text-gray-900 md:group-hover:text-white md:group-hover:scale-110 md:group-hover:-rotate-3'
+                }`}>
                   {item.icon}
                 </div>
                 
                 {/* Title */}
-                <h3 className="font-extrabold text-2xl lg:text-[28px] text-gray-900 group-hover:text-white mb-4 tracking-tight transition-colors duration-500 leading-tight">
+                <h3 className={`font-extrabold text-2xl lg:text-[28px] mb-4 tracking-tight transition-colors duration-500 leading-tight ${
+                  isActive ? 'text-white' : 'text-gray-900 md:group-hover:text-white'
+                }`}>
                   {item.name}
                 </h3>
                 
                 {/* Description */}
-                <p className="text-gray-500 group-hover:text-white/90 font-medium leading-relaxed text-[15px] transition-colors duration-500 flex-grow">
+                <p className={`font-medium leading-relaxed text-[15px] transition-colors duration-500 flex-grow ${
+                  isActive ? 'text-white/90' : 'text-gray-500 md:group-hover:text-white/90'
+                }`}>
                   {item.description}
                 </p>
 
                 {/* Arrow / CTA */}
-                <div className="mt-auto pt-6 flex items-center gap-3 text-sm font-bold text-gray-900 group-hover:text-white transition-colors duration-500">
+                <div className={`mt-auto pt-6 flex items-center gap-3 text-sm font-bold transition-colors duration-500 ${
+                  isActive ? 'text-white' : 'text-gray-900 md:group-hover:text-white'
+                }`}>
                   <span className="uppercase tracking-widest text-[11px]">Explore</span>
-                  <div className="w-8 h-[1px] bg-gray-900 group-hover:bg-white transition-colors duration-500 transform origin-left group-hover:scale-x-150"></div>
-                  <svg className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className={`h-[1px] transition-all duration-500 transform origin-left ${
+                    isActive ? 'w-12 bg-white scale-x-150' : 'w-8 bg-gray-900 md:group-hover:bg-white md:group-hover:scale-x-150'
+                  }`}></div>
+                  <svg className={`w-4 h-4 transform transition-transform duration-500 ${
+                    isActive ? 'translate-x-2' : 'md:group-hover:translate-x-2'
+                  }`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </div>
 
-              </div>
+              </motion.div>
             </motion.div>
-          ))}
+            );
+          })}
 
         </div>
       </div>
