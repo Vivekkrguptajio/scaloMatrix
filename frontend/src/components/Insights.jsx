@@ -56,7 +56,7 @@ export default function Insights() {
   return (
     <section className="relative w-full bg-white text-black font-sans py-12 md:py-16">
       <div className="w-full flex flex-col justify-center">
-        <div className="max-w-6xl w-full mx-auto px-4 md:px-8">
+        <div className="max-w-[1400px] w-full mx-auto px-4 md:px-8 lg:px-12">
           
           {/* Header */}
           <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
