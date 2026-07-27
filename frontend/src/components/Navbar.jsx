@@ -83,7 +83,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
         <div className="hidden md:flex items-center z-10">
           <a 
             href="/contact" 
-            className="group flex items-center gap-2 text-sm md:text-base font-bold px-6 py-2.5 rounded-full bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
+            className="group flex items-center gap-2 text-sm md:text-base font-bold px-5 lg:px-6 py-1.5 rounded-full bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
           >
             Contact Us
             <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
