@@ -32,14 +32,6 @@ export default function CustomCursor() {
         target.classList.contains('cursor-pointer');
 
       dot.style.transform = isInteractive ? 'scale(1.5)' : 'scale(1)';
-
-      // Check dark background
-      const bgContainer = target.closest('[data-dark="true"], footer');
-      const isDark = bgContainer && (
-        bgContainer.tagName.toLowerCase() === 'footer' ||
-        bgContainer.getAttribute('data-dark') === 'true'
-      );
-      dot.style.backgroundColor = isDark ? '#ffffff' : '#000000';
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
@@ -59,16 +51,15 @@ export default function CustomCursor() {
   return (
     <div 
       ref={outerRef}
-      className="fixed top-0 left-0 pointer-events-none z-[10000]"
+      className="fixed top-0 left-0 pointer-events-none z-[10000] mix-blend-difference"
       style={{ willChange: 'transform' }}
     >
       <div className="flex items-center justify-center w-8 h-8">
         <div 
           ref={dotRef}
-          className="w-2 h-2 rounded-full opacity-80"
+          className="w-2 h-2 rounded-full bg-white"
           style={{ 
-            backgroundColor: '#000000',
-            transition: 'transform 0.15s ease, background-color 0.15s ease',
+            transition: 'transform 0.15s ease',
             willChange: 'transform',
           }}
         />
