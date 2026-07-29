@@ -19,8 +19,8 @@ export const megaMenuData = {
       {
         title: 'COMMERCE',
         items: [
-          { title: 'Shopify Development', href: '#' },
-          { title: 'Marketplace', href: '#' },
+          { title: 'Shopify Development', href: 'http://commerce.localhost:5173' },
+          { title: 'Marketplace', href: 'http://marketplace.localhost:5174' },
           { title: 'Finance', href: '#' },
           { title: 'Funnel & Lead-Gen', href: '#' }
         ]

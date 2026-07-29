@@ -1,0 +1,23 @@
+{
+  "name": "dhiraj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix marketplace\" \"npm run dev --prefix commerce\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vivekkrguptajio/scaloMatrix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vivekkrguptajio/scaloMatrix/issues"
+  },
+  "homepage": "https://github.com/Vivekkrguptajio/scaloMatrix#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.4"
+  }
+}

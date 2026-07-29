@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Outfit:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'PPMondwest';
+  src: url('/fonts/ppmondwest-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/fonts/Urbanist-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PPNeueBit';
+  src: url('/fonts/ppneuebit-bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* ScaloMatrix Fonts */
+  --font-sans: 'Urbanist', 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+  --font-mondwest: 'PPMondwest', serif;
+  --font-neuebit: 'PPNeueBit', sans-serif;
+  --font-caslon: 'Libre Caslon Text', serif;
+  --font-sora: 'Sora', sans-serif;
+
+  /* Marketplace Colors mapped to Light Theme */
+  --color-brand-bg: #ffffff;
+  --color-brand-surface: #f9fafb;
+  --color-brand-surface-hover: #f3f4f6;
+  --color-brand-accent: #FD5800;
+  --color-brand-accent-glow: rgba(253, 88, 0, 0.2);
+  --color-brand-text: #4b5563;
+  --color-brand-white: #111827;
+}
+
+/* ═══════ GLOBAL STYLES ═══════ */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #101828;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #FD5800;
+  color: #fff;
+}
+
+/* ═══════ GLASSMORPHISM NAVBAR ═══════ */
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ═══════ HIDE SCROLLBAR ═══════ */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ═══════ MARQUEE ANIMATION ═══════ */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 55s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* ═══════ CUSTOM UTILITIES FOR MARKETPLACE ═══════ */
+@layer utilities {
+  .neon-btn {
+    @apply border border-brand-accent text-brand-accent px-6 py-2 rounded-md font-semibold tracking-wide uppercase transition-all duration-300;
+    box-shadow: 0 0 10px var(--color-brand-accent-glow);
+  }
+  .neon-btn:hover {
+    @apply bg-brand-accent text-[#ffffff];
+    box-shadow: 0 0 20px var(--color-brand-accent-glow);
+  }
+
+  .neon-btn-solid {
+    @apply bg-brand-accent text-[#ffffff] px-6 py-3 rounded-md font-bold tracking-wide uppercase transition-all duration-300;
+    box-shadow: 0 0 15px var(--color-brand-accent-glow);
+  }
+  .neon-btn-solid:hover {
+    @apply bg-[#e68a00];
+    box-shadow: 0 0 25px var(--color-brand-accent-glow);
+  }
+  
+  .neon-card {
+    @apply bg-brand-surface rounded-xl p-8 border border-transparent transition-all duration-300;
+  }
+  .neon-card:hover {
+    @apply border-brand-accent;
+    box-shadow: 0 0 20px var(--color-brand-accent-glow);
+  }
+}

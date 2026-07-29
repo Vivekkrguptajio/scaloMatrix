@@ -166,7 +166,9 @@ export default function About() {
 
                     {/* Permanent Circle Arrow Link */}
                     <a 
-                      href="#" 
+                      href={item.link || "#"} 
+                      target={item.link ? "_blank" : "_self"}
+                      rel={item.link ? "noopener noreferrer" : ""}
                       onClick={(e) => e.stopPropagation()} 
                       className={`mt-4 md:mt-8 w-12 h-12 rounded-full flex items-center justify-center group/btn hover:scale-105 transition-all duration-300 shadow-md shrink-0 border border-transparent
                         ${isActive ? 'bg-white text-gray-900' : 'bg-gray-100 text-gray-800 hover:bg-gray-900 hover:text-white group-hover:bg-white group-hover:text-gray-900'}`}
