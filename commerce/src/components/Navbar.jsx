@@ -9,6 +9,7 @@ export default function Navbar() {
     { label: 'WHY CRO', href: '#cro' },
     { label: 'PROCESS', href: '#process' },
     { label: 'BRAND', href: '#brand' },
+    { label: 'MARKETPLACE', href: 'https://marketplace-scalomatrix.onrender.com' },
   ]
 
   return (
