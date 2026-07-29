@@ -26,7 +26,7 @@ export const solutions = [
     id: "02",
     title: "Commerce",
     desc: "Scale your revenue seamlessly with high-converting, lightning-fast storefronts.",
-    link: "http://commerce.localhost:5173",
+    link: import.meta.env.VITE_COMMERCE_URL || "http://commerce.localhost:5173",
     shape: "circle",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -64,7 +64,7 @@ export const solutions = [
     id: "05",
     title: "MarketPlace",
     desc: "Dominate online marketplaces with optimized product listings and ad strategies.",
-    link: "http://marketplace.localhost:5174",
+    link: import.meta.env.VITE_MARKETPLACE_URL || "http://marketplace.localhost:5174",
     shape: "circle",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
