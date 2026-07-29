@@ -128,10 +128,14 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                           {col.title}
                         </h4>
                         <div className="flex flex-col gap-5">
-                          {col.items.map((item, itemIdx) => (
+                          {col.items.map((item, itemIdx) => {
+                            const isExternal = item.href?.startsWith('http');
+                            return (
                             <a 
                               key={itemIdx} 
                               href={item.href}
+                              target={isExternal ? "_blank" : undefined}
+                              rel={isExternal ? "noopener noreferrer" : undefined}
                               className={`group/item flex items-center justify-start gap-2.5 transition-all duration-300`}
                             >
                               <span className={`text-lg lg:text-xl font-bold tracking-tight transition-colors ${isDarkTheme ? 'text-gray-300 group-hover/item:text-[#FD5800]' : 'text-gray-800 group-hover/item:text-[#FD5800]'}`}>
@@ -143,7 +147,7 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                                 </svg>
                               </span>
                             </a>
-                          ))}
+                          )})}
                         </div>
                       </div>
                     ))}
@@ -278,16 +282,22 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                       <div key={idx} className="mb-2">
                         <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">{col.title}</div>
                         <div className="flex flex-col gap-2">
-                          {col.items.map((item, itemIdx) => (
+                          {col.items.map((item, itemIdx) => {
+                            const isExternal = item.href?.startsWith('http');
+                            return (
                             <a 
                               key={itemIdx} 
                               href={item.href}
-                              onClick={() => setMobileMenu(false)}
+                              target={isExternal ? "_blank" : undefined}
+                              rel={isExternal ? "noopener noreferrer" : undefined}
+                              onClick={() => {
+                                if (!isExternal) setMobileMenu(false);
+                              }}
                               className="text-sm font-bold text-gray-700 hover:text-[#FD5800] py-1 transition-colors"
                             >
                               {item.title}
                             </a>
-                          ))}
+                          )})}
                         </div>
                       </div>
                     ))
