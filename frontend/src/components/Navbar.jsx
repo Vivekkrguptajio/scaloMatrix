@@ -136,7 +136,13 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                               href={item.href}
                               target={isExternal ? "_blank" : undefined}
                               rel={isExternal ? "noopener noreferrer" : undefined}
-                              className={`group/item flex items-center justify-start gap-2.5 transition-all duration-300`}
+                              onClick={(e) => {
+                                if (isExternal) {
+                                  e.preventDefault();
+                                  window.open(item.href, '_blank') || (window.location.href = item.href);
+                                }
+                              }}
+                              className={`group/item flex items-center justify-start gap-2.5 transition-all duration-300 relative z-50`}
                             >
                               <span className={`text-lg lg:text-xl font-bold tracking-tight transition-colors ${isDarkTheme ? 'text-gray-300 group-hover/item:text-[#FD5800]' : 'text-gray-800 group-hover/item:text-[#FD5800]'}`}>
                                 {item.title}
@@ -290,10 +296,15 @@ export default function Navbar({ scrolled, activeSection, loading, isDarkTheme =
                               href={item.href}
                               target={isExternal ? "_blank" : undefined}
                               rel={isExternal ? "noopener noreferrer" : undefined}
-                              onClick={() => {
-                                if (!isExternal) setMobileMenu(false);
+                              onClick={(e) => {
+                                if (isExternal) {
+                                  e.preventDefault();
+                                  window.open(item.href, '_blank') || (window.location.href = item.href);
+                                } else {
+                                  setMobileMenu(false);
+                                }
                               }}
-                              className="text-sm font-bold text-gray-700 hover:text-[#FD5800] py-1 transition-colors"
+                              className="text-sm font-bold text-gray-700 hover:text-[#FD5800] py-1 transition-colors relative z-50"
                             >
                               {item.title}
                             </a>
