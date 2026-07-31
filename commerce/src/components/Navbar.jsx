@@ -3,6 +3,7 @@ import { motion, useMotionValue } from 'framer-motion'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [hoveredIndex, setHoveredIndex] = useState(null)
   const logoX = useMotionValue(0)
   const logoY = useMotionValue(0)
 
@@ -49,15 +50,26 @@ export default function Navbar() {
           </motion.a>
 
           {/* Desktop Nav Links (Centered) */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-xs md:text-[13px] lg:text-sm font-semibold font-sans tracking-tight transition-all duration-200 px-4 py-1.5 rounded-full text-gray-700 hover:text-[#FD5800] hover:bg-orange-50/80"
-              >
-                {link.label}
-              </a>
+          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 relative" onMouseLeave={() => setHoveredIndex(null)}>
+            {navLinks.map((link, index) => (
+              <div key={link.label} className="relative" onMouseEnter={() => setHoveredIndex(index)}>
+                {hoveredIndex === index && (
+                  <motion.div
+                    layoutId="navHover"
+                    className="absolute inset-0 bg-gray-100/80 rounded-full -z-10"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <a
+                  href={link.href}
+                  className="text-xs md:text-[13px] lg:text-sm font-semibold font-sans tracking-tight transition-colors duration-200 px-4 py-1.5 rounded-full text-gray-700 hover:text-black block"
+                >
+                  {link.label}
+                </a>
+              </div>
             ))}
           </div>
 
