@@ -30,7 +30,7 @@ export default function Navbar() {
     <header className="fixed left-0 right-0 z-50 flex justify-center transition-all duration-500 top-4 px-4 md:px-6">
       <nav
         id="navbar"
-        className="relative w-full flex flex-col transition-all duration-300 backdrop-blur-xl backdrop-saturate-180 max-w-[1240px] rounded-full bg-white/75 border border-black/10 shadow-[0_8px_30px_rgba(0,0,0,0.05),inset_0_1px_1px_rgba(255,255,255,0.8)]"
+        className="relative w-full flex flex-col transition-all duration-300 backdrop-blur-2xl backdrop-saturate-200 max-w-[1220px] rounded-full bg-white/70 border border-white/80 shadow-[0_12px_40px_rgba(0,0,0,0.06),inset_0_1px_2px_rgba(255,255,255,0.9)]"
       >
         <div className="w-full flex items-center justify-between py-2.5 px-6 lg:px-8">
           
@@ -49,23 +49,32 @@ export default function Navbar() {
             </span>
           </motion.a>
 
-          {/* Desktop Nav Links (Centered) */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 relative" onMouseLeave={() => setHoveredIndex(null)}>
+          {/* Desktop Nav Links (Centered with Framer Motion Sliding Pill) */}
+          <div 
+            className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1"
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
             {navLinks.map((link, index) => (
-              <div key={link.label} className="relative" onMouseEnter={() => setHoveredIndex(index)}>
+              <div 
+                key={link.label} 
+                className="relative" 
+                onMouseEnter={() => setHoveredIndex(index)}
+              >
                 {hoveredIndex === index && (
                   <motion.div
-                    layoutId="navHover"
-                    className="absolute inset-0 bg-gray-100/80 rounded-full -z-10"
+                    layoutId="navHoverPill"
+                    className="absolute inset-0 bg-[#FD5800]/10 rounded-full -z-10"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                   />
                 )}
                 <a
                   href={link.href}
-                  className="text-xs md:text-[13px] lg:text-sm font-semibold font-sans tracking-tight transition-colors duration-200 px-4 py-1.5 rounded-full text-gray-700 hover:text-black block"
+                  className={`text-xs md:text-[13px] lg:text-sm font-semibold font-sans tracking-tight transition-colors duration-200 px-4 py-1.5 rounded-full block ${
+                    hoveredIndex === index ? 'text-[#FD5800]' : 'text-gray-700'
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -77,7 +86,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3.5 z-10">
             
             {/* Status Badge */}
-            <div className="hidden xl:flex items-center gap-2 font-mono text-[10px] font-bold text-gray-600 tracking-wider uppercase bg-gray-100/90 px-3.5 py-1.5 rounded-full border border-gray-200">
+            <div className="hidden xl:flex items-center gap-2 font-mono text-[10px] font-bold text-gray-600 tracking-wider uppercase bg-gray-100/90 px-3.5 py-1.5 rounded-full border border-gray-200/80">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               Q2 '26 · <span className="text-[#FD5800]">+34% LIFT</span>
             </div>
@@ -85,7 +94,7 @@ export default function Navbar() {
             {/* CTA Button */}
             <a
               href="#contact"
-              className="hidden lg:flex items-center gap-2 text-xs md:text-sm font-bold px-5 py-2 rounded-full bg-[#FD5800] text-white hover:bg-black transition-all duration-300 shadow-[0_4px_16px_rgba(253,88,0,0.35)] hover:shadow-none transform hover:-translate-y-0.5"
+              className="hidden lg:flex items-center gap-2 text-xs md:text-sm font-bold px-5 py-2.5 rounded-full bg-[#FD5800] text-white hover:bg-black transition-all duration-300 shadow-[0_4px_16px_rgba(253,88,0,0.35)] hover:shadow-none transform hover:-translate-y-0.5"
             >
               Book a call
               <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
