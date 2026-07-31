@@ -26,54 +26,58 @@ export default function Navbar() {
   ]
 
   return (
-    <header className="fixed left-0 right-0 z-50 flex justify-center transition-[opacity,transform] duration-700 ease-in-out top-4 px-4">
+    <header className="fixed left-0 right-0 z-50 flex justify-center transition-all duration-500 top-4 px-4 md:px-6">
       <nav
         id="navbar"
-        className="relative w-full flex flex-col transition-all duration-300 backdrop-blur-3xl backdrop-saturate-200 max-w-[1440px] border rounded-[32px] bg-white/50 border-gray-300/80 shadow-[0_14px_35px_-10px_rgba(253,88,0,0.25),inset_0_1px_2px_rgba(255,255,255,0.9)]"
+        className="relative w-full flex flex-col transition-all duration-300 backdrop-blur-2xl max-w-[1240px] rounded-full bg-white/80 border border-gray-200/90 shadow-[0_8px_32px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)]"
       >
-        <div className="w-full flex items-center justify-between py-2 px-6 lg:px-10">
+        <div className="w-full flex items-center justify-between py-2.5 px-6 lg:px-8">
+          
           {/* Logo */}
           <motion.a 
             href="#" 
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{ x: logoX, y: logoY }}
-            className="group flex items-center gap-3 font-semibold tracking-tight select-none whitespace-nowrap z-10"
+            className="group flex items-center gap-1 font-semibold tracking-tight select-none whitespace-nowrap z-10"
           >
-            <span className="text-2xl md:text-3xl font-sans font-black transition-colors duration-300 tracking-tight" style={{ fontFamily: "'Urbanist', 'Outfit', ui-sans-serif, system-ui, sans-serif" }}>
+            <span className="text-xl md:text-2xl font-sans font-black tracking-tight flex items-center gap-0.5" style={{ fontFamily: "'Urbanist', sans-serif" }}>
               <span className="text-[#FD5800]">scalo</span>
               <span className="text-black">MATRIX</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FD5800] inline-block ml-0.5 animate-pulse" />
             </span>
           </motion.a>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden lg:flex absolute left-[44%] -translate-x-1/2 items-center gap-2 h-full">
+          {/* Desktop Nav Links (Centered) */}
+          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1">
             {navLinks.map((link) => (
-              <div key={link.label} className="relative h-full flex items-center">
-                <a
-                  href={link.href}
-                  className="flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sans tracking-wide transition-colors duration-300 ease-out relative px-4 py-2 rounded-full text-gray-700 hover:bg-[#FD5800]/10 hover:text-[#FD5800]"
-                >
-                  {link.label}
-                </a>
-              </div>
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-xs md:text-[13px] lg:text-sm font-semibold font-sans tracking-tight transition-all duration-200 px-4 py-1.5 rounded-full text-gray-700 hover:text-[#FD5800] hover:bg-orange-50/80"
+              >
+                {link.label}
+              </a>
             ))}
           </div>
 
           {/* Right Side */}
-          <div className="flex items-center gap-4 z-10">
-            <div className="hidden xl:flex items-center gap-2 font-mono text-[9px] font-bold text-[#777] tracking-[0.2em] uppercase bg-white/50 px-3 py-1.5 rounded-full border border-gray-100">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#059669]" />
-              SHIPPING · Q2 '26 · <span className="text-[#FD5800]">+34% AVG LIFT</span>
+          <div className="flex items-center gap-3.5 z-10">
+            
+            {/* Status Badge */}
+            <div className="hidden xl:flex items-center gap-2 font-mono text-[10px] font-bold text-gray-600 tracking-wider uppercase bg-gray-100/90 px-3.5 py-1.5 rounded-full border border-gray-200">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              Q2 '26 · <span className="text-[#FD5800]">+34% LIFT</span>
             </div>
             
+            {/* CTA Button */}
             <a
               href="#contact"
-              className="hidden lg:flex items-center gap-2 text-sm font-bold px-5 py-2 rounded-full bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide shadow-sm"
+              className="hidden lg:flex items-center gap-2 text-xs md:text-sm font-bold px-5 py-2 rounded-full bg-[#FD5800] text-white hover:bg-black transition-all duration-300 shadow-[0_4px_16px_rgba(253,88,0,0.35)] hover:shadow-none transform hover:-translate-y-0.5"
             >
               Book a call
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
             
@@ -91,13 +95,13 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-[75vh] opacity-100' : 'max-h-0 opacity-0'}`}>
-          <div className="px-6 py-4 flex flex-col gap-2">
+          <div className="px-6 py-4 flex flex-col gap-2 border-t border-gray-100">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between text-sm font-bold px-4 py-3 rounded-xl text-[#FD5800]/80 hover:text-[#FD5800] hover:bg-orange-50/50 transition-all"
+                className="flex items-center justify-between text-sm font-bold px-4 py-3 rounded-xl text-gray-800 hover:text-[#FD5800] hover:bg-orange-50/50 transition-all"
               >
                 {link.label}
               </a>
@@ -105,12 +109,9 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-center gap-2 text-sm font-bold rounded-full px-4 py-3 mt-2 bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
+              className="flex items-center justify-center gap-2 text-sm font-bold rounded-full px-4 py-3 mt-2 bg-[#FD5800] text-white hover:bg-black transition-colors tracking-wide shadow-md"
             >
-              Book a call
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+              Book a call →
             </a>
           </div>
         </div>
