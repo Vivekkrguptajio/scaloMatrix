@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section id="hero" className="flex flex-col pt-40 lg:pt-52 pb-16 px-3 sm:px-8 md:px-20 lg:px-32 xl:px-48 max-w-[1440px] mx-auto bg-white">
+    <section id="hero" className="flex flex-col pt-36 lg:pt-44 pb-16 px-3 sm:px-8 md:px-20 lg:px-32 xl:px-48 max-w-[1440px] mx-auto bg-white">
       {/* Huge Main Headline */}
       <div className="w-full mb-14">
         <h1 
