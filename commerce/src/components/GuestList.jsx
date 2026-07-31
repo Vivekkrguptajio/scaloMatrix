@@ -180,5 +180,7 @@ const GuestList = () => {
       </div>
     </section>
   );
+};
+
 export default GuestList;
 
