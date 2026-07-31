@@ -47,7 +47,7 @@ export default function Navbar() {
           </motion.a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-2 h-full">
+          <div className="hidden lg:flex absolute left-[44%] -translate-x-1/2 items-center gap-2 h-full">
             {navLinks.map((link) => (
               <div key={link.label} className="relative h-full flex items-center">
                 <a
