@@ -30,8 +30,8 @@ export default function Navbar() {
     <header className="fixed left-0 right-0 z-50 flex justify-center transition-all duration-500 top-4 px-4 md:px-6">
       <nav
         id="navbar"
-        className="relative w-full flex flex-col transition-all duration-300 backdrop-blur-3xl backdrop-saturate-200 max-w-[1220px] rounded-full bg-white/45 border border-white/70 shadow-[0_12px_40px_rgba(0,0,0,0.08),inset_0_1px_2px_rgba(255,255,255,0.9)]"
-        style={{ WebkitBackdropFilter: 'blur(32px) saturate(200%)', backdropFilter: 'blur(32px) saturate(200%)' }}
+        className="relative w-full flex flex-col transition-all duration-300 backdrop-blur-3xl backdrop-saturate-200 max-w-[1220px] rounded-full bg-white/40 border-[0.5px] border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.05),inset_0_0.5px_0_0_rgba(255,255,255,0.8)]"
+        style={{ WebkitBackdropFilter: 'blur(40px) saturate(210%)', backdropFilter: 'blur(40px) saturate(210%)' }}
       >
         <div className="w-full flex items-center justify-between py-2.5 px-6 lg:px-8">
           
