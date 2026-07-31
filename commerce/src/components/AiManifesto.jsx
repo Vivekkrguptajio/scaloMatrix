@@ -2,11 +2,8 @@ import React from 'react';
 
 const AiManifesto = () => {
   return (
-    <section className="w-full py-12 md:py-16 bg-white text-black font-sans border-t border-b border-black">
-      <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16">
-        
-        {/* Dark Manifesto Container Card */}
-        <div className="bg-[#111111] text-white p-8 md:p-14 lg:p-16 border border-black w-full">
+    <section className="w-full py-16 md:py-24 bg-[#111111] text-white font-sans border-t border-b border-black">
+      <div className="w-full px-6 md:px-16 lg:px-24 xl:px-32">
           
           {/* Top Indicator Dot */}
           <div className="flex justify-center mb-8">
@@ -64,8 +61,6 @@ const AiManifesto = () => {
               OR READ IT AGAIN. WE'LL WAIT.
             </span>
           </div>
-
-        </div>
 
       </div>
     </section>
