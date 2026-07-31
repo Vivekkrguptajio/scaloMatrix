@@ -5,12 +5,7 @@ const AiManifesto = () => {
     <section className="w-full py-16 md:py-24 bg-[#111111] text-white font-sans border-t border-b border-black">
       <div className="w-full px-6 md:px-16 lg:px-24 xl:px-32">
           
-          {/* Top Indicator Dot */}
-          <div className="flex justify-center mb-8">
-            <div className="w-5 h-5 rounded-full border border-gray-700 flex items-center justify-center">
-              <div className="w-1.5 h-1.5 bg-[#FD5800] rounded-full"></div>
-            </div>
-          </div>
+
 
           {/* Main Headline */}
           <div className="mb-12">
