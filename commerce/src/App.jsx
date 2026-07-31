@@ -14,10 +14,12 @@ import HiringPhilosophy from './components/HiringPhilosophy'
 import WhoWeDontWorkWith from './components/WhoWeDontWorkWith'
 import Footer from './components/Footer'
 import ScrollReveal from './components/ScrollReveal'
+import CustomCursor from './components/CustomCursor'
 
 function App() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
+      <CustomCursor />
       <Navbar />
       <Hero />
       <ScrollReveal><FeaturedCaseStudy /></ScrollReveal>
