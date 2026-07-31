@@ -122,7 +122,7 @@ const HappyClients = () => {
       <div className="w-full border-t border-b border-black bg-white overflow-hidden group">
         <div className="flex animate-marquee group-hover:[animation-play-state:paused]" style={{ animationDuration: '50s' }}>
           {[...testimonials, ...testimonials, ...testimonials].map((client, idx) => (
-            <div key={idx} className="min-w-[290px] max-w-[290px] flex flex-col border-r border-black shrink-0 bg-white">
+            <div key={idx} className="min-w-[340px] max-w-[340px] flex flex-col border-r border-black shrink-0 bg-white">
               
               {/* Logo Section */}
               <div className="h-[84px] flex items-center justify-center p-4 border-b border-black">
@@ -135,15 +135,15 @@ const HappyClients = () => {
                 {/* Stars */}
                 <div className="flex gap-[3px] mb-4">
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <svg key={star} width="15" height="15" viewBox="0 0 24 24" fill="#f2ff00" stroke="black" strokeWidth="1.5">
+                    <svg key={star} width="16" height="16" viewBox="0 0 24 24" fill="#f2ff00" stroke="black" strokeWidth="1.5">
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                   ))}
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-[14px] font-medium text-[#111] mb-8 leading-[1.6]">
-                  {client.text}
+                <p className="text-[16px] md:text-[17px] font-medium text-[#111] mb-8 leading-[1.55]">
+                  "{client.text}"
                 </p>
 
                 {/* Author Info */}
@@ -151,8 +151,8 @@ const HappyClients = () => {
                   <div className={`w-12 h-12 rounded-full mb-3 border border-black overflow-hidden ${client.avatarColor}`}>
                     <img src="/image copy.png" alt={client.author} className="w-full h-full object-cover" />
                   </div>
-                  <h4 className="font-bold text-black text-[14px]">{client.author}</h4>
-                  <p className="text-[12px] text-gray-500 mt-0.5">{client.title}</p>
+                  <h4 className="font-bold text-black text-[15px]">{client.author}</h4>
+                  <p className="text-[13px] text-gray-500 mt-0.5">{client.title}</p>
                 </div>
               </div>
 
