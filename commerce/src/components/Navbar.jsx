@@ -29,7 +29,7 @@ export default function Navbar() {
     <header className="fixed left-0 right-0 z-50 flex justify-center transition-[opacity,transform] duration-700 ease-in-out top-4 px-4">
       <nav
         id="navbar"
-        className="relative w-full flex flex-col transition-all duration-300 backdrop-blur-3xl backdrop-saturate-200 max-w-[1440px] border rounded-[32px] bg-white/45 border-white/70 shadow-[0_12px_40px_rgba(0,0,0,0.06),inset_0_1px_2px_rgba(255,255,255,0.9)]"
+        className="relative w-full flex flex-col transition-all duration-300 backdrop-blur-3xl backdrop-saturate-200 max-w-[1440px] border rounded-[32px] bg-white/50 border-gray-300/80 shadow-[0_14px_35px_-10px_rgba(253,88,0,0.25),inset_0_1px_2px_rgba(255,255,255,0.9)]"
       >
         <div className="w-full flex items-center justify-between py-2 px-6 lg:px-10">
           {/* Logo */}
