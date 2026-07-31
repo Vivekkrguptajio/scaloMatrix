@@ -4,18 +4,16 @@ export default function Hero() {
       {/* Huge Main Headline */}
       <div className="w-full mb-14">
         <h1 
-          className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.5rem] font-medium leading-[0.82] tracking-[-0.04em] text-black"
+          className="text-[0.95rem] sm:text-[1.5rem] md:text-[2rem] lg:text-[2.75rem] xl:text-[3.5rem] font-bold leading-[1.2] tracking-[-0.01em] text-black"
           style={{ fontFamily: "'Urbanist', 'Outfit', ui-sans-serif, system-ui, sans-serif" }}
         >
-          Landing pages<br className="hidden md:block"/>
-          that <span className="text-[#FD5800]">pays itself.</span><br className="hidden md:block"/>
-          Make <span className="text-[#FD5800]">more money</span><br className="hidden md:block"/>
-          from same ad spend
+          <span>Landing pages that <span className="text-[#FD5800]">pays itself.</span></span><br />
+          <span>Make <span className="text-[#FD5800]">more money</span> from same ad spend.</span>
         </h1>
       </div>
 
       {/* Divider */}
-      <div className="w-full h-[2px] bg-black mb-8" />
+      <div className="w-full h-[0.5px] bg-black mb-8" />
 
       {/* Bottom Content Area */}
       <div className="flex flex-col">
