@@ -1,4 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+const GuestCard = ({ brand, renderLogo, index }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -20px 0px' }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Stagger animation by column index in each row
+  const delay = (index % 6) * 80;
+
+  return (
+    <div
+      ref={ref}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`w-1/2 md:w-1/3 lg:w-1/6 h-28 border border-black -ml-[1px] -mt-[1px] bg-white flex items-center justify-center p-4 transition-all duration-700 ease-out transform ${
+        isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95'
+      }`}
+    >
+      <div className={brand.style}>
+        {renderLogo(brand)}
+      </div>
+    </div>
+  );
+};
 
 const GuestList = () => {
   const sharkTankBrands = [
@@ -104,7 +144,7 @@ const GuestList = () => {
 
         {/* Header Section */}
         <div className="text-center mb-24">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-black mb-6">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-black mb-6" style={{ fontFamily: "'Urbanist', sans-serif" }}>
             The guest list.
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-snug">
@@ -120,11 +160,7 @@ const GuestList = () => {
           </div>
           <div className="flex flex-wrap justify-center pl-[1px] pt-[1px]">
             {sharkTankBrands.map((brand, idx) => (
-              <div key={idx} className="w-1/2 md:w-1/3 lg:w-1/6 h-28 border border-black -ml-[1px] -mt-[1px] bg-white flex items-center justify-center p-4">
-                <div className={brand.style}>
-                  {renderLogo(brand)}
-                </div>
-              </div>
+              <GuestCard key={idx} brand={brand} renderLogo={renderLogo} index={idx} />
             ))}
           </div>
         </div>
@@ -136,11 +172,7 @@ const GuestList = () => {
           </div>
           <div className="flex flex-wrap justify-center pl-[1px] pt-[1px]">
             {bestBrands.map((brand, idx) => (
-              <div key={idx} className="w-1/2 md:w-1/3 lg:w-1/6 h-28 border border-black -ml-[1px] -mt-[1px] bg-white flex items-center justify-center p-4">
-                <div className={brand.style}>
-                  {renderLogo(brand)}
-                </div>
-              </div>
+              <GuestCard key={idx} brand={brand} renderLogo={renderLogo} index={idx} />
             ))}
           </div>
         </div>
@@ -148,7 +180,5 @@ const GuestList = () => {
       </div>
     </section>
   );
-};
-
 export default GuestList;
 
