@@ -94,11 +94,11 @@ const GuestList = () => {
   };
 
   return (
-    <section className="w-full py-12 lg:py-20 font-sans bg-[#f3f2eb]">
+    <section className="relative z-0 w-full py-12 lg:py-20 font-sans bg-white">
       <div className="max-w-[1024px] mx-auto flex flex-col items-center relative px-16 xl:px-0 w-full">
         
         {/* Decorative Scroll Dot (Right Side) */}
-        <div className="hidden xl:flex absolute top-1/2 -right-16 w-10 h-10 rounded-full border border-[#2942ff] items-center justify-center">
+        <div className="hidden xl:flex absolute top-1/2 -right-16 w-10 h-10 rounded-full border border-[#FD5800] items-center justify-center">
           <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
         </div>
 
@@ -115,7 +115,7 @@ const GuestList = () => {
 
         {/* Shark Tank Brands Grid */}
         <div className="relative w-full mb-24">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#2942ff] text-white text-[10px] font-mono uppercase tracking-widest px-4 py-2 z-10">
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FD5800] text-white text-[10px] font-mono uppercase tracking-widest px-4 py-2 z-10">
             SHARK TANK BRANDS
           </div>
           <div className="flex flex-wrap justify-center pl-[1px] pt-[1px]">
@@ -131,7 +131,7 @@ const GuestList = () => {
 
         {/* Best Brands Grid */}
         <div className="relative w-full">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#2942ff] text-white text-[10px] font-mono uppercase tracking-widest px-4 py-2 z-10">
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FD5800] text-white text-[10px] font-mono uppercase tracking-widest px-4 py-2 z-10">
             BEST BRANDS
           </div>
           <div className="flex flex-wrap justify-center pl-[1px] pt-[1px]">
@@ -151,3 +151,4 @@ const GuestList = () => {
 };
 
 export default GuestList;
+

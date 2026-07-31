@@ -72,7 +72,7 @@ const HappyClients = () => {
   ];
 
   return (
-    <section className="w-full pt-12 lg:pt-20 font-sans bg-[#f3f2eb] overflow-hidden">
+    <section className="w-full pt-12 lg:pt-20 pb-12 font-sans bg-white relative z-10">
       
       <style>
         {`
@@ -101,7 +101,7 @@ const HappyClients = () => {
         {/* Header Avatars */}
         <div className="flex justify-center -space-x-3 mb-6">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="w-12 h-12 rounded-full border-[3px] border-[#f3f2eb] bg-gray-300 overflow-hidden shadow-sm">
+            <div key={i} className="w-12 h-12 rounded-full border-[3px] border-white bg-gray-300 overflow-hidden shadow-sm">
               <img src="/image.png" alt="Client" className="w-full h-full object-cover" />
             </div>
           ))}
@@ -109,50 +109,50 @@ const HappyClients = () => {
 
         {/* Header Text */}
         <div className="text-center">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-black mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-[54px] font-bold leading-[1.1] text-black mb-2 tracking-tight" style={{ fontFamily: "'Urbanist', sans-serif" }}>
             1000+ Happy Clients
           </h2>
-          <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto">
+          <p className="text-gray-500 text-sm md:text-[15px] max-w-2xl mx-auto font-medium">
             Trusted by thousands of people
           </p>
         </div>
       </div>
 
       {/* Testimonials Slider/Grid */}
-      <div className="w-full border-t border-b border-black bg-white">
-        <div className="flex overflow-x-auto hide-scrollbar">
-          {testimonials.map((client, idx) => (
-            <div key={idx} className="min-w-[320px] md:min-w-[350px] lg:min-w-[400px] flex-1 flex flex-col border-r border-black last:border-r-0 shrink-0">
+      <div className="w-full border-t border-b border-black bg-white overflow-hidden group">
+        <div className="flex animate-marquee group-hover:[animation-play-state:paused]" style={{ animationDuration: '50s' }}>
+          {[...testimonials, ...testimonials, ...testimonials].map((client, idx) => (
+            <div key={idx} className="min-w-[290px] max-w-[290px] flex flex-col border-r border-black shrink-0 bg-white">
               
               {/* Logo Section */}
-              <div className="h-24 flex items-center justify-center p-6 border-b border-black">
+              <div className="h-[84px] flex items-center justify-center p-4 border-b border-black">
                 {client.logo}
               </div>
 
               {/* Content Section */}
-              <div className="flex-1 p-8 flex flex-col items-center text-center">
+              <div className="flex-1 px-6 py-7 flex flex-col items-center text-center">
                 
                 {/* Stars */}
-                <div className="flex gap-1 mb-6">
+                <div className="flex gap-[3px] mb-4">
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <svg key={star} width="24" height="24" viewBox="0 0 24 24" fill="#e8ff00" stroke="black" strokeWidth="1.5">
+                    <svg key={star} width="15" height="15" viewBox="0 0 24 24" fill="#f2ff00" stroke="black" strokeWidth="1.5">
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                   ))}
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-lg md:text-xl font-bold text-black mb-10 leading-snug">
+                <p className="text-[14px] font-medium text-[#111] mb-8 leading-[1.6]">
                   {client.text}
                 </p>
 
                 {/* Author Info */}
                 <div className="mt-auto flex flex-col items-center">
-                  <div className={`w-16 h-16 rounded-full mb-4 border border-black overflow-hidden ${client.avatarColor}`}>
+                  <div className={`w-12 h-12 rounded-full mb-3 border border-black overflow-hidden ${client.avatarColor}`}>
                     <img src="/image copy.png" alt={client.author} className="w-full h-full object-cover" />
                   </div>
-                  <h4 className="font-bold text-black text-lg">{client.author}</h4>
-                  <p className="text-sm text-gray-500 mt-1">{client.title}</p>
+                  <h4 className="font-bold text-black text-[14px]">{client.author}</h4>
+                  <p className="text-[12px] text-gray-500 mt-0.5">{client.title}</p>
                 </div>
               </div>
 
@@ -161,18 +161,18 @@ const HappyClients = () => {
         </div>
       </div>
 
-      {/* Black Ticker Banner */}
-      <div className="w-full bg-[#111] overflow-hidden whitespace-nowrap py-4 border-b border-black">
-        <div className="animate-marquee flex gap-8 items-center">
+      {/* Orange Diagonal Ticker Banner */}
+      <div className="relative z-50 w-full bg-[#FD5800] overflow-hidden whitespace-nowrap py-4 mt-16 transform -rotate-2 scale-105 shadow-xl">
+        <div className="animate-marquee flex gap-12 items-center" style={{ animationDirection: 'reverse', animationDuration: '80s' }}>
           {/* Double the items to create seamless loop effect */}
           {[...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems].map((item, idx) => (
-            <div key={idx} className="flex items-center gap-8">
-              <div className="flex items-center gap-3 font-mono text-sm font-semibold tracking-wider">
-                <span className="text-white uppercase">{item.name}</span>
-                <span className="text-gray-600 text-lg leading-none mt-[-2px]">•</span>
-                <span className="text-[#e8ff00] uppercase">{item.stat}</span>
+            <div key={idx} className="flex items-center gap-12">
+              <div className="flex items-center gap-4 font-mono text-xl lg:text-2xl font-bold tracking-wider">
+                <span className="text-black uppercase">{item.name}</span>
+                <span className="text-white/80 text-2xl leading-none mt-[-2px]">•</span>
+                <span className="text-white uppercase">{item.stat}</span>
               </div>
-              <span className="text-gray-600 text-lg">|</span>
+              <span className="text-black/20 text-2xl">|</span>
             </div>
           ))}
         </div>
@@ -183,3 +183,4 @@ const HappyClients = () => {
 };
 
 export default HappyClients;
+
