@@ -29,18 +29,18 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Outer Ring */}
+      {/* Outer Negative Ring */}
       <div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#FD5800]/80 pointer-events-none z-[9999] transition-transform duration-200 ease-out transform hidden md:block"
+        className="fixed top-0 left-0 w-9 h-9 rounded-full border border-white pointer-events-none z-[99999] mix-blend-difference transition-transform duration-150 ease-out transform hidden md:block"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
           transform: `translate(-50%, -50%) scale(${isHovered ? 1.6 : 1})`,
         }}
       />
-      {/* Inner Bada Dot */}
+      {/* Inner Negative / Inverted Dot */}
       <div
-        className="fixed top-0 left-0 w-4 h-4 bg-[#FD5800] rounded-full pointer-events-none z-[9999] shadow-[0_0_12px_rgba(253,88,0,0.6)] transition-transform duration-75 ease-out transform hidden md:block"
+        className="fixed top-0 left-0 w-4 h-4 bg-white rounded-full pointer-events-none z-[99999] mix-blend-difference transition-transform duration-75 ease-out transform hidden md:block"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,

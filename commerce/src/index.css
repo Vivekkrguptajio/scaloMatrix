@@ -35,6 +35,10 @@
 }
 
 /* ═══════ GLOBAL STYLES ═══════ */
+*, body, a, button, input, select, textarea {
+  cursor: none !important;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
