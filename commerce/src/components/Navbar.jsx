@@ -30,9 +30,11 @@ export default function Navbar() {
     <header className="fixed left-0 right-0 z-50 flex justify-center transition-all duration-500 top-4 px-4 md:px-6">
       <nav
         id="navbar"
-        className="glass-navbar relative w-full flex flex-col transition-all duration-300 max-w-[1220px] rounded-full"
+        className={`glass-navbar relative w-full flex flex-col transition-all duration-300 max-w-[1220px] ${
+          menuOpen ? 'rounded-[28px]' : 'rounded-full'
+        }`}
       >
-        <div className="w-full flex items-center justify-between py-2.5 px-6 lg:px-8">
+        <div className="w-full flex items-center justify-between py-2 px-4 sm:px-6 lg:py-2.5 lg:px-8">
           
           {/* Logo */}
           <motion.a 
@@ -42,7 +44,7 @@ export default function Navbar() {
             style={{ x: logoX, y: logoY }}
             className="group flex items-center gap-1 font-semibold tracking-tight select-none whitespace-nowrap z-10"
           >
-            <span className="text-xl md:text-2xl font-sans font-black tracking-tight flex items-center gap-0.5" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+            <span className="text-lg sm:text-xl md:text-2xl font-sans font-black tracking-tight flex items-center gap-0.5" style={{ fontFamily: "'Urbanist', sans-serif" }}>
               <span className="text-[#FD5800]">scalo</span>
               <span className="text-black">MATRIX</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#FD5800] inline-block ml-0.5 animate-pulse" />
@@ -105,32 +107,34 @@ export default function Navbar() {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden w-8 h-8 flex flex-col items-center justify-center gap-1.5"
+              className="lg:hidden p-1.5 rounded-lg flex flex-col items-center justify-center gap-1.5 active:scale-95 transition-transform"
+              aria-label="Toggle Menu"
             >
-              <span className={`w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${menuOpen ? 'rotate-45 translate-y-[5px]' : ''}`} />
+              <span className={`w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${menuOpen ? 'rotate-45 translate-y-[5.5px]' : ''}`} />
               <span className={`w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${menuOpen ? 'opacity-0' : ''}`} />
-              <span className={`w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${menuOpen ? '-rotate-45 -translate-y-[5px]' : ''}`} />
+              <span className={`w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${menuOpen ? '-rotate-45 -translate-y-[5.5px]' : ''}`} />
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-[75vh] opacity-100' : 'max-h-0 opacity-0'}`}>
-          <div className="px-6 py-4 flex flex-col gap-2 border-t border-gray-100">
+        {/* Mobile Menu Dropdown */}
+        <div className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="px-5 py-4 flex flex-col gap-1.5 border-t border-black/10">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between text-sm font-bold px-4 py-3 rounded-xl text-gray-800 hover:text-[#FD5800] hover:bg-orange-50/50 transition-all"
+                className="flex items-center justify-between text-base font-bold px-4 py-2.5 rounded-xl text-gray-900 hover:text-[#FD5800] hover:bg-[#FD5800]/10 transition-all"
               >
                 {link.label}
+                <span className="text-gray-400 text-xs">→</span>
               </a>
             ))}
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-center gap-2 text-sm font-bold rounded-full px-4 py-3 mt-2 bg-[#FD5800] text-white hover:bg-black transition-colors tracking-wide shadow-md"
+              className="flex items-center justify-center gap-2 text-sm font-bold rounded-full px-5 py-3 mt-3 bg-[#FD5800] text-white hover:bg-black transition-colors tracking-wide shadow-md active:scale-98"
             >
               Book a call →
             </a>
