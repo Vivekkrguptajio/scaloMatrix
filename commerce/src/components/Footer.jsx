@@ -73,10 +73,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Scroll to Top Circle */}
-          <div className="absolute right-0 top-0 hidden md:flex items-center justify-center w-10 h-10 rounded-full border border-[#333] cursor-pointer hover:border-gray-500 transition-colors">
-            <div className="w-1.5 h-1.5 bg-[#FD5800] rounded-full"></div>
-          </div>
+
 
         </div>
 
