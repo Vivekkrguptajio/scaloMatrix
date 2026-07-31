@@ -3,7 +3,7 @@ import React from 'react';
 const FeaturedCaseStudy = () => {
   return (
     <section className="w-full py-8 md:py-12 bg-white">
-      <div className="max-w-[1320px] mx-auto w-full px-6 md:px-12 xl:px-16">
+      <div className="max-w-[1180px] mx-auto w-full px-6 md:px-12 xl:px-16">
         <div className="relative w-full bg-[#fce9d3] border border-black p-5 md:p-7">
           
           {/* Blue Ribbon / Tag */}
