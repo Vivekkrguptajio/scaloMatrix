@@ -162,17 +162,17 @@ const HappyClients = () => {
       </div>
 
       {/* Orange Diagonal Ticker Banner */}
-      <div className="relative z-50 w-full bg-[#FD5800] overflow-hidden whitespace-nowrap py-4 mt-16 transform -rotate-2 scale-105 shadow-xl">
-        <div className="animate-marquee flex gap-12 items-center" style={{ animationDirection: 'reverse', animationDuration: '80s' }}>
+      <div className="relative z-50 w-full bg-[#FD5800] overflow-hidden whitespace-nowrap py-3 mt-14 transform -rotate-2 scale-105 shadow-xl">
+        <div className="animate-marquee flex gap-8 items-center" style={{ animationDirection: 'reverse', animationDuration: '80s' }}>
           {/* Double the items to create seamless loop effect */}
           {[...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems].map((item, idx) => (
-            <div key={idx} className="flex items-center gap-12">
-              <div className="flex items-center gap-4 font-mono text-xl lg:text-2xl font-bold tracking-wider">
+            <div key={idx} className="flex items-center gap-8">
+              <div className="flex items-center gap-3 font-mono text-base lg:text-lg font-bold tracking-wider">
                 <span className="text-black uppercase">{item.name}</span>
-                <span className="text-white/80 text-2xl leading-none mt-[-2px]">•</span>
+                <span className="text-white/80 text-lg leading-none mt-[-2px]">•</span>
                 <span className="text-white uppercase">{item.stat}</span>
               </div>
-              <span className="text-black/20 text-2xl">|</span>
+              <span className="text-black/20 text-lg">|</span>
             </div>
           ))}
         </div>
