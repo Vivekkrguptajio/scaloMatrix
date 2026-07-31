@@ -29,7 +29,7 @@ const GuestCard = ({ brand, renderLogo, index }) => {
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`w-1/2 md:w-1/3 lg:w-1/6 h-28 border border-black -ml-[1px] -mt-[1px] bg-white flex items-center justify-center p-4 transition-all duration-700 ease-out transform ${
+      className={`w-1/2 h-28 border border-black -ml-[1px] -mt-[1px] bg-white flex items-center justify-center p-4 transition-all duration-700 ease-out transform ${
         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95'
       }`}
     >
@@ -135,7 +135,7 @@ const GuestList = () => {
 
   return (
     <section className="relative z-0 w-full py-12 lg:py-20 font-sans bg-white">
-      <div className="max-w-[1024px] mx-auto flex flex-col items-center relative px-16 xl:px-0 w-full">
+      <div className="max-w-[1024px] mx-auto flex flex-col items-center relative px-2.5 sm:px-5 md:px-16 xl:px-0 w-full">
         
         {/* Decorative Scroll Dot (Right Side) */}
         <div className="hidden xl:flex absolute top-1/2 -right-16 w-10 h-10 rounded-full border border-[#FD5800] items-center justify-center">

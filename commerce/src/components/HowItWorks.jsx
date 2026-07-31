@@ -3,7 +3,7 @@ import React from 'react';
 const HowItWorks = () => {
   return (
     <section className="w-full py-8 lg:py-12 font-sans bg-white">
-      <div className="max-w-[1024px] mx-auto w-full px-16 xl:px-0">
+      <div className="max-w-[1024px] mx-auto w-full px-2.5 sm:px-5 md:px-16 xl:px-0">
         
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-8">
@@ -16,10 +16,10 @@ const HowItWorks = () => {
         </div>
 
         {/* The 3-Column Card */}
-        <div className="bg-white text-black w-full flex flex-col lg:flex-row border border-black">
+        <div className="bg-white text-black w-full flex flex-col lg:flex-row border-[0.5px] lg:border border-black">
           
           {/* Step 1 */}
-          <div className="w-full lg:w-1/3 p-6 md:p-7 lg:p-8 border-b lg:border-b-0 lg:border-r border-black flex flex-col">
+          <div className="w-full lg:w-1/3 p-6 md:p-7 lg:p-8 border-b-[0.5px] lg:border-b-0 lg:border-r border-black flex flex-col">
             <div className="text-4xl md:text-5xl font-black text-[#FD5800] mb-4 tracking-tighter">01</div>
             <div className="text-[10px] font-mono tracking-widest text-gray-500 uppercase mb-2">
               DATA IN

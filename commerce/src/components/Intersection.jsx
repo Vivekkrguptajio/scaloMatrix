@@ -3,7 +3,7 @@ import React from 'react';
 const Intersection = () => {
   return (
     <section className="w-full py-8 lg:py-12 font-sans bg-white">
-      <div className="max-w-[1024px] mx-auto flex flex-col items-center px-16 xl:px-0 w-full">
+      <div className="max-w-[1024px] mx-auto flex flex-col items-center px-2.5 sm:px-5 md:px-16 xl:px-0 w-full">
         
         {/* Header Section */}
         <div className="text-center mb-8">
@@ -18,7 +18,7 @@ const Intersection = () => {
         </div>
 
         {/* The Card Container */}
-        <div className="bg-white border border-black w-full flex flex-col lg:flex-row p-6 lg:p-8 gap-8 lg:gap-12">
+        <div className="bg-white border-[0.5px] lg:border border-black w-full flex flex-col lg:flex-row p-6 lg:p-8 gap-8 lg:gap-12">
           
           {/* Left Side: Venn Diagram */}
           <div className="w-full lg:w-1/2 relative flex items-center justify-center">

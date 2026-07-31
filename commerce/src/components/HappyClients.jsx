@@ -96,7 +96,7 @@ const HappyClients = () => {
         `}
       </style>
 
-      <div className="max-w-[1024px] mx-auto flex flex-col items-center px-16 xl:px-0 mb-16 w-full">
+      <div className="max-w-[1024px] mx-auto flex flex-col items-center px-2.5 sm:px-5 md:px-16 xl:px-0 mb-16 w-full">
         
         {/* Header Avatars */}
         <div className="flex justify-center -space-x-3 mb-6">
@@ -119,10 +119,10 @@ const HappyClients = () => {
       </div>
 
       {/* Testimonials Slider/Grid */}
-      <div className="w-full border-t border-b border-black bg-white overflow-hidden group">
+      <div className="w-full border-t-[0.5px] border-b-[0.5px] md:border-t md:border-b border-black bg-white overflow-hidden group">
         <div className="flex animate-marquee group-hover:[animation-play-state:paused]" style={{ animationDuration: '50s' }}>
           {[...testimonials, ...testimonials, ...testimonials].map((client, idx) => (
-            <div key={idx} className="min-w-[340px] max-w-[340px] flex flex-col border-r border-black shrink-0 bg-white">
+            <div key={idx} className="min-w-[340px] max-w-[340px] flex flex-col border-r-[0.5px] md:border-r border-black shrink-0 bg-white">
               
               {/* Logo Section */}
               <div className="h-[84px] flex items-center justify-center p-4 border-b border-black">

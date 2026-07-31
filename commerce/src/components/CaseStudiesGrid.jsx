@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const SuperYouMockup = () => (
   <div className="flex gap-3 h-[180px] w-full">
@@ -316,9 +316,93 @@ const WellbeingMockup = () => (
 );
 
 const CaseStudiesGrid = () => {
+  const [activePage, setActivePage] = useState(0);
+
+  const allStudies = [
+    {
+      id: 'superyou',
+      mockup: <SuperYouMockup />,
+      badge: (
+        <div className="bg-[#ff2020] text-white font-black italic text-xl px-2 py-0.5 tracking-tighter">
+          SUPER<span className="text-white/90">YOU</span>
+        </div>
+      ),
+      aov: '+14%',
+      rev: '+33%'
+    },
+    {
+      id: 'boldcare',
+      mockup: <BoldCareMockup />,
+      badge: (
+        <div className="flex items-center gap-1.5 text-black">
+          <svg width="20" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97757" strokeWidth="2.5">
+            <path d="M6 4h8a4 4 0 010 8H6V4z" />
+            <path d="M6 12h9a4 4 0 010 8H6v-8z" />
+          </svg>
+          <span className="font-semibold text-lg tracking-tight">Bold Care</span>
+        </div>
+      ),
+      aov: '+22%',
+      rev: '+50%'
+    },
+    {
+      id: 'emma',
+      mockup: <EmmaMockup />,
+      badge: (
+        <div className="flex flex-col text-[#ff9900]">
+          <span className="font-bold text-2xl tracking-tight leading-none">Emma</span>
+          <span className="text-[8px] font-mono tracking-widest uppercase mt-0.5">GERMANY</span>
+        </div>
+      ),
+      aov: '+18%',
+      rev: '+20%'
+    },
+    {
+      id: 'beautywise',
+      mockup: <BeautywiseMockup />,
+      badge: (
+        <div className="font-serif italic font-bold text-xl text-black tracking-tight">
+          Beautywise
+        </div>
+      ),
+      aov: '+27%',
+      rev: '+44%'
+    },
+    {
+      id: 'goodbug',
+      mockup: <TheGoodBugMockup />,
+      badge: (
+        <div className="flex flex-col text-black">
+          <span className="font-bold text-lg leading-none">GoodBug</span>
+          <span className="text-[7px] font-mono tracking-widest uppercase text-gray-500 mt-0.5">DAILY PROBIOTICS</span>
+        </div>
+      ),
+      aov: '+16%',
+      rev: '+50%'
+    },
+    {
+      id: 'wellbeing',
+      mockup: <WellbeingMockup />,
+      badge: (
+        <div className="flex items-center gap-1.5">
+          <div className="w-6 h-6 rounded-full border border-black flex items-center justify-center font-bold text-xs">W</div>
+          <div className="flex flex-col leading-none">
+            <span className="text-[7px] font-mono uppercase text-gray-500">WELLBEING</span>
+            <span className="text-[9px] font-bold uppercase text-black">NUTRITION</span>
+          </div>
+        </div>
+      ),
+      aov: '+16%',
+      rev: '+43%'
+    }
+  ];
+
+  // Mobile pairs (2 cards per page)
+  const mobileVisibleStudies = allStudies.slice(activePage * 2, activePage * 2 + 2);
+
   return (
     <section className="w-full py-16 lg:py-24 font-sans bg-white">
-      <div className="max-w-[1440px] mx-auto flex flex-col items-center px-6 md:px-12 xl:px-16 w-full">
+      <div className="max-w-[1440px] mx-auto flex flex-col items-center px-4 sm:px-6 md:px-12 xl:px-16 w-full">
         
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -326,167 +410,108 @@ const CaseStudiesGrid = () => {
             Things we are happy<br />about.
           </h2>
           <p className="text-gray-500 text-sm md:text-base max-w-lg mx-auto leading-relaxed" style={{ fontFamily: "'Urbanist', sans-serif" }}>
-            We don't do testimonials until there's a number next to them. Each tile is<br className="hidden sm:block" /> areal page, shipped, measured over n≥10,000 sessions.
+            We don't do testimonials until there's a number next to them. Each tile is<br className="hidden sm:block" /> a real page, shipped, measured over n≥10,000 sessions.
           </p>
         </div>
 
-        {/* Row 1: Top 3 Cards */}
-        <div className="bg-white border border-black w-full grid grid-cols-1 lg:grid-cols-3 mb-8 md:mb-10">
-          
-          {/* Case Study 1: Superyou */}
-          <div className="p-6 md:p-8 flex flex-col border-b lg:border-b-0 lg:border-r border-black">
-            <div className="bg-[#e8e8e8] border border-gray-400 p-4 md:p-6 mb-8 flex-1 flex items-center justify-center min-h-[280px]">
-              <SuperYouMockup />
-            </div>
-            <div className="flex justify-between items-end mt-auto">
-              <div className="bg-[#ff2020] text-white font-black italic text-xl px-2 py-0.5 tracking-tighter">
-                SUPER<span className="text-white/90">YOU</span>
-              </div>
-              <div className="flex gap-6">
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+14%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">AOV</div>
+        {/* MOBILE VIEW: SHOW ONLY 2 CARDS AT A TIME */}
+        <div className="lg:hidden w-full flex flex-col gap-6">
+          <div className="bg-white border-[0.5px] border-black w-full flex flex-col">
+            {mobileVisibleStudies.map((study, idx) => (
+              <div 
+                key={study.id} 
+                className={`p-5 sm:p-6 flex flex-col ${idx === 0 ? 'border-b-[0.5px] border-black' : ''}`}
+              >
+                <div className="bg-[#e8e8e8] border border-gray-400 p-4 mb-6 flex-1 flex items-center justify-center min-h-[240px]">
+                  {study.mockup}
                 </div>
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+33%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">REVENUE</div>
+                <div className="flex justify-between items-end mt-auto">
+                  {study.badge}
+                  <div className="flex gap-4 sm:gap-6">
+                    <div className="text-right">
+                      <div className="text-xl sm:text-2xl font-bold text-[#2942ff]">{study.aov}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-0.5">AOV</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl sm:text-2xl font-bold text-[#2942ff]">{study.rev}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-0.5">REVENUE</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
 
-          {/* Case Study 2: Bold Care */}
-          <div className="p-6 md:p-8 flex flex-col border-b lg:border-b-0 lg:border-r border-black">
-            <div className="bg-[#e8e8e8] border border-gray-400 p-4 md:p-6 mb-8 flex-1 flex items-center justify-center min-h-[280px]">
-              <BoldCareMockup />
-            </div>
-            <div className="flex justify-between items-end mt-auto">
-              <div className="flex items-center gap-1.5 text-black">
-                <svg width="20" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97757" strokeWidth="2.5">
-                  <path d="M6 4h8a4 4 0 010 8H6V4z" />
-                  <path d="M6 12h9a4 4 0 010 8H6v-8z" />
-                </svg>
-                <span className="font-semibold text-lg tracking-tight">Bold Care</span>
-              </div>
-              <div className="flex gap-6">
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+22%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">AOV</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+50%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">REVENUE</div>
-                </div>
-              </div>
-            </div>
+          {/* Interactive Mobile Pagination Dots */}
+          <div className="flex gap-2 justify-center items-center mt-2">
+            {[0, 1, 2].map((pageIdx) => (
+              <button
+                key={pageIdx}
+                onClick={() => setActivePage(pageIdx)}
+                className={`w-3.5 h-3.5 transition-colors border border-black ${
+                  activePage === pageIdx ? 'bg-[#FD5800]' : 'bg-black'
+                }`}
+                aria-label={`Go to page ${pageIdx + 1}`}
+              />
+            ))}
           </div>
-
-          {/* Case Study 3: Emma */}
-          <div className="p-6 md:p-8 flex flex-col border-b lg:border-b-0 border-black">
-            <div className="bg-[#e8e8e8] border border-gray-400 p-4 md:p-6 mb-8 flex-1 flex items-center justify-center min-h-[280px]">
-              <EmmaMockup />
-            </div>
-            <div className="flex justify-between items-end mt-auto">
-              <div className="flex flex-col text-[#ff9900]">
-                <span className="font-bold text-2xl tracking-tight leading-none">Emma</span>
-                <span className="text-[8px] font-mono tracking-widest uppercase mt-0.5">GERMANY</span>
-              </div>
-              <div className="flex gap-6">
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+18%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">AOV</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+20%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">REVENUE</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-        {/* Row 2: Bottom 3 Cards */}
-        <div className="bg-white border border-black w-full grid grid-cols-1 lg:grid-cols-3">
-          
-          {/* Case Study 4: Beautywise */}
-          <div className="p-6 md:p-8 flex flex-col border-b lg:border-b-0 lg:border-r border-black">
-            <div className="bg-[#e8e8e8] border border-gray-400 p-4 md:p-6 mb-8 flex-1 flex items-center justify-center min-h-[280px]">
-              <BeautywiseMockup />
-            </div>
-            <div className="flex justify-between items-end mt-auto">
-              <div className="font-serif italic font-bold text-xl text-black tracking-tight">
-                Beautywise
-              </div>
-              <div className="flex gap-6">
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+27%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">AOV</div>
+        {/* DESKTOP VIEW: FULL 6 CARDS GRID */}
+        <div className="hidden lg:flex flex-col w-full gap-8">
+          {/* Row 1 */}
+          <div className="bg-white border border-black w-full grid grid-cols-3">
+            {allStudies.slice(0, 3).map((study, idx) => (
+              <div 
+                key={study.id} 
+                className={`p-6 md:p-8 flex flex-col ${idx < 2 ? 'border-r border-black' : ''}`}
+              >
+                <div className="bg-[#e8e8e8] border border-gray-400 p-4 md:p-6 mb-8 flex-1 flex items-center justify-center min-h-[280px]">
+                  {study.mockup}
                 </div>
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+44%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">REVENUE</div>
+                <div className="flex justify-between items-end mt-auto">
+                  {study.badge}
+                  <div className="flex gap-6">
+                    <div className="text-right">
+                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">{study.aov}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">AOV</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">{study.rev}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">REVENUE</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
 
-          {/* Case Study 5: The Good Bug */}
-          <div className="p-6 md:p-8 flex flex-col border-b lg:border-b-0 lg:border-r border-black">
-            <div className="bg-[#e8e8e8] border border-gray-400 p-4 md:p-6 mb-8 flex-1 flex items-center justify-center min-h-[280px]">
-              <TheGoodBugMockup />
-            </div>
-            <div className="flex justify-between items-end mt-auto">
-              <div className="flex flex-col text-black">
-                <span className="font-bold text-lg leading-none">GoodBug</span>
-                <span className="text-[7px] font-mono tracking-widest uppercase text-gray-500 mt-0.5">DAILY PROBIOTICS</span>
-              </div>
-              <div className="flex gap-6">
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+16%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">AOV</div>
+          {/* Row 2 */}
+          <div className="bg-white border border-black w-full grid grid-cols-3">
+            {allStudies.slice(3, 6).map((study, idx) => (
+              <div 
+                key={study.id} 
+                className={`p-6 md:p-8 flex flex-col ${idx < 2 ? 'border-r border-black' : ''}`}
+              >
+                <div className="bg-[#e8e8e8] border border-gray-400 p-4 md:p-6 mb-8 flex-1 flex items-center justify-center min-h-[280px]">
+                  {study.mockup}
                 </div>
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+50%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">REVENUE</div>
+                <div className="flex justify-between items-end mt-auto">
+                  {study.badge}
+                  <div className="flex gap-6">
+                    <div className="text-right">
+                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">{study.aov}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">AOV</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">{study.rev}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">REVENUE</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-
-          {/* Case Study 6: Wellbeing Nutrition */}
-          <div className="p-6 md:p-8 flex flex-col">
-            <div className="bg-[#e8e8e8] border border-gray-400 p-4 md:p-6 mb-8 flex-1 flex items-center justify-center min-h-[280px]">
-              <WellbeingMockup />
-            </div>
-            <div className="flex justify-between items-end mt-auto">
-              <div className="flex items-center gap-1.5">
-                <div className="w-6 h-6 rounded-full border border-black flex items-center justify-center font-bold text-xs">W</div>
-                <div className="flex flex-col leading-none">
-                  <span className="text-[7px] font-mono uppercase text-gray-500">WELLBEING</span>
-                  <span className="text-[9px] font-bold uppercase text-black">NUTRITION</span>
-                </div>
-              </div>
-              <div className="flex gap-6">
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+16%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">AOV</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+43%</div>
-                  <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">REVENUE</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Carousel / Pagination Dots */}
-        <div className="flex gap-1.5 justify-center mt-8">
-          <div className="w-3 h-3 bg-[#e8ff00] border border-black"></div>
-          <div className="w-3 h-3 bg-black"></div>
-          <div className="w-3 h-3 bg-black"></div>
         </div>
 
       </div>

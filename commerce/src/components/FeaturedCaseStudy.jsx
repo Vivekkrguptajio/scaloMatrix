@@ -4,7 +4,7 @@ const FeaturedCaseStudy = () => {
   return (
     <section className="w-full py-8 md:py-12 bg-white">
       <div className="max-w-[1180px] mx-auto w-full px-6 md:px-12 xl:px-16">
-        <div className="relative w-full bg-[#fce9d3] border border-black p-5 md:p-7">
+        <div className="relative w-full bg-[#fce9d3] border-[0.5px] md:border border-black p-5 md:p-7">
           
           {/* Blue Ribbon / Tag */}
           <div className="absolute top-0 left-0 -translate-y-full -translate-x-[1px] bg-[#2942ff] text-white text-xs md:text-sm font-bold tracking-[0.2em] py-2.5 px-6 uppercase border border-black border-b-0 z-10">
