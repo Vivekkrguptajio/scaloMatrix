@@ -1,22 +1,18 @@
 export default function Hero() {
   return (
-    <section id="hero" className="flex flex-col pt-32 lg:pt-40 pb-16 px-3 sm:px-8 md:px-20 lg:px-32 xl:px-48 max-w-[1440px] mx-auto bg-white">
+    <section id="hero" className="flex flex-col pt-40 lg:pt-52 pb-16 px-3 sm:px-8 md:px-20 lg:px-32 xl:px-48 max-w-[1440px] mx-auto bg-white">
       {/* Huge Main Headline */}
       <div className="w-full mb-14">
         <h1 
-          className="text-[0.95rem] sm:text-[1.5rem] md:text-[2rem] lg:text-[2.75rem] xl:text-[3.5rem] font-bold leading-[1.2] tracking-[-0.01em] text-black"
+          className="text-[1.1rem] sm:text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] xl:text-[3.75rem] font-bold leading-[1.2] tracking-[-0.02em] text-black"
           style={{ fontFamily: "'Urbanist', 'Outfit', ui-sans-serif, system-ui, sans-serif" }}
         >
-          <span>Landing pages that <span className="text-[#FD5800]">pays itself.</span></span><br />
-          <span>Make <span className="text-[#FD5800]">more money</span> from same ad spend.</span>
+          Landing pages that <span className="text-[#FD5800]">pays itself.</span> Make <span className="text-[#FD5800]">more money</span> from same ad spend.
         </h1>
       </div>
 
-      {/* Divider */}
-      <div className="w-full h-[0.5px] bg-black mb-8" />
-
       {/* Bottom Content Area */}
-      <div className="flex flex-col">
+      <div className="flex flex-col mt-12 lg:mt-20">
         
         {/* Paragraph & Stats Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6">
@@ -30,20 +26,20 @@ export default function Hero() {
 
           {/* Stat 1 */}
           <div className="col-span-1 flex flex-col justify-start">
-            <span className="text-4xl lg:text-5xl text-[#FD5800] font-normal tracking-[-0.03em] mb-2 leading-none" style={{ fontFamily: "'Urbanist', sans-serif" }}>+20%</span>
-            <span className="text-[9px] font-mono font-bold text-gray-400 tracking-[0.15em] uppercase">MIN. GUARANTEED LIFT</span>
+            <span className="text-5xl sm:text-6xl lg:text-7xl text-[#FD5800] font-bold tracking-[-0.03em] mb-2 leading-none" style={{ fontFamily: "'Urbanist', sans-serif" }}>+20%</span>
+            <span className="text-[10px] font-mono font-bold text-gray-400 tracking-[0.15em] uppercase">MIN. GUARANTEED LIFT</span>
           </div>
 
           {/* Stat 2 */}
           <div className="col-span-1 flex flex-col justify-start">
-            <span className="text-4xl lg:text-5xl text-[#FD5800] font-normal tracking-[-0.03em] mb-2 leading-none" style={{ fontFamily: "'Urbanist', sans-serif" }}>450+</span>
-            <span className="text-[9px] font-mono font-bold text-gray-400 tracking-[0.15em] uppercase">PAGES SHIPPED</span>
+            <span className="text-5xl sm:text-6xl lg:text-7xl text-[#FD5800] font-bold tracking-[-0.03em] mb-2 leading-none" style={{ fontFamily: "'Urbanist', sans-serif" }}>450+</span>
+            <span className="text-[10px] font-mono font-bold text-gray-400 tracking-[0.15em] uppercase">PAGES SHIPPED</span>
           </div>
 
           {/* Stat 3 */}
           <div className="col-span-1 flex flex-col justify-start">
-            <span className="text-4xl lg:text-5xl text-[#FD5800] font-normal tracking-[-0.03em] mb-2 leading-none" style={{ fontFamily: "'Urbanist', sans-serif" }}>98+</span>
-            <span className="text-[9px] font-mono font-bold text-gray-400 tracking-[0.15em] uppercase">NPS · 2025</span>
+            <span className="text-5xl sm:text-6xl lg:text-7xl text-[#FD5800] font-bold tracking-[-0.03em] mb-2 leading-none" style={{ fontFamily: "'Urbanist', sans-serif" }}>98+</span>
+            <span className="text-[10px] font-mono font-bold text-gray-400 tracking-[0.15em] uppercase">NPS · 2025</span>
           </div>
         </div>
 
@@ -62,9 +58,6 @@ export default function Hero() {
             REPLY WITHIN <span className="text-[#FD5800]">24H</span> · NO PITCH ON CALL #1
           </span>
         </div>
-
-        {/* Second Divider (Moved Below Buttons) */}
-        <div className="w-full h-[2px] bg-black mt-10" />
 
       </div>
     </section>
