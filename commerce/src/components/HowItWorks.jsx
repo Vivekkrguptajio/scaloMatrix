@@ -2,7 +2,7 @@ import React from 'react';
 
 const HowItWorks = () => {
   return (
-    <section className="w-full py-24 lg:py-32 font-sans bg-white">
+    <section id="process" className="w-full py-24 lg:py-36 font-sans bg-white">
       <div className="max-w-[1024px] mx-auto w-full px-2.5 sm:px-5 md:px-16 xl:px-0">
         
         {/* Header Section */}

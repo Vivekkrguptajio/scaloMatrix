@@ -2,7 +2,7 @@ import React from 'react';
 
 const Services = () => {
   return (
-    <section className="w-full py-24 lg:py-36 font-sans bg-white">
+    <section id="services" className="w-full py-24 lg:py-36 font-sans bg-white">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16">
         
         {/* Header Section */}

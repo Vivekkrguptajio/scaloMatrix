@@ -9,7 +9,7 @@ export default function Navbar() {
   const logoY = useMotionValue(0)
 
   const navLinks = [
-    { name: 'Receipts', href: '#receipts' },
+    { name: 'Receipts', href: '#case-studies' },
     { name: 'Services', href: '#services' },
     { name: 'Why CRO', href: '#cro' },
     { name: 'Process', href: '#process' },
@@ -128,6 +128,12 @@ export default function Navbar() {
             <div key={link.name} className="relative h-full flex items-center">
               <a 
                 href={link.href} 
+                onClick={(e) => {
+                  if (link.href.startsWith('#')) {
+                    e.preventDefault();
+                    document.getElementById(link.href.substring(1))?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className={`flex items-center gap-1.5 text-[15px] lg:text-[16px] font-semibold font-sans tracking-wide transition-colors duration-300 ease-out relative px-4 py-2 rounded-full ${
                   isDark ? 'text-gray-300 hover:bg-[#FD5800]/10 hover:text-[#FD5800]' : 'text-gray-700 hover:bg-[#FD5800]/10 hover:text-[#FD5800]'
                 }`}
@@ -174,7 +180,15 @@ export default function Navbar() {
             <div key={link.name} className="flex flex-col">
               <a 
                 href={link.href}
-                onClick={() => setMobileMenu(false)}
+                onClick={(e) => {
+                  setMobileMenu(false);
+                  if (link.href.startsWith('#')) {
+                    e.preventDefault();
+                    setTimeout(() => {
+                      document.getElementById(link.href.substring(1))?.scrollIntoView({ behavior: 'smooth' });
+                    }, 300);
+                  }
+                }}
                 className="flex items-center justify-between text-base font-bold px-4 py-2 transition-all rounded-xl text-[#FD5800]/80 hover:text-[#FD5800] hover:bg-orange-50/50"
               >
                 {link.name}

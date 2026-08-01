@@ -16,8 +16,35 @@ import ContactUs from './components/ContactUs'
 import Contact from './components/Contact'
 import ScrollReveal from './components/ScrollReveal'
 import CustomCursor from './components/CustomCursor'
+import { useEffect } from 'react'
+import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Apple-like easing
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    })
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+
+    return () => {
+      lenis.destroy()
+    }
+  }, [])
   return (
     <div className="relative min-h-screen bg-[#0a0a0a] font-sans overflow-x-clip">
       <CustomCursor />

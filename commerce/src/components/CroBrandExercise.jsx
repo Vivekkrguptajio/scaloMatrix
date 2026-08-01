@@ -2,7 +2,7 @@ import React from 'react';
 
 const CroBrandExercise = () => {
   return (
-    <section className="w-full py-24 lg:py-36 bg-white text-black font-sans">
+    <section id="cro" className="w-full py-24 lg:py-36 bg-white text-black font-sans">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16 flex flex-col gap-12 lg:gap-16">
         
         {/* Top Row: Large Headline & Subtext */}
@@ -12,7 +12,16 @@ const CroBrandExercise = () => {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-[#111111] tracking-tight">
               CRO is a brand<br />
               exercise. The % is<br />
-              <span className="text-[#FD5800]">the receipt.</span>
+              <a 
+                href="#case-studies"
+                className="text-[#FD5800] hover:underline cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                the receipt.
+              </a>
             </h2>
           </div>
 
@@ -25,7 +34,7 @@ const CroBrandExercise = () => {
         </div>
 
         {/* Bottom Card Grid: The Re-frame */}
-        <div className="bg-white border border-black w-full flex flex-col lg:flex-row">
+        <div className="bg-white border border-black rounded-[40px] overflow-hidden w-full flex flex-col lg:flex-row shadow-sm">
           
           {/* Left Column: The Re-frame Hero */}
           <div className="w-full lg:w-5/12 p-8 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-black flex flex-col justify-between">
