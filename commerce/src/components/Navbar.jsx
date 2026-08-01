@@ -1,9 +1,11 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { motion, useMotionValue, AnimatePresence } from 'framer-motion'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [isDark, setIsDark] = useState(false)
+  const navRef = useRef(null)
   const logoX = useMotionValue(0)
   const logoY = useMotionValue(0)
 
@@ -18,6 +20,70 @@ export default function Navbar() {
       document.body.style.overflow = 'unset'
     }
   }, [menuOpen])
+
+  // Detect if navbar is over a dark section
+  useEffect(() => {
+    const checkBackground = () => {
+      if (!navRef.current) return
+      const navRect = navRef.current.getBoundingClientRect()
+      // Sample a point just below the navbar center
+      const sampleY = navRect.bottom + 2
+      const sampleX = navRect.left + navRect.width / 2
+
+      // Get all elements at the sample point
+      const elements = document.elementsFromPoint(sampleX, sampleY)
+
+      let dark = false
+      for (const el of elements) {
+        // Skip navbar itself and its children
+        if (navRef.current.contains(el) || el.closest('header')?.contains(navRef.current)) continue
+
+        const bg = getComputedStyle(el).backgroundColor
+        
+        // Skip fully transparent backgrounds (rgba(0, 0, 0, 0) etc.)
+        const rgbaMatch = bg.match(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/)
+        if (rgbaMatch) {
+          const alpha = parseFloat(rgbaMatch[4])
+          if (alpha < 0.1) continue // Skip transparent elements
+          const [, r, g, b] = rgbaMatch.map(Number)
+          if (r < 60 && g < 60 && b < 60) {
+            dark = true
+            break
+          }
+          // Found an opaque non-dark background, it's light
+          if (alpha > 0.5 && (r > 200 || g > 200 || b > 200)) {
+            dark = false
+            break
+          }
+          continue
+        }
+
+        // rgb() format (no alpha = fully opaque)
+        const rgbMatch = bg.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/)
+        if (rgbMatch) {
+          const [, r, g, b] = rgbMatch.map(Number)
+          if (r < 60 && g < 60 && b < 60) {
+            dark = true
+            break
+          }
+          // Found an opaque light background
+          if (r > 200 || g > 200 || b > 200) {
+            dark = false
+            break
+          }
+        }
+      }
+      setIsDark(dark)
+    }
+
+    checkBackground()
+    window.addEventListener('scroll', checkBackground, { passive: true })
+    window.addEventListener('resize', checkBackground, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', checkBackground)
+      window.removeEventListener('resize', checkBackground)
+    }
+  }, [])
 
   const handleMouseMove = useCallback((e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect()
@@ -42,8 +108,13 @@ export default function Navbar() {
     <>
       <header className="fixed left-0 right-0 z-50 flex justify-center transition-all duration-500 top-0 md:top-4 px-0 md:px-6">
         <nav
+          ref={navRef}
           id="navbar"
-          className="glass-navbar relative w-full flex flex-col transition-all duration-300 max-w-[1220px] rounded-none md:rounded-full"
+          className={`relative w-full flex flex-col transition-all duration-500 max-w-[1220px] rounded-none md:rounded-full backdrop-blur-2xl backdrop-saturate-200 border ${
+            isDark
+              ? 'bg-white/5 border-white/10 shadow-[0_10px_30px_rgba(253,88,0,0.25)]'
+              : 'bg-white/20 border-white/30 shadow-[0_10px_30px_rgba(253,88,0,0.15)]'
+          }`}
         >
           <div className="w-full flex items-center justify-between py-2 px-4 sm:px-6 lg:py-2.5 lg:px-8">
             
@@ -57,7 +128,7 @@ export default function Navbar() {
             >
               <span className="text-xl md:text-2xl font-sans font-black tracking-tight flex items-center gap-0.5" style={{ fontFamily: "'Urbanist', sans-serif" }}>
                 <span className="text-[#FD5800]">scalo</span>
-                <span className="text-black">MATRIX</span>
+                <span className={`transition-colors duration-500 ${isDark ? 'text-white' : 'text-black'}`}>MATRIX</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FD5800] inline-block ml-0.5 animate-pulse" />
               </span>
             </motion.a>
@@ -86,7 +157,9 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     className={`text-xs md:text-[13px] lg:text-sm font-semibold font-sans tracking-tight transition-colors duration-200 px-4 py-1.5 rounded-full block ${
-                      hoveredIndex === index ? 'text-[#FD5800]' : 'text-gray-700'
+                      hoveredIndex === index
+                        ? 'text-[#FD5800]'
+                        : isDark ? 'text-gray-300' : 'text-gray-700'
                     }`}
                   >
                     {link.label}
@@ -99,7 +172,11 @@ export default function Navbar() {
             <div className="flex items-center gap-3.5 z-10">
               
               {/* Status Badge */}
-              <div className="hidden xl:flex items-center gap-2 font-mono text-[10px] font-bold text-gray-600 tracking-wider uppercase bg-gray-100/90 px-3.5 py-1.5 rounded-full border border-gray-200/80">
+              <div className={`hidden xl:flex items-center gap-2 font-mono text-[10px] font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full border transition-colors duration-500 ${
+                isDark
+                  ? 'text-gray-300 bg-white/5 border-white/10'
+                  : 'text-gray-600 bg-gray-100/90 border-gray-200/80'
+              }`}>
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 Q2 '26 · <span className="text-[#FD5800]">+34% LIFT</span>
               </div>
@@ -107,7 +184,11 @@ export default function Navbar() {
               {/* CTA Button */}
               <a
                 href="#contact"
-                className="hidden lg:flex items-center gap-2 text-xs md:text-sm font-bold px-5 py-2.5 rounded-full bg-[#FD5800] text-white hover:bg-black transition-all duration-300 shadow-[0_4px_16px_rgba(253,88,0,0.35)] hover:shadow-none transform hover:-translate-y-0.5"
+                className={`hidden lg:flex items-center gap-2 text-xs md:text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 ${
+                  isDark
+                    ? 'bg-[#FD5800] text-white hover:bg-white hover:text-black shadow-[0_4px_16px_rgba(253,88,0,0.5)]'
+                    : 'bg-[#FD5800] text-white hover:bg-black shadow-[0_4px_16px_rgba(253,88,0,0.35)] hover:shadow-none'
+                }`}
               >
                 Book a call
                 <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
