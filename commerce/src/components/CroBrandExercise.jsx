@@ -2,14 +2,14 @@ import React from 'react';
 
 const CroBrandExercise = () => {
   return (
-    <section className="w-full py-24 lg:py-36 bg-[#fcfcfc] text-black font-sans">
+    <section className="w-full py-24 lg:py-36 bg-white text-black font-sans">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16 flex flex-col gap-12 lg:gap-16">
         
         {/* Top Row: Large Headline & Subtext */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 lg:gap-16">
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-12 gap-6">
           {/* Left Side: Large Headline */}
-          <div className="lg:w-7/12">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-[#111111] tracking-tight" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+          <div className="lg:w-[60%]">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-[#111111] tracking-tight">
               CRO is a brand<br />
               exercise. The % is<br />
               <span className="text-[#FD5800]">the receipt.</span>
@@ -17,8 +17,8 @@ const CroBrandExercise = () => {
           </div>
 
           {/* Right Side: Paragraph */}
-          <div className="lg:w-5/12">
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+          <div className="w-full lg:w-[40%] flex lg:justify-end">
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed lg:text-right">
               A "+30% lift" on the wrong audience attracts more of the wrong customer. They churn in six weeks. The number looked great on Tuesday, awful at quarterly close. We optimise the thing that moves the number, story, audience, trust. Not the button colour.
             </p>
           </div>
@@ -69,7 +69,7 @@ const CroBrandExercise = () => {
                     The page <span className="text-[#2942ff]">chooses your</span> customer.
                   </h4>
 
-                  <p className="text-xs md:text-sm text-gray-600 leading-relaxed mb-6">
+                  <p className="text-sm text-gray-500 font-medium leading-relaxed mb-6">
                     Discount-forward hero → discount-forward buyers. They convert <strong className="text-black">+18%</strong> faster and churn <strong className="text-black">3×</strong> harder. Brand-forward page → slower on day one, <strong className="text-black">compounds</strong> over year one. We pick for LTV, not Monday.
                   </p>
                 </div>
@@ -92,7 +92,7 @@ const CroBrandExercise = () => {
                     Resonance is a <span className="text-[#2942ff]">metric</span>, it just hides.
                   </h4>
 
-                  <p className="text-xs md:text-sm text-gray-600 leading-relaxed mb-6">
+                  <p className="text-sm text-gray-500 font-medium leading-relaxed mb-6">
                     Pages that convert don't describe the product — they <strong className="text-black">sound like the customer already thinking about it.</strong> "Bloated after lunch" beats "gut health optimisation." We interview real buyers and steal their exact words.
                   </p>
                 </div>

@@ -73,13 +73,15 @@ const Calculator = () => {
       <div className="max-w-[1360px] mx-auto flex flex-col items-center px-6 md:px-12 xl:px-16 w-full">
         
         {/* Header Section */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] text-black mb-3" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-10 gap-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
             Do the <span className="text-[#FD5800]">math.</span>
           </h2>
-          <p className="text-gray-600 text-sm md:text-base max-w-lg mx-auto leading-snug">
-            Move the sliders. The only section on this site that makes you do work. The numbers move. Your decision gets easier.
-          </p>
+          <div className="w-full lg:w-[40%] flex lg:justify-end">
+            <p className="text-gray-600 text-sm md:text-base leading-snug lg:text-right">
+              Move the sliders. The only section on this site that makes you do work. The numbers move. Your decision gets easier.
+            </p>
+          </div>
         </div>
 
         {/* Calculator Card */}

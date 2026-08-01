@@ -2,12 +2,12 @@ import React from 'react';
 
 const HiringPhilosophy = () => {
   return (
-    <section className="w-full py-24 lg:py-32 bg-black lg:bg-[#fcfcfc] text-white lg:text-black font-sans">
+    <section className="w-full py-24 lg:py-32 bg-black lg:bg-white text-white lg:text-black font-sans">
       <div className="max-w-[1024px] mx-auto w-full px-2.5 sm:px-5 md:px-16 xl:px-0">
         
         {/* Header Section */}
         <div className="mb-8">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-white lg:text-black" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] tracking-tight text-white lg:text-black">
             We don't hire fast. We<br className="hidden md:block" /> <span className="text-[#FD5800]">keep people longer.</span>
           </h2>
         </div>
@@ -79,7 +79,7 @@ const HiringPhilosophy = () => {
               MENTOR STANCE
             </div>
             
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold leading-[1.35] mb-8 text-black" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-black font-sans leading-[1.35] mb-8 text-black">
               "We hire young, teach hard, and let them ship things that'd scare most agencies. The work compounds. So do the people."
             </h3>
 

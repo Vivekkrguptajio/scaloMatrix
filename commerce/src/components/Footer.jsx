@@ -7,7 +7,7 @@ const Footer = () => {
         
         {/* Top Huge Typography */}
         <div className="mb-6 md:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black font-sans leading-[1.05] tracking-tight">
             <span className="block text-white">landing</span>
             <span className="block text-white">pages that</span>
             <span className="block text-[#FD5800]">earn their keep.</span>

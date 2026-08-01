@@ -9,7 +9,7 @@ const AiManifesto = () => {
 
           {/* Main Headline */}
           <div className="mb-12">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05]" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black font-sans tracking-tight leading-[1.05]">
               <span className="text-[#FD5800] block">AI is coming</span>
               <span className="text-[#FD5800]">for your </span>
               <span className="text-white">profits.</span>

@@ -6,15 +6,17 @@ const Intersection = () => {
       <div className="max-w-[1024px] mx-auto flex flex-col items-center px-2.5 sm:px-5 md:px-16 xl:px-0 w-full">
         
         {/* Header Section */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.1] text-black mb-3" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-12 gap-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
             Brand <span className="text-[#FD5800] font-light">∩</span> Tech <span className="text-[#FD5800] font-light">∩</span><br />
             Marketing. Most agencies<br /><span className="text-[#FD5800]">pick two.</span>
           </h2>
-          <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto leading-snug">
-            The ones that convert live in the centre. Narrative that means something. Code
-            that ships fast. Funnels that respect a rupee. We're allergic to handoffs.
-          </p>
+          <div className="w-full lg:w-[40%] flex lg:justify-end">
+            <p className="text-gray-600 text-sm md:text-base leading-snug lg:text-right">
+              The ones that convert live in the centre. Narrative that means something. Code
+              that ships fast. Funnels that respect a rupee. We're allergic to handoffs.
+            </p>
+          </div>
         </div>
 
         {/* The Card Container */}

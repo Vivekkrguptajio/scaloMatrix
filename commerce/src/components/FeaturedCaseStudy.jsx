@@ -2,7 +2,7 @@ import React from 'react';
 
 const FeaturedCaseStudy = () => {
   return (
-    <section className="w-full py-24 md:py-36 bg-[#fcfcfc]">
+    <section className="w-full py-24 md:py-36 bg-white">
       <div className="max-w-[1180px] mx-auto w-full px-6 md:px-12 xl:px-16">
         <div className="relative w-full bg-[#fce9d3] rounded-[40px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-5 md:p-10">
           

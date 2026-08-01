@@ -134,7 +134,7 @@ const GuestList = () => {
   };
 
   return (
-    <section className="relative z-0 w-full py-24 lg:py-36 font-sans bg-[#F6F5F2]">
+    <section className="relative z-0 w-full py-24 lg:py-36 font-sans bg-white">
       <div className="max-w-[1024px] mx-auto flex flex-col items-center relative px-2.5 sm:px-5 md:px-16 xl:px-0 w-full">
         
         {/* Decorative Scroll Dot (Right Side) */}
@@ -143,14 +143,16 @@ const GuestList = () => {
         </div>
 
         {/* Header Section */}
-        <div className="text-center mb-24">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-black mb-6" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-24 gap-6">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
             The <span className="text-[#FD5800]">guest list.</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-snug">
-            Brands we've shipped for. Twenty+ Shark Tank alumni. The kind of names
-            that wouldn't sit still for mediocre work. Now you can be one of them.
-          </p>
+          <div className="w-full lg:w-[40%] flex lg:justify-end">
+            <p className="text-gray-600 text-lg leading-snug lg:text-right">
+              Brands we've shipped for. Twenty+ Shark Tank alumni. The kind of names
+              that wouldn't sit still for mediocre work. Now you can be one of them.
+            </p>
+          </div>
         </div>
 
         {/* Shark Tank Brands Grid */}

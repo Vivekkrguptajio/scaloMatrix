@@ -2,17 +2,19 @@ import React from 'react';
 
 const Services = () => {
   return (
-    <section className="w-full py-24 lg:py-36 font-sans bg-[#F9F9F9]">
+    <section className="w-full py-24 lg:py-36 font-sans bg-white">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 mb-6">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-black" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-10 gap-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-tight text-black lg:w-[60%]">
             Our services. <span className="text-[#FD5800]">All about money</span>
           </h2>
-          <p className="text-gray-600 text-sm md:text-base max-w-md leading-snug">
-            Pick the one that matches your problem. All services includes UI/UX, Content, Graphics, Design, & Development. AI Photoshoots & 3D animations optional*
-          </p>
+          <div className="w-full lg:w-[40%] flex lg:justify-end">
+            <p className="text-gray-600 text-sm md:text-base leading-snug lg:text-right">
+              Pick the one that matches your problem. All services includes UI/UX, Content, Graphics, Design, & Development. AI Photoshoots & 3D animations optional*
+            </p>
+          </div>
         </div>
 
         {/* Pricing/Services Table */}
@@ -27,7 +29,7 @@ const Services = () => {
               Single landing page.
             </h3>
             <div className="w-full h-[1px] bg-gray-300 mb-3"></div>
-            <p className="text-xs text-gray-600 leading-snug mb-5 flex-1">
+            <p className="text-sm text-gray-500 font-medium leading-relaxed mb-5 flex-1">
               One page. Research → copy → design → build → ship. Guaranteed +20% or we keep working.
             </p>
             <ul className="flex flex-col gap-2.5 font-mono text-xs leading-snug text-gray-700">
@@ -55,7 +57,7 @@ const Services = () => {
               CRO retainer for each Landing Page
             </h3>
             <div className="w-full h-[1px] bg-[#333] mb-3"></div>
-            <p className="text-xs text-gray-400 leading-snug mb-5 flex-1 relative z-10">
+            <p className="text-sm text-[#a1a1aa] font-medium leading-relaxed mb-5 flex-1 relative z-10">
               Choose the number of landing pages you wish. For every landing page we
             </p>
             
@@ -84,7 +86,7 @@ const Services = () => {
               Full Shopify Store Development
             </h3>
             <div className="w-full h-[1px] bg-gray-300 mb-3"></div>
-            <p className="text-xs text-gray-600 leading-snug mb-5 flex-1">
+            <p className="text-sm text-gray-500 font-medium leading-relaxed mb-5 flex-1">
               Sitemap, narrative, proof, polish. Your site stops being a brochure and starts earning.
             </p>
             <ul className="flex flex-col gap-2.5 font-mono text-xs leading-snug text-gray-700">
@@ -116,7 +118,7 @@ const Services = () => {
               <span className="text-lg font-bold text-[#FD5800]">₹0</span>
             </div>
             <div className="w-full h-[1px] bg-gray-300 mb-3"></div>
-            <p className="text-xs text-gray-600 leading-snug mb-5 flex-1">
+            <p className="text-sm text-gray-500 font-medium leading-relaxed mb-5 flex-1">
               Only if you get selected* Send us the URL. We'll audit live on a call. If you don't get selected, you can still pay for it.
             </p>
             <ul className="flex flex-col gap-2.5 font-mono text-xs leading-snug text-gray-700">

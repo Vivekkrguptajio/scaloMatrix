@@ -98,23 +98,28 @@ const HappyClients = () => {
 
       <div className="max-w-[1024px] mx-auto flex flex-col items-center px-2.5 sm:px-5 md:px-16 xl:px-0 mb-16 w-full">
         
-        {/* Header Avatars */}
-        <div className="flex justify-center -space-x-3 mb-6">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="w-12 h-12 rounded-full border-[3px] border-white bg-gray-300 overflow-hidden shadow-sm">
-              <img src="/image.png" alt="Client" className="w-full h-full object-cover" />
+        {/* Header Content Wrapper */}
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-10 gap-6">
+          {/* Left Side: Avatars + Heading */}
+          <div className="flex flex-col items-start text-left lg:w-[60%]">
+            <div className="flex -space-x-3 mb-4">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="w-12 h-12 rounded-full border-[3px] border-white bg-gray-300 overflow-hidden shadow-sm">
+                  <img src="/image.png" alt="Client" className="w-full h-full object-cover" />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-
-        {/* Header Text */}
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-[54px] font-bold leading-[1.1] text-black mb-2 tracking-tight" style={{ fontFamily: "'Urbanist', sans-serif" }}>
-            1000+ <span className="text-[#FD5800]">Happy Clients</span>
-          </h2>
-          <p className="text-gray-500 text-sm md:text-[15px] max-w-2xl mx-auto font-medium">
-            Trusted by thousands of people
-          </p>
+            <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black font-sans leading-[1.1] text-black tracking-tight">
+              1000+ <span className="text-[#FD5800]">Happy Clients</span>
+            </h2>
+          </div>
+          
+          {/* Right Side: Text */}
+          <div className="w-full lg:w-[40%] flex lg:justify-end">
+            <p className="text-gray-500 text-sm md:text-[15px] max-w-sm font-medium text-left lg:text-right">
+              Trusted by thousands of people
+            </p>
+          </div>
         </div>
       </div>
 
