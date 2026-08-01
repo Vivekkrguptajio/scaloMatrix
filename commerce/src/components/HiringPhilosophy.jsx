@@ -2,13 +2,13 @@ import React from 'react';
 
 const HiringPhilosophy = () => {
   return (
-    <section className="w-full py-8 lg:py-12 bg-black lg:bg-white text-white lg:text-black font-sans">
+    <section className="w-full py-24 lg:py-32 bg-black lg:bg-[#fcfcfc] text-white lg:text-black font-sans">
       <div className="max-w-[1024px] mx-auto w-full px-2.5 sm:px-5 md:px-16 xl:px-0">
         
         {/* Header Section */}
         <div className="mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-white lg:text-black" style={{ fontFamily: "'Urbanist', sans-serif" }}>
-            We don't hire fast. We<br className="hidden md:block" /> keep people longer.
+            We don't hire fast. We<br className="hidden md:block" /> <span className="text-[#FD5800]">keep people longer.</span>
           </h2>
         </div>
 

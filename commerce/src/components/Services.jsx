@@ -2,7 +2,7 @@ import React from 'react';
 
 const Services = () => {
   return (
-    <section className="w-full py-8 lg:py-12 font-sans bg-white">
+    <section className="w-full py-24 lg:py-36 font-sans bg-[#F9F9F9]">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16">
         
         {/* Header Section */}
@@ -16,10 +16,10 @@ const Services = () => {
         </div>
 
         {/* Pricing/Services Table */}
-        <div className="w-full flex flex-col xl:flex-row border-[0.5px] md:border border-black mb-6">
+        <div className="w-full flex flex-col xl:flex-row rounded-[40px] shadow-sm border border-gray-200 overflow-hidden mb-8">
           
           {/* Tier 1 */}
-          <div className="w-full xl:w-1/4 bg-white p-5 md:p-6 flex flex-col border-b-[0.5px] xl:border-b-0 xl:border-r border-black">
+          <div className="w-full xl:w-1/4 bg-white p-6 md:p-8 flex flex-col border-b xl:border-b-0 xl:border-r border-gray-200">
             <div className="text-[10px] font-mono tracking-widest text-gray-500 uppercase mb-3">
               TIER · 01 · SNIPER
             </div>
@@ -47,7 +47,7 @@ const Services = () => {
           </div>
 
           {/* Tier 2 (Dark) */}
-          <div className="w-full xl:w-1/4 bg-[#111] text-white p-5 md:p-6 flex flex-col border-b-[0.5px] xl:border-b-0 xl:border-r border-black relative overflow-hidden">
+          <div className="w-full xl:w-1/4 bg-[#111] text-white p-6 md:p-8 flex flex-col border-b xl:border-b-0 xl:border-r border-[#333] relative overflow-hidden">
             <div className="text-[10px] font-mono tracking-widest text-[#FF9066] uppercase mb-3">
               TIER · 02 · THE RETAINER - MOST PICKED
             </div>
@@ -76,7 +76,7 @@ const Services = () => {
           </div>
 
           {/* Tier 3 */}
-          <div className="w-full xl:w-1/4 bg-white p-5 md:p-6 flex flex-col border-b-[0.5px] xl:border-b-0 xl:border-r border-black">
+          <div className="w-full xl:w-1/4 bg-white p-6 md:p-8 flex flex-col border-b xl:border-b-0 xl:border-r border-gray-200">
             <div className="text-[10px] font-mono tracking-widest text-gray-500 uppercase mb-3">
               TIER · 03 · FULL REVAMP
             </div>
@@ -104,7 +104,7 @@ const Services = () => {
           </div>
 
           {/* Tier 4 */}
-          <div className="w-full xl:w-1/4 bg-white p-5 md:p-6 flex flex-col">
+          <div className="w-full xl:w-1/4 bg-white p-6 md:p-8 flex flex-col">
             <div className="text-[10px] font-mono tracking-widest text-gray-500 uppercase mb-3">
               TIER · 04 · DIAGNOSTIC
             </div>
@@ -139,7 +139,7 @@ const Services = () => {
 
         {/* Schedule a call button */}
         <div className="flex">
-          <a href="#" className="group flex items-center gap-2 bg-[#FD5800] text-white font-bold py-3 px-6 rounded-full hover:bg-white hover:text-black hover:border-black border border-transparent transition-colors text-sm tracking-wide">
+          <a href="#" className="group flex items-center gap-2 bg-black text-white font-bold py-4 px-8 rounded-full hover:bg-[#FD5800] transition-colors shadow-md hover:shadow-lg text-sm tracking-wide">
             Schedule a call
             <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />

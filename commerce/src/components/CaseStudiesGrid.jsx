@@ -401,13 +401,13 @@ const CaseStudiesGrid = () => {
   const mobileVisibleStudies = allStudies.slice(activePage * 2, activePage * 2 + 2);
 
   return (
-    <section className="w-full py-16 lg:py-24 font-sans bg-white">
+    <section className="w-full py-24 lg:py-36 bg-white font-sans">
       <div className="max-w-[1440px] mx-auto flex flex-col items-center px-4 sm:px-6 md:px-12 xl:px-16 w-full">
         
         {/* Header Section */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] text-black mb-4 tracking-tight" style={{ fontFamily: "'Urbanist', sans-serif" }}>
-            Things we are happy<br />about.
+            Things we are happy<br /><span className="text-[#FD5800]">about.</span>
           </h2>
           <p className="text-gray-500 text-sm md:text-base max-w-lg mx-auto leading-relaxed" style={{ fontFamily: "'Urbanist', sans-serif" }}>
             We don't do testimonials until there's a number next to them. Each tile is<br className="hidden sm:block" /> a real page, shipped, measured over n≥10,000 sessions.

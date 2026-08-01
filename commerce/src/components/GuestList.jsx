@@ -29,7 +29,7 @@ const GuestCard = ({ brand, renderLogo, index }) => {
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`w-1/2 h-28 border border-black -ml-[1px] -mt-[1px] bg-white flex items-center justify-center p-4 transition-all duration-700 ease-out transform ${
+      className={`w-1/2 sm:w-1/3 lg:w-1/6 h-28 border border-black -ml-[1px] -mt-[1px] bg-white flex items-center justify-center p-4 transition-all duration-700 ease-out transform ${
         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95'
       }`}
     >
@@ -134,7 +134,7 @@ const GuestList = () => {
   };
 
   return (
-    <section className="relative z-0 w-full py-12 lg:py-20 font-sans bg-white">
+    <section className="relative z-0 w-full py-24 lg:py-36 font-sans bg-[#F6F5F2]">
       <div className="max-w-[1024px] mx-auto flex flex-col items-center relative px-2.5 sm:px-5 md:px-16 xl:px-0 w-full">
         
         {/* Decorative Scroll Dot (Right Side) */}
@@ -145,7 +145,7 @@ const GuestList = () => {
         {/* Header Section */}
         <div className="text-center mb-24">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-black mb-6" style={{ fontFamily: "'Urbanist', sans-serif" }}>
-            The guest list.
+            The <span className="text-[#FD5800]">guest list.</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-snug">
             Brands we've shipped for. Twenty+ Shark Tank alumni. The kind of names
@@ -155,7 +155,7 @@ const GuestList = () => {
 
         {/* Shark Tank Brands Grid */}
         <div className="relative w-full mb-24">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FD5800] text-white text-[10px] font-mono uppercase tracking-widest px-4 py-2 z-10">
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-mono uppercase tracking-widest px-4 py-2 z-10">
             SHARK TANK BRANDS
           </div>
           <div className="flex flex-wrap justify-center pl-[1px] pt-[1px]">
@@ -167,7 +167,7 @@ const GuestList = () => {
 
         {/* Best Brands Grid */}
         <div className="relative w-full">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FD5800] text-white text-[10px] font-mono uppercase tracking-widest px-4 py-2 z-10">
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-mono uppercase tracking-widest px-4 py-2 z-10">
             BEST BRANDS
           </div>
           <div className="flex flex-wrap justify-center pl-[1px] pt-[1px]">

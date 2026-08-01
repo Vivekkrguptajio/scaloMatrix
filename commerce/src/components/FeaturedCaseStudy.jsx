@@ -2,50 +2,50 @@ import React from 'react';
 
 const FeaturedCaseStudy = () => {
   return (
-    <section className="w-full py-8 md:py-12 bg-white">
+    <section className="w-full py-24 md:py-36 bg-[#fcfcfc]">
       <div className="max-w-[1180px] mx-auto w-full px-6 md:px-12 xl:px-16">
-        <div className="relative w-full bg-[#fce9d3] border-[0.5px] md:border border-black p-5 md:p-7">
+        <div className="relative w-full bg-[#fce9d3] rounded-[40px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-5 md:p-10">
           
           {/* Blue Ribbon / Tag */}
-          <div className="absolute top-0 left-0 -translate-y-full -translate-x-[1px] bg-[#2942ff] text-white text-xs md:text-sm font-bold tracking-[0.2em] py-2.5 px-6 uppercase border border-black border-b-0 z-10">
+          <div className="absolute top-0 left-8 md:left-12 -translate-y-full bg-[#2942ff] text-white text-xs md:text-sm font-bold tracking-[0.2em] py-2.5 px-6 uppercase rounded-t-2xl z-10">
             Featured Case Study
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-5 md:gap-6 items-stretch">
+          <div className="flex flex-col lg:flex-row gap-8 md:gap-10 items-stretch mt-4 md:mt-0">
             
             {/* Left Sidebar (Narrower Width) */}
             <div className="w-full lg:w-[140px] xl:w-[155px] flex flex-col justify-between shrink-0 gap-4">
               
               {/* Unified Logo & Stats Card */}
-              <div className="bg-white border border-black flex flex-col">
+              <div className="bg-white rounded-3xl shadow-sm border border-gray-100 flex flex-col overflow-hidden">
                 {/* Logo Section */}
-                <div className="p-3 border-b border-black flex items-center justify-center">
-                  <div className="bg-[#ff2020] text-white font-black italic text-lg leading-none px-2 py-1.5 tracking-tighter w-full text-center">
+                <div className="p-4 border-b border-gray-100 flex items-center justify-center">
+                  <div className="bg-[#ff2020] text-white font-black italic text-lg leading-none px-3 py-2 rounded-xl tracking-tighter w-full text-center">
                     SUPER<span className="text-white/90">YOU</span>
                   </div>
                 </div>
 
                 {/* Stat 1: CR */}
-                <div className="p-3 border-b border-black">
+                <div className="p-4 border-b border-gray-100">
                   <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+33%</div>
                   <div className="text-gray-500 font-mono font-bold text-[9px] mt-1 tracking-widest uppercase">CR</div>
                 </div>
 
                 {/* Stat 2: AOV */}
-                <div className="p-3">
+                <div className="p-4">
                   <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+14%</div>
                   <div className="text-gray-500 font-mono font-bold text-[9px] mt-1 tracking-widest uppercase">AOV</div>
                 </div>
               </div>
 
               {/* Visit Website Button */}
-              <div>
+              <div className="mt-2">
                 <a 
                   href="#" 
-                  className="group bg-black text-white font-bold py-3 px-3 w-full flex justify-between items-center hover:bg-[#FD5800] transition-colors text-[11px] tracking-wide border border-black"
+                  className="group bg-black text-white font-bold py-4 px-5 rounded-full w-full flex justify-between items-center hover:bg-[#FD5800] transition-colors text-xs tracking-wide shadow-md hover:shadow-lg"
                 >
                   <span>Visit Website</span>
-                  <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
@@ -54,22 +54,22 @@ const FeaturedCaseStudy = () => {
             </div>
 
             {/* Right Mockup Images Container (+20% Further Increased Height to 600px) */}
-            <div className="flex-1 w-full grid grid-cols-1 sm:grid-cols-3 gap-4 h-[540px] md:h-[600px]">
-              <div className="border border-black bg-white overflow-hidden h-full">
+            <div className="flex-1 w-full grid grid-cols-1 sm:grid-cols-3 gap-6 h-[540px] md:h-[600px]">
+              <div className="rounded-3xl border border-gray-200 shadow-sm bg-white overflow-hidden h-full">
                 <img 
                   src="/image.png" 
                   alt="Super You Case Study 1" 
                   className="w-full h-full object-cover object-top block" 
                 />
               </div>
-              <div className="border border-black bg-white overflow-hidden h-full">
+              <div className="rounded-3xl border border-gray-200 shadow-sm bg-white overflow-hidden h-full">
                 <img 
                   src="/image copy.png" 
                   alt="Super You Case Study 2" 
                   className="w-full h-full object-cover object-top block" 
                 />
               </div>
-              <div className="border border-black bg-white overflow-hidden h-full">
+              <div className="rounded-3xl border border-gray-200 shadow-sm bg-white overflow-hidden h-full">
                 <img 
                   src="/image copy 2.png" 
                   alt="Super You Case Study 3" 

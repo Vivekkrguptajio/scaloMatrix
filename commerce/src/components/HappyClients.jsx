@@ -110,7 +110,7 @@ const HappyClients = () => {
         {/* Header Text */}
         <div className="text-center">
           <h2 className="text-4xl md:text-5xl lg:text-[54px] font-bold leading-[1.1] text-black mb-2 tracking-tight" style={{ fontFamily: "'Urbanist', sans-serif" }}>
-            1000+ Happy Clients
+            1000+ <span className="text-[#FD5800]">Happy Clients</span>
           </h2>
           <p className="text-gray-500 text-sm md:text-[15px] max-w-2xl mx-auto font-medium">
             Trusted by thousands of people

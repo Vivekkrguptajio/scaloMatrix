@@ -2,14 +2,14 @@ import React from 'react';
 
 const Intersection = () => {
   return (
-    <section className="w-full py-8 lg:py-12 font-sans bg-white">
+    <section className="w-full py-24 lg:py-32 font-sans bg-white">
       <div className="max-w-[1024px] mx-auto flex flex-col items-center px-2.5 sm:px-5 md:px-16 xl:px-0 w-full">
         
         {/* Header Section */}
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.1] text-black mb-3" style={{ fontFamily: "'Urbanist', sans-serif" }}>
             Brand <span className="text-[#FD5800] font-light">∩</span> Tech <span className="text-[#FD5800] font-light">∩</span><br />
-            Marketing. Most agencies<br />pick two.
+            Marketing. Most agencies<br /><span className="text-[#FD5800]">pick two.</span>
           </h2>
           <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto leading-snug">
             The ones that convert live in the centre. Narrative that means something. Code

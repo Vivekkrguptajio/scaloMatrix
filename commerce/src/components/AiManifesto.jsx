@@ -2,7 +2,7 @@ import React from 'react';
 
 const AiManifesto = () => {
   return (
-    <section className="w-full py-16 md:py-24 bg-[#111111] text-white font-sans border-t-[0.5px] border-b-[0.5px] md:border-t md:border-b border-black">
+    <section className="w-full py-24 md:py-36 bg-[#111111] text-white font-sans">
       <div className="w-full px-6 md:px-16 lg:px-24 xl:px-32">
           
 

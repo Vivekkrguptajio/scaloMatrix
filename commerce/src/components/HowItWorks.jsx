@@ -2,13 +2,13 @@ import React from 'react';
 
 const HowItWorks = () => {
   return (
-    <section className="w-full py-8 lg:py-12 font-sans bg-white">
+    <section className="w-full py-24 lg:py-32 font-sans bg-white">
       <div className="max-w-[1024px] mx-auto w-full px-2.5 sm:px-5 md:px-16 xl:px-0">
         
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] text-black" style={{ fontFamily: "'Urbanist', sans-serif" }}>
-            How the sausage<br />gets made.
+            How the sausage<br /><span className="text-[#FD5800]">gets made.</span>
           </h2>
           <p className="text-gray-600 text-sm md:text-base max-w-md leading-snug">
             Data in. Design out. Shipped live. No "creative exploration phase." No 40-slide decks. We're builders who happen to be researchers.

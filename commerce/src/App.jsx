@@ -12,29 +12,35 @@ import CroBrandExercise from './components/CroBrandExercise'
 import HowItWorks from './components/HowItWorks'
 import HiringPhilosophy from './components/HiringPhilosophy'
 import WhoWeDontWorkWith from './components/WhoWeDontWorkWith'
-import Footer from './components/Footer'
+import ContactUs from './components/ContactUs'
+import Contact from './components/Contact'
 import ScrollReveal from './components/ScrollReveal'
 import CustomCursor from './components/CustomCursor'
 
 function App() {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#0a0a0a] font-sans overflow-x-clip">
       <CustomCursor />
       <Navbar />
-      <Hero />
-      <ScrollReveal><FeaturedCaseStudy /></ScrollReveal>
-      <ScrollReveal><HappyClients /></ScrollReveal>
-      <ScrollReveal><GuestList /></ScrollReveal>
-      <ScrollReveal><CaseStudiesGrid /></ScrollReveal>
-      <ScrollReveal><Calculator /></ScrollReveal>
-      <ScrollReveal><Intersection /></ScrollReveal>
-      <ScrollReveal><Services /></ScrollReveal>
-      <ScrollReveal><AiManifesto /></ScrollReveal>
-      <ScrollReveal><CroBrandExercise /></ScrollReveal>
-      <ScrollReveal><HowItWorks /></ScrollReveal>
-      <ScrollReveal><HiringPhilosophy /></ScrollReveal>
-      <ScrollReveal><WhoWeDontWorkWith /></ScrollReveal>
-      <Footer />
+      
+      <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+        <Hero />
+        <ScrollReveal><FeaturedCaseStudy /></ScrollReveal>
+        <ScrollReveal><HappyClients /></ScrollReveal>
+        <ScrollReveal><GuestList /></ScrollReveal>
+        <ScrollReveal><CaseStudiesGrid /></ScrollReveal>
+        <ScrollReveal><Calculator /></ScrollReveal>
+        <ScrollReveal><Intersection /></ScrollReveal>
+        <ScrollReveal><Services /></ScrollReveal>
+        <ScrollReveal><AiManifesto /></ScrollReveal>
+        <ScrollReveal><CroBrandExercise /></ScrollReveal>
+        <ScrollReveal><HowItWorks /></ScrollReveal>
+        <ScrollReveal><HiringPhilosophy /></ScrollReveal>
+        <ScrollReveal><WhoWeDontWorkWith /></ScrollReveal>
+        <ContactUs />
+      </main>
+
+      <Contact reveal={true} />
     </div>
   )
 }

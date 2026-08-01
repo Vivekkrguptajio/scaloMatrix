@@ -2,7 +2,7 @@ import React from 'react';
 
 const CroBrandExercise = () => {
   return (
-    <section className="w-full py-16 lg:py-24 bg-white text-black font-sans border-t-[0.5px] border-b-[0.5px] md:border-t md:border-b border-black">
+    <section className="w-full py-24 lg:py-36 bg-[#fcfcfc] text-black font-sans">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16 flex flex-col gap-12 lg:gap-16">
         
         {/* Top Row: Large Headline & Subtext */}
@@ -12,7 +12,7 @@ const CroBrandExercise = () => {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-[#111111] tracking-tight" style={{ fontFamily: "'Urbanist', sans-serif" }}>
               CRO is a brand<br />
               exercise. The % is<br />
-              the receipt.
+              <span className="text-[#FD5800]">the receipt.</span>
             </h2>
           </div>
 

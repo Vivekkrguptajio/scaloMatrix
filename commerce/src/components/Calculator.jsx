@@ -75,7 +75,7 @@ const Calculator = () => {
         {/* Header Section */}
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] text-black mb-3" style={{ fontFamily: "'Urbanist', sans-serif" }}>
-            Do the math.
+            Do the <span className="text-[#FD5800]">math.</span>
           </h2>
           <p className="text-gray-600 text-sm md:text-base max-w-lg mx-auto leading-snug">
             Move the sliders. The only section on this site that makes you do work. The numbers move. Your decision gets easier.
@@ -83,7 +83,7 @@ const Calculator = () => {
         </div>
 
         {/* Calculator Card */}
-        <div className="bg-white border border-black w-full flex flex-col lg:flex-row shadow-sm">
+        <div className="w-full bg-[#f4ebd0] rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-200 flex flex-col lg:flex-row overflow-hidden">
           
           {/* Left Side: Sliders */}
           <div className="w-full lg:w-[58%] p-6 md:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-black flex flex-col justify-center gap-6">
