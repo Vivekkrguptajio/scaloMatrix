@@ -1,54 +1,69 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
-const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
-  const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+export default function CustomCursor() {
+  const dotRef = useRef(null);
+  const outerRef = useRef(null);
 
   useEffect(() => {
-    const onMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+    // Skip on touch devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+
+    const dot = dotRef.current;
+    const outer = outerRef.current;
+    if (!dot || !outer) return;
+
+    // Use raw DOM manipulation instead of React state to avoid re-renders
+    const handleMouseMove = (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      outer.style.transform = `translate3d(${x - 16}px, ${y - 16}px, 0)`;
     };
 
-    const onMouseDown = () => setIsHovered(true);
-    const onMouseUp = () => setIsHovered(false);
+    let lastTarget = null;
+    const handleMouseOver = (e) => {
+      const target = e.target;
+      if (target === lastTarget) return;
+      lastTarget = target;
 
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mousedown', onMouseDown);
-    window.addEventListener('mouseup', onMouseUp);
+      const isInteractive = target.tagName === 'A' ||
+        target.tagName === 'BUTTON' ||
+        target.closest('a') ||
+        target.closest('button') ||
+        target.classList.contains('cursor-pointer');
+
+      dot.style.transform = isInteractive ? 'scale(1.5)' : 'scale(1)';
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('mouseover', handleMouseOver, { passive: true });
 
     return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mousedown', onMouseDown);
-      window.removeEventListener('mouseup', onMouseUp);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseover', handleMouseOver);
     };
-  }, [isVisible]);
+  }, []);
 
-  if (!isVisible) return null;
+  // Check touch device on first render
+  if (typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
+    return null;
+  }
 
   return (
-    <>
-      {/* Outer Negative Ring */}
-      <div
-        className="fixed top-0 left-0 w-9 h-9 rounded-full border border-white pointer-events-none z-[99999] mix-blend-difference transition-transform duration-150 ease-out transform hidden md:block"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          transform: `translate(-50%, -50%) scale(${isHovered ? 1.6 : 1})`,
-        }}
-      />
-      {/* Inner Negative / Inverted Dot */}
-      <div
-        className="fixed top-0 left-0 w-4 h-4 bg-white rounded-full pointer-events-none z-[99999] mix-blend-difference transition-transform duration-75 ease-out transform hidden md:block"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          transform: `translate(-50%, -50%) scale(${isHovered ? 0.75 : 1})`,
-        }}
-      />
-    </>
+    <div 
+      ref={outerRef}
+      className="fixed top-0 left-0 pointer-events-none z-[10000] mix-blend-difference"
+      style={{ willChange: 'transform' }}
+    >
+      <div className="flex items-center justify-center w-8 h-8">
+        <div 
+          ref={dotRef}
+          className="w-2 h-2 rounded-full bg-white"
+          style={{ 
+            transition: 'transform 0.15s ease',
+            willChange: 'transform',
+          }}
+        />
+      </div>
+    </div>
   );
-};
-
-export default CustomCursor;
+}
