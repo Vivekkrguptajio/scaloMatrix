@@ -2,7 +2,7 @@ import React from 'react';
 
 const Services = () => {
   return (
-    <section id="services" className="w-full py-24 lg:py-36 font-sans bg-white">
+    <section id="services" className="w-full py-16 md:py-24 lg:py-36 font-sans bg-white">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16">
         
         {/* Header Section */}
@@ -18,7 +18,7 @@ const Services = () => {
         </div>
 
         {/* Pricing/Services Table */}
-        <div className="w-full flex flex-col xl:flex-row rounded-[40px] shadow-sm border border-gray-200 overflow-hidden mb-8">
+        <div className="w-full flex flex-col xl:flex-row rounded-[40px] shadow-sm border border-gray-200 overflow-hidden mb-8 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
           
           {/* Tier 1 */}
           <div className="w-full xl:w-1/4 bg-white p-6 md:p-8 flex flex-col border-b xl:border-b-0 xl:border-r border-gray-200">

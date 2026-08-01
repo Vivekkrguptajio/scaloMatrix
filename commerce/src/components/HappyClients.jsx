@@ -72,7 +72,7 @@ const HappyClients = () => {
   ];
 
   return (
-    <section className="w-full pt-12 lg:pt-20 pb-12 font-sans bg-white relative z-10">
+    <section className="w-full pt-16 md:pt-24 lg:pt-36 pb-12 font-sans bg-white relative z-10">
       
       <style>
         {`

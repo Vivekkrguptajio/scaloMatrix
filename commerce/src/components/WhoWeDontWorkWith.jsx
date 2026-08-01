@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhoWeDontWorkWith = () => {
   return (
-    <section className="w-full py-24 lg:py-32 font-sans bg-white">
+    <section className="w-full py-16 md:py-24 lg:py-36 font-sans bg-white">
       <div className="max-w-[1024px] mx-auto w-full px-2.5 sm:px-5 md:px-16 xl:px-0">
         
         {/* Header Section */}
@@ -18,7 +18,7 @@ const WhoWeDontWorkWith = () => {
         </div>
 
         {/* The Card */}
-        <div className="bg-[#111] text-white w-full flex flex-col md:flex-row border border-[#222]">
+        <div className="bg-[#111] text-white w-full flex flex-col md:flex-row border border-[#222] hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
           
           {/* Left Column (Not for you if) */}
           <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-[#222]">

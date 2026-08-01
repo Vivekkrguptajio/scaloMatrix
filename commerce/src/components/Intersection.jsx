@@ -2,7 +2,7 @@ import React from 'react';
 
 const Intersection = () => {
   return (
-    <section id="intersection" className="w-full py-24 lg:py-36 font-sans bg-[#F4F4F4]">
+    <section id="intersection" className="w-full py-16 md:py-24 lg:py-36 font-sans bg-[#F4F4F4]">
       <div className="max-w-[1024px] mx-auto flex flex-col items-center px-2.5 sm:px-5 md:px-16 xl:px-0 w-full">
         
         {/* Header Section */}

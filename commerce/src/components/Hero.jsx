@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-3 sm:gap-4">
             <a 
               href="#contact" 
-              className="group flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 sm:py-2.5 rounded-full font-bold text-[13px] sm:text-[14px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
+              className="group flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 sm:py-2.5 rounded-full font-bold text-[13px] sm:text-[14px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-lg transition-all duration-300 tracking-wide"
             >
               Book a call
               <svg className="w-4 h-4 sm:w-[16px] sm:h-[16px] transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -36,7 +36,7 @@ export default function Hero() {
             
             <a 
               href="#math" 
-              className="flex w-full sm:w-auto items-center justify-center px-6 py-3 sm:py-2.5 rounded-full font-bold text-[13px] sm:text-[14px] text-gray-700 border border-black/10 hover:border-black/20 hover:bg-black/5 transition-all duration-300"
+              className="flex w-full sm:w-auto items-center justify-center px-6 py-3 sm:py-2.5 rounded-full font-bold text-[13px] sm:text-[14px] text-gray-700 border border-black/10 hover:border-black/20 hover:bg-black/5 hover:scale-105 hover:shadow-md transition-all duration-300"
             >
               Run the math ↓
             </a>

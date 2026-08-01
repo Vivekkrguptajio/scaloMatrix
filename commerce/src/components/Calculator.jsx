@@ -27,7 +27,7 @@ const Calculator = () => {
   };
 
   return (
-    <section className="w-full py-8 lg:py-12 font-sans bg-white">
+    <section id="math" className="w-full py-16 md:py-24 lg:py-36 font-sans bg-white">
       <style>
         {`
           .custom-slider {

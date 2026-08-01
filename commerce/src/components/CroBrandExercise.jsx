@@ -2,7 +2,7 @@ import React from 'react';
 
 const CroBrandExercise = () => {
   return (
-    <section id="cro" className="w-full py-24 lg:py-36 bg-white text-black font-sans">
+    <section id="cro" className="w-full py-16 md:py-24 lg:py-36 bg-white text-black font-sans">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16 flex flex-col gap-12 lg:gap-16">
         
         {/* Top Row: Large Headline & Subtext */}

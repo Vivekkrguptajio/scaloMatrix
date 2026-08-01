@@ -2,7 +2,7 @@ import React from 'react';
 
 const HowItWorks = () => {
   return (
-    <section id="process" className="w-full py-24 lg:py-36 font-sans bg-white">
+    <section id="process" className="w-full py-16 md:py-24 lg:py-36 font-sans bg-white">
       <div className="max-w-[1024px] mx-auto w-full px-2.5 sm:px-5 md:px-16 xl:px-0">
         
         {/* Header Section */}
@@ -18,7 +18,7 @@ const HowItWorks = () => {
         </div>
 
         {/* The 3-Column Card */}
-        <div className="bg-white text-black w-full flex flex-col lg:flex-row border-[0.5px] lg:border border-black">
+        <div className="bg-white text-black w-full flex flex-col lg:flex-row border-[0.5px] lg:border border-black hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
           
           {/* Step 1 */}
           <div className="w-full lg:w-1/3 p-6 md:p-7 lg:p-8 border-b-[0.5px] lg:border-b-0 lg:border-r border-black flex flex-col">

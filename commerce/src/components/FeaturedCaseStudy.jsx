@@ -2,9 +2,9 @@ import React from 'react';
 
 const FeaturedCaseStudy = () => {
   return (
-    <section className="w-full py-24 md:py-36 bg-white">
+    <section className="w-full py-16 md:py-24 lg:py-36 bg-white">
       <div className="max-w-[1180px] mx-auto w-full px-6 md:px-12 xl:px-16">
-        <div className="relative w-full bg-[#fce9d3] rounded-[40px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-5 md:p-10">
+        <div className="relative w-full bg-[#fce9d3] rounded-[40px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-5 md:p-10 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-300">
           
           {/* Blue Ribbon / Tag */}
           <div className="absolute top-0 left-8 md:left-12 -translate-y-full bg-[#2942ff] text-white text-xs md:text-sm font-bold tracking-[0.2em] py-2.5 px-6 uppercase rounded-t-2xl z-10">

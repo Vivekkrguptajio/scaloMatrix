@@ -2,7 +2,7 @@ import React from 'react';
 
 const HiringPhilosophy = () => {
   return (
-    <section className="w-full py-24 lg:py-32 bg-black lg:bg-white text-white lg:text-black font-sans">
+    <section className="w-full py-16 md:py-24 lg:py-36 bg-black lg:bg-white text-white lg:text-black font-sans">
       <div className="max-w-[1024px] mx-auto w-full px-2.5 sm:px-5 md:px-16 xl:px-0">
         
         {/* Header Section */}

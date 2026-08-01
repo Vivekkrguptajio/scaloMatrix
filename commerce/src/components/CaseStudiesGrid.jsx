@@ -401,7 +401,7 @@ const CaseStudiesGrid = () => {
   const mobileVisibleStudies = allStudies.slice(activePage * 2, activePage * 2 + 2);
 
   return (
-    <section id="case-studies" className="w-full py-24 lg:py-36 bg-white font-sans">
+    <section id="case-studies" className="w-full py-16 md:py-24 lg:py-36 bg-white font-sans">
       <div className="max-w-[1440px] mx-auto flex flex-col items-center px-4 sm:px-6 md:px-12 xl:px-16 w-full">
         
         {/* Header Section */}
@@ -418,7 +418,7 @@ const CaseStudiesGrid = () => {
 
         {/* MOBILE VIEW: SHOW ONLY 2 CARDS AT A TIME */}
         <div className="lg:hidden w-full flex flex-col gap-6">
-          <div className="bg-white border-[0.5px] border-black w-full flex flex-col">
+          <div className="bg-white border-[0.5px] border-black w-full flex flex-col hover:-translate-y-1 hover:shadow-[5px_5px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
             {mobileVisibleStudies.map((study, idx) => (
               <div 
                 key={study.id} 
@@ -462,7 +462,7 @@ const CaseStudiesGrid = () => {
         {/* DESKTOP VIEW: FULL 6 CARDS GRID */}
         <div className="hidden lg:flex flex-col w-full gap-8">
           {/* Row 1 */}
-          <div className="bg-white border border-black w-full grid grid-cols-3">
+          <div className="bg-white border border-black w-full grid grid-cols-3 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
             {allStudies.slice(0, 3).map((study, idx) => (
               <div 
                 key={study.id} 
@@ -489,7 +489,7 @@ const CaseStudiesGrid = () => {
           </div>
 
           {/* Row 2 */}
-          <div className="bg-white border border-black w-full grid grid-cols-3">
+          <div className="bg-white border border-black w-full grid grid-cols-3 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
             {allStudies.slice(3, 6).map((study, idx) => (
               <div 
                 key={study.id} 
