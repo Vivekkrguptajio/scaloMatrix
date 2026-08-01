@@ -137,10 +137,7 @@ const GuestList = () => {
     <section id="brand" className="relative z-0 w-full py-24 lg:py-36 font-sans bg-white">
       <div className="max-w-[1024px] mx-auto flex flex-col items-center relative px-2.5 sm:px-5 md:px-16 xl:px-0 w-full">
         
-        {/* Decorative Scroll Dot (Right Side) */}
-        <div className="hidden xl:flex absolute top-1/2 -right-16 w-10 h-10 rounded-full border border-[#FD5800] items-center justify-center">
-          <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
-        </div>
+
 
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-24 gap-6">
