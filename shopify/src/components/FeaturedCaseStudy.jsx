@@ -7,7 +7,7 @@ const FeaturedCaseStudy = () => {
         <div className="relative w-full bg-[#fce9d3] rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-5 md:p-10 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-300">
           
           {/* Blue Ribbon / Tag */}
-          <div className="absolute top-0 left-8 md:left-12 -translate-y-full bg-[#2942ff] text-white text-xs md:text-sm font-bold tracking-[0.2em] py-2.5 px-6 uppercase rounded-t-2xl z-10">
+          <div className="absolute top-0 left-8 md:left-12 -translate-y-full bg-[#FD5800] text-white text-xs md:text-sm font-bold tracking-[0.2em] py-2.5 px-6 uppercase rounded-t-2xl z-10">
             Featured Case Study
           </div>
 
@@ -27,13 +27,13 @@ const FeaturedCaseStudy = () => {
 
                 {/* Stat 1: CR */}
                 <div className="p-4 border-b border-gray-100">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+33%</div>
+                  <div className="text-2xl lg:text-3xl font-bold text-[#FD5800]">+33%</div>
                   <div className="text-gray-500 font-mono font-bold text-[9px] mt-1 tracking-widest uppercase">CR</div>
                 </div>
 
                 {/* Stat 2: AOV */}
                 <div className="p-4">
-                  <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">+14%</div>
+                  <div className="text-2xl lg:text-3xl font-bold text-[#FD5800]">+14%</div>
                   <div className="text-gray-500 font-mono font-bold text-[9px] mt-1 tracking-widest uppercase">AOV</div>
                 </div>
               </div>

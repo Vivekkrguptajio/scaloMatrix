@@ -14,6 +14,7 @@ import HiringPhilosophy from './components/HiringPhilosophy'
 import WhoWeDontWorkWith from './components/WhoWeDontWorkWith'
 import ContactUs from './components/ContactUs'
 import ThePromise from './components/ThePromise'
+import Offers from './components/Offers'
 import Contact from './components/Contact'
 import ScrollReveal from './components/ScrollReveal'
 import CustomCursor from './components/CustomCursor'
@@ -60,6 +61,7 @@ function App() {
         <ScrollReveal><Calculator /></ScrollReveal>
         <ScrollReveal><Intersection /></ScrollReveal>
         <ScrollReveal><Services /></ScrollReveal>
+        <ScrollReveal><Offers /></ScrollReveal>
         <ScrollReveal><AiManifesto /></ScrollReveal>
         <ScrollReveal><CroBrandExercise /></ScrollReveal>
         <ScrollReveal><HowItWorks /></ScrollReveal>

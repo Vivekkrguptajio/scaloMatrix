@@ -13,7 +13,7 @@ export default function ThePromise() {
           <span className="opacity-90">— or we keep working.</span>
         </h2>
         
-        <p className="text-gray-400 text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+        <p className="text-gray-600 text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
           We build every page to beat your current one by at least
           20%. If it doesn't, we don't disappear — we keep iterating.
           That's the deal, in writing.

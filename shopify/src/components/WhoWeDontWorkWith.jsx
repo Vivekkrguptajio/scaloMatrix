@@ -23,7 +23,7 @@ const WhoWeDontWorkWith = () => {
           {/* Left Column (Not for you if) */}
           <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-[#222]">
             <h3 className="text-[#FD5800] text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
-              <span>X</span> Not for you if
+              <span className="w-8 h-8 rounded-full bg-[#FD5800] text-white text-sm flex items-center justify-center">✕</span> Not for you if
             </h3>
 
             <ul className="flex flex-col gap-4 font-mono text-xs md:text-sm leading-snug text-gray-300">
@@ -48,7 +48,7 @@ const WhoWeDontWorkWith = () => {
           {/* Right Column (For you if) */}
           <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10">
             <h3 className="text-[#FD5800] text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
-              <span>✓</span> For you if <span className="text-white animate-pulse font-light">|</span>
+              <span className="w-8 h-8 rounded-full bg-green-500 text-white text-sm flex items-center justify-center">✓</span> For you if
             </h3>
 
             <ul className="flex flex-col gap-4 font-mono text-xs md:text-sm leading-snug text-gray-300">

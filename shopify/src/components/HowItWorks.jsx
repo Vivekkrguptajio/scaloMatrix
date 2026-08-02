@@ -19,10 +19,11 @@ const HowItWorks = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           
           {/* Step 1 */}
-          <div className="bg-white p-8 md:p-10 rounded-3xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div className="bg-white p-7 md:p-8 rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="text-xs font-mono font-bold tracking-widest text-[#FD5800] uppercase mb-4">
-                01 &middot; SIGNAL IN
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-full bg-[#FD5800] text-white text-xs font-bold flex items-center justify-center">01</div>
+                <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase">SIGNAL IN</span>
               </div>
               <h3 className="text-2xl md:text-3xl font-black text-black mb-4 leading-snug">
                 We read the data first.
@@ -34,10 +35,11 @@ const HowItWorks = () => {
           </div>
 
           {/* Step 2 (Filled Black Card) */}
-          <div className="bg-[#111111] text-white p-8 md:p-10 rounded-3xl border border-[#222] shadow-xl flex flex-col justify-between">
+          <div className="bg-[#111111] text-white p-7 md:p-8 rounded-3xl border border-[#222] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="text-xs font-mono font-bold tracking-widest text-[#FD5800] uppercase mb-4">
-                02 &middot; DESIGN OUT
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-full bg-[#FD5800] text-white text-xs font-bold flex items-center justify-center">02</div>
+                <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase">DESIGN OUT</span>
               </div>
               <h3 className="text-2xl md:text-3xl font-black text-white mb-4 leading-snug">
                 Real copy, real strategy.
@@ -49,10 +51,11 @@ const HowItWorks = () => {
           </div>
 
           {/* Step 3 */}
-          <div className="bg-white p-8 md:p-10 rounded-3xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div className="bg-white p-7 md:p-8 rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="text-xs font-mono font-bold tracking-widest text-[#FD5800] uppercase mb-4">
-                03 &middot; SHIPPED LIVE
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-full bg-[#FD5800] text-white text-xs font-bold flex items-center justify-center">03</div>
+                <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase">SHIPPED LIVE</span>
               </div>
               <h3 className="text-2xl md:text-3xl font-black text-black mb-4 leading-snug">
                 Built, tested, measured.
