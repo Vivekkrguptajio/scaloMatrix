@@ -2,13 +2,13 @@ import React from 'react';
 
 const AiManifesto = () => {
   return (
-    <section className="w-full py-16 md:py-24 lg:py-36 bg-[#111111] text-white font-sans">
+    <section className="w-full py-10 md:py-16 lg:py-20 bg-[#111111] text-white font-sans">
       <div className="w-full px-6 md:px-16 lg:px-24 xl:px-32">
           
 
 
-          {/* Main Headline */}
-          <div className="mb-12">
+          {/* Header Section */}
+          <div className="mb-6">
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-black font-sans tracking-tight leading-[1.05]">
               <span className="text-[#FD5800] block">AI is coming</span>
               <span className="text-[#FD5800]">for your </span>

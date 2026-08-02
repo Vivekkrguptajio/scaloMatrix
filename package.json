@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix marketplace\" \"npm run dev --prefix commerce\""
+    "dev": "concurrently \"npm run dev --prefix frontend -- --port 5173\" \"npm run dev --prefix marketplace -- --port 5174\" \"npm run dev --prefix shopify -- --port 5175\""
   },
   "repository": {
     "type": "git",

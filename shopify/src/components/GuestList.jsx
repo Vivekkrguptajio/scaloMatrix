@@ -134,18 +134,18 @@ const GuestList = () => {
   };
 
   return (
-    <section id="brand" className="relative z-0 w-full py-24 lg:py-36 font-sans bg-white">
+    <section id="brand" className="relative z-0 w-full py-10 md:py-16 lg:py-20 font-sans bg-white">
       <div className="max-w-[1024px] mx-auto flex flex-col items-center relative px-2.5 sm:px-5 md:px-16 xl:px-0 w-full">
         
 
 
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-24 gap-6">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-8 gap-4">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black font-sans leading-none tracking-tight text-black lg:w-[60%]">
             The <span className="text-[#FD5800]">guest list.</span>
           </h2>
           <div className="w-full lg:w-[40%] flex lg:justify-end">
-            <p className="text-gray-600 text-lg leading-snug lg:text-right">
+            <p className="text-gray-600 text-lg leading-tight lg:text-right">
               Brands we've shipped for. Twenty+ Shark Tank alumni. The kind of names
               that wouldn't sit still for mediocre work. Now you can be one of them.
             </p>
@@ -153,10 +153,7 @@ const GuestList = () => {
         </div>
 
         {/* Shark Tank Brands Grid */}
-        <div className="relative w-full mb-24">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-mono uppercase tracking-widest px-4 py-2 z-10">
-            SHARK TANK BRANDS
-          </div>
+        <div className="relative w-full mb-16">
           <div className="flex flex-wrap justify-center pl-[1px] pt-[1px]">
             {sharkTankBrands.map((brand, idx) => (
               <GuestCard key={idx} brand={brand} renderLogo={renderLogo} index={idx} />
@@ -166,9 +163,6 @@ const GuestList = () => {
 
         {/* Best Brands Grid */}
         <div className="relative w-full">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-mono uppercase tracking-widest px-4 py-2 z-10">
-            BEST BRANDS
-          </div>
           <div className="flex flex-wrap justify-center pl-[1px] pt-[1px]">
             {bestBrands.map((brand, idx) => (
               <GuestCard key={idx} brand={brand} renderLogo={renderLogo} index={idx} />

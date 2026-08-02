@@ -24,7 +24,7 @@ export default function ContactUs() {
   const inputClasses = "w-full bg-black/5 border-b-2 border-transparent px-5 py-4 md:py-5 text-black placeholder:text-gray-500 focus:outline-none focus:border-[#FD5800] focus:bg-black/[0.02] transition-colors font-medium rounded-t-xl";
 
   return (
-    <section className="relative w-full min-h-[100svh] flex flex-col justify-center pt-16 pb-36 md:pt-24 md:pb-44 bg-white font-sans overflow-hidden rounded-b-[80px] md:rounded-b-[100px]">
+    <section className="relative w-full py-10 md:py-16 lg:py-20 bg-white font-sans overflow-hidden">
       
       {/* ─── Background Ambient Waves ─── */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(253,88,0,0.1)_0%,transparent_70%)] rounded-full pointer-events-none -translate-y-1/3 translate-x-1/3"></div>

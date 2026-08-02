@@ -2,14 +2,14 @@ import React from 'react';
 
 const Intersection = () => {
   return (
-    <section id="intersection" className="w-full py-16 md:py-24 lg:py-36 font-sans bg-[#F4F4F4]">
-      <div className="max-w-[1024px] mx-auto flex flex-col items-center px-2.5 sm:px-5 md:px-16 xl:px-0 w-full">
+    <section id="intersection" className="w-full py-10 md:py-16 lg:py-20 font-sans bg-white">
+      <div className="max-w-[1280px] mx-auto flex flex-col items-center px-6 md:px-12 xl:px-16 w-full">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-12 gap-6">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
-            Brand <span className="text-[#FD5800] font-light">∩</span> Tech <span className="text-[#FD5800] font-light">∩</span><br />
-            Marketing. Most agencies<br /><span className="text-[#FD5800]">pick two.</span>
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.15] text-black lg:w-[65%]">
+            Brand <span className="text-[#FD5800] font-light">∩</span> Tech <span className="text-[#FD5800] font-light">∩</span> Marketing.<br />
+            Most agencies <span className="text-[#FD5800]">pick two.</span>
           </h2>
           <div className="w-full lg:w-[40%] flex lg:justify-end">
             <p className="text-gray-600 text-sm md:text-base leading-snug lg:text-right">
@@ -20,7 +20,7 @@ const Intersection = () => {
         </div>
 
         {/* The Card Container */}
-        <div className="bg-white border-[0.5px] lg:border border-black w-full flex flex-col lg:flex-row p-6 lg:p-8 gap-8 lg:gap-12">
+        <div className="bg-white border border-gray-200 shadow-sm rounded-3xl overflow-hidden w-full flex flex-col lg:flex-row p-8 md:p-10 lg:p-12 gap-8 lg:gap-12">
           
           {/* Left Side: Venn Diagram */}
           <div className="w-full lg:w-1/2 relative flex items-center justify-center">

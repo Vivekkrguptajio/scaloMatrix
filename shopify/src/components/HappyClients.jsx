@@ -72,7 +72,7 @@ const HappyClients = () => {
   ];
 
   return (
-    <section className="w-full pt-16 md:pt-24 lg:pt-36 pb-12 font-sans bg-white relative z-10">
+    <section className="w-full pt-10 md:pt-16 lg:pt-20 pb-8 font-sans bg-white relative z-10">
       
       <style>
         {`
@@ -96,30 +96,29 @@ const HappyClients = () => {
         `}
       </style>
 
-      <div className="max-w-[1024px] mx-auto flex flex-col items-center px-2.5 sm:px-5 md:px-16 xl:px-0 mb-16 w-full">
+      <div className="max-w-[1024px] mx-auto flex flex-col items-center px-2.5 sm:px-5 md:px-16 xl:px-0 mb-6 w-full">
         
         {/* Header Content Wrapper */}
-        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-10 gap-6">
-          {/* Left Side: Avatars + Heading */}
-          <div className="flex flex-col items-start text-left lg:w-[60%]">
-            <div className="flex -space-x-3 mb-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-12 h-12 rounded-full border-[3px] border-white bg-gray-300 overflow-hidden shadow-sm">
-                  <img src="/image.png" alt="Client" className="w-full h-full object-cover" />
-                </div>
-              ))}
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black font-sans leading-[1.1] text-black tracking-tight">
-              1000+ <span className="text-[#FD5800]">Happy Clients</span>
-            </h2>
-          </div>
+        <div className="flex flex-col w-full items-center justify-center mb-0 gap-3 text-center">
           
-          {/* Right Side: Text */}
-          <div className="w-full lg:w-[40%] flex lg:justify-end">
-            <p className="text-gray-500 text-sm md:text-[15px] max-w-sm font-medium text-left lg:text-right">
-              Trusted by thousands of people
-            </p>
+          {/* Avatars */}
+          <div className="flex -space-x-3 mb-2 justify-center">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="w-12 h-12 rounded-full border-[3px] border-white bg-gray-300 overflow-hidden shadow-sm">
+                <img src="/image.png" alt="Client" className="w-full h-full object-cover" />
+              </div>
+            ))}
           </div>
+
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black font-sans leading-[1.1] text-black tracking-tight">
+            1000+ <span className="text-[#FD5800]">Happy Clients</span>
+          </h2>
+          
+          {/* Subtext */}
+          <p className="text-gray-500 text-sm md:text-base font-medium">
+            Trusted by thousands of people
+          </p>
         </div>
       </div>
 
@@ -166,8 +165,8 @@ const HappyClients = () => {
         </div>
       </div>
 
-      {/* Orange Diagonal Ticker Banner */}
-      <div className="relative z-50 w-full bg-[#FD5800] overflow-hidden whitespace-nowrap py-3 mt-14 transform -rotate-2 scale-105 shadow-xl">
+      {/* Orange Straight Ticker Banner */}
+      <div className="relative z-50 w-full bg-[#FD5800] overflow-hidden whitespace-nowrap py-3 mt-10 shadow-md">
         <div className="animate-marquee flex gap-8 items-center" style={{ animationDirection: 'reverse', animationDuration: '80s' }}>
           {/* Double the items to create seamless loop effect */}
           {[...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems].map((item, idx) => (

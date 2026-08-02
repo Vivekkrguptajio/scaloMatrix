@@ -2,22 +2,22 @@ import React from 'react';
 
 const HiringPhilosophy = () => {
   return (
-    <section className="w-full py-16 md:py-24 lg:py-36 bg-black lg:bg-white text-white lg:text-black font-sans">
-      <div className="max-w-[1024px] mx-auto w-full px-2.5 sm:px-5 md:px-16 xl:px-0">
+    <section className="w-full min-h-screen py-16 md:py-24 bg-black text-white font-sans flex flex-col justify-center">
+      <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16">
         
         {/* Header Section */}
         <div className="mb-8">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] tracking-tight text-white lg:text-black">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] tracking-tight text-white">
             We don't hire fast. We<br className="hidden md:block" /> <span className="text-[#FD5800]">keep people longer.</span>
           </h2>
         </div>
 
         {/* Main Card Container */}
-        <div className="flex flex-col lg:flex-row border-[0.5px] border-gray-800/60 lg:border-black overflow-hidden rounded-xl lg:rounded-none">
+        <div className="flex flex-col lg:flex-row border-2 border-white bg-[#111111] rounded-3xl overflow-hidden shadow-2xl items-stretch min-h-[500px]">
           
           {/* Left Column / Top Section on Mobile (Stats - Dark Background) */}
-          <div className="w-full lg:w-1/2 p-6 md:p-8 lg:p-10 bg-[#111111] text-white border-b-[0.5px] border-gray-800/60 lg:border-b-0 lg:border-r lg:border-black">
-            <div className="grid grid-cols-2 gap-x-6 gap-y-6">
+          <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-14 bg-[#111111] text-white border-b-2 lg:border-b-0 lg:border-r-2 border-white flex flex-col justify-between">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-8 my-auto">
               
               {/* Stat 1 */}
               <div>
@@ -44,7 +44,7 @@ const HiringPhilosophy = () => {
               </div>
 
               {/* Row Divider */}
-              <div className="col-span-2 w-full h-[0.5px] bg-gray-800 my-2"></div>
+              <div className="col-span-2 w-full h-[1px] bg-white my-2"></div>
 
               {/* Stat 3 */}
               <div>
@@ -73,9 +73,9 @@ const HiringPhilosophy = () => {
             </div>
           </div>
 
-          {/* Right Column / Bottom Section on Mobile (Quote - Always White Background) */}
-          <div className="w-full lg:w-1/2 p-6 md:p-8 lg:p-10 bg-white text-black flex flex-col justify-between">
-            <div className="text-xs font-mono tracking-[0.2em] text-gray-500 uppercase mb-6 font-bold">
+          {/* Right Column / Bottom Section (Quote - White Background) */}
+          <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-14 bg-white text-black flex flex-col justify-between">
+            <div className="text-xs font-mono tracking-[0.2em] text-gray-500 uppercase font-bold">
               MENTOR STANCE
             </div>
             
@@ -84,7 +84,7 @@ const HiringPhilosophy = () => {
             </h3>
 
             <div className="text-xs font-mono tracking-[0.2em] text-gray-500 uppercase font-bold">
-              — FOUNDER'S NOTE · 2024
+              — FOUNDER'S NOTE &middot; 2024
             </div>
           </div>
 

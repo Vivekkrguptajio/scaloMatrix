@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const SuperYouMockup = () => (
-  <div className="flex gap-3 h-[180px] w-full">
+  <div className="flex gap-3 h-[180px] w-full transform scale-[1.15] origin-center">
     {/* Desktop */}
     <div className="flex-1 bg-white border border-gray-200 shadow-sm flex flex-col overflow-hidden">
        {/* Header */}
@@ -66,7 +66,7 @@ const SuperYouMockup = () => (
 );
 
 const BoldCareMockup = () => (
-  <div className="flex gap-3 h-[180px] w-full">
+  <div className="flex gap-3 h-[180px] w-full transform scale-[1.15] origin-center">
     {/* Desktop */}
     <div className="flex-1 bg-white border border-gray-200 shadow-sm flex flex-col overflow-hidden">
        {/* Header */}
@@ -130,7 +130,7 @@ const BoldCareMockup = () => (
 );
 
 const EmmaMockup = () => (
-  <div className="flex gap-3 h-[180px] w-full">
+  <div className="flex gap-3 h-[180px] w-full transform scale-[1.15] origin-center">
     {/* Desktop */}
     <div className="flex-1 bg-white border border-gray-200 shadow-sm flex flex-col overflow-hidden">
        {/* Header */}
@@ -208,7 +208,7 @@ const EmmaMockup = () => (
 );
 
 const BeautywiseMockup = () => (
-  <div className="flex gap-3 h-[180px] w-full">
+  <div className="flex gap-3 h-[180px] w-full transform scale-[1.15] origin-center">
     <div className="flex-1 bg-white border border-gray-200 shadow-sm flex flex-col overflow-hidden">
        <div className="h-5 border-b border-gray-100 flex items-center px-3 justify-between">
          <div className="w-12 h-2 bg-black font-serif italic text-[8px]">Beautywise</div>
@@ -250,7 +250,7 @@ const BeautywiseMockup = () => (
 );
 
 const TheGoodBugMockup = () => (
-  <div className="flex gap-3 h-[180px] w-full">
+  <div className="flex gap-3 h-[180px] w-full transform scale-[1.15] origin-center">
     <div className="flex-1 bg-white border border-gray-200 shadow-sm flex flex-col overflow-hidden">
        <div className="h-5 border-b border-gray-100 flex items-center px-3 justify-between">
          <div className="w-12 h-2 bg-orange-500 rounded-sm"></div>
@@ -283,7 +283,7 @@ const TheGoodBugMockup = () => (
 );
 
 const WellbeingMockup = () => (
-  <div className="flex gap-3 h-[180px] w-full">
+  <div className="flex gap-3 h-[180px] w-full transform scale-[1.15] origin-center">
     <div className="flex-1 bg-white border border-gray-200 shadow-sm flex flex-col overflow-hidden">
        <div className="h-5 border-b border-gray-100 flex items-center px-3 justify-between">
          <div className="w-4 h-4 rounded-full border border-black flex items-center justify-center text-[7px] font-bold">W</div>
@@ -401,11 +401,11 @@ const CaseStudiesGrid = () => {
   const mobileVisibleStudies = allStudies.slice(activePage * 2, activePage * 2 + 2);
 
   return (
-    <section id="case-studies" className="w-full py-16 md:py-24 lg:py-36 bg-white font-sans">
+    <section id="case-studies" className="w-full py-10 md:py-16 lg:py-20 bg-white font-sans">
       <div className="max-w-[1440px] mx-auto flex flex-col items-center px-4 sm:px-6 md:px-12 xl:px-16 w-full">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-12 gap-6">
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] text-black tracking-tight lg:w-[60%]">
             Things we are happy<br /><span className="text-[#FD5800]">about.</span>
           </h2>
@@ -422,21 +422,22 @@ const CaseStudiesGrid = () => {
             {mobileVisibleStudies.map((study, idx) => (
               <div 
                 key={study.id} 
-                className={`p-5 sm:p-6 flex flex-col ${idx === 0 ? 'border-b-[0.5px] border-black' : ''}`}
+                className={`p-4 sm:p-5 flex flex-col ${idx === 0 ? 'border-b-[0.5px] border-black' : ''}`}
               >
-                <div className="bg-[#e8e8e8] border border-gray-400 p-4 mb-6 flex-1 flex items-center justify-center min-h-[240px]">
+                <div className="bg-[#f1f1f1] border border-black p-4 mb-4 flex-1 flex items-center justify-center min-h-[240px]">
                   {study.mockup}
                 </div>
                 <div className="flex justify-between items-end mt-auto">
                   {study.badge}
-                  <div className="flex gap-4 sm:gap-6">
-                    <div className="text-right">
-                      <div className="text-xl sm:text-2xl font-bold text-[#2942ff]">{study.aov}</div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-0.5">AOV</div>
+                  <div className="flex items-center gap-4">
+                    <div className="flex flex-col items-end">
+                      <div className="text-xl sm:text-2xl font-bold text-[#2942ff] leading-none mb-1">{study.aov}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
                     </div>
-                    <div className="text-right">
-                      <div className="text-xl sm:text-2xl font-bold text-[#2942ff]">{study.rev}</div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-0.5">REVENUE</div>
+                    <div className="w-[1px] h-8 bg-gray-300"></div>
+                    <div className="flex flex-col items-end">
+                      <div className="text-xl sm:text-2xl font-bold text-[#2942ff] leading-none mb-1">{study.rev}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
                     </div>
                   </div>
                 </div>
@@ -466,21 +467,22 @@ const CaseStudiesGrid = () => {
             {allStudies.slice(0, 3).map((study, idx) => (
               <div 
                 key={study.id} 
-                className={`p-6 md:p-8 flex flex-col ${idx < 2 ? 'border-r border-black' : ''}`}
+                className={`p-4 md:p-5 flex flex-col ${idx < 2 ? 'border-r border-black' : ''}`}
               >
-                <div className="bg-[#e8e8e8] border border-gray-400 p-4 md:p-6 mb-8 flex-1 flex items-center justify-center min-h-[280px]">
+                <div className="bg-[#f1f1f1] border border-black p-3 md:p-4 mb-5 flex-1 flex items-center justify-center min-h-[280px]">
                   {study.mockup}
                 </div>
                 <div className="flex justify-between items-end mt-auto">
                   {study.badge}
-                  <div className="flex gap-6">
-                    <div className="text-right">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">{study.aov}</div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">AOV</div>
+                  <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="flex flex-col items-end">
+                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff] leading-none mb-1.5">{study.aov}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
                     </div>
-                    <div className="text-right">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">{study.rev}</div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">REVENUE</div>
+                    <div className="w-[1px] h-8 bg-gray-300"></div>
+                    <div className="flex flex-col items-end">
+                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff] leading-none mb-1.5">{study.rev}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
                     </div>
                   </div>
                 </div>
@@ -493,21 +495,22 @@ const CaseStudiesGrid = () => {
             {allStudies.slice(3, 6).map((study, idx) => (
               <div 
                 key={study.id} 
-                className={`p-6 md:p-8 flex flex-col ${idx < 2 ? 'border-r border-black' : ''}`}
+                className={`p-4 md:p-5 flex flex-col ${idx < 2 ? 'border-r border-black' : ''}`}
               >
-                <div className="bg-[#e8e8e8] border border-gray-400 p-4 md:p-6 mb-8 flex-1 flex items-center justify-center min-h-[280px]">
+                <div className="bg-[#f1f1f1] border border-black p-3 md:p-4 mb-5 flex-1 flex items-center justify-center min-h-[280px]">
                   {study.mockup}
                 </div>
                 <div className="flex justify-between items-end mt-auto">
                   {study.badge}
-                  <div className="flex gap-6">
-                    <div className="text-right">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">{study.aov}</div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">AOV</div>
+                  <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="flex flex-col items-end">
+                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff] leading-none mb-1.5">{study.aov}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
                     </div>
-                    <div className="text-right">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff]">{study.rev}</div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest mt-1">REVENUE</div>
+                    <div className="w-[1px] h-8 bg-gray-300"></div>
+                    <div className="flex flex-col items-end">
+                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff] leading-none mb-1.5">{study.rev}</div>
+                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
                     </div>
                   </div>
                 </div>

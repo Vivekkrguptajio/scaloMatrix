@@ -27,7 +27,7 @@ const Calculator = () => {
   };
 
   return (
-    <section id="math" className="w-full py-16 md:py-24 lg:py-36 font-sans bg-white">
+    <section id="math" className="w-full py-10 md:py-16 lg:py-20 font-sans bg-white">
       <style>
         {`
           .custom-slider {
@@ -73,7 +73,7 @@ const Calculator = () => {
       <div className="max-w-[1360px] mx-auto flex flex-col items-center px-6 md:px-12 xl:px-16 w-full">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-10 gap-6">
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
             Do the <span className="text-[#FD5800]">math.</span>
           </h2>
@@ -85,7 +85,7 @@ const Calculator = () => {
         </div>
 
         {/* Calculator Card */}
-        <div className="w-full bg-[#f4ebd0] rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-200 flex flex-col lg:flex-row overflow-hidden">
+        <div className="w-full bg-[#f4ebd0] rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-200 flex flex-col lg:flex-row overflow-hidden">
           
           {/* Left Side: Sliders */}
           <div className="w-full lg:w-[58%] p-6 md:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-black flex flex-col justify-center gap-6">

@@ -2,11 +2,11 @@ import React from 'react';
 
 const CroBrandExercise = () => {
   return (
-    <section id="cro" className="w-full py-16 md:py-24 lg:py-36 bg-white text-black font-sans">
+    <section id="cro" className="w-full py-10 md:py-16 lg:py-20 bg-white text-black font-sans">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16 flex flex-col gap-12 lg:gap-16">
         
         {/* Top Row: Large Headline & Subtext */}
-        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-12 gap-6">
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
           {/* Left Side: Large Headline */}
           <div className="lg:w-[60%]">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-[#111111] tracking-tight">
@@ -34,7 +34,7 @@ const CroBrandExercise = () => {
         </div>
 
         {/* Bottom Card Grid: The Re-frame */}
-        <div className="bg-white border border-black rounded-[40px] overflow-hidden w-full flex flex-col lg:flex-row shadow-sm">
+        <div className="bg-white border border-black rounded-3xl overflow-hidden w-full flex flex-col lg:flex-row shadow-sm">
           
           {/* Left Column: The Re-frame Hero */}
           <div className="w-full lg:w-5/12 p-8 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-black flex flex-col justify-between">

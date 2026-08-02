@@ -2,11 +2,11 @@ import React from 'react';
 
 const WhoWeDontWorkWith = () => {
   return (
-    <section className="w-full py-16 md:py-24 lg:py-36 font-sans bg-white">
-      <div className="max-w-[1024px] mx-auto w-full px-2.5 sm:px-5 md:px-16 xl:px-0">
+    <section className="w-full py-10 md:py-16 lg:py-20 font-sans bg-white">
+      <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-12 gap-6">
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
             Who we don't<br /><span className="text-[#FD5800]">work with.</span>
           </h2>
@@ -18,7 +18,7 @@ const WhoWeDontWorkWith = () => {
         </div>
 
         {/* The Card */}
-        <div className="bg-[#111] text-white w-full flex flex-col md:flex-row border border-[#222] hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
+        <div className="bg-[#111] text-white w-full flex flex-col md:flex-row border border-[#222] rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
           
           {/* Left Column (Not for you if) */}
           <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-[#222]">

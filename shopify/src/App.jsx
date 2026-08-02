@@ -13,6 +13,7 @@ import HowItWorks from './components/HowItWorks'
 import HiringPhilosophy from './components/HiringPhilosophy'
 import WhoWeDontWorkWith from './components/WhoWeDontWorkWith'
 import ContactUs from './components/ContactUs'
+import ThePromise from './components/ThePromise'
 import Contact from './components/Contact'
 import ScrollReveal from './components/ScrollReveal'
 import CustomCursor from './components/CustomCursor'
@@ -65,6 +66,7 @@ function App() {
         <ScrollReveal><HiringPhilosophy /></ScrollReveal>
         <ScrollReveal><WhoWeDontWorkWith /></ScrollReveal>
         <ContactUs />
+        <ScrollReveal><ThePromise /></ScrollReveal>
       </main>
 
       <Contact reveal={true} />
