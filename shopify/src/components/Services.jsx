@@ -71,10 +71,10 @@ const Services = () => {
                 <span className="text-[#FD5800] mr-2">→</span> 30-day post-launch care
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Tier 2 (Dark) */}
-          <div className="w-full xl:w-1/4 bg-[#111] text-white p-8 md:p-10 flex flex-col border-b xl:border-b-0 xl:border-r border-[#333] relative">
+          <motion.div variants={itemVariants} className="w-full xl:w-1/4 bg-[#111] text-white p-8 md:p-10 flex flex-col border-b xl:border-b-0 xl:border-r border-[#333] relative">
             <div className="text-[10px] font-mono tracking-widest text-[#FD5800] uppercase mb-5">
               TIER · 02 · THE RETAINER - MOST PICKED
             </div>

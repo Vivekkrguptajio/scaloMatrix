@@ -485,7 +485,7 @@ const CaseStudiesGrid = () => {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* DESKTOP VIEW: FULL 6 CARDS GRID */}
         {/* DESKTOP VIEW: FULL 6 CARDS GRID */}
