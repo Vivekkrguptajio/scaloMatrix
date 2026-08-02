@@ -51,15 +51,15 @@ const WhoWeDontWorkWith = () => {
               <span className="w-8 h-8 rounded-full bg-green-500 text-white text-sm flex items-center justify-center font-bold">✓</span> For you if
             </h3>
 
-            <ul className="flex flex-col gap-4 font-mono text-sm md:text-[15px] leading-relaxed text-white/90 font-medium">
+            <ul className="flex flex-col gap-4 font-mono text-sm md:text-[15px] leading-relaxed text-white font-medium">
               <li className="pb-3.5 border-b border-dashed border-white/20">
                 → You've hit a ceiling on CVR and don't know why.
               </li>
               <li className="pb-3.5 border-b border-dashed border-white/20">
-                → You have a product that actually works. <span className="text-white/60">(We can't fix a bad one.)</span>
+                → You have a product that actually works. <span className="text-white">(We can't fix a bad one.)</span>
               </li>
               <li className="pb-3.5 border-b border-dashed border-white/20">
-                → You have at least ₹2L/mo in ad spend. <span className="text-white/60">(Need traffic to test.)</span>
+                → You have at least ₹2L/mo in ad spend. <span className="text-white">(Need traffic to test.)</span>
               </li>
               <li className="pb-3.5 border-b border-dashed border-white/20">
                 → You want a team that pushes back when you're wrong.
