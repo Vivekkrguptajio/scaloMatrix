@@ -18,10 +18,10 @@ const WhoWeDontWorkWith = () => {
         </div>
 
         {/* The Card */}
-        <div className="bg-[#FD5800]/90 text-white w-full flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+        <div className="group bg-[#FD5800]/90 text-white w-full flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-500">
           
           {/* Left Column (Not for you if) */}
-          <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 bg-[#111111] border-b md:border-b-0 md:border-r border-white/20">
+          <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 bg-[#111111] border-b md:border-b-0 border-white/20 z-10 md:group-hover:translate-x-full transition-transform duration-500 ease-in-out">
             <h3 className="text-white text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
               <span className="w-8 h-8 rounded-full bg-red-500 text-white text-sm flex items-center justify-center font-bold">✕</span> Not for you if
             </h3>
@@ -46,7 +46,7 @@ const WhoWeDontWorkWith = () => {
           </div>
 
           {/* Right Column (For you if) */}
-          <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10">
+          <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 z-10 md:group-hover:-translate-x-full transition-transform duration-500 ease-in-out">
             <h3 className="text-white text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
               <span className="w-8 h-8 rounded-full bg-green-500 text-white text-sm flex items-center justify-center font-bold">✓</span> For you if
             </h3>
