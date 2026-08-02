@@ -168,7 +168,7 @@ const EmmaMockup = () => (
            
            {/* Badges */}
            <div className="flex gap-2 mt-3">
-             <div className="w-6 h-6 rounded-full bg-blue-50 border border-blue-200"></div>
+             <div className="w-6 h-6 rounded-full bg-orange-50 border border-orange-200"></div>
              <div className="w-6 h-6 rounded-full bg-purple-50 border border-purple-200"></div>
              <div className="w-6 h-6 rounded-full bg-gray-100 border border-gray-200"></div>
            </div>
@@ -217,14 +217,14 @@ const BeautywiseMockup = () => (
          </div>
        </div>
        <div className="flex flex-1 p-2 gap-2">
-         <div className="w-1/2 bg-blue-600 rounded-sm flex items-center justify-center text-white text-[10px] font-bold">
+         <div className="w-1/2 bg-[#FD5800] rounded-sm flex items-center justify-center text-white text-[10px] font-bold">
            DS-I Daily
          </div>
          <div className="w-1/2 flex flex-col gap-1">
            <div className="h-2 w-full bg-black"></div>
            <div className="h-1 w-3/4 bg-gray-300"></div>
            <div className="h-10 w-full bg-gray-100 mt-1 rounded-sm border border-gray-200 p-1 flex gap-1">
-             <div className="w-8 h-8 bg-blue-500 rounded-sm"></div>
+             <div className="w-8 h-8 bg-[#FD5800] rounded-sm"></div>
              <div className="flex-1 flex flex-col gap-1">
                <div className="h-1 w-full bg-black"></div>
                <div className="h-1 w-1/2 bg-gray-300"></div>
@@ -237,7 +237,7 @@ const BeautywiseMockup = () => (
       <div className="h-4 border-b border-gray-100 flex items-center justify-between px-1.5">
         <div className="w-8 h-1.5 bg-black"></div>
       </div>
-      <div className="h-16 bg-blue-600 m-1 flex items-center justify-center text-white text-[8px] font-bold rounded-sm">
+      <div className="h-16 bg-[#FD5800] m-1 flex items-center justify-center text-white text-[8px] font-bold rounded-sm">
         DS-I
       </div>
       <div className="px-1.5 flex flex-col gap-1">
@@ -431,12 +431,12 @@ const CaseStudiesGrid = () => {
                   {study.badge}
                   <div className="flex items-center gap-4">
                     <div className="flex flex-col items-end">
-                      <div className="text-xl sm:text-2xl font-bold text-[#2942ff] leading-none mb-1">{study.aov}</div>
+                      <div className="text-xl sm:text-2xl font-bold text-[#FD5800] leading-none mb-1">{study.aov}</div>
                       <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
                     </div>
                     <div className="w-[1px] h-8 bg-gray-300"></div>
                     <div className="flex flex-col items-end">
-                      <div className="text-xl sm:text-2xl font-bold text-[#2942ff] leading-none mb-1">{study.rev}</div>
+                      <div className="text-xl sm:text-2xl font-bold text-[#FD5800] leading-none mb-1">{study.rev}</div>
                       <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
                     </div>
                   </div>
@@ -476,12 +476,12 @@ const CaseStudiesGrid = () => {
                   {study.badge}
                   <div className="flex items-center gap-4 sm:gap-5">
                     <div className="flex flex-col items-end">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff] leading-none mb-1.5">{study.aov}</div>
+                      <div className="text-2xl lg:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.aov}</div>
                       <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
                     </div>
                     <div className="w-[1px] h-8 bg-gray-300"></div>
                     <div className="flex flex-col items-end">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff] leading-none mb-1.5">{study.rev}</div>
+                      <div className="text-2xl lg:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.rev}</div>
                       <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
                     </div>
                   </div>
@@ -504,12 +504,12 @@ const CaseStudiesGrid = () => {
                   {study.badge}
                   <div className="flex items-center gap-4 sm:gap-5">
                     <div className="flex flex-col items-end">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff] leading-none mb-1.5">{study.aov}</div>
+                      <div className="text-2xl lg:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.aov}</div>
                       <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
                     </div>
                     <div className="w-[1px] h-8 bg-gray-300"></div>
                     <div className="flex flex-col items-end">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#2942ff] leading-none mb-1.5">{study.rev}</div>
+                      <div className="text-2xl lg:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.rev}</div>
                       <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
                     </div>
                   </div>

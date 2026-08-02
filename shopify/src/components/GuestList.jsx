@@ -44,7 +44,7 @@ const GuestList = () => {
   const sharkTankBrands = [
     { name: "oye happy", style: "text-yellow-400 font-serif italic text-xl" },
     { name: "Gladful", style: "text-orange-500 font-black text-xl tracking-tighter" },
-    { name: "GOOD MONK", style: "text-purple-600 font-black text-lg leading-tight text-center" },
+    { name: "GOOD MONK", style: "text-[#FD5800] font-black text-lg leading-tight text-center" },
     { name: "ADILQADRI", style: "text-black font-serif font-bold text-lg" },
     { name: "CONSCIOUS CHEMIST", style: "text-black font-light text-sm text-center leading-tight" },
     { name: "moder/ate", style: "text-green-800 font-medium text-lg" },
@@ -55,7 +55,7 @@ const GuestList = () => {
     { name: "allter", style: "text-white bg-[#8d9e78] rounded-full px-4 py-2 font-medium text-sm" },
     { name: "kvy", style: "text-[#c2a38c] font-serif text-2xl" },
     { name: "YAAN MAN", style: "text-[#8b5a2b] font-mono text-sm border border-[#8b5a2b] px-2 py-1 flex flex-col items-center" },
-    { name: "HealthFab", style: "text-blue-600 font-bold text-xl" },
+    { name: "HealthFab", style: "text-[#FD5800] font-bold text-xl" },
   ];
 
   const bestBrands = [

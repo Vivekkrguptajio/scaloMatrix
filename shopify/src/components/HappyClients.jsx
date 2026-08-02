@@ -28,14 +28,14 @@ const HappyClients = () => {
     },
     {
       logo: (
-        <div className="font-bold text-2xl text-blue-600 tracking-tight">
-          Health<span className="text-purple-600">Fab</span>
+        <div className="font-bold text-2xl text-[#FD5800] tracking-tight">
+          Health<span className="text-[#111]">Fab</span>
         </div>
       ),
       text: "The improved user experience has led to higher engagement and a more satisfied customer base.",
       author: "Sourav",
       title: "Co-founder, Healthfab",
-      avatarColor: "bg-blue-300"
+      avatarColor: "bg-orange-200"
     },
     {
       logo: (

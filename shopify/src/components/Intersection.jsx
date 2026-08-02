@@ -76,7 +76,7 @@ const Intersection = () => {
               {/* Text Overlays */}
               {/* Brand (Top Left) */}
               <div className="absolute top-[28%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center">
-                <div className="w-6 h-6 rounded-full bg-blue-50 border border-[#FD5800] flex items-center justify-center mb-1.5">
+                <div className="w-6 h-6 rounded-full bg-orange-50 border border-[#FD5800] flex items-center justify-center mb-1.5">
                   <span className="text-[#FD5800] text-[10px]">✎</span>
                 </div>
                 <h4 className="font-bold text-sm mb-1 text-black">BRAND</h4>

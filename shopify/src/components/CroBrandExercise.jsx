@@ -54,7 +54,7 @@ const CroBrandExercise = () => {
             </div>
 
             <div className="mt-16 pt-6 border-t border-gray-200">
-              <span className="text-[11px] font-mono text-[#2942ff] tracking-widest uppercase">
+              <span className="text-[11px] font-mono text-[#FD5800] tracking-widest uppercase">
                 — 247 PAGES OF LEARNING, COMPRESSED.
               </span>
             </div>
@@ -71,11 +71,11 @@ const CroBrandExercise = () => {
                 <div>
                   <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-gray-500 uppercase mb-6">
                     <span>⊕ FACTOR · 01 · AUDIENCE</span>
-                    <span className="text-[#2942ff] font-bold">LTV · 12-MO</span>
+                    <span className="text-[#FD5800] font-bold">LTV · 12-MO</span>
                   </div>
 
                   <h4 className="text-xl md:text-2xl font-bold text-black leading-tight mb-4">
-                    The page <span className="text-[#2942ff]">chooses your</span> customer.
+                    The page <span className="text-[#FD5800]">chooses your</span> customer.
                   </h4>
 
                   <p className="text-sm text-gray-500 font-medium leading-relaxed mb-6">
@@ -85,7 +85,7 @@ const CroBrandExercise = () => {
 
                 <div className="pt-4 border-t border-dashed border-gray-300 flex justify-between items-center text-[10px] font-mono uppercase tracking-wider">
                   <span className="text-[#FD5800]">DISCOUNT LTV · ₹1.8k</span>
-                  <span className="text-[#2942ff]">BRAND LTV · ₹5.4k</span>
+                  <span className="text-[#FD5800]">BRAND LTV · ₹5.4k</span>
                 </div>
               </div>
 
@@ -94,11 +94,11 @@ const CroBrandExercise = () => {
                 <div>
                   <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-gray-500 uppercase mb-6">
                     <span>⊕ FACTOR · 02 · LANGUAGE</span>
-                    <span className="text-[#2942ff] font-bold">n≥5 INTERVIEWS</span>
+                    <span className="text-[#FD5800] font-bold">n≥5 INTERVIEWS</span>
                   </div>
 
                   <h4 className="text-xl md:text-2xl font-bold text-black leading-tight mb-4">
-                    Resonance is a <span className="text-[#2942ff]">metric</span>, it just hides.
+                    Resonance is a <span className="text-[#FD5800]">metric</span>, it just hides.
                   </h4>
 
                   <p className="text-sm text-gray-500 font-medium leading-relaxed mb-6">
@@ -108,7 +108,7 @@ const CroBrandExercise = () => {
 
                 <div className="pt-4 border-t border-dashed border-gray-300 flex justify-between items-center text-[10px] font-mono uppercase tracking-wider">
                   <span className="text-gray-400">AGENCY COPY</span>
-                  <span className="text-[#2942ff]">CUSTOMER'S OWN WORDS · ✓</span>
+                  <span className="text-[#FD5800]">CUSTOMER'S OWN WORDS · ✓</span>
                 </div>
               </div>
 
@@ -119,11 +119,11 @@ const CroBrandExercise = () => {
               <div>
                 <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-gray-500 uppercase mb-6">
                   <span>⊕ FACTOR · 03 · TRUST</span>
-                  <span className="text-[#2942ff] font-bold">BRAND ≠ VIBES</span>
+                  <span className="text-[#FD5800] font-bold">BRAND ≠ VIBES</span>
                 </div>
 
                 <h4 className="text-xl md:text-2xl font-bold text-black leading-tight mb-4">
-                  Brand is <span className="text-[#2942ff]">the floor</span> CVR bounces off.
+                  Brand is <span className="text-[#FD5800]">the floor</span> CVR bounces off.
                 </h4>
 
                 <p className="text-xs md:text-sm text-gray-600 leading-relaxed mb-6">
@@ -133,7 +133,7 @@ const CroBrandExercise = () => {
 
               <div className="pt-4 border-t border-dashed border-gray-300 flex justify-between items-center text-[10px] font-mono uppercase tracking-wider">
                 <span className="text-gray-400">TRUST</span>
-                <span className="text-[#2942ff]">CONVERSION</span>
+                <span className="text-[#FD5800]">CONVERSION</span>
               </div>
             </div>
 
