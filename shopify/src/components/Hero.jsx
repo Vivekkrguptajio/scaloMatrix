@@ -46,15 +46,18 @@ export default function Hero() {
             </div>
 
             {/* Stats Tags (Aligned right of buttons on lg screens) */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 lg:gap-8 lg:border-l lg:border-gray-300 lg:pl-10">
-              <div className="text-[15px] sm:text-base md:text-[17px] font-bold text-gray-600 tracking-wide">
-                <span className="text-[#FD5800]">+20%</span> min. guaranteed lift
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 lg:gap-10 lg:border-l lg:border-gray-300 lg:pl-10">
+              <div className="flex items-center gap-2 text-[13px] sm:text-[14px] md:text-[15px] font-bold text-gray-600 tracking-wide leading-snug">
+                <span className="text-[#FD5800] text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter">+20%</span> 
+                <span className="max-w-[80px]">min. guaranteed lift</span>
               </div>
-              <div className="text-[15px] sm:text-base md:text-[17px] font-bold text-gray-600 tracking-wide">
-                <span className="text-[#FD5800]">450+</span> pages shipped
+              <div className="flex items-center gap-2 text-[13px] sm:text-[14px] md:text-[15px] font-bold text-gray-600 tracking-wide leading-snug">
+                <span className="text-[#FD5800] text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter">450+</span> 
+                <span className="max-w-[80px]">pages shipped</span>
               </div>
-              <div className="text-[15px] sm:text-base md:text-[17px] font-bold text-gray-600 tracking-wide">
-                <span className="text-[#FD5800]">98+</span> NPS · 2025
+              <div className="flex items-center gap-2 text-[13px] sm:text-[14px] md:text-[15px] font-bold text-gray-600 tracking-wide leading-snug">
+                <span className="text-[#FD5800] text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter">98+</span> 
+                <span className="max-w-[80px]">NPS · 2025</span>
               </div>
             </div>
 
