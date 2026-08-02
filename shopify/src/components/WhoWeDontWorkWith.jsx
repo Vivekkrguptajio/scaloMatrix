@@ -18,7 +18,7 @@ const WhoWeDontWorkWith = () => {
         </div>
 
         {/* The Card */}
-        <div className="bg-[#FD5800]/50 text-white w-full flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+        <div className="bg-[#FD5800]/90 text-white w-full flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
           
           {/* Left Column (Not for you if) */}
           <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-white/20">
