@@ -22,37 +22,42 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col gap-4 lg:gap-5 mb-12">
-          {/* Main Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-3 sm:gap-4">
-            <a 
-              href="#contact" 
-              className="group flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 sm:py-2.5 rounded-full font-bold text-[13px] sm:text-[14px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-lg transition-all duration-300 tracking-wide"
-            >
-              Book a call
-              <svg className="w-4 h-4 sm:w-[16px] sm:h-[16px] transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
+          {/* Main Buttons and Stats Tags Row */}
+          <div className="flex flex-col lg:flex-row flex-wrap items-stretch lg:items-center justify-center md:justify-start gap-6 lg:gap-8">
             
-            <a 
-              href="#math" 
-              className="flex w-full sm:w-auto items-center justify-center px-6 py-3 sm:py-2.5 rounded-full font-bold text-[13px] sm:text-[14px] text-gray-700 border border-black/10 hover:border-black/20 hover:bg-black/5 hover:scale-105 hover:shadow-md transition-all duration-300"
-            >
-              Run the math ↓
-            </a>
-          </div>
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-3 sm:gap-4">
+              <a 
+                href="#contact" 
+                className="group flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 sm:py-2.5 rounded-full font-bold text-[13px] sm:text-[14px] bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-lg transition-all duration-300 tracking-wide"
+              >
+                Book a call
+                <svg className="w-4 h-4 sm:w-[16px] sm:h-[16px] transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+              
+              <a 
+                href="#math" 
+                className="flex w-full sm:w-auto items-center justify-center px-6 py-3 sm:py-2.5 rounded-full font-bold text-[13px] sm:text-[14px] text-gray-700 border border-black/10 hover:border-black/20 hover:bg-black/5 hover:scale-105 hover:shadow-md transition-all duration-300"
+              >
+                Run the math ↓
+              </a>
+            </div>
 
-          {/* Stats Tags */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 mt-2">
-            <div className="text-[13px] sm:text-[14px] font-semibold text-gray-600">
-              <span className="text-[#FD5800]">+20%</span> min. guaranteed lift
+            {/* Stats Tags (Aligned right of buttons on lg screens) */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-6 lg:border-l lg:border-gray-300 lg:pl-8">
+              <div className="text-[14px] sm:text-[15px] font-bold text-gray-600 tracking-wide">
+                <span className="text-[#FD5800]">+20%</span> min. guaranteed lift
+              </div>
+              <div className="text-[14px] sm:text-[15px] font-bold text-gray-600 tracking-wide">
+                <span className="text-[#FD5800]">450+</span> pages shipped
+              </div>
+              <div className="text-[14px] sm:text-[15px] font-bold text-gray-600 tracking-wide">
+                <span className="text-[#FD5800]">98+</span> NPS · 2025
+              </div>
             </div>
-            <div className="text-[13px] sm:text-[14px] font-semibold text-gray-600">
-              <span className="text-[#FD5800]">450+</span> pages shipped
-            </div>
-            <div className="text-[13px] sm:text-[14px] font-semibold text-gray-600">
-              <span className="text-[#FD5800]">98+</span> NPS · 2025
-            </div>
+
           </div>
         </div>
       </div>
