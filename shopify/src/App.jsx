@@ -18,6 +18,7 @@ import Offers from './components/Offers'
 import Contact from './components/Contact'
 import ScrollReveal from './components/ScrollReveal'
 import CustomCursor from './components/CustomCursor'
+import ScrollToTop from './components/ScrollToTop'
 import { useEffect } from 'react'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
@@ -50,6 +51,7 @@ function App() {
   return (
     <div className="relative min-h-screen bg-[#0a0a0a] font-sans overflow-x-clip">
       <CustomCursor />
+      <ScrollToTop />
       <Navbar />
       
       <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
