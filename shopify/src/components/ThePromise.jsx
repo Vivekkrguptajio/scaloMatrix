@@ -8,7 +8,7 @@ export default function ThePromise() {
           The Promise
         </h4>
         
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-8 leading-[1.1]">
           Pages that earn their keep<br className="hidden md:block" />
           <span className="opacity-90">— or we keep working.</span>
         </h2>

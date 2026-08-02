@@ -141,7 +141,7 @@ const GuestList = () => {
 
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-8 gap-4">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black font-sans leading-none tracking-tight text-black lg:w-[60%]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] tracking-tight text-black lg:w-[60%]">
             The <span className="text-[#FD5800]">guest list.</span>
           </h2>
           <div className="w-full lg:w-[40%] flex lg:justify-end">

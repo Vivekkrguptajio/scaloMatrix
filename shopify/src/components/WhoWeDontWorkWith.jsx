@@ -7,7 +7,7 @@ const WhoWeDontWorkWith = () => {
         
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
             Who we don't<br /><span className="text-[#FD5800]">work with.</span>
           </h2>
           <div className="w-full lg:w-[40%] flex lg:justify-end">

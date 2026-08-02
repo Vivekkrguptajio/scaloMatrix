@@ -74,7 +74,7 @@ const Calculator = () => {
         
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
             Do the <span className="text-[#FD5800]">math.</span>
           </h2>
           <div className="w-full lg:w-[40%] flex lg:justify-end">

@@ -155,7 +155,7 @@ const Offers = () => {
             <div className="w-10 h-[3px] bg-[#FD5800] rounded-full"></div>
             <span className="text-[#FD5800] text-xs font-bold tracking-[0.25em] uppercase font-mono">Services</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-5 tracking-tight text-black">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] mb-5 tracking-tight text-black">
             Pick the offer that matches<br className="hidden md:block" /> <span className="text-[#FD5800]">your problem.</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">

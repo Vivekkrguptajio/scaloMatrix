@@ -7,7 +7,7 @@ const HiringPhilosophy = () => {
         
         {/* Header Section */}
         <div className="mb-8">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.1] tracking-tight text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] tracking-tight text-white">
             We don't hire fast. We<br className="hidden md:block" /> <span className="text-[#FD5800]">keep people longer.</span>
           </h2>
         </div>

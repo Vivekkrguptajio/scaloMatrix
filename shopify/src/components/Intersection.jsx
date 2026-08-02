@@ -7,7 +7,7 @@ const Intersection = () => {
         
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-sans leading-[1.15] text-black lg:w-[65%]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.15] text-black lg:w-[65%]">
             Brand <span className="text-[#FD5800] font-light">∩</span> Tech <span className="text-[#FD5800] font-light">∩</span> Marketing.<br />
             Most agencies <span className="text-[#FD5800]">pick two.</span>
           </h2>

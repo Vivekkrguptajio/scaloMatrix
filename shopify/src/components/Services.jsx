@@ -7,7 +7,7 @@ const Services = () => {
         
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12">
-          <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black font-sans leading-[1.1] text-black lg:w-[60%] tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black lg:w-[60%] tracking-tight">
             Our services. <span className="text-[#FD5800]">All about money</span>
           </h2>
           <div className="w-full lg:w-[40%] flex lg:justify-end mt-6 lg:mt-0">
