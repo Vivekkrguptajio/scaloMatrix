@@ -18,7 +18,7 @@ const WhoWeDontWorkWith = () => {
         </div>
 
         {/* The Card */}
-        <div className="bg-[#FD5800] text-white w-full flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+        <div className="bg-[#FD5800]/90 text-white w-full flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
           
           {/* Left Column (Not for you if) */}
           <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-white/20">
@@ -26,7 +26,7 @@ const WhoWeDontWorkWith = () => {
               <span className="w-8 h-8 rounded-full bg-red-500 text-white text-sm flex items-center justify-center font-bold">✕</span> Not for you if
             </h3>
 
-            <ul className="flex flex-col gap-4 font-mono text-xs md:text-sm leading-snug text-white/90">
+            <ul className="flex flex-col gap-4 font-mono text-sm md:text-[15px] leading-relaxed text-white/90 font-medium">
               <li className="pb-3.5 border-b border-dashed border-white/20">
                 → Your CEO has a doc of 47 things the page must say. <span className="text-white/60">(It should say one.)</span>
               </li>
@@ -51,7 +51,7 @@ const WhoWeDontWorkWith = () => {
               <span className="w-8 h-8 rounded-full bg-green-500 text-white text-sm flex items-center justify-center font-bold">✓</span> For you if
             </h3>
 
-            <ul className="flex flex-col gap-4 font-mono text-xs md:text-sm leading-snug text-white/90">
+            <ul className="flex flex-col gap-4 font-mono text-sm md:text-[15px] leading-relaxed text-white/90 font-medium">
               <li className="pb-3.5 border-b border-dashed border-white/20">
                 → You've hit a ceiling on CVR and don't know why.
               </li>
