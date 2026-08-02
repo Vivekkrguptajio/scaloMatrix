@@ -99,7 +99,7 @@ const TierCard = ({ tier, index }) => {
       </h3>
 
       {/* Description */}
-      <p className="text-gray-500 text-[14px] md:text-[15px] mb-5 leading-relaxed flex-1">
+      <p className="text-gray-500 font-medium text-[14px] md:text-[15px] mb-5 leading-relaxed flex-1">
         {tier.desc}
       </p>
 
@@ -111,7 +111,7 @@ const TierCard = ({ tier, index }) => {
         {tier.items.map((item, i) => (
           <li
             key={i}
-            className="flex items-start gap-2 py-3 border-b border-dashed border-gray-100 last:border-b-0 text-gray-700 text-[13px] md:text-sm leading-relaxed group-hover:text-gray-900 transition-colors duration-300"
+            className="flex items-start gap-2 py-3 border-b border-dashed border-gray-100 last:border-b-0 text-gray-700 font-medium text-[13px] md:text-sm leading-relaxed group-hover:text-gray-900 transition-colors duration-300"
           >
             <span className="text-[#FD5800] mt-0.5 font-bold text-xs shrink-0 group-hover:translate-x-1 transition-transform duration-300" style={{ transitionDelay: `${i * 50}ms` }}>→</span>
             <span>{item}</span>

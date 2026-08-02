@@ -29,10 +29,10 @@ const Services = () => {
               Single landing page.
             </h3>
             <div className="w-full h-[1px] bg-gray-200 mb-6"></div>
-            <p className="text-[15px] text-gray-500 leading-relaxed mb-8 flex-1">
+            <p className="text-[15px] text-gray-500 font-medium leading-relaxed mb-8 flex-1">
               One page. Research → copy → design → build → ship. Guaranteed +20% or we keep working.
             </p>
-            <ul className="flex flex-col gap-5 font-mono text-[13px] leading-snug text-gray-600">
+            <ul className="flex flex-col gap-5 font-mono font-medium text-[13px] leading-snug text-gray-600">
               <li className="pb-5 border-b border-dashed border-gray-200">
                 <span className="text-[#FD5800] mr-2">→</span> Customer interviews (n=5)
               </li>
@@ -57,11 +57,11 @@ const Services = () => {
               CRO retainer for each Landing Page
             </h3>
             <div className="w-full h-[1px] bg-[#333] mb-6"></div>
-            <p className="text-[15px] text-gray-400 leading-relaxed mb-8 flex-1">
+            <p className="text-[15px] text-gray-400 font-medium leading-relaxed mb-8 flex-1">
               Choose the number of landing pages you wish. For every landing page we
             </p>
             
-            <ul className="flex flex-col gap-5 font-mono text-[13px] leading-snug text-gray-300">
+            <ul className="flex flex-col gap-5 font-mono font-medium text-[13px] leading-snug text-gray-300">
               <li className="pb-5 border-b border-dashed border-[#333]">
                 <span className="text-[#FD5800] mr-2">→</span> Create a high converting version + test variation
               </li>
@@ -89,10 +89,10 @@ const Services = () => {
               Full Shopify Store Development
             </h3>
             <div className="w-full h-[1px] bg-gray-200 mb-6"></div>
-            <p className="text-[15px] text-gray-500 leading-relaxed mb-8 flex-1">
+            <p className="text-[15px] text-gray-500 font-medium leading-relaxed mb-8 flex-1">
               Sitemap, narrative, proof, polish. Your site stops being a brochure and starts earning.
             </p>
-            <ul className="flex flex-col gap-5 font-mono text-[13px] leading-snug text-gray-600">
+            <ul className="flex flex-col gap-5 font-mono font-medium text-[13px] leading-snug text-gray-600">
               <li className="pb-5 border-b border-dashed border-gray-200">
                 <span className="text-[#FD5800] mr-2">→</span> UI/UX + Content + Graphics + Development
               </li>
@@ -123,10 +123,10 @@ const Services = () => {
             </div>
             <div className="w-full h-[1px] bg-gray-200 mb-6"></div>
             
-            <p className="text-[15px] text-gray-500 leading-relaxed mb-8 flex-1">
+            <p className="text-[15px] text-gray-500 font-medium leading-relaxed mb-8 flex-1">
               Only if you get selected* Send us the URL. We'll audit live on a call. If you don't get selected, you can still pay for it.
             </p>
-            <ul className="flex flex-col gap-5 font-mono text-[13px] leading-snug text-gray-600">
+            <ul className="flex flex-col gap-5 font-mono font-medium text-[13px] leading-snug text-gray-600">
               <li className="pb-5 border-b border-dashed border-gray-200">
                 <span className="text-[#FD5800] mr-2">→</span> Conversion teardown
               </li>
