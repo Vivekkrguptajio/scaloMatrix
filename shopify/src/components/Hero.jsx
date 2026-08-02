@@ -23,7 +23,7 @@ export default function Hero() {
 
         <div className="flex flex-col gap-4 lg:gap-5 mb-12">
           {/* Main Buttons and Stats Tags Row */}
-          <div className="flex flex-col lg:flex-row flex-wrap items-stretch lg:items-center justify-center md:justify-start gap-6 lg:gap-8">
+          <div className="flex flex-col lg:flex-row flex-wrap items-stretch lg:items-center justify-center md:justify-start gap-8 lg:gap-16">
             
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-3 sm:gap-4">
@@ -46,14 +46,14 @@ export default function Hero() {
             </div>
 
             {/* Stats Tags (Aligned right of buttons on lg screens) */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-6 lg:border-l lg:border-gray-300 lg:pl-8">
-              <div className="text-[14px] sm:text-[15px] font-bold text-gray-600 tracking-wide">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 lg:gap-8 lg:border-l lg:border-gray-300 lg:pl-10">
+              <div className="text-[15px] sm:text-base md:text-[17px] font-bold text-gray-600 tracking-wide">
                 <span className="text-[#FD5800]">+20%</span> min. guaranteed lift
               </div>
-              <div className="text-[14px] sm:text-[15px] font-bold text-gray-600 tracking-wide">
+              <div className="text-[15px] sm:text-base md:text-[17px] font-bold text-gray-600 tracking-wide">
                 <span className="text-[#FD5800]">450+</span> pages shipped
               </div>
-              <div className="text-[14px] sm:text-[15px] font-bold text-gray-600 tracking-wide">
+              <div className="text-[15px] sm:text-base md:text-[17px] font-bold text-gray-600 tracking-wide">
                 <span className="text-[#FD5800]">98+</span> NPS · 2025
               </div>
             </div>
