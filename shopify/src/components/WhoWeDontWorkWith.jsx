@@ -18,54 +18,54 @@ const WhoWeDontWorkWith = () => {
         </div>
 
         {/* The Card */}
-        <div className="bg-[#111] text-white w-full flex flex-col md:flex-row border border-[#222] rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
+        <div className="bg-[#FD5800] text-white w-full flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
           
           {/* Left Column (Not for you if) */}
-          <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-[#222]">
-            <h3 className="text-[#FD5800] text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-[#FD5800] text-white text-sm flex items-center justify-center">✕</span> Not for you if
+          <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-white/20">
+            <h3 className="text-white text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-full bg-white text-[#FD5800] text-sm flex items-center justify-center font-bold">✕</span> Not for you if
             </h3>
 
-            <ul className="flex flex-col gap-4 font-mono text-xs md:text-sm leading-snug text-gray-300">
-              <li className="pb-3.5 border-b border-dashed border-[#333]">
-                → Your CEO has a doc of 47 things the page must say. <span className="text-gray-500">(It should say one.)</span>
+            <ul className="flex flex-col gap-4 font-mono text-xs md:text-sm leading-snug text-white/90">
+              <li className="pb-3.5 border-b border-dashed border-white/20">
+                → Your CEO has a doc of 47 things the page must say. <span className="text-white/60">(It should say one.)</span>
               </li>
-              <li className="pb-3.5 border-b border-dashed border-[#333]">
-                → You haven't talked to a customer in 90 days. <span className="text-gray-500">(We won't guess for you.)</span>
+              <li className="pb-3.5 border-b border-dashed border-white/20">
+                → You haven't talked to a customer in 90 days. <span className="text-white/60">(We won't guess for you.)</span>
               </li>
-              <li className="pb-3.5 border-b border-dashed border-[#333]">
-                → You need deliverables measured in pages, not revenue. <span className="text-gray-500">(Hire a freelancer.)</span>
+              <li className="pb-3.5 border-b border-dashed border-white/20">
+                → You need deliverables measured in pages, not revenue. <span className="text-white/60">(Hire a freelancer.)</span>
               </li>
-              <li className="pb-3.5 border-b border-dashed border-[#333]">
-                → You treat agencies like vendors, not partners. <span className="text-gray-500">(Life's too short.)</span>
+              <li className="pb-3.5 border-b border-dashed border-white/20">
+                → You treat agencies like vendors, not partners. <span className="text-white/60">(Life's too short.)</span>
               </li>
-              <li className="pb-3.5 border-b border-dashed border-[#333]">
-                → You sell vapes, predatory lending, or MLMs. <span className="text-gray-500">(Hard no.)</span>
+              <li className="pb-3.5 border-b border-dashed border-white/20">
+                → You sell vapes, predatory lending, or MLMs. <span className="text-white/60">(Hard no.)</span>
               </li>
             </ul>
           </div>
 
           {/* Right Column (For you if) */}
           <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10">
-            <h3 className="text-[#FD5800] text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-green-500 text-white text-sm flex items-center justify-center">✓</span> For you if
+            <h3 className="text-white text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-full bg-white text-[#FD5800] text-sm flex items-center justify-center font-bold">✓</span> For you if
             </h3>
 
-            <ul className="flex flex-col gap-4 font-mono text-xs md:text-sm leading-snug text-gray-300">
-              <li className="pb-3.5 border-b border-dashed border-[#333]">
+            <ul className="flex flex-col gap-4 font-mono text-xs md:text-sm leading-snug text-white/90">
+              <li className="pb-3.5 border-b border-dashed border-white/20">
                 → You've hit a ceiling on CVR and don't know why.
               </li>
-              <li className="pb-3.5 border-b border-dashed border-[#333]">
-                → You have a product that actually works. <span className="text-gray-500">(We can't fix a bad one.)</span>
+              <li className="pb-3.5 border-b border-dashed border-white/20">
+                → You have a product that actually works. <span className="text-white/60">(We can't fix a bad one.)</span>
               </li>
-              <li className="pb-3.5 border-b border-dashed border-[#333]">
-                → You'd rather see a 14-day test than a 40-slide deck.
+              <li className="pb-3.5 border-b border-dashed border-white/20">
+                → You have at least ₹2L/mo in ad spend. <span className="text-white/60">(Need traffic to test.)</span>
               </li>
-              <li className="pb-3.5 border-b border-dashed border-[#333]">
-                → You want the person writing the page to take the first call.
+              <li className="pb-3.5 border-b border-dashed border-white/20">
+                → You want a team that pushes back when you're wrong.
               </li>
-              <li className="pb-3.5 border-b border-dashed border-[#333]">
-                → You think design and performance are the same fight.
+              <li className="pb-3.5 border-b border-dashed border-white/20">
+                → You want to build a brand, not just a dropshipping store.
               </li>
             </ul>
           </div>
