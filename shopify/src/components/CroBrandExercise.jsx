@@ -3,16 +3,15 @@ import React from 'react';
 const CroBrandExercise = () => {
   return (
     <section id="cro" className="w-full py-10 md:py-16 lg:py-20 bg-white text-black font-sans">
-      <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16 flex flex-col gap-12 lg:gap-16">
+      <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16 flex flex-col gap-6 lg:gap-8">
         
         {/* Top Row: Large Headline & Subtext */}
-        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
+        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end gap-6">
           {/* Left Side: Large Headline */}
           <div className="lg:w-[60%]">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-[#111111] tracking-tight">
-              CRO is a brand<br />
-              exercise. The % is<br />
-              <a 
+              CRO is a brand exercise.<br />
+              The % is <a 
                 href="#case-studies"
                 className="text-[#FD5800] hover:underline cursor-pointer"
                 onClick={(e) => {
