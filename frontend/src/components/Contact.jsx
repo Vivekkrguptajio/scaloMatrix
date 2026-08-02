@@ -4,7 +4,6 @@ import { PortfolioContext } from '../context/PortfolioContext';
 
 export default function Contact({ reveal = false }) {
   const { profileDetails } = useContext(PortfolioContext);
-  const currentYear = new Date().getFullYear();
   const footerRef = useRef(null);
   const [footerHeight, setFooterHeight] = useState(0);
 

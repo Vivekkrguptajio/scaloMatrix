@@ -7,12 +7,12 @@ export default function WorkShowcase() {
   const containerRef = useRef(null)
   
   // Use state to track window size for dynamic width/height calculations
-  const [windowSize, setWindowSize] = useState({ width: 1000, height: 800 })
+  const [windowSize, setWindowSize] = useState({ 
+    width: typeof window !== 'undefined' ? window.innerWidth : 1000, 
+    height: typeof window !== 'undefined' ? window.innerHeight : 800 
+  })
 
   useEffect(() => {
-    // Set actual window size on mount
-    setWindowSize({ width: window.innerWidth, height: window.innerHeight })
-    
     const handleResize = () => {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight })
     }

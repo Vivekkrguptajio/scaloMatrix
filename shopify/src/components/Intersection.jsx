@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Intersection = () => {
   return (
@@ -7,11 +6,11 @@ const Intersection = () => {
         
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.15] text-black lg:w-[65%]">
-            Brand <span className="text-[#FD5800] font-light">∩</span> Tech <span className="text-[#FD5800] font-light">∩</span> Marketing.<br />
-            Most agencies <span className="text-[#FD5800]">pick two.</span>
-          </h2>
-          <div className="w-full lg:w-[40%] flex lg:justify-end">
+          <div className="text-[28px] sm:text-3xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.2] text-black flex-1 flex flex-col">
+            <span>Brand <span className="text-[#FD5800] font-light">∩</span> Tech <span className="text-[#FD5800] font-light">∩</span> Marketing.</span>
+            <span>Most agencies <span className="text-[#FD5800]">pick two.</span></span>
+          </div>
+          <div className="w-full lg:w-[35%] flex lg:justify-end">
             <p className="text-gray-600 text-sm md:text-base leading-snug lg:text-right">
               The ones that convert live in the centre. Narrative that means something. Code
               that ships fast. Funnels that respect a rupee. We're allergic to handoffs.

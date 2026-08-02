@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const containerVariants = {
@@ -501,22 +501,22 @@ const CaseStudiesGrid = () => {
             {allStudies.slice(0, 3).map((study, idx) => (
               <div 
                 key={study.id} 
-                className={`p-4 md:p-5 flex flex-col ${idx < 2 ? 'border-r border-black' : ''}`}
+                className={`p-4 md:p-5 flex flex-col overflow-hidden ${idx < 2 ? 'border-r border-black' : ''}`}
               >
-                <div className="bg-[#f1f1f1] border border-black p-3 md:p-4 mb-5 flex-1 flex items-center justify-center min-h-[280px]">
+                <div className="bg-[#f1f1f1] border border-black p-3 md:p-4 mb-5 flex-1 flex items-center justify-center min-h-[280px] overflow-hidden">
                   {study.mockup}
                 </div>
-                <div className="flex justify-between items-end mt-auto">
-                  {study.badge}
-                  <div className="flex items-center gap-4 sm:gap-5">
+                <div className="flex flex-wrap xl:flex-nowrap justify-between items-end mt-auto gap-2 xl:gap-4">
+                  <div className="shrink-0">{study.badge}</div>
+                  <div className="flex items-center gap-3 xl:gap-5 shrink-0">
                     <div className="flex flex-col items-end">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.aov}</div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
+                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.aov}</div>
+                      <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
                     </div>
-                    <div className="w-[1px] h-8 bg-gray-300"></div>
+                    <div className="w-[1px] h-6 xl:h-8 bg-gray-300"></div>
                     <div className="flex flex-col items-end">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.rev}</div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
+                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.rev}</div>
+                      <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
                     </div>
                   </div>
                 </div>
@@ -529,22 +529,22 @@ const CaseStudiesGrid = () => {
             {allStudies.slice(3, 6).map((study, idx) => (
               <div 
                 key={study.id} 
-                className={`p-4 md:p-5 flex flex-col ${idx < 2 ? 'border-r border-black' : ''}`}
+                className={`p-4 md:p-5 flex flex-col overflow-hidden ${idx < 2 ? 'border-r border-black' : ''}`}
               >
-                <div className="bg-[#f1f1f1] border border-black p-3 md:p-4 mb-5 flex-1 flex items-center justify-center min-h-[280px]">
+                <div className="bg-[#f1f1f1] border border-black p-3 md:p-4 mb-5 flex-1 flex items-center justify-center min-h-[280px] overflow-hidden">
                   {study.mockup}
                 </div>
-                <div className="flex justify-between items-end mt-auto">
-                  {study.badge}
-                  <div className="flex items-center gap-4 sm:gap-5">
+                <div className="flex flex-wrap xl:flex-nowrap justify-between items-end mt-auto gap-2 xl:gap-4">
+                  <div className="shrink-0">{study.badge}</div>
+                  <div className="flex items-center gap-3 xl:gap-5 shrink-0">
                     <div className="flex flex-col items-end">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.aov}</div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
+                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.aov}</div>
+                      <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
                     </div>
-                    <div className="w-[1px] h-8 bg-gray-300"></div>
+                    <div className="w-[1px] h-6 xl:h-8 bg-gray-300"></div>
                     <div className="flex flex-col items-end">
-                      <div className="text-2xl lg:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.rev}</div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
+                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.rev}</div>
+                      <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
                     </div>
                   </div>
                 </div>

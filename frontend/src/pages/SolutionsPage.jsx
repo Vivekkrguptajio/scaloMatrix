@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
@@ -68,11 +68,16 @@ const solutionsData = {
 export default function SolutionsPage() {
   const { slug } = useParams();
   const [activeAccordion, setActiveAccordion] = useState(null);
+  const [prevSlug, setPrevSlug] = useState(slug);
+
+  if (slug !== prevSlug) {
+    setPrevSlug(slug);
+    setActiveAccordion(null);
+  }
   
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
-    setActiveAccordion(null);
   }, [slug]);
 
   const data = solutionsData[slug];

@@ -40,7 +40,7 @@ export default function DefinesUs() {
       cancelAnimationFrame(animationFrameId)
       observer.disconnect()
     }
-  }, [])
+  }, [rotation])
 
   return (
     <section id="definesus" ref={sectionRef} className="relative w-full bg-white font-sans overflow-hidden border-t border-gray-100 min-h-[500px] flex flex-col justify-center py-8 md:py-24">

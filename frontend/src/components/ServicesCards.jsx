@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+
 import { motion } from 'framer-motion';
 
 const cardsData = [
@@ -32,15 +32,6 @@ const cardsData = [
 ];
 
 export default function ServicesCards() {
-  const scrollRef = useRef(null);
-
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const { current } = scrollRef;
-      const scrollAmount = direction === 'left' ? -current.offsetWidth : current.offsetWidth;
-      current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
 
   return (
     <section className="bg-black py-8 relative overflow-hidden" id="services">
@@ -104,7 +95,7 @@ export default function ServicesCards() {
                 <h4 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 whitespace-pre-line text-white leading-tight">
                   {card.heading}
                 </h4>
-                <p className="text-[#a1a1aa] text-sm leading-relaxed flex-grow font-medium line-clamp-2 md:line-clamp-none">
+                <p className="text-gray-200 text-[15px] md:text-base leading-relaxed flex-grow font-semibold line-clamp-2 md:line-clamp-none">
                   {card.description}
                 </p>
                 

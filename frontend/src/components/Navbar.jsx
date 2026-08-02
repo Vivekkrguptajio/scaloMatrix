@@ -1,10 +1,8 @@
-import { useState, useContext, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
-import { PortfolioContext } from '../context/PortfolioContext'
 import { navLinks, megaMenuData } from '../data/navData'
 
-export default function Navbar({ scrolled, activeSection, loading, isDarkTheme = false, isHidden = false }) {
-  const { profileDetails, projects } = useContext(PortfolioContext)
+export default function Navbar({ activeSection, loading, isDarkTheme = false, isHidden = false }) {
   const [mobileMenu, setMobileMenu] = useState(false)
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null)
   const logoX = useMotionValue(0)

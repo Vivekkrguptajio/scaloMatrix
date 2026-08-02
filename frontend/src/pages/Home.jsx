@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef, lazy, Suspense } from 'react'
-import { useScroll, useTransform, motion, useMotionValueEvent } from 'framer-motion'
+import { useState } from 'react'
+import { useScroll, useMotionValueEvent } from 'framer-motion'
 
 // Above-the-fold components (eager load)
 import Navbar from '../components/Navbar'
@@ -23,7 +23,7 @@ import ContactUs from '../components/ContactUs'
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState('home')
+  const [activeSection] = useState('home')
   const [isDarkTheme, setIsDarkTheme] = useState(false)
   const [isNavbarHidden, setIsNavbarHidden] = useState(false)
 

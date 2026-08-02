@@ -17,7 +17,7 @@ export const uploadWithProgress = (url, formData, token, method = 'POST', onProg
       if (xhr.status >= 200 && xhr.status < 300) {
         try {
           resolve(JSON.parse(xhr.responseText));
-        } catch (e) {
+        } catch {
           resolve(xhr.responseText);
         }
       } else if (xhr.status === 401) {
@@ -27,7 +27,7 @@ export const uploadWithProgress = (url, formData, token, method = 'POST', onProg
       } else {
         try {
           reject(JSON.parse(xhr.responseText));
-        } catch (e) {
+        } catch {
           reject({ message: xhr.responseText || `Upload failed with status ${xhr.status}` });
         }
       }

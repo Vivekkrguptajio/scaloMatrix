@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const containerVariants = {
@@ -78,7 +78,7 @@ const tiers = [
   },
 ];
 
-const TierCard = ({ tier, index }) => {
+const TierCard = ({ tier }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -190,8 +190,8 @@ const Offers = () => {
           viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5"
         >
-          {tiers.map((tier, index) => (
-            <TierCard key={tier.id} tier={tier} index={index} />
+          {tiers.map((tier) => (
+            <TierCard key={tier.id} tier={tier} />
           ))}
         </motion.div>
       </div>

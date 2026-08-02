@@ -2,7 +2,6 @@ import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Contact({ reveal = false }) {
-  const currentYear = new Date().getFullYear();
   const footerRef = useRef(null);
   const [footerHeight, setFooterHeight] = useState(0);
 

@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { PortfolioContext } from '../context/PortfolioContext';
 import Navbar from '../components/Navbar';
@@ -7,9 +7,7 @@ import Contact from '../components/Contact';
 
 export default function ProjectDetail() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { projects } = useContext(PortfolioContext);
-  const [project, setProject] = useState(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,16 +19,8 @@ export default function ProjectDetail() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    // ID could be _id (MongoDB) or id (local fallback)
-    const found = projects.find(p => p._id === id || p.id === id || p.id === parseInt(id));
-    if (found) {
-      setProject(found);
-    } else if (projects.length > 0) {
-      // If projects are loaded but this one isn't found, maybe go back to work
-      // navigate('/work');
-    }
-  }, [id, projects, navigate]);
+  // Derive project state from context during render to prevent cascading re-renders
+  const project = projects ? projects.find(p => p._id === id || p.id === id || p.id === parseInt(id)) : null;
 
   if (!project) {
     return (
@@ -42,7 +32,7 @@ export default function ProjectDetail() {
 
   // Helper to extract YouTube ID
   const getYouTubeId = (url) => {
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);
     return (match && match[2].length === 11) ? match[2] : null;
   };

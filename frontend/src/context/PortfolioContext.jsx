@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useEffect } from 'react';
 import { uploadWithProgress } from '../utils/uploadWithProgress';
 
@@ -86,7 +87,7 @@ export function PortfolioProvider({ children }) {
   const [workPageDetails, setWorkPageDetails] = useState(defaultWorkPageDetails);
   const [workShowcaseGif, setWorkShowcaseGif] = useState(null);
   
-  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -150,8 +151,6 @@ export function PortfolioProvider({ children }) {
 
         const cachedGif = localStorage.getItem(CACHE_KEYS.workshowcasegif);
         setWorkShowcaseGif(safeJSONParse(cachedGif, ''));
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -208,8 +207,8 @@ export function PortfolioProvider({ children }) {
 
 
   const updateProject = async (id, formData, onProgress) => {
+    const token = localStorage.getItem('portfolio_admin_token');
     try {
-      const token = localStorage.getItem('portfolio_admin_token');
       const res = await uploadWithProgress(`${API_URL}/projects/${id}`, formData, token, 'PUT', onProgress);
       const updatedProjects = projects.map(p => (p._id === id || p.id === id) ? res : p);
       setProjects(updatedProjects);
@@ -227,7 +226,7 @@ export function PortfolioProvider({ children }) {
            const fallbackProjects = projects.map(p => (p._id === id || p.id === id) ? createRes : p);
            setProjects(fallbackProjects);
            localStorage.setItem(CACHE_KEYS.projects, JSON.stringify(fallbackProjects));
-         } catch (createErr) {
+         } catch {
            alert('Failed to save local project to database');
          }
       } else {

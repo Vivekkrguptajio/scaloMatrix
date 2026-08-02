@@ -1,26 +1,5 @@
-import React, { useState, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
 import { solutions } from '../data/aboutData'
-
-/* ─── Animated Check List Item ─── */
-function CheckItem({ text, delay = 0 }) {
-  return (
-    <motion.li
-      initial={{ opacity: 0, x: -10 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5, delay }}
-      viewport={{ once: true }}
-      className="flex items-start gap-3 group/item cursor-default"
-    >
-      <div className="w-[16px] h-[16px] rounded-full bg-[#FD5800] flex items-center justify-center flex-shrink-0 mt-[3px] shadow-sm">
-        <svg className="w-[10px] h-[10px] text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-        </svg>
-      </div>
-      <span className="text-gray-600 font-semibold group-hover/item:text-gray-900 transition-colors duration-300 text-[13.5px] leading-relaxed">{text}</span>
-    </motion.li>
-  )
-}
 
 export default function About() {
   const [activeCardId, setActiveCardId] = useState(null);
@@ -51,7 +30,7 @@ export default function About() {
     targetScroll.current = maxScroll * percentage;
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     let running = false;
     const animate = () => {
       if (scrollRef.current && isHovering.current) {
@@ -80,19 +59,6 @@ export default function About() {
       }
     };
   }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.2 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-  };
 
   return (
     <section id="about" className="relative w-full h-[auto] md:h-screen min-h-[100vh] flex flex-col pt-0 bg-white font-sans overflow-hidden">
@@ -183,8 +149,8 @@ export default function About() {
                   <div className={`group-hover:opacity-100 group-hover:max-h-[500px] transition-all duration-500 ease-out overflow-hidden flex flex-col items-center text-center pt-4 md:pt-8 
                     ${isActive ? 'opacity-100 max-h-[500px]' : 'opacity-0 max-h-0'}`}>
                     
-                    <p className={`text-sm md:text-base font-medium leading-relaxed mb-4 md:mb-6 max-w-sm drop-shadow-sm transition-all duration-500 transform delay-75 group-hover:text-white/90 group-hover:translate-y-0 group-hover:opacity-100 
-                      ${isActive ? 'text-white/90 translate-y-0 opacity-100' : 'text-gray-500 translate-y-8 opacity-0'}`}>
+                    <p className={`text-[15px] md:text-[17px] font-semibold leading-relaxed mb-4 md:mb-6 max-w-sm drop-shadow-sm transition-all duration-500 transform delay-75 group-hover:text-white group-hover:translate-y-0 group-hover:opacity-100 
+                      ${isActive ? 'text-white translate-y-0 opacity-100' : 'text-gray-700 translate-y-8 opacity-0'}`}>
                       {item.desc}
                     </p>
                     
@@ -200,8 +166,8 @@ export default function About() {
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                           </div>
-                          <span className={`font-semibold text-xs md:text-sm transition-colors duration-500 group-hover:text-white 
-                            ${isActive ? 'text-white' : 'text-gray-600'}`}>{listItem}</span>
+                          <span className={`font-bold text-[13px] md:text-[15px] transition-colors duration-500 group-hover:text-white 
+                            ${isActive ? 'text-white' : 'text-gray-800'}`}>{listItem}</span>
                         </li>
                       ))}
                     </ul>

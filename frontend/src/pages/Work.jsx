@@ -6,7 +6,7 @@ import Contact from '../components/Contact'
 import { PortfolioContext } from '../context/PortfolioContext'
 
 export default function Work() {
-  const { projects, workPageDetails } = useContext(PortfolioContext)
+  const { projects } = useContext(PortfolioContext)
   const [scrolled, setScrolled] = useState(false)
   const navigate = useNavigate()
 

@@ -1,4 +1,3 @@
-import React from 'react';
 
 export const approachIcons = [
   { src: "/logo/Frame 1.svg", text: "love what we do" },

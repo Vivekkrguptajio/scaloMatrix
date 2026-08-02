@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
-import { motion, useMotionValue, AnimatePresence } from 'framer-motion'
+import { motion, useMotionValue } from 'framer-motion'
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false)

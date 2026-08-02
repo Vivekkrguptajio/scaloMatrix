@@ -14,7 +14,7 @@ const TimeDisplay = ({ city, timeZone }) => {
           hour12: true,
         });
         setTime(formatter.format(new Date()));
-      } catch (e) {
+      } catch {
         setTime('');
       }
     };

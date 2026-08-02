@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { motion } from 'framer-motion';
+;
 
 const topRowBrands = [
   'Tanishq', 'Prime Video', 'Xiaomi', 'Jio', 'Pidilite', 'Nykaa', 'Zomato', 'Swiggy', 'Paytm', 'Flipkart'
