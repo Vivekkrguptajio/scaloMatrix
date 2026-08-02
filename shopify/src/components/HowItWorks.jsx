@@ -1,25 +1,50 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 const HowItWorks = () => {
   return (
     <section id="process" className="w-full py-10 md:py-16 lg:py-20 font-sans bg-white">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16">
         
         {/* Header Section */}
-        <div className="flex flex-col mb-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col mb-10"
+        >
           <h4 className="text-[#FD5800] text-[11px] md:text-xs font-bold tracking-[0.2em] uppercase mb-3">
             How The Work Happens
           </h4>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.15] tracking-tight text-black max-w-3xl">
             Signal in. Design out. <span className="text-[#FD5800]">Shipped live.</span>
           </h2>
-        </div>
+        </motion.div>
 
         {/* 3-Column Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8"
+        >
           
           {/* Step 1 */}
-          <div className="bg-white p-7 md:p-8 rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+          <motion.div variants={itemVariants} className="bg-white p-7 md:p-8 rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-8 rounded-full bg-[#FD5800] text-white text-xs font-bold flex items-center justify-center">01</div>
@@ -32,10 +57,10 @@ const HowItWorks = () => {
                 Analytics, heatmaps, session recordings, your ad account — the full picture of where visitors leak before we touch a pixel.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Step 2 (Filled Black Card) */}
-          <div className="bg-[#111111] text-white p-7 md:p-8 rounded-3xl border border-[#222] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+          <motion.div variants={itemVariants} className="bg-[#111111] text-white p-7 md:p-8 rounded-3xl border border-[#222] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-8 rounded-full bg-[#FD5800] text-white text-xs font-bold flex items-center justify-center">02</div>
@@ -48,10 +73,10 @@ const HowItWorks = () => {
                 Mobile-first design with the actual copy and offer that will go live — not lorem ipsum theatre. Iterated until it's right.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Step 3 */}
-          <div className="bg-white p-7 md:p-8 rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+          <motion.div variants={itemVariants} className="bg-white p-7 md:p-8 rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-8 rounded-full bg-[#FD5800] text-white text-xs font-bold flex items-center justify-center">03</div>
@@ -64,13 +89,13 @@ const HowItWorks = () => {
                 Hand-built, speed-tuned, QA'd on real devices. Then we watch the numbers — because shipped isn't done, performing is.
               </p>
             </div>
-          </div>
-
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
 export default HowItWorks;
+
 

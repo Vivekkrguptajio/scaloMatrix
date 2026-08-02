@@ -1,12 +1,31 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 const Services = () => {
   return (
     <section id="services" className="w-full py-10 md:py-16 lg:py-20 font-sans bg-white">
       <div className="max-w-[1440px] mx-auto w-full px-4 sm:px-6 md:px-12 xl:px-16">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12"
+        >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black lg:w-[60%] tracking-tight">
             Our services. <span className="text-[#FD5800]">All about money</span>
           </h2>
@@ -15,13 +34,19 @@ const Services = () => {
               Pick the one that matches your problem. All services includes UI/<br className="hidden lg:block" />UX, Content, Graphics, Design, & Development. AI Photoshoots &<br className="hidden lg:block" />3D animations optional*
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Pricing/Services Table */}
-        <div className="w-full flex flex-col xl:flex-row rounded-[32px] md:rounded-[48px] shadow-sm border border-gray-200 overflow-hidden mb-12 bg-white">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className="w-full flex flex-col xl:flex-row rounded-[32px] md:rounded-[48px] shadow-sm border border-gray-200 overflow-hidden mb-12 bg-white"
+        >
           
           {/* Tier 1 */}
-          <div className="w-full xl:w-1/4 bg-white p-8 md:p-10 flex flex-col border-b xl:border-b-0 xl:border-r border-gray-200">
+          <motion.div variants={itemVariants} className="w-full xl:w-1/4 bg-white p-8 md:p-10 flex flex-col border-b xl:border-b-0 xl:border-r border-gray-200 hover:bg-gray-50 transition-colors duration-300">
             <div className="text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-5">
               TIER · 01 · SNIPER
             </div>
@@ -78,10 +103,10 @@ const Services = () => {
             
             {/* Top center dot decoration */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full"></div>
-          </div>
+          </motion.div>
 
           {/* Tier 3 */}
-          <div className="w-full xl:w-1/4 bg-white p-8 md:p-10 flex flex-col border-b xl:border-b-0 xl:border-r border-gray-200">
+          <motion.div variants={itemVariants} className="w-full xl:w-1/4 bg-white p-8 md:p-10 flex flex-col border-b xl:border-b-0 xl:border-r border-gray-200">
             <div className="text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-5">
               TIER · 03 · FULL REVAMP
             </div>
@@ -106,10 +131,10 @@ const Services = () => {
                 <span className="text-[#FD5800] mr-2">→</span> You share brand guidelines and Photo Assets.
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Tier 4 */}
-          <div className="w-full xl:w-1/4 bg-white p-8 md:p-10 flex flex-col">
+          <motion.div variants={itemVariants} className="w-full xl:w-1/4 bg-white p-8 md:p-10 flex flex-col hover:bg-gray-50 transition-colors duration-300">
             <div className="text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-5">
               TIER · 04 · DIAGNOSTIC
             </div>
@@ -140,9 +165,9 @@ const Services = () => {
                 <span className="text-[#FD5800] mr-2">→</span> No Recording + doc, yours
               </li>
             </ul>
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
 
         {/* Schedule a call button */}
         <div className="flex">

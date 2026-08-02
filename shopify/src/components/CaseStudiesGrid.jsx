@@ -1,4 +1,18 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const SuperYouMockup = () => (
   <div className="flex gap-3 h-[180px] w-full transform scale-[1.15] origin-center">
@@ -405,7 +419,13 @@ const CaseStudiesGrid = () => {
       <div className="max-w-[1440px] mx-auto flex flex-col items-center px-4 sm:px-6 md:px-12 xl:px-16 w-full">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6"
+        >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black tracking-tight lg:w-[60%]">
             Things we are happy<br /><span className="text-[#FD5800]">about.</span>
           </h2>
@@ -414,10 +434,17 @@ const CaseStudiesGrid = () => {
               We don't do testimonials until there's a number next to them. Each tile is a real page, shipped, measured over n≥10,000 sessions.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* MOBILE VIEW: SHOW ONLY 2 CARDS AT A TIME */}
-        <div className="lg:hidden w-full flex flex-col gap-6">
+        {/* MOBILE VIEW: SHOW ONLY 2 CARDS AT A TIME */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6 }}
+          className="lg:hidden w-full flex flex-col gap-6"
+        >
           <div className="bg-white border-[0.5px] border-black w-full flex flex-col hover:-translate-y-1 hover:shadow-[5px_5px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
             {mobileVisibleStudies.map((study, idx) => (
               <div 
@@ -461,9 +488,16 @@ const CaseStudiesGrid = () => {
         </div>
 
         {/* DESKTOP VIEW: FULL 6 CARDS GRID */}
-        <div className="hidden lg:flex flex-col w-full gap-8">
+        {/* DESKTOP VIEW: FULL 6 CARDS GRID */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className="hidden lg:flex flex-col w-full gap-8"
+        >
           {/* Row 1 */}
-          <div className="bg-white border border-black w-full grid grid-cols-3 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
+          <motion.div variants={itemVariants} className="bg-white border border-black w-full grid grid-cols-3 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
             {allStudies.slice(0, 3).map((study, idx) => (
               <div 
                 key={study.id} 
@@ -488,10 +522,10 @@ const CaseStudiesGrid = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Row 2 */}
-          <div className="bg-white border border-black w-full grid grid-cols-3 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
+          <motion.div variants={itemVariants} className="bg-white border border-black w-full grid grid-cols-3 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
             {allStudies.slice(3, 6).map((study, idx) => (
               <div 
                 key={study.id} 
@@ -516,8 +550,8 @@ const CaseStudiesGrid = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
       </div>
     </section>

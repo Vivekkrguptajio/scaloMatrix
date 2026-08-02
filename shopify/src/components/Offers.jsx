@@ -1,5 +1,20 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 const tiers = [
   {
     id: 1,
@@ -67,13 +82,11 @@ const TierCard = ({ tier, index }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div
+    <motion.div
+      variants={cardVariants}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative bg-white rounded-2xl p-6 md:p-8 flex flex-col border border-gray-200 overflow-hidden transition-all duration-500 ease-out shadow-sm hover:shadow-2xl hover:-translate-y-2 cursor-default"
-      style={{
-        animationDelay: `${index * 120}ms`,
-      }}
+      className="group relative bg-white rounded-2xl p-6 md:p-8 flex flex-col h-full border border-gray-200 overflow-hidden transition-all duration-500 ease-out shadow-sm hover:shadow-2xl hover:-translate-y-2 cursor-default"
     >
       {/* Top accent line that grows on hover */}
       <div
@@ -140,7 +153,7 @@ const TierCard = ({ tier, index }) => {
 
       {/* Subtle corner glow on hover */}
       <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-[#FD5800] rounded-full opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500 blur-3xl pointer-events-none"></div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -150,7 +163,13 @@ const Offers = () => {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
 
         {/* Header */}
-        <div className="mb-14">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="mb-14"
+        >
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-[3px] bg-[#FD5800] rounded-full"></div>
             <span className="text-[#FD5800] text-xs font-bold tracking-[0.25em] uppercase font-mono">Services</span>
@@ -161,14 +180,20 @@ const Offers = () => {
           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
             Every tier includes research, copy, design, and development — one owner, end to end.
           </p>
-        </div>
+        </motion.div>
 
         {/* 2x2 Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5"
+        >
           {tiers.map((tier, index) => (
             <TierCard key={tier.id} tier={tier} index={index} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
