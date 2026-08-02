@@ -21,7 +21,7 @@ const WhoWeDontWorkWith = () => {
         <div className="bg-[#FD5800]/90 text-white w-full flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
           
           {/* Left Column (Not for you if) */}
-          <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-white/20">
+          <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 bg-[#111111] border-b md:border-b-0 md:border-r border-white/20">
             <h3 className="text-white text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
               <span className="w-8 h-8 rounded-full bg-red-500 text-white text-sm flex items-center justify-center font-bold">✕</span> Not for you if
             </h3>
