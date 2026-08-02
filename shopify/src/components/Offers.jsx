@@ -70,7 +70,7 @@ const TierCard = ({ tier, index }) => {
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative bg-white rounded-2xl p-5 md:p-6 flex flex-col border border-gray-200 overflow-hidden transition-all duration-500 ease-out shadow-sm hover:shadow-2xl hover:-translate-y-2 cursor-default"
+      className="group relative bg-white rounded-2xl p-6 md:p-8 flex flex-col border border-gray-200 overflow-hidden transition-all duration-500 ease-out shadow-sm hover:shadow-2xl hover:-translate-y-2 cursor-default"
       style={{
         animationDelay: `${index * 120}ms`,
       }}
@@ -89,29 +89,29 @@ const TierCard = ({ tier, index }) => {
       )}
 
       {/* Tier Label */}
-      <div className="text-[#FD5800] text-[10px] font-bold tracking-[0.15em] uppercase mb-3 font-mono">
+      <div className="text-[#FD5800] text-[11px] font-bold tracking-[0.15em] uppercase mb-4 font-mono">
         {tier.label}
       </div>
 
       {/* Title */}
-      <h3 className="text-lg md:text-xl font-bold text-black mb-2 leading-snug tracking-tight group-hover:text-[#FD5800] transition-colors duration-300">
+      <h3 className="text-xl md:text-2xl font-bold text-black mb-3 leading-snug tracking-tight group-hover:text-[#FD5800] transition-colors duration-300">
         {tier.title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-500 text-[13px] mb-4 leading-snug flex-1">
+      <p className="text-gray-500 text-[14px] md:text-[15px] mb-5 leading-relaxed flex-1">
         {tier.desc}
       </p>
 
       {/* Divider */}
-      <div className="w-full h-px bg-gray-200 mb-3"></div>
+      <div className="w-full h-px bg-gray-200 mb-4"></div>
 
       {/* Feature List */}
       <ul className="flex flex-col gap-0 mb-5">
         {tier.items.map((item, i) => (
           <li
             key={i}
-            className="flex items-start gap-2 py-2 border-b border-dashed border-gray-100 last:border-b-0 text-gray-700 text-[12px] leading-snug group-hover:text-gray-900 transition-colors duration-300"
+            className="flex items-start gap-2 py-3 border-b border-dashed border-gray-100 last:border-b-0 text-gray-700 text-[13px] md:text-sm leading-relaxed group-hover:text-gray-900 transition-colors duration-300"
           >
             <span className="text-[#FD5800] mt-0.5 font-bold text-xs shrink-0 group-hover:translate-x-1 transition-transform duration-300" style={{ transitionDelay: `${i * 50}ms` }}>→</span>
             <span>{item}</span>
