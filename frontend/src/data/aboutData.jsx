@@ -25,7 +25,7 @@ export const solutions = [
     id: "02",
     title: "Commerce",
     desc: "Scale your revenue seamlessly with high-converting, lightning-fast storefronts.",
-    link: import.meta.env.VITE_COMMERCE_URL || "https://shopify.sclomatrix.com",
+    link: import.meta.env.VITE_COMMERCE_URL || "https://shopify.scalomatrix.com",
     shape: "circle",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

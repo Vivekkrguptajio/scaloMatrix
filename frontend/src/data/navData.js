@@ -19,8 +19,8 @@ export const megaMenuData = {
       {
         title: 'COMMERCE',
         items: [
-          { title: 'Shopify Development', href: 'https://shopify.sclomatrix.com' },
-          { title: 'Marketplace', href: 'https://marketplace-scalomatrix.onrender.com' },
+          { title: 'Shopify Development', href: import.meta.env.VITE_COMMERCE_URL || 'https://shopify.scalomatrix.com' },
+          { title: 'Marketplace', href: import.meta.env.VITE_MARKETPLACE_URL || 'https://marketplace-scalomatrix.onrender.com' },
           { title: 'Finance', href: '#' },
           { title: 'Funnel & Lead-Gen', href: '#' }
         ]

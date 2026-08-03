@@ -31,7 +31,7 @@ const Navbar = () => {
             <a href="#services" className="text-brand-text hover:text-brand-accent transition-colors font-medium">Services</a>
             <a href="#results" className="text-brand-text hover:text-brand-accent transition-colors font-medium">Results</a>
             <a href="#testimonials" className="text-brand-text hover:text-brand-accent transition-colors font-medium">Testimonials</a>
-            <a href="https://shopify.sclomatrix.com" className="text-brand-text hover:text-brand-accent transition-colors font-medium">Commerce</a>
+            <a href={import.meta.env.VITE_COMMERCE_URL || "https://shopify.scalomatrix.com"} className="text-brand-text hover:text-brand-accent transition-colors font-medium">Commerce</a>
             <button className="neon-btn">
               Free Audit
             </button>
@@ -57,7 +57,7 @@ const Navbar = () => {
             <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-brand-text hover:text-brand-accent font-medium">Services</a>
             <a href="#results" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-brand-text hover:text-brand-accent font-medium">Results</a>
             <a href="#testimonials" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-brand-text hover:text-brand-accent font-medium">Testimonials</a>
-            <a href="https://shopify.sclomatrix.com" className="block px-3 py-2 text-brand-text hover:text-brand-accent font-medium">Commerce</a>
+            <a href={import.meta.env.VITE_COMMERCE_URL || "https://shopify.scalomatrix.com"} className="block px-3 py-2 text-brand-text hover:text-brand-accent font-medium">Commerce</a>
             <button className="neon-btn w-full mt-4">
               Free Audit
             </button>
