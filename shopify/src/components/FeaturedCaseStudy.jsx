@@ -1,7 +1,7 @@
 
 const FeaturedCaseStudy = () => {
   return (
-    <section className="w-full pt-16 md:pt-24 lg:pt-28 pb-10 md:pb-16 lg:pb-20 bg-white">
+    <section className="w-full py-8 md:py-12 lg:py-14 bg-white">
       <div className="max-w-[1180px] mx-auto w-full px-6 md:px-12 xl:px-16">
         <div className="relative w-full bg-[#fce9d3] rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-5 md:p-10 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-300">
           

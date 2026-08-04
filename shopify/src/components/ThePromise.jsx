@@ -1,7 +1,7 @@
 
 export default function ThePromise() {
   return (
-    <section className="w-full bg-white text-black py-10 md:py-16 lg:py-20 font-sans flex flex-col items-center justify-center px-6 text-center rounded-b-[40px] md:rounded-b-[60px]">
+    <section className="w-full bg-white text-black py-8 md:py-12 lg:py-14 font-sans flex flex-col items-center justify-center px-6 text-center rounded-b-[40px] md:rounded-b-[60px]">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
         <h4 className="text-[#FD5800] text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-6">
           The Promise

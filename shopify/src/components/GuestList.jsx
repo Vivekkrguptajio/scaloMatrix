@@ -134,7 +134,7 @@ const GuestList = () => {
   };
 
   return (
-    <section id="brand" className="relative z-0 w-full py-10 md:py-16 lg:py-20 font-sans bg-white">
+    <section id="brand" className="relative z-0 w-full py-8 md:py-12 lg:py-14 font-sans bg-white">
       <div className="max-w-[1024px] mx-auto flex flex-col items-center relative px-2.5 sm:px-5 md:px-16 xl:px-0 w-full">
         
 

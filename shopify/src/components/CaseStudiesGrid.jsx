@@ -415,7 +415,7 @@ const CaseStudiesGrid = () => {
   const mobileVisibleStudies = allStudies.slice(activePage * 2, activePage * 2 + 2);
 
   return (
-    <section id="case-studies" className="w-full py-10 md:py-16 lg:py-20 bg-white font-sans">
+    <section id="case-studies" className="w-full py-8 md:py-12 lg:py-14 bg-white font-sans">
       <div className="max-w-[1440px] mx-auto flex flex-col items-center px-4 sm:px-6 md:px-12 xl:px-16 w-full">
         
         {/* Header Section */}

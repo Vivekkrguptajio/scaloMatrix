@@ -1,7 +1,7 @@
 
 const Intersection = () => {
   return (
-    <section id="intersection" className="w-full py-10 md:py-16 lg:py-20 font-sans bg-white">
+    <section id="intersection" className="w-full py-8 md:py-12 lg:py-14 font-sans bg-white">
       <div className="max-w-[1280px] mx-auto flex flex-col items-center px-6 md:px-12 xl:px-16 w-full">
         
         {/* Header Section */}

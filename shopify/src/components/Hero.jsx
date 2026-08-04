@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex flex-col justify-center pt-24 pb-16 md:pb-24 px-6 md:px-16 lg:px-24 bg-white relative"
+      className="min-h-screen flex flex-col justify-center pt-24 pb-8 md:pb-12 lg:pb-14 px-6 md:px-16 lg:px-24 bg-white relative"
     >
       <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-16 md:mt-24">
         <h1 
@@ -48,15 +48,15 @@ export default function Hero() {
             {/* Stats Tags (Aligned right of buttons on lg screens) */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 lg:gap-10 lg:border-l lg:border-gray-300 lg:pl-10">
               <div className="flex items-center gap-2 text-[13px] sm:text-[14px] md:text-[15px] font-bold text-gray-600 tracking-wide leading-snug">
-                <span className="text-[#FD5800] text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter">+20%</span> 
+                <span className="text-[#FD5800] text-3xl md:text-4xl font-black tracking-tighter">+20%</span> 
                 <span className="max-w-[80px]">min. guaranteed lift</span>
               </div>
               <div className="flex items-center gap-2 text-[13px] sm:text-[14px] md:text-[15px] font-bold text-gray-600 tracking-wide leading-snug">
-                <span className="text-[#FD5800] text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter">450+</span> 
+                <span className="text-[#FD5800] text-3xl md:text-4xl font-black tracking-tighter">450+</span> 
                 <span className="max-w-[80px]">pages shipped</span>
               </div>
               <div className="flex items-center gap-2 text-[13px] sm:text-[14px] md:text-[15px] font-bold text-gray-600 tracking-wide leading-snug">
-                <span className="text-[#FD5800] text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter">98+</span> 
+                <span className="text-[#FD5800] text-3xl md:text-4xl font-black tracking-tighter">98+</span> 
                 <span className="max-w-[80px]">NPS · 2025</span>
               </div>
             </div>

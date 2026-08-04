@@ -1,7 +1,7 @@
 
 const AiManifesto = () => {
   return (
-    <section className="w-full py-10 md:py-16 lg:py-20 bg-[#111111] text-white font-sans">
+    <section className="w-full py-8 md:py-12 lg:py-14 bg-[#111111] text-white font-sans">
       <div className="w-full px-6 md:px-16 lg:px-24 xl:px-32">
           
 

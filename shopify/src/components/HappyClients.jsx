@@ -71,7 +71,7 @@ const HappyClients = () => {
   ];
 
   return (
-    <section className="w-full pt-10 md:pt-16 lg:pt-20 pb-8 font-sans bg-white relative z-10">
+    <section className="w-full py-8 md:py-12 lg:py-14 font-sans bg-white relative z-10">
       
       <style>
         {`

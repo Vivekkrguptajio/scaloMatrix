@@ -159,7 +159,7 @@ const TierCard = ({ tier }) => {
 
 const Offers = () => {
   return (
-    <section className="w-full py-16 md:py-24 bg-[#fafafa] font-sans">
+    <section className="w-full py-8 md:py-12 lg:py-14 bg-[#fafafa] font-sans">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
 
         {/* Header */}

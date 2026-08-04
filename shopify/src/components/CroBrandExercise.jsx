@@ -1,7 +1,7 @@
 
 const CroBrandExercise = () => {
   return (
-    <section id="cro" className="w-full py-10 md:py-16 lg:py-20 bg-white text-black font-sans">
+    <section id="cro" className="w-full py-8 md:py-12 lg:py-14 bg-white text-black font-sans">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16 flex flex-col gap-6 lg:gap-8">
         
         {/* Top Row: Large Headline & Subtext */}
