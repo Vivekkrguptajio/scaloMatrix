@@ -1,25 +1,24 @@
-
 export default function Marquee() {
   const repetitions = 4;
   
   return (
-    <section className="w-full bg-[#FD5800] overflow-hidden py-2 md:py-2.5 flex items-center transform -rotate-2 scale-105 z-20 relative shadow-xl">
+    <section className="w-full bg-white overflow-hidden py-3.5 md:py-5 flex items-center z-20 relative">
       <div className="relative flex whitespace-nowrap w-full">
         <div className="animate-marquee-reverse inline-block whitespace-nowrap flex items-center">
           {Array(repetitions).fill(0).map((_, i) => (
-            <div key={i} className="inline-flex items-center text-xl md:text-2xl lg:text-4xl font-black font-sans tracking-tighter uppercase text-white">
-              <span className="px-6">Brand</span>
-              <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
-              <span className="px-6">Commerce</span>
-              <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
-              <span className="px-6">Growth</span>
-              <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
-              <span className="px-6">Strategy</span>
-              <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
-              <span className="px-6">Design</span>
-              <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
-              <span className="px-6">scaloMATRIX</span>
-              <span className="text-black opacity-50 text-xl md:text-3xl">✦</span>
+            <div key={i} className="inline-flex items-center text-lg md:text-2xl lg:text-3xl font-black font-sans tracking-tight uppercase text-black">
+              <span className="px-8">Brand</span>
+              <span className="text-gray-300 text-base md:text-xl">✦</span>
+              <span className="px-8">Commerce</span>
+              <span className="text-gray-300 text-base md:text-xl">✦</span>
+              <span className="px-8">Growth</span>
+              <span className="text-gray-300 text-base md:text-xl">✦</span>
+              <span className="px-8">Strategy</span>
+              <span className="text-gray-300 text-base md:text-xl">✦</span>
+              <span className="px-8">Design</span>
+              <span className="text-gray-300 text-base md:text-xl">✦</span>
+              <span className="px-8">scaloMATRIX</span>
+              <span className="text-gray-300 text-base md:text-xl">✦</span>
             </div>
           ))}
         </div>

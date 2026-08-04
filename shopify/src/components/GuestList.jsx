@@ -152,19 +152,10 @@ const GuestList = () => {
           </div>
         </div>
 
-        {/* Shark Tank Brands Grid */}
-        <div className="relative w-full mb-16">
-          <div className="flex flex-wrap justify-center pl-[1px] pt-[1px]">
-            {sharkTankBrands.map((brand, idx) => (
-              <GuestCard key={idx} brand={brand} renderLogo={renderLogo} index={idx} />
-            ))}
-          </div>
-        </div>
-
-        {/* Best Brands Grid */}
+        {/* Shark Tank Brands Grid (14 Brands) */}
         <div className="relative w-full">
           <div className="flex flex-wrap justify-center pl-[1px] pt-[1px]">
-            {bestBrands.map((brand, idx) => (
+            {sharkTankBrands.map((brand, idx) => (
               <GuestCard key={idx} brand={brand} renderLogo={renderLogo} index={idx} />
             ))}
           </div>

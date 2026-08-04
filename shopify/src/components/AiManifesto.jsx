@@ -1,5 +1,8 @@
 
 const AiManifesto = () => {
+  // Hidden as per user request (not removed)
+  return null;
+
   return (
     <section className="w-full py-8 md:py-12 lg:py-14 bg-[#111111] text-white font-sans">
       <div className="w-full px-6 md:px-16 lg:px-24 xl:px-32">

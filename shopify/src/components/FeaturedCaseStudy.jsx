@@ -1,5 +1,8 @@
 
 const FeaturedCaseStudy = () => {
+  // Hidden as per user request (not removed)
+  return null;
+
   return (
     <section className="w-full py-8 md:py-12 lg:py-14 bg-white">
       <div className="max-w-[1180px] mx-auto w-full px-6 md:px-12 xl:px-16">

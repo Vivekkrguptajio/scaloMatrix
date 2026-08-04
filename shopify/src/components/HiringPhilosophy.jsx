@@ -1,5 +1,8 @@
 
 const HiringPhilosophy = () => {
+  // Hidden as per user request (not removed)
+  return null;
+
   return (
     <section className="w-full min-h-screen py-8 md:py-12 lg:py-14 bg-black text-white font-sans flex flex-col justify-center">
       <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16">
