@@ -4,7 +4,6 @@ import { useScroll, useMotionValueEvent } from 'framer-motion'
 // Above-the-fold components (eager load)
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
-import HeroVCards from '../components/HeroVCards'
 
 import Showreel from '../components/Showreel'
 import ServicesCards from '../components/ServicesCards'
@@ -53,7 +52,7 @@ export default function Home() {
       return false;
     };
 
-    if (checkDark('showreel') || checkDark('services') || checkDark('founder') || checkDark('team') || checkDark('contact')) {
+    if (checkDark('showreel') || checkDark('services') || checkDark('founder') || checkDark('contact')) {
       dark = true;
     }
     
@@ -79,7 +78,6 @@ export default function Home() {
       {/* ═══════ MAIN CONTENT (z-20) ═══════ */}
       <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero startAnimation={true} />
-        <HeroVCards />
         <Showreel />
         <ServicesCards />
         <div className="content-auto"><DefinesUs /></div>

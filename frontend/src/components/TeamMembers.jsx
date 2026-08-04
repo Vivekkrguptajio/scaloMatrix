@@ -30,7 +30,7 @@ const teamMembers = [
 export default function TeamMembers() {
   return (
     <section id="team" className="w-full py-16 md:py-24 bg-white text-black font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 xl:px-16 w-full">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10 xl:px-8 w-full">
         
         {/* Header Section */}
         <div className="w-full text-center mb-12 md:mb-16">
@@ -46,7 +46,7 @@ export default function TeamMembers() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
           {teamMembers.map((item, index) => (
             <motion.div 
               key={item.id}
@@ -57,7 +57,7 @@ export default function TeamMembers() {
               className="flex flex-col text-left group cursor-pointer"
             >
               {/* Image Container */}
-              <div className="w-full aspect-square md:h-[380px] lg:h-[410px] rounded-3xl overflow-hidden mb-4 bg-gray-100 shadow-md border border-gray-100 group-hover:shadow-xl transition-all duration-500">
+              <div className="w-full aspect-square md:h-[400px] lg:h-[430px] rounded-3xl overflow-hidden mb-4 bg-gray-100 shadow-md border border-gray-100 group-hover:shadow-xl transition-all duration-500">
                 <img 
                   src={item.image} 
                   alt={item.name} 
