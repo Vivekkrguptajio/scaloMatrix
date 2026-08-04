@@ -139,12 +139,8 @@ export default function HeroVCards() {
         </div>
       </div>
 
-      {/* Marquee Wrapper with Side Fade Gradients */}
+      {/* Marquee Wrapper */}
       <div className="relative w-full overflow-hidden flex flex-col gap-6 py-2">
-        
-        {/* Left & Right Fade Mask Gradients */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 md:w-44 bg-gradient-to-r from-white via-white/80 to-transparent z-20"></div>
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 md:w-44 bg-gradient-to-l from-white via-white/80 to-transparent z-20"></div>
 
         {/* Row 1: Left Moving Marquee */}
         <div className="w-full overflow-hidden group">
@@ -152,7 +148,7 @@ export default function HeroVCards() {
             {[...row1Cards, ...row1Cards, ...row1Cards, ...row1Cards].map((card, idx) => (
               <div 
                 key={idx} 
-                className="min-w-[330px] sm:min-w-[380px] md:min-w-[420px] h-[480px] md:h-[530px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
+                className="w-[383px] min-w-[383px] max-w-[383px] h-[522px] md:h-[561px] rounded-xl md:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
               >
                 {/* Safari Browser Header */}
                 <div className="h-10 bg-gray-100/90 px-4 flex items-center justify-between border-b border-gray-200 shrink-0">
@@ -204,7 +200,7 @@ export default function HeroVCards() {
             {[...row2Cards, ...row2Cards, ...row2Cards, ...row2Cards].map((card, idx) => (
               <div 
                 key={idx} 
-                className="min-w-[330px] sm:min-w-[380px] md:min-w-[420px] h-[480px] md:h-[530px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
+                className="w-[383px] min-w-[383px] max-w-[383px] h-[522px] md:h-[561px] rounded-xl md:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
               >
                 {/* Safari Browser Header */}
                 <div className="h-10 bg-gray-100/90 px-4 flex items-center justify-between border-b border-gray-200 shrink-0">
