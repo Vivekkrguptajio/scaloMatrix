@@ -150,7 +150,7 @@ export default function HeroVCards() {
             {[...row1Cards, ...row1Cards, ...row1Cards, ...row1Cards].map((card, idx) => (
               <div 
                 key={idx} 
-                className="min-w-[350px] sm:min-w-[410px] md:min-w-[460px] h-[510px] md:h-[570px] rounded-lg overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
+                className="min-w-[300px] sm:min-w-[350px] md:min-w-[395px] h-[500px] md:h-[550px] rounded-lg overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
               >
                 {/* Safari Browser Header */}
                 <div className="h-10 bg-gray-100/90 px-4 flex items-center justify-between border-b border-gray-200 shrink-0">
@@ -202,7 +202,7 @@ export default function HeroVCards() {
             {[...row2Cards, ...row2Cards, ...row2Cards, ...row2Cards].map((card, idx) => (
               <div 
                 key={idx} 
-                className="min-w-[350px] sm:min-w-[410px] md:min-w-[460px] h-[510px] md:h-[570px] rounded-lg overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
+                className="min-w-[300px] sm:min-w-[350px] md:min-w-[395px] h-[500px] md:h-[550px] rounded-lg overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
               >
                 {/* Safari Browser Header */}
                 <div className="h-10 bg-gray-100/90 px-4 flex items-center justify-between border-b border-gray-200 shrink-0">
