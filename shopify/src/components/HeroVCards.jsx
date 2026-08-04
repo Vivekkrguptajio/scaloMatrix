@@ -152,7 +152,7 @@ export default function HeroVCards() {
             {[...row1Cards, ...row1Cards, ...row1Cards, ...row1Cards].map((card, idx) => (
               <div 
                 key={idx} 
-                className="min-w-[200px] sm:min-w-[230px] md:min-w-[250px] h-[480px] md:h-[530px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
+                className="w-[165px] sm:w-[190px] md:w-[210px] min-w-[165px] sm:min-w-[190px] md:min-w-[210px] max-w-[165px] sm:max-w-[190px] md:max-w-[210px] h-[480px] md:h-[530px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
               >
                 {/* Safari Browser Header */}
                 <div className="h-10 bg-gray-100/90 px-4 flex items-center justify-between border-b border-gray-200 shrink-0">
@@ -204,7 +204,7 @@ export default function HeroVCards() {
             {[...row2Cards, ...row2Cards, ...row2Cards, ...row2Cards].map((card, idx) => (
               <div 
                 key={idx} 
-                className="min-w-[200px] sm:min-w-[230px] md:min-w-[250px] h-[480px] md:h-[530px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
+                className="w-[165px] sm:w-[190px] md:w-[210px] min-w-[165px] sm:min-w-[190px] md:min-w-[210px] max-w-[165px] sm:max-w-[190px] md:max-w-[210px] h-[480px] md:h-[530px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
               >
                 {/* Safari Browser Header */}
                 <div className="h-10 bg-gray-100/90 px-4 flex items-center justify-between border-b border-gray-200 shrink-0">
