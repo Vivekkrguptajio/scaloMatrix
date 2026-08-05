@@ -4,7 +4,7 @@ export default function Marquee() {
   return (
     <section className="w-full bg-white overflow-hidden py-2 md:py-3 flex items-center z-20 relative">
       <div className="relative flex whitespace-nowrap w-full">
-        <div className="animate-marquee-reverse inline-block whitespace-nowrap flex items-center">
+        <div className="animate-marquee-reverse flex items-center w-max [transform:translateZ(0)] will-change-transform">
           {Array(repetitions).fill(0).map((_, i) => (
             <div key={i} className="inline-flex items-center text-base md:text-lg lg:text-xl font-black font-sans tracking-tight uppercase text-black">
               <span className="px-8 flex items-center">

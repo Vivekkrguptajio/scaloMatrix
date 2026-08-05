@@ -100,7 +100,7 @@ export default function HeroVCards() {
 
         {/* Row 1: Left Moving Marquee */}
         <div className="w-full overflow-hidden group">
-          <div className="flex animate-marquee-left gap-3 md:gap-4 group-hover:[animation-play-state:paused]">
+          <div className="flex animate-marquee-left gap-3 md:gap-4 group-hover:[animation-play-state:paused] [transform:translateZ(0)] will-change-transform">
             {[...row1Cards, ...row1Cards, ...row1Cards, ...row1Cards].map((card, idx) => (
               <div 
                 key={idx} 
