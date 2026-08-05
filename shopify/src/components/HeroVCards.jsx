@@ -34,41 +34,6 @@ export default function HeroVCards() {
     },
   ];
 
-  const row2Cards = [
-    { 
-      id: 5, 
-      img: '/vcard/vcard3.png', 
-      title: 'Super Kaju', 
-      url: 'superkaju.in',
-      stat: '+50% Sales',
-      category: 'D2C Gourmet' 
-    },
-    { 
-      id: 6, 
-      img: '/vcard/vcard4.png', 
-      title: 'Desi Classics', 
-      url: 'desiclassics.shop',
-      stat: '+28% AOV',
-      category: 'Ethnic Wear' 
-    },
-    { 
-      id: 7, 
-      img: '/vcard/vcard1.png', 
-      title: 'Vamshi Farms', 
-      url: 'vamshifarms.com',
-      stat: '+44% CVR',
-      category: 'Organic Foods' 
-    },
-    { 
-      id: 8, 
-      img: '/vcard/vcard2.png', 
-      title: 'Pizzeria Authentic', 
-      url: 'pizzeria.store',
-      stat: '+35% Orders',
-      category: 'Gourmet Kitchen' 
-    },
-  ];
-
   return (
     <section className="w-full pt-16 md:pt-24 pb-10 md:pb-16 bg-white text-black font-sans overflow-hidden relative z-10">
       <style>{`
@@ -76,17 +41,8 @@ export default function HeroVCards() {
           0% { transform: translateX(0%); }
           100% { transform: translateX(-50%); }
         }
-        @keyframes marqueeRight {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0%); }
-        }
         .animate-marquee-left {
           animation: marqueeLeft 55s linear infinite;
-          display: flex;
-          width: max-content;
-        }
-        .animate-marquee-right {
-          animation: marqueeRight 55s linear infinite;
           display: flex;
           width: max-content;
         }
@@ -144,29 +100,12 @@ export default function HeroVCards() {
 
         {/* Row 1: Left Moving Marquee */}
         <div className="w-full overflow-hidden group">
-          <div className="flex animate-marquee-left gap-6 md:gap-8 group-hover:[animation-play-state:paused]">
+          <div className="flex animate-marquee-left gap-3 md:gap-4 group-hover:[animation-play-state:paused]">
             {[...row1Cards, ...row1Cards, ...row1Cards, ...row1Cards].map((card, idx) => (
               <div 
                 key={idx} 
-                className="w-[328px] sm:w-[380px] md:w-[415px] min-w-[328px] sm:min-w-[380px] md:min-w-[415px] max-w-[328px] sm:max-w-[380px] md:max-w-[415px] h-[528px] md:h-[583px] rounded-xl md:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
+                className="w-[335px] sm:w-[388px] md:w-[423px] min-w-[335px] sm:min-w-[388px] md:min-w-[423px] max-w-[335px] sm:max-w-[388px] md:max-w-[423px] h-[550px] md:h-[607px] rounded-xl md:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-[#FD5800] bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
               >
-                {/* Safari Browser Header */}
-                <div className="h-10 bg-gray-100/90 px-4 flex items-center justify-between border-b border-gray-200 shrink-0">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
-                  </div>
-
-                  <div className="bg-white/80 border border-gray-200 px-3 py-0.5 rounded-md text-[11px] font-mono text-gray-500 flex items-center gap-1">
-                    <span className="text-gray-400">🔒</span>
-                    <span>{card.url}</span>
-                  </div>
-
-                  <span className="bg-[#FD5800] text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                    {card.stat}
-                  </span>
-                </div>
 
                 {/* Screenshot Image Container */}
                 <div className="relative flex-1 w-full overflow-hidden bg-gray-50">
@@ -194,57 +133,6 @@ export default function HeroVCards() {
           </div>
         </div>
 
-        {/* Row 2: Right Moving Marquee */}
-        <div className="w-full overflow-hidden group">
-          <div className="flex animate-marquee-right gap-6 md:gap-8 group-hover:[animation-play-state:paused]">
-            {[...row2Cards, ...row2Cards, ...row2Cards, ...row2Cards].map((card, idx) => (
-              <div 
-                key={idx} 
-                className="w-[328px] sm:w-[380px] md:w-[415px] min-w-[328px] sm:min-w-[380px] md:min-w-[415px] max-w-[328px] sm:max-w-[380px] md:max-w-[415px] h-[528px] md:h-[583px] rounded-xl md:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
-              >
-                {/* Safari Browser Header */}
-                <div className="h-10 bg-gray-100/90 px-4 flex items-center justify-between border-b border-gray-200 shrink-0">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
-                  </div>
-
-                  <div className="bg-white/80 border border-gray-200 px-3 py-0.5 rounded-md text-[11px] font-mono text-gray-500 flex items-center gap-1">
-                    <span className="text-gray-400">🔒</span>
-                    <span>{card.url}</span>
-                  </div>
-
-                  <span className="bg-[#FD5800] text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                    {card.stat}
-                  </span>
-                </div>
-
-                {/* Screenshot Image Container */}
-                <div className="relative flex-1 w-full overflow-hidden bg-gray-50">
-                  <img 
-                    src={card.img} 
-                    alt={card.title} 
-                    className="w-full h-full object-cover object-top group-hover/card:scale-105 transition-transform duration-700"
-                  />
-                  
-                  {/* Subtle Gradient Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-end p-5">
-                    <div className="text-white flex items-center justify-between w-full">
-                      <div>
-                        <h4 className="font-bold text-lg text-white">{card.title}</h4>
-                        <p className="text-xs text-white/80">{card.category}</p>
-                      </div>
-                      <span className="bg-white text-black font-bold text-xs px-3 py-1.5 rounded-full shadow-md">
-                        View Project →
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
       </div>
     </section>
