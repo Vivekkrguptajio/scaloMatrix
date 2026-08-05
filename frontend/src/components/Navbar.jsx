@@ -252,8 +252,8 @@ export default function Navbar({ activeSection, loading, isDarkTheme = false, is
       </nav>
 
       {/* Mobile Nav Menu Dropdown */}
-      <div className={`md:hidden absolute top-[calc(100%+12px)] left-4 right-4 rounded-2xl bg-white border border-gray-100 overflow-y-auto overflow-x-hidden transition-all duration-300 shadow-[0_20px_40px_rgba(0,0,0,0.15)] ${
-        mobileMenu ? 'max-h-[75vh] opacity-100 py-2' : 'max-h-0 opacity-0 py-0 border-transparent shadow-none'
+      <div className={`md:hidden absolute top-[calc(100%+12px)] left-4 right-4 rounded-2xl bg-white border border-gray-100 overflow-y-auto overflow-x-hidden transition-all duration-300 shadow-[0_20px_40px_rgba(0,0,0,0.15)] origin-top ${
+        mobileMenu ? 'max-h-[75vh] opacity-100 py-2 pointer-events-auto scale-y-100' : 'max-h-0 opacity-0 py-0 border-transparent shadow-none pointer-events-none scale-y-95'
       }`}>
         <div className="flex flex-col px-4 py-2 gap-3">
           {navLinks.map((link) => (

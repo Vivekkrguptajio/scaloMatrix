@@ -172,8 +172,8 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Nav Menu Dropdown */}
-      <div className={`md:hidden absolute top-[calc(100%+12px)] left-4 right-4 rounded-2xl bg-white border border-gray-100 overflow-y-auto overflow-x-hidden transition-all duration-300 shadow-[0_20px_40px_rgba(0,0,0,0.15)] ${
-        mobileMenu ? 'max-h-[75vh] opacity-100 py-2' : 'max-h-0 opacity-0 py-0 border-transparent shadow-none'
+      <div className={`md:hidden absolute top-[calc(100%+12px)] left-4 right-4 rounded-2xl bg-white border border-gray-100 overflow-y-auto overflow-x-hidden transition-all duration-300 shadow-[0_20px_40px_rgba(0,0,0,0.15)] origin-top ${
+        mobileMenu ? 'max-h-[75vh] opacity-100 py-2 pointer-events-auto scale-y-100' : 'max-h-0 opacity-0 py-0 border-transparent shadow-none pointer-events-none scale-y-95'
       }`}>
         <div className="flex flex-col px-4 py-2 gap-3">
           {navLinks.map((link) => (
@@ -181,12 +181,15 @@ export default function Navbar() {
               <a 
                 href={link.href}
                 onClick={(e) => {
-                  setMobileMenu(false);
                   if (link.href.startsWith('#')) {
                     e.preventDefault();
+                    setMobileMenu(false);
+                    document.body.style.overflow = 'unset';
                     setTimeout(() => {
                       document.getElementById(link.href.substring(1))?.scrollIntoView({ behavior: 'smooth' });
-                    }, 300);
+                    }, 100);
+                  } else {
+                    setMobileMenu(false);
                   }
                 }}
                 className="flex items-center justify-between text-base font-bold px-4 py-2 transition-all rounded-xl text-[#FD5800]/80 hover:text-[#FD5800] hover:bg-orange-50/50"
@@ -197,7 +200,14 @@ export default function Navbar() {
           ))}
           <a 
             href="#contact" 
-            onClick={() => setMobileMenu(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              setMobileMenu(false);
+              document.body.style.overflow = 'unset';
+              setTimeout(() => {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }}
             className="flex items-center justify-center gap-2 text-base font-bold rounded-full px-4 py-2 mt-2 bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
           >
             Book a call
