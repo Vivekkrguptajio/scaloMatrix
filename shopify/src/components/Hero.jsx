@@ -66,7 +66,7 @@ export default function Hero() {
       </div>
 
       {/* Marquee at the bottom of the hero section */}
-      <div className="absolute bottom-0 left-0 w-full z-30">
+      <div className="w-screen relative left-1/2 -translate-x-1/2 z-30 mt-12 md:mt-16">
         <Marquee />
       </div>
     </section>

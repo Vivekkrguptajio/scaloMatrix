@@ -1,3 +1,5 @@
+import { FaWordpress, FaShopify } from 'react-icons/fa';
+
 export default function Marquee() {
   const repetitions = 4;
   
@@ -7,12 +9,14 @@ export default function Marquee() {
         <div className="animate-marquee-reverse flex items-center w-max [transform:translateZ(0)] will-change-transform">
           {Array(repetitions).fill(0).map((_, i) => (
             <div key={i} className="inline-flex items-center text-base md:text-lg lg:text-xl font-black font-sans tracking-tight uppercase text-black">
-              <span className="px-8 flex items-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/WordPress_logo.svg" alt="WordPress" className="h-5 md:h-6 lg:h-7 object-contain" />
+              <span className="px-8 flex items-center gap-2 text-[#21759b]">
+                <FaWordpress className="w-6 h-6 md:w-8 md:h-8" />
+                <span>WordPress</span>
               </span>
               <span className="text-gray-300 text-sm md:text-base">✦</span>
-              <span className="px-8 flex items-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" className="h-5 md:h-6 lg:h-7 object-contain" />
+              <span className="px-8 flex items-center gap-2 text-[#95BF47]">
+                <FaShopify className="w-6 h-6 md:w-8 md:h-8" />
+                <span>Shopify</span>
               </span>
               <span className="text-gray-300 text-sm md:text-base">✦</span>
               <span className="px-8 flex items-center">
