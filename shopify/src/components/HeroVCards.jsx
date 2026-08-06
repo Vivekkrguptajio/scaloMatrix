@@ -35,7 +35,7 @@ export default function HeroVCards() {
   ];
 
   return (
-    <section className="w-full pt-16 md:pt-24 pb-10 md:pb-16 bg-white text-black font-sans overflow-hidden relative z-10">
+    <section className="w-full pt-6 md:pt-8 pb-10 md:pb-16 bg-white text-black font-sans overflow-hidden relative z-10">
       <style>{`
         @keyframes marqueeLeft {
           0% { transform: translateX(0%); }
@@ -49,15 +49,12 @@ export default function HeroVCards() {
       `}</style>
 
       {/* Header Container */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 w-full mb-10">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 w-full mb-3">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 pb-6 border-b border-gray-100">
           
           {/* Left Controls */}
           <div className="flex flex-col items-start gap-4">
-            <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 text-[#FD5800] text-xs font-mono font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full">
-              <span className="w-2 h-2 rounded-full bg-[#FD5800] animate-pulse"></span>
-              PORTFOLIO SHOWCASE
-            </div>
+
 
             <a 
               href="#services" 
@@ -71,7 +68,7 @@ export default function HeroVCards() {
           </div>
 
           {/* Right Social Proof Stack */}
-          <div className="flex items-center gap-4 bg-gray-50/80 p-3.5 px-5 rounded-2xl border border-gray-100 shadow-sm">
+          <div className="flex items-center gap-4 bg-gray-50/80 p-3.5 px-5 rounded-2xl border border-[#FD5800] shadow-sm">
             <div className="flex -space-x-3">
               {['/team/adi.png', '/team/shreyas.png', '/team/nayan.png', '/team/yadu.png', '/image.png'].map((src, i) => (
                 <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden shadow-sm">
@@ -104,7 +101,7 @@ export default function HeroVCards() {
             {[...row1Cards, ...row1Cards, ...row1Cards, ...row1Cards].map((card, idx) => (
               <div 
                 key={idx} 
-                className="w-[335px] sm:w-[388px] md:w-[423px] min-w-[335px] sm:min-w-[388px] md:min-w-[423px] max-w-[335px] sm:max-w-[388px] md:max-w-[423px] h-[550px] md:h-[607px] rounded-xl md:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-[#FD5800] bg-white shrink-0 group/card hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col"
+                className="w-[335px] sm:w-[388px] md:w-[423px] min-w-[335px] sm:min-w-[388px] md:min-w-[423px] max-w-[335px] sm:max-w-[388px] md:max-w-[423px] h-[550px] md:h-[607px] rounded-xl md:rounded-2xl overflow-hidden shadow-md bg-white shrink-0 group/card cursor-pointer flex flex-col"
               >
 
                 {/* Screenshot Image Container */}
@@ -112,20 +109,14 @@ export default function HeroVCards() {
                   <img 
                     src={card.img} 
                     alt={card.title} 
-                    className="w-full h-full object-cover object-top group-hover/card:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-top"
                   />
-                  
-                  {/* Subtle Gradient Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-end p-5">
-                    <div className="text-white flex items-center justify-between w-full">
-                      <div>
-                        <h4 className="font-bold text-lg text-white">{card.title}</h4>
-                        <p className="text-xs text-white/80">{card.category}</p>
-                      </div>
-                      <span className="bg-white text-black font-bold text-xs px-3 py-1.5 rounded-full shadow-md">
-                        View Project →
-                      </span>
-                    </div>
+
+                  {/* View Project Button on Hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-end justify-end p-5">
+                    <span className="bg-white text-black font-bold text-xs px-3 py-1.5 rounded-full shadow-md">
+                      View Project →
+                    </span>
                   </div>
                 </div>
               </div>
