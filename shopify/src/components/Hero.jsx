@@ -85,7 +85,7 @@ export default function Hero() {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex flex-col justify-center pt-20 md:pt-24 pb-8 md:pb-12 px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-between pt-24 md:pt-28 pb-6 md:pb-10 px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
     >
       {/* CSS Animations */}
       <style>{`
@@ -118,7 +118,7 @@ export default function Hero() {
       }} />
 
       {/* Main Content - Two Column Layout on Desktop */}
-      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-8 md:mt-12">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-6 md:mt-10">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8 xl:gap-12">
           
           {/* LEFT COLUMN - Text Content */}
@@ -322,7 +322,7 @@ export default function Hero() {
       </div>
 
       {/* Marquee at the bottom */}
-      <div className="w-screen relative left-1/2 -translate-x-1/2 z-30 mt-10 md:mt-14">
+      <div className="w-screen relative left-1/2 -translate-x-1/2 z-30 mt-14 md:mt-20">
         <Marquee />
       </div>
     </section>
