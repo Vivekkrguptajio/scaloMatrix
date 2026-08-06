@@ -1,4 +1,6 @@
 
+import { AnimatedCounter } from './Hero'
+
 const HappyClients = () => {
   const testimonials = [
     {
@@ -111,7 +113,7 @@ const HappyClients = () => {
 
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black tracking-tight">
-            1000+ <span className="text-[#FD5800]">Happy Clients</span>
+            <AnimatedCounter target={1000} suffix="+" /> <span className="text-[#FD5800]">Happy Clients</span>
           </h2>
           
           {/* Subtext */}

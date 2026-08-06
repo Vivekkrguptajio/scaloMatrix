@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { AnimatedCounter } from './Hero';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -458,12 +459,16 @@ const CaseStudiesGrid = () => {
                   {study.badge}
                   <div className="flex items-center gap-4">
                     <div className="flex flex-col items-end">
-                      <div className="text-xl sm:text-2xl font-bold text-[#FD5800] leading-none mb-1">{study.aov}</div>
+                      <div className="text-xl sm:text-2xl font-bold text-[#FD5800] leading-none mb-1">
+                        <AnimatedCounter target={parseInt(study.aov)} prefix="+" suffix="%" />
+                      </div>
                       <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
                     </div>
                     <div className="w-[1px] h-8 bg-gray-300"></div>
                     <div className="flex flex-col items-end">
-                      <div className="text-xl sm:text-2xl font-bold text-[#FD5800] leading-none mb-1">{study.rev}</div>
+                      <div className="text-xl sm:text-2xl font-bold text-[#FD5800] leading-none mb-1">
+                        <AnimatedCounter target={parseInt(study.rev)} prefix="+" suffix="%" />
+                      </div>
                       <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
                     </div>
                   </div>
@@ -510,12 +515,16 @@ const CaseStudiesGrid = () => {
                   <div className="shrink-0">{study.badge}</div>
                   <div className="flex items-center gap-3 xl:gap-5 shrink-0">
                     <div className="flex flex-col items-end">
-                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.aov}</div>
+                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">
+                        <AnimatedCounter target={parseInt(study.aov)} prefix="+" suffix="%" />
+                      </div>
                       <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
                     </div>
                     <div className="w-[1px] h-6 xl:h-8 bg-gray-300"></div>
                     <div className="flex flex-col items-end">
-                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.rev}</div>
+                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">
+                        <AnimatedCounter target={parseInt(study.rev)} prefix="+" suffix="%" />
+                      </div>
                       <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
                     </div>
                   </div>
@@ -538,12 +547,16 @@ const CaseStudiesGrid = () => {
                   <div className="shrink-0">{study.badge}</div>
                   <div className="flex items-center gap-3 xl:gap-5 shrink-0">
                     <div className="flex flex-col items-end">
-                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.aov}</div>
+                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">
+                        <AnimatedCounter target={parseInt(study.aov)} prefix="+" suffix="%" />
+                      </div>
                       <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
                     </div>
                     <div className="w-[1px] h-6 xl:h-8 bg-gray-300"></div>
                     <div className="flex flex-col items-end">
-                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">{study.rev}</div>
+                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">
+                        <AnimatedCounter target={parseInt(study.rev)} prefix="+" suffix="%" />
+                      </div>
                       <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
                     </div>
                   </div>

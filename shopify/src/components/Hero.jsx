@@ -2,34 +2,46 @@ import Marquee from './Marquee'
 import { FaShopify } from 'react-icons/fa'
 import { useState, useEffect, useRef } from 'react'
 
-function AnimatedCounter({ target, suffix = '', duration = 2000 }) {
+export function AnimatedCounter({ target, prefix = '', suffix = '', duration = 2000 }) {
   const [count, setCount] = useState(0)
   const ref = useRef(null)
-  const hasAnimated = useRef(false)
 
   useEffect(() => {
+    let animationFrameId
+    let startTime = null
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true
-          const startTime = performance.now()
+        if (entry.isIntersecting) {
+          setCount(0)
+          startTime = null
           const animate = (now) => {
+            if (!startTime) startTime = now
             const elapsed = now - startTime
             const progress = Math.min(elapsed / duration, 1)
             const eased = 1 - Math.pow(1 - progress, 3)
-            setCount(Math.floor(eased * target))
-            if (progress < 1) requestAnimationFrame(animate)
+            const currentVal = Math.floor(eased * target)
+            setCount(currentVal)
+            if (progress < 1) {
+              animationFrameId = requestAnimationFrame(animate)
+            } else {
+              setCount(target)
+            }
           }
-          requestAnimationFrame(animate)
+          animationFrameId = requestAnimationFrame(animate)
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     )
+
     if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
+    return () => {
+      if (ref.current) observer.disconnect()
+      if (animationFrameId) cancelAnimationFrame(animationFrameId)
+    }
   }, [target, duration])
 
-  return <span ref={ref}>{count}{suffix}</span>
+  return <span ref={ref}>{prefix}{count.toLocaleString()}{suffix}</span>
 }
 
 const rotatingWords = ['Shopify Stores', 'Landing Pages', 'Custom Themes', 'D2C Brands']
@@ -73,7 +85,7 @@ export default function Hero() {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex flex-col justify-center pt-24 md:pt-32 pb-8 md:pb-12 px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center pt-20 md:pt-24 pb-8 md:pb-12 px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
     >
       {/* CSS Animations */}
       <style>{`
@@ -106,7 +118,7 @@ export default function Hero() {
       }} />
 
       {/* Main Content - Two Column Layout on Desktop */}
-      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-12 md:mt-20">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-8 md:mt-12">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8 xl:gap-12">
           
           {/* LEFT COLUMN - Text Content */}
@@ -202,7 +214,7 @@ export default function Hero() {
                 </div>
                 <div className="absolute bottom-3 right-3">
                   <div className="bg-[#FD5800] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg">
-                    +44% CVR ↑
+                    <AnimatedCounter target={44} prefix="+" suffix="% CVR ↑" />
                   </div>
                 </div>
               </div>
@@ -230,7 +242,7 @@ export default function Hero() {
               <img src={storeImages[2]} alt="Shopify Store" className="w-full h-[200px] xl:h-[245px] object-cover object-top" />
               <div className="absolute bottom-3 left-3">
                 <div className="bg-black text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg">
-                  +50% Sales ↑
+                  <AnimatedCounter target={50} prefix="+" suffix="% Sales ↑" />
                 </div>
               </div>
             </div>
@@ -248,7 +260,9 @@ export default function Hero() {
                 </div>
                 <div>
                   <div className="text-[9px] font-bold text-gray-400 uppercase">Revenue</div>
-                  <div className="text-xs font-black text-green-600">+127%</div>
+                  <div className="text-xs font-black text-green-600">
+                    <AnimatedCounter target={127} prefix="+" suffix="%" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -266,7 +280,9 @@ export default function Hero() {
                 </div>
                 <div>
                   <div className="text-[9px] font-bold text-gray-400 uppercase">Orders</div>
-                  <div className="text-xs font-black text-[#FD5800]">+89%</div>
+                  <div className="text-xs font-black text-[#FD5800]">
+                    <AnimatedCounter target={89} prefix="+" suffix="%" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -284,7 +300,9 @@ export default function Hero() {
                 </div>
                 <div>
                   <div className="text-[9px] font-bold text-gray-400 uppercase">Avg. AOV</div>
-                  <div className="text-xs font-black text-purple-600">₹2,450</div>
+                  <div className="text-xs font-black text-purple-600">
+                    <AnimatedCounter target={2450} prefix="₹" />
+                  </div>
                 </div>
               </div>
             </div>

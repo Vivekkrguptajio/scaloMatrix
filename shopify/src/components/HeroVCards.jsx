@@ -1,3 +1,5 @@
+import { AnimatedCounter } from './Hero'
+
 export default function HeroVCards() {
   const row1Cards = [
     { 
@@ -84,7 +86,7 @@ export default function HeroVCards() {
                 <span className="text-xs font-bold text-black ml-1">4.9/5</span>
               </div>
               <span className="font-bold text-gray-900 text-sm tracking-tight">
-                500+ Happy Clients
+                <AnimatedCounter target={500} suffix="+ Happy Clients" />
               </span>
             </div>
           </div>
