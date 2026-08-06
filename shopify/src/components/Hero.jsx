@@ -118,7 +118,7 @@ export default function Hero() {
       }} />
 
       {/* Main Content - Two Column Layout on Desktop */}
-      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-6 md:mt-10">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-12 md:mt-18">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8 xl:gap-12">
           
           {/* LEFT COLUMN - Text Content */}
@@ -322,7 +322,7 @@ export default function Hero() {
       </div>
 
       {/* Marquee at the bottom */}
-      <div className="w-screen relative left-1/2 -translate-x-1/2 z-30 mt-14 md:mt-20">
+      <div className="w-screen relative left-1/2 -translate-x-1/2 z-30 mt-6 md:mt-10">
         <Marquee />
       </div>
     </section>
