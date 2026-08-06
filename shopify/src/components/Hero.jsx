@@ -50,17 +50,17 @@ function RotatingText() {
   }, [])
 
   return (
-    <span className="relative inline-block min-w-[180px] sm:min-w-[240px] md:min-w-[320px] lg:min-w-[360px]">
+    <span className="relative inline-block text-[#5a8a00] py-1 px-1">
       <span 
-        className={`transition-all duration-400 inline-block ${
+        className={`inline-block transition-all duration-400 ${
           isVisible 
             ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 -translate-y-4'
+            : 'opacity-0 -translate-y-3'
         }`}
       >
         {rotatingWords[index]}
       </span>
-      <svg className="absolute -bottom-1 md:-bottom-2 left-0 w-full" viewBox="0 0 300 8" fill="none">
+      <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 300 8" fill="none">
         <path d="M2 6C75 2 225 2 298 6" stroke="#5a8a00" strokeWidth="3" strokeLinecap="round" opacity="0.5"/>
       </svg>
     </span>
@@ -73,7 +73,7 @@ export default function Hero() {
   return (
     <section 
       id="hero" 
-      className="min-h-[85vh] flex flex-col justify-center pt-20 pb-6 md:pb-8 lg:pb-10 px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
+      className="min-h-[85vh] flex flex-col justify-center pt-24 md:pt-32 pb-8 md:pb-12 px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
     >
       {/* CSS Animations */}
       <style>{`
@@ -93,7 +93,6 @@ export default function Hero() {
         .hero-animate-4 { animation: slideInUp 0.8s ease-out 0.45s both; }
         .hero-animate-5 { animation: slideInUp 0.8s ease-out 0.6s both; }
         .hero-cards-animate { animation: slideInRight 1s ease-out 0.5s both; }
-        .shimmer-text { background: linear-gradient(90deg, #5a8a00 0%, #7da832 40%, #a3c760 50%, #7da832 60%, #5a8a00 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 4s linear infinite; }
       `}</style>
 
       {/* Animated gradient orbs background */}
@@ -107,7 +106,7 @@ export default function Hero() {
       }} />
 
       {/* Main Content - Two Column Layout on Desktop */}
-      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-8 md:mt-14">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-12 md:mt-20">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8 xl:gap-12">
           
           {/* LEFT COLUMN - Text Content */}
@@ -127,12 +126,9 @@ export default function Hero() {
 
             {/* Main Heading with Rotating Text */}
             <h1 
-              className="text-[26px] sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[56px] font-black font-sans text-black leading-[1.15] md:leading-[1.05] tracking-tight mb-4 md:mb-5 text-center md:text-left break-words hero-animate-2"
+              className="text-[26px] sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[52px] font-black font-sans text-black leading-[1.25] md:leading-[1.15] tracking-tight mb-4 md:mb-5 text-center md:text-left hero-animate-2"
             >
-              We build{' '}
-              <span className="shimmer-text">
-                <RotatingText />
-              </span>
+              We build <RotatingText />
               <span className="block mt-1 md:mt-2" />
               that <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066]">print money.</span>
             </h1>
@@ -189,15 +185,15 @@ export default function Hero() {
           </div>
 
           {/* RIGHT COLUMN - Floating Store Previews */}
-          <div className="flex-1 w-full lg:max-w-[42%] xl:max-w-[45%] relative hidden lg:flex items-center justify-center hero-cards-animate" style={{ minHeight: '420px' }}>
+          <div className="flex-1 w-full lg:max-w-[42%] xl:max-w-[45%] relative hidden lg:flex items-center justify-center hero-cards-animate overflow-hidden p-4" style={{ minHeight: '380px' }}>
             
             {/* Main large card */}
             <div 
-              className="relative z-20 w-[260px] xl:w-[300px] rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white group cursor-pointer hover:shadow-[0_25px_60px_rgba(0,0,0,0.15)] transition-all duration-500"
+              className="relative z-20 w-[200px] xl:w-[250px] rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white group cursor-pointer hover:shadow-[0_25px_60px_rgba(0,0,0,0.15)] transition-all duration-500"
               style={{ animation: 'float1 6s ease-in-out infinite' }}
             >
               <div className="relative">
-                <img src={storeImages[0]} alt="Shopify Store Preview" className="w-full h-[320px] xl:h-[380px] object-cover object-top" />
+                <img src={storeImages[0]} alt="Shopify Store Preview" className="w-full h-[260px] xl:h-[320px] object-cover object-top" />
                 <div className="absolute top-3 left-3">
                   <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-[#95BF47] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
                     <FaShopify className="w-3 h-3" />
@@ -214,10 +210,10 @@ export default function Hero() {
 
             {/* Second card - offset behind */}
             <div 
-              className="absolute z-10 top-8 right-0 xl:-right-4 w-[200px] xl:w-[240px] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white opacity-90"
+              className="absolute z-10 top-4 right-4 xl:right-2 w-[160px] xl:w-[200px] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white opacity-90"
               style={{ animation: 'float2 7s ease-in-out infinite', transform: 'rotate(4deg)' }}
             >
-              <img src={storeImages[1]} alt="Shopify Store" className="w-full h-[260px] xl:h-[300px] object-cover object-top" />
+              <img src={storeImages[1]} alt="Shopify Store" className="w-full h-[210px] xl:h-[260px] object-cover object-top" />
               <div className="absolute top-3 left-3">
                 <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-[#95BF47] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
                   <FaShopify className="w-3 h-3" />
@@ -228,10 +224,10 @@ export default function Hero() {
 
             {/* Third card - offset other side */}
             <div 
-              className="absolute z-30 -bottom-4 left-0 xl:-left-8 w-[180px] xl:w-[200px] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white"
+              className="absolute z-30 bottom-4 left-4 xl:left-2 w-[140px] xl:w-[170px] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white"
               style={{ animation: 'float3 5s ease-in-out infinite', transform: 'rotate(-3deg)' }}
             >
-              <img src={storeImages[2]} alt="Shopify Store" className="w-full h-[230px] xl:h-[260px] object-cover object-top" />
+              <img src={storeImages[2]} alt="Shopify Store" className="w-full h-[180px] xl:h-[220px] object-cover object-top" />
               <div className="absolute bottom-3 left-3">
                 <div className="bg-black text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg">
                   +50% Sales ↑
@@ -241,7 +237,7 @@ export default function Hero() {
 
             {/* Floating Stats Bubble - Revenue */}
             <div 
-              className="absolute z-40 -top-2 left-0 xl:-left-6 bg-white rounded-2xl shadow-lg border border-gray-100 px-3 py-2.5"
+              className="absolute z-40 top-2 left-2 bg-white rounded-xl shadow-lg border border-gray-100 px-2.5 py-2"
               style={{ animation: 'float2 4s ease-in-out infinite' }}
             >
               <div className="flex items-center gap-2">
@@ -259,7 +255,7 @@ export default function Hero() {
 
             {/* Floating Stats Bubble - Orders */}
             <div 
-              className="absolute z-40 top-[45%] right-0 xl:-right-6 bg-white rounded-2xl shadow-lg border border-gray-100 px-3 py-2.5"
+              className="absolute z-40 top-[42%] right-4 bg-white rounded-xl shadow-lg border border-gray-100 px-2.5 py-2"
               style={{ animation: 'float3 5s ease-in-out infinite' }}
             >
               <div className="flex items-center gap-2">
@@ -277,7 +273,7 @@ export default function Hero() {
 
             {/* Floating Stats Bubble - AOV */}
             <div 
-              className="absolute z-40 -bottom-6 left-[30%] bg-white rounded-2xl shadow-lg border border-gray-100 px-3 py-2.5"
+              className="absolute z-40 bottom-2 left-[28%] bg-white rounded-xl shadow-lg border border-gray-100 px-2.5 py-2"
               style={{ animation: 'float1 6s ease-in-out infinite' }}
             >
               <div className="flex items-center gap-2">
@@ -295,7 +291,7 @@ export default function Hero() {
 
             {/* Shopify bag floating icon */}
             <div 
-              className="absolute z-40 bottom-8 right-0 w-12 h-12 rounded-xl bg-[#95BF47] shadow-lg flex items-center justify-center"
+              className="absolute z-40 bottom-8 right-6 w-10 h-10 rounded-lg bg-[#95BF47] shadow-lg flex items-center justify-center"
               style={{ animation: 'float1 5s ease-in-out infinite' }}
             >
               <FaShopify className="w-6 h-6 text-white" />
