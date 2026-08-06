@@ -118,7 +118,7 @@ export default function Hero() {
       }} />
 
       {/* Main Content - Two Column Layout on Desktop */}
-      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-12 md:mt-18">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-8 md:mt-14 -translate-y-[15px]">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8 xl:gap-12">
           
           {/* LEFT COLUMN - Text Content */}
