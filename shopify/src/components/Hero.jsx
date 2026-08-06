@@ -73,7 +73,7 @@ export default function Hero() {
   return (
     <section 
       id="hero" 
-      className="min-h-[85vh] flex flex-col justify-center pt-24 md:pt-32 pb-8 md:pb-12 px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center pt-24 md:pt-32 pb-8 md:pb-12 px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
     >
       {/* CSS Animations */}
       <style>{`
@@ -185,15 +185,15 @@ export default function Hero() {
           </div>
 
           {/* RIGHT COLUMN - Floating Store Previews */}
-          <div className="flex-1 w-full lg:max-w-[42%] xl:max-w-[45%] relative hidden lg:flex items-center justify-center hero-cards-animate overflow-hidden p-4" style={{ minHeight: '380px' }}>
+          <div className="flex-1 w-full lg:max-w-[45%] xl:max-w-[48%] relative hidden lg:flex items-center justify-center hero-cards-animate overflow-hidden p-2" style={{ minHeight: '440px' }}>
             
             {/* Main large card */}
             <div 
-              className="relative z-20 w-[200px] xl:w-[250px] rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white group cursor-pointer hover:shadow-[0_25px_60px_rgba(0,0,0,0.15)] transition-all duration-500"
+              className="relative z-20 w-[230px] xl:w-[280px] rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white group cursor-pointer hover:shadow-[0_25px_60px_rgba(0,0,0,0.15)] transition-all duration-500"
               style={{ animation: 'float1 6s ease-in-out infinite' }}
             >
               <div className="relative">
-                <img src={storeImages[0]} alt="Shopify Store Preview" className="w-full h-[260px] xl:h-[320px] object-cover object-top" />
+                <img src={storeImages[0]} alt="Shopify Store Preview" className="w-full h-[300px] xl:h-[360px] object-cover object-top" />
                 <div className="absolute top-3 left-3">
                   <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-[#95BF47] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
                     <FaShopify className="w-3 h-3" />
@@ -210,10 +210,10 @@ export default function Hero() {
 
             {/* Second card - offset behind */}
             <div 
-              className="absolute z-10 top-4 right-4 xl:right-2 w-[160px] xl:w-[200px] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white opacity-90"
+              className="absolute z-10 top-2 right-2 xl:right-0 w-[185px] xl:w-[225px] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white opacity-90"
               style={{ animation: 'float2 7s ease-in-out infinite', transform: 'rotate(4deg)' }}
             >
-              <img src={storeImages[1]} alt="Shopify Store" className="w-full h-[210px] xl:h-[260px] object-cover object-top" />
+              <img src={storeImages[1]} alt="Shopify Store" className="w-full h-[240px] xl:h-[290px] object-cover object-top" />
               <div className="absolute top-3 left-3">
                 <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-[#95BF47] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
                   <FaShopify className="w-3 h-3" />
@@ -224,10 +224,10 @@ export default function Hero() {
 
             {/* Third card - offset other side */}
             <div 
-              className="absolute z-30 bottom-4 left-4 xl:left-2 w-[140px] xl:w-[170px] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white"
+              className="absolute z-30 bottom-2 left-2 xl:left-0 w-[160px] xl:w-[195px] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white"
               style={{ animation: 'float3 5s ease-in-out infinite', transform: 'rotate(-3deg)' }}
             >
-              <img src={storeImages[2]} alt="Shopify Store" className="w-full h-[180px] xl:h-[220px] object-cover object-top" />
+              <img src={storeImages[2]} alt="Shopify Store" className="w-full h-[200px] xl:h-[245px] object-cover object-top" />
               <div className="absolute bottom-3 left-3">
                 <div className="bg-black text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg">
                   +50% Sales ↑
