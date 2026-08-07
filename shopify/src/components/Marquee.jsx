@@ -4,7 +4,7 @@ export default function Marquee() {
   const repetitions = 4;
   
   return (
-    <section className="w-full bg-white overflow-hidden py-2 md:py-3 flex items-center z-20 relative">
+    <section className="w-full bg-white overflow-hidden py-2 md:py-3 flex items-center z-20 relative border-t border-b border-black">
       <div className="relative flex whitespace-nowrap w-full">
         <div className="animate-marquee-reverse flex items-center w-max [transform:translateZ(0)] will-change-transform">
           {Array(repetitions).fill(0).map((_, i) => (
