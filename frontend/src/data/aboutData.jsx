@@ -13,6 +13,7 @@ export const solutions = [
     id: "01",
     title: "Brand",
     desc: "Build a lasting legacy and connect deeply with your audience through powerful storytelling.",
+    link: import.meta.env.VITE_BRAND_URL || "http://brand.localhost",
     shape: "hexagon",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -25,7 +26,7 @@ export const solutions = [
     id: "02",
     title: "Commerce",
     desc: "Scale your revenue seamlessly with high-converting, lightning-fast storefronts.",
-    link: import.meta.env.VITE_COMMERCE_URL || "https://shopify.scalomatrix.com",
+    link: import.meta.env.VITE_COMMERCE_URL || "http://commerce.localhost",
     shape: "circle",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -38,6 +39,7 @@ export const solutions = [
     id: "03",
     title: "Growth",
     desc: "Accelerate your market presence and acquire high-LTV customers worldwide.",
+    link: import.meta.env.VITE_GROWTH_URL || "http://growth.localhost",
     shape: "circle",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -50,6 +52,7 @@ export const solutions = [
     id: "04",
     title: "Media",
     desc: "Drive growth and maximize ROI with data-driven media and performance marketing solutions.",
+    link: import.meta.env.VITE_MEDIA_URL || "http://media.localhost",
     shape: "hexagon",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -76,6 +79,7 @@ export const solutions = [
     id: "06",
     title: "Finance",
     desc: "Optimize your budget allocation and scale your marketing efficiently with clear ROI tracking.",
+    link: import.meta.env.VITE_FINANCE_URL || "http://finance.localhost",
     shape: "hexagon",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -88,6 +92,7 @@ export const solutions = [
     id: "07",
     title: "Lead Gen",
     desc: "Build highly converting funnels to capture and nurture quality inbound leads at scale.",
+    link: import.meta.env.VITE_LEADGEN_URL || "http://leadgen.localhost",
     shape: "circle",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

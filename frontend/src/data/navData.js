@@ -13,23 +13,23 @@ export const megaMenuData = {
       {
         title: 'BRAND',
         items: [
-          { title: 'Brand Solution', href: '#' }
+          { title: 'Brand Solution', href: import.meta.env.VITE_BRAND_URL || 'http://brand.localhost' }
         ]
       },
       {
         title: 'COMMERCE',
         items: [
-          { title: 'Shopify Development', href: import.meta.env.VITE_COMMERCE_URL || 'https://shopify.scalomatrix.com' },
+          { title: 'Shopify', href: import.meta.env.VITE_SHOPIFY_URL || 'http://shopify.localhost' },
           { title: 'Marketplace', href: import.meta.env.VITE_MARKETPLACE_URL || 'https://marketplace-scalomatrix.onrender.com' },
-          { title: 'Finance', href: '#' },
-          { title: 'Funnel & Lead-Gen', href: '#' }
+          { title: 'Finance', href: import.meta.env.VITE_FINANCE_URL || 'http://finance.localhost' },
+          { title: 'Funnel & Lead-Gen', href: import.meta.env.VITE_LEADGEN_URL || 'http://leadgen.localhost' }
         ]
       },
       {
         title: 'GROWTH',
         items: [
-          { title: 'Growth Solution', href: '#' },
-          { title: 'Media', href: '#' }
+          { title: 'Growth Solution', href: import.meta.env.VITE_GROWTH_URL || 'http://growth.localhost' },
+          { title: 'Media', href: import.meta.env.VITE_MEDIA_URL || 'http://media.localhost' }
         ]
       }
     ]

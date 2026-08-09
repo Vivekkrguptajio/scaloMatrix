@@ -110,7 +110,7 @@ export default function Navbar() {
         <div className="w-full flex items-center justify-between py-2 px-6 md:px-8">
         {/* Logo */}
         <motion.a 
-          href="#" 
+          href={import.meta.env.VITE_MAIN_URL || "http://localhost:5173"} 
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           style={{ x: logoX, y: logoY }}

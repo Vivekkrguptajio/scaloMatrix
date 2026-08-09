@@ -1,29 +1,50 @@
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import TrustStrip from './components/TrustStrip'
-import About from './components/About'
-import WhyChooseUs from './components/WhyChooseUs'
-import Services from './components/Services'
-import Testimonials from './components/Testimonials'
-import Masterclass from './components/Masterclass'
-import Footer from './components/Footer'
+import TeamMembers from './components/TeamMembers'
+import ContactUs from './components/ContactUs'
+import ThePromise from './components/ThePromise'
+import Contact from './components/Contact'
+import ScrollReveal from './components/ScrollReveal'
+import CustomCursor from './components/CustomCursor'
+import ScrollToTop from './components/ScrollToTop'
+import { useEffect } from 'react'
+import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
+import './index.css'
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      lerp: 0.08, // Apple-like smooth momentum
+      wheelMultiplier: 1.2,
+      smoothWheel: true,
+      smoothTouch: false,
+      touchMultiplier: 2,
+    })
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+
+    return () => {
+      lenis.destroy()
+    }
+  }, [])
   return (
-    <div className="min-h-screen selection:bg-brand-accent selection:text-brand-bg">
+    <div className="relative min-h-screen bg-[#0a0a0a] font-sans overflow-x-clip">
+      <CustomCursor />
+      <ScrollToTop />
       <Navbar />
       
-      <main>
-        <Hero />
-        <TrustStrip />
-        <About />
-        <WhyChooseUs />
-        <Services />
-        <Testimonials />
-        <Masterclass />
+      <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] pt-24">
+        <ScrollReveal><TeamMembers /></ScrollReveal>
+        <ContactUs />
+        <ScrollReveal><ThePromise /></ScrollReveal>
       </main>
 
-      <Footer />
+      <Contact reveal={true} />
     </div>
   )
 }

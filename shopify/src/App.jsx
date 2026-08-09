@@ -64,8 +64,8 @@ function App() {
         <ScrollReveal><HowItWorks /></ScrollReveal>
         <ScrollReveal><HiringPhilosophy /></ScrollReveal>
         <ScrollReveal><WhoWeDontWorkWith /></ScrollReveal>
-        <ContactUs />
         <ScrollReveal><TeamMembers /></ScrollReveal>
+        <ContactUs />
         <ScrollReveal><ThePromise /></ScrollReveal>
       </main>
 

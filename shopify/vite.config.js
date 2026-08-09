@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    allowedHosts: ['commerce.localhost', 'localhost'],
+    allowedHosts: ['shopify.localhost', 'localhost'],
     host: true,
     port: 5173,
   }
