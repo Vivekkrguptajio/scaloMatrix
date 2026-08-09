@@ -5,60 +5,53 @@ const HappyClients = () => {
   const testimonials = [
     {
       logo: (
-        <div className="flex flex-col items-center">
-          <span className="text-[6px] uppercase tracking-widest text-gray-500">Wellbeing</span>
-          <span className="text-2xl font-bold">W</span>
-          <span className="text-[6px] uppercase tracking-widest text-gray-500">Nutrition</span>
-        </div>
+        <img src="/logo/Nutraphyll.png" alt="Nutraphyll" className="h-12 object-contain" />
       ),
       text: "One of the pages we have made with TLPC team has resulted into 44% increase in conversion rate",
       author: "Vatsala Singh",
       title: "AVP, Wellbeing Nutrition",
-      avatarColor: "bg-orange-200"
+      avatarColor: "bg-orange-200",
+      avatar: "/logo/Nutraphyll.png"
     },
     {
       logo: (
-        <div className="flex items-center gap-2 text-green-700 font-bold text-xl tracking-tight">
-          <span className="text-green-500 text-2xl">🌱</span> ZEROHARM
-        </div>
+        <img src="/logo/Judex.png" alt="Judex" className="h-12 object-contain" />
       ),
       text: "The strategic approach they brought to the project resulted in a revenue jump by 35%",
       author: "Sachin Darbarwar",
       title: "Founder Zeroharm",
-      avatarColor: "bg-gray-300"
+      avatarColor: "bg-gray-300",
+      avatar: "/logo/Judex.png"
     },
     {
       logo: (
-        <div className="font-bold text-2xl text-[#FD5800] tracking-tight">
-          Health<span className="text-[#111]">Fab</span>
-        </div>
+        <img src="/logo/Nada.png" alt="Nada" className="h-12 object-contain" />
       ),
       text: "The improved user experience has led to higher engagement and a more satisfied customer base.",
       author: "Sourav",
       title: "Co-founder, Healthfab",
-      avatarColor: "bg-orange-200"
+      avatarColor: "bg-orange-200",
+      avatar: "/logo/Nada.png"
     },
     {
       logo: (
-        <div className="font-serif text-2xl text-red-400 italic font-bold">
-          the basics
-        </div>
+        <img src="/logo/Wayora.png" alt="Wayora" className="h-12 object-contain" />
       ),
       text: "Our customers are more engaged, and our sales have never been better.",
       author: "Suchita A Mukerji",
       title: "Founder - The Basic Women",
-      avatarColor: "bg-pink-200"
+      avatarColor: "bg-pink-200",
+      avatar: "/logo/Wayora.png"
     },
     {
       logo: (
-         <div className="font-bold text-2xl tracking-tight">
-          Brand<span className="text-gray-400">X</span>
-        </div>
+        <img src="/logo/drapes.png" alt="Drapes" className="h-12 object-contain" />
       ),
       text: "The changes they made to our landing pages have led to an immediate spike in our daily orders.",
       author: "Rahul Sharma",
       title: "CMO, BrandX",
-      avatarColor: "bg-yellow-200"
+      avatarColor: "bg-yellow-200",
+      avatar: "/logo/drapes.png"
     }
   ];
 
@@ -104,9 +97,9 @@ const HappyClients = () => {
           
           {/* Avatars */}
           <div className="flex -space-x-3 mb-2 justify-center">
-            {[1, 2, 3, 4].map((i) => (
+            {['/logo/Judex.png', '/logo/Nada.png', '/logo/Nutraphyll.png', '/logo/Wayora.png', '/logo/drapes.png'].map((src, i) => (
               <div key={i} className="w-12 h-12 rounded-full border-[3px] border-white bg-gray-300 overflow-hidden shadow-sm">
-                <img src="/image.png" alt="Client" className="w-full h-full object-cover" />
+                <img src={src} alt="Client" className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
@@ -154,7 +147,7 @@ const HappyClients = () => {
                 {/* Author Info */}
                 <div className="mt-auto flex flex-col items-center">
                   <div className={`w-12 h-12 rounded-full mb-3 border border-black overflow-hidden ${client.avatarColor}`}>
-                    <img src="/image copy.png" alt={client.author} className="w-full h-full object-cover" />
+                    <img src={client.avatar} alt={client.author} className="w-full h-full object-cover" />
                   </div>
                   <h4 className="font-bold text-black text-[15px]">{client.author}</h4>
                   <p className="text-[13px] text-gray-500 mt-0.5">{client.title}</p>

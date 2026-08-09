@@ -4,7 +4,7 @@ export default function HeroVCards() {
   const row1Cards = [
     { 
       id: 1, 
-      img: '/vcard/vcard1.png', 
+      img: '/photsWork/Nada(1).png', 
       title: 'Vamshi Farms', 
       url: 'vamshifarms.com',
       stat: '+44% CVR',
@@ -12,7 +12,7 @@ export default function HeroVCards() {
     },
     { 
       id: 2, 
-      img: '/vcard/vcard2.png', 
+      img: '/photsWork/Nutraphyll.png', 
       title: 'Pizzeria Authentic', 
       url: 'pizzeria.store',
       stat: '+35% Orders',
@@ -20,7 +20,7 @@ export default function HeroVCards() {
     },
     { 
       id: 3, 
-      img: '/vcard/vcard3.png', 
+      img: '/photsWork/Velmukha(2).png', 
       title: 'Super Kaju', 
       url: 'superkaju.in',
       stat: '+50% Sales',
@@ -28,7 +28,7 @@ export default function HeroVCards() {
     },
     { 
       id: 4, 
-      img: '/vcard/vcard4.png', 
+      img: '/photsWork/wayoranatural.png', 
       title: 'Desi Classics', 
       url: 'desiclassics.shop',
       stat: '+28% AOV',
@@ -72,7 +72,7 @@ export default function HeroVCards() {
           {/* Right Social Proof Stack */}
           <div className="flex items-center gap-4 bg-gray-50/80 p-3.5 px-5 rounded-2xl border border-[#FD5800] shadow-sm">
             <div className="flex -space-x-3">
-              {['/team/adi.png', '/team/shreyas.png', '/team/nayan.png', '/team/yadu.png', '/image.png'].map((src, i) => (
+              {['/logo/Judex.png', '/logo/Nada.png', '/logo/Nutraphyll.png', '/logo/Wayora.png', '/logo/drapes.png'].map((src, i) => (
                 <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden shadow-sm">
                   <img src={src} alt="Client" className="w-full h-full object-cover" />
                 </div>
@@ -86,7 +86,7 @@ export default function HeroVCards() {
                 <span className="text-xs font-bold text-black ml-1">4.9/5</span>
               </div>
               <span className="font-bold text-gray-900 text-sm tracking-tight">
-                <AnimatedCounter target={500} suffix="+ Happy Clients" />
+                <AnimatedCounter target={1000} suffix="+ Happy Clients" />
               </span>
             </div>
           </div>

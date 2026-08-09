@@ -62,7 +62,7 @@ function RotatingText() {
   }, [])
 
   return (
-    <span className="relative inline-block text-[#5a8a00] py-1 px-1">
+    <span className="relative inline-block text-[#FD5800] py-1 px-1">
       <span 
         className={`inline-block transition-all duration-400 ${
           isVisible 
@@ -73,14 +73,26 @@ function RotatingText() {
         {rotatingWords[index]}
       </span>
       <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 300 8" fill="none">
-        <path d="M2 6C75 2 225 2 298 6" stroke="#5a8a00" strokeWidth="3" strokeLinecap="round" opacity="0.5"/>
+        <path d="M2 6C75 2 225 2 298 6" stroke="#FD5800" strokeWidth="3" strokeLinecap="round" opacity="0.5"/>
       </svg>
     </span>
   )
 }
 
 export default function Hero() {
-  const storeImages = ['/vcard/vcard1.png', '/vcard/vcard2.png', '/vcard/vcard3.png']
+  const storeImages = [
+    '/photsWork/Drapes Corner.png',
+    '/photsWork/Nada(1).png',
+    '/photsWork/Luxury unisex brand - Perfect fit fabric – Wayora.png'
+  ]
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % storeImages.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [storeImages.length])
 
   return (
     <section 
@@ -138,11 +150,11 @@ export default function Hero() {
 
             {/* Main Heading with Rotating Text */}
             <h1 
-              className="text-[26px] sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[52px] font-black font-sans text-black leading-[1.25] md:leading-[1.15] tracking-tight mb-4 md:mb-5 text-center md:text-left hero-animate-2"
+              className="text-[22px] sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[42px] font-black font-sans text-black leading-[1.25] md:leading-[1.15] tracking-tight mb-4 md:mb-5 text-center md:text-left hero-animate-2"
             >
               We build <RotatingText />
               <span className="block mt-1 md:mt-2" />
-              that <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066]">print money.</span>
+              <span className="text-black">that Make more money from the same ad spend.</span>
             </h1>
 
             {/* Sub Heading */}
@@ -196,124 +208,74 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN - Floating Store Previews */}
-          <div className="flex-1 w-full lg:max-w-[45%] xl:max-w-[48%] relative hidden lg:flex items-center justify-center hero-cards-animate overflow-hidden p-2" style={{ minHeight: '440px' }}>
+          {/* RIGHT COLUMN - Floating Store Previews (Coverflow Carousel) */}
+          <div className="flex-1 w-full lg:max-w-[45%] xl:max-w-[48%] relative hidden lg:flex items-center justify-center hero-cards-animate overflow-visible p-2" style={{ minHeight: '440px' }}>
             
-            {/* Main large card */}
-            <div 
-              className="relative z-20 w-[230px] xl:w-[280px] rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white group cursor-pointer hover:shadow-[0_25px_60px_rgba(0,0,0,0.15)] transition-all duration-500"
-              style={{ animation: 'float1 6s ease-in-out infinite' }}
-            >
-              <div className="relative">
-                <img src={storeImages[0]} alt="Shopify Store Preview" className="w-full h-[300px] xl:h-[360px] object-cover object-top" />
-                <div className="absolute top-3 left-3">
-                  <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-[#95BF47] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
-                    <FaShopify className="w-3 h-3" />
-                    Shopify Store
+            {storeImages.map((src, idx) => {
+              // Calculate position based on activeIndex
+              // activeIndex is front (0), (activeIndex + 1)%3 is right (1), (activeIndex + 2)%3 is left (2)
+              // We want to move right to left, so if active changes 0->1, 1 moves from right to center.
+              const position = (idx - activeIndex + 3) % 3;
+              
+              let translateX = '0%';
+              let scale = 1;
+              let zIndex = 20;
+              let opacity = 1;
+              let rotate = '0deg';
+
+              if (position === 0) {
+                // Center
+                translateX = '0%';
+                scale = 1;
+                zIndex = 30;
+                opacity = 1;
+                rotate = '0deg';
+              } else if (position === 1) {
+                // Right
+                translateX = '45%';
+                scale = 0.85;
+                zIndex = 10;
+                opacity = 0.7;
+                rotate = '4deg';
+              } else if (position === 2) {
+                // Left
+                translateX = '-45%';
+                scale = 0.85;
+                zIndex = 10;
+                opacity = 0.7;
+                rotate = '-4deg';
+              }
+
+              return (
+                <div 
+                  key={idx}
+                  className="absolute w-[280px] xl:w-[340px] rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white transition-all duration-700 ease-in-out"
+                  style={{
+                    transform: `translateX(${translateX}) scale(${scale}) rotate(${rotate})`,
+                    zIndex: zIndex,
+                    opacity: opacity,
+                  }}
+                >
+                  <div className="relative">
+                    <img src={src} alt="Shopify Store Preview" className="w-full h-[380px] xl:h-[460px] object-cover object-top" />
+                    <div className="absolute top-3 left-3">
+                      <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-[#95BF47] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+                        <FaShopify className="w-3 h-3" />
+                        Shopify Store
+                      </div>
+                    </div>
+                    {position === 0 && (
+                      <div className="absolute bottom-3 right-3 animate-pulse">
+                        <div className="bg-[#FD5800] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg">
+                          +44% CVR ↑
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-                <div className="absolute bottom-3 right-3">
-                  <div className="bg-[#FD5800] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg">
-                    <AnimatedCounter target={44} prefix="+" suffix="% CVR ↑" />
-                  </div>
-                </div>
-              </div>
-            </div>
+              );
+            })}
 
-            {/* Second card - offset behind */}
-            <div 
-              className="absolute z-10 top-2 right-2 xl:right-0 w-[185px] xl:w-[225px] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white opacity-90"
-              style={{ animation: 'float2 7s ease-in-out infinite', transform: 'rotate(4deg)' }}
-            >
-              <img src={storeImages[1]} alt="Shopify Store" className="w-full h-[240px] xl:h-[290px] object-cover object-top" />
-              <div className="absolute top-3 left-3">
-                <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-[#95BF47] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
-                  <FaShopify className="w-3 h-3" />
-                  Shopify Store
-                </div>
-              </div>
-            </div>
-
-            {/* Third card - offset other side */}
-            <div 
-              className="absolute z-30 bottom-2 left-2 xl:left-0 w-[160px] xl:w-[195px] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white"
-              style={{ animation: 'float3 5s ease-in-out infinite', transform: 'rotate(-3deg)' }}
-            >
-              <img src={storeImages[2]} alt="Shopify Store" className="w-full h-[200px] xl:h-[245px] object-cover object-top" />
-              <div className="absolute bottom-3 left-3">
-                <div className="bg-black text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg">
-                  <AnimatedCounter target={50} prefix="+" suffix="% Sales ↑" />
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Stats Bubble - Revenue */}
-            <div 
-              className="absolute z-40 top-2 left-2 bg-white rounded-xl shadow-lg border border-gray-100 px-2.5 py-2"
-              style={{ animation: 'float2 4s ease-in-out infinite' }}
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-green-100 flex items-center justify-center">
-                  <svg className="w-3.5 h-3.5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[9px] font-bold text-gray-400 uppercase">Revenue</div>
-                  <div className="text-xs font-black text-green-600">
-                    <AnimatedCounter target={127} prefix="+" suffix="%" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Stats Bubble - Orders */}
-            <div 
-              className="absolute z-40 top-[42%] right-4 bg-white rounded-xl shadow-lg border border-gray-100 px-2.5 py-2"
-              style={{ animation: 'float3 5s ease-in-out infinite' }}
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-orange-100 flex items-center justify-center">
-                  <svg className="w-3.5 h-3.5 text-[#FD5800]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[9px] font-bold text-gray-400 uppercase">Orders</div>
-                  <div className="text-xs font-black text-[#FD5800]">
-                    <AnimatedCounter target={89} prefix="+" suffix="%" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Stats Bubble - AOV */}
-            <div 
-              className="absolute z-40 bottom-2 left-[28%] bg-white rounded-xl shadow-lg border border-gray-100 px-2.5 py-2"
-              style={{ animation: 'float1 6s ease-in-out infinite' }}
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-purple-100 flex items-center justify-center">
-                  <svg className="w-3.5 h-3.5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[9px] font-bold text-gray-400 uppercase">Avg. AOV</div>
-                  <div className="text-xs font-black text-purple-600">
-                    <AnimatedCounter target={2450} prefix="₹" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Shopify bag floating icon */}
-            <div 
-              className="absolute z-40 bottom-8 right-6 w-10 h-10 rounded-lg bg-[#95BF47] shadow-lg flex items-center justify-center"
-              style={{ animation: 'float1 5s ease-in-out infinite' }}
-            >
-              <FaShopify className="w-6 h-6 text-white" />
-            </div>
           </div>
 
         </div>
