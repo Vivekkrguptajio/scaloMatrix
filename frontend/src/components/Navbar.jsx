@@ -42,7 +42,7 @@ export default function Navbar({ activeSection, loading, isDarkTheme = false, is
         <div className="w-full flex items-center justify-between py-2 px-6 md:px-8">
         {/* Logo */}
         <motion.a 
-          href="/" 
+          href="https://www.scalomatrix.com/" 
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           style={{ x: logoX, y: logoY }}
