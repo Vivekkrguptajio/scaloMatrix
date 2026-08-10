@@ -1,6 +1,8 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import CaseStudies from './components/CaseStudies'
 import ServicesGrid from './components/ServicesGrid'
+import WhyUs from './components/WhyUs'
 import Process from './components/Process'
 import TeamMembers from './components/TeamMembers'
 import ContactUs from './components/ContactUs'
@@ -39,16 +41,26 @@ function App() {
       <ScrollToTop />
       <Navbar />
       
-      <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] pt-24">
-        <Hero />
+      {/* Hero - Dark full-screen */}
+      <Hero />
+
+      {/* Main Content Block */}
+      <main className="relative z-20 bg-white">
         <ScrollReveal><ServicesGrid /></ScrollReveal>
+        <ScrollReveal><WhyUs /></ScrollReveal>
         <ScrollReveal><Process /></ScrollReveal>
         <ScrollReveal><TeamMembers /></ScrollReveal>
-        <ContactUs />
         <ScrollReveal><ThePromise /></ScrollReveal>
       </main>
 
-      <Contact reveal={true} />
+      {/* Case Studies - Dark section */}
+      <CaseStudies />
+
+      {/* Contact Form - Dark section */}
+      <ContactUs />
+
+      {/* Footer */}
+      <Contact reveal={false} />
     </div>
   )
 }

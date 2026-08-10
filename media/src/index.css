@@ -51,7 +51,7 @@ html {
 body {
   font-family: var(--font-sans);
   color: #101828;
-  background: #fff;
+  background: #0a0a0a;
   overflow-x: hidden;
 }
 
@@ -168,13 +168,13 @@ html, body {
 }
 
 .animate-marquee {
-  animation: marquee 55s linear infinite;
+  animation: marquee 40s linear infinite;
   will-change: transform;
   transform: translateZ(0);
 }
 
 .animate-marquee-reverse {
-  animation: marquee 55s linear infinite reverse;
+  animation: marquee 40s linear infinite reverse;
   will-change: transform;
   transform: translateZ(0);
 }
@@ -191,6 +191,35 @@ html, body {
 
 .animate-marquee-viewport {
   animation: marquee-viewport 25s linear infinite;
+}
+
+/* ═══════ GRADIENT TEXT SHIMMER ═══════ */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-text {
+  background-size: 200% auto;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+/* ═══════ PULSE GLOW ═══════ */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(253, 88, 0, 0.4); }
+  50% { box-shadow: 0 0 20px 8px rgba(253, 88, 0, 0.1); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ═══════ SELECT STYLING (DARK) ═══════ */
+select option {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 12px;
 }
 
 /* ═══════ LENIS SMOOTH SCROLL ═══════ */

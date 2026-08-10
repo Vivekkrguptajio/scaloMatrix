@@ -284,7 +284,7 @@ export default function Hero() {
       </div>
 
       {/* Marquee at the bottom */}
-      <div className="w-screen relative left-1/2 -translate-x-1/2 z-30 mt-6 md:mt-10">
+      <div className="w-screen relative left-1/2 -translate-x-1/2 z-30 mt-8 md:mt-12">
         <Marquee />
       </div>
     </section>
