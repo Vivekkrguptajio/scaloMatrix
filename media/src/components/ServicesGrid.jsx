@@ -72,44 +72,24 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section id="services" className="py-24 md:py-32 px-6 bg-white relative overflow-hidden">
+    <section id="services" className="py-12 md:py-16 px-6 bg-white relative overflow-hidden">
       
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(253,88,0,0.04)_0%,transparent_70%)] rounded-full pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         {/* Section Header */}
-        <div className="max-w-3xl mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 bg-orange-50 border border-[#FD5800]/15 text-[#FD5800] text-xs font-bold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FD5800]" />
-              What We Do
-            </div>
-          </motion.div>
+        <div className="max-w-3xl mx-auto text-center mb-10">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight mb-6 leading-[1.1]"
+            className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight leading-[1.1]"
           >
             Services engineered{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066]">for growth.</span>
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-500 text-lg md:text-xl leading-relaxed"
-          >
-            Every service we offer is designed to move a business metric. No fluff, no vanity — just results.
-          </motion.p>
         </div>
         
         {/* Services Grid */}
@@ -121,28 +101,32 @@ export default function ServicesGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative p-8 md:p-10 rounded-3xl border border-gray-100 bg-white hover:bg-gray-50/50 transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(253,88,0,0.12)] hover:border-[#FD5800]/20"
+              className="group relative w-full h-full flex flex-col justify-between p-6 md:p-8 rounded-[32px] border border-[#FD5800]/20 bg-white overflow-hidden transition-all duration-500 shadow-[0_4px_10px_rgba(253,88,0,0.05)] hover:shadow-[0_20px_40px_rgba(253,88,0,0.2)] hover:border-[#FD5800]/60 hover:rounded-none hover:scale-[1.05] hover:z-50"
             >
-              {/* Number */}
-              <span className="absolute top-8 right-8 text-[80px] font-black text-gray-100/80 leading-none select-none group-hover:text-[#FD5800]/10 transition-colors duration-500">{service.id}</span>
-              
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 mb-8 group-hover:bg-[#FD5800] group-hover:text-white group-hover:border-[#FD5800] transition-all duration-300">
-                {service.icon}
+              <div className="relative z-10">
+                {/* Number */}
+                <span className="absolute top-0 right-0 text-[60px] font-black text-[#FD5800]/10 leading-none select-none group-hover:text-[#FD5800]/20 transition-colors duration-500">{service.id}</span>
+                
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-xl bg-[#FD5800]/10 border border-[#FD5800]/20 flex items-center justify-center text-[#FD5800] mb-8 shadow-sm group-hover:bg-[#FD5800] group-hover:text-white transition-colors duration-500">
+                  <div className="origin-center flex items-center justify-center w-full h-full">
+                    {service.icon}
+                  </div>
+                </div>
+                
+                {/* Content */}
+                <h3 className="text-xl md:text-2xl font-black text-[#FD5800] mb-3 tracking-tight leading-tight">
+                  {service.title}
+                </h3>
+                <p className="text-gray-700 font-medium leading-relaxed mb-6 text-sm md:text-base group-hover:text-gray-900 transition-colors duration-500">
+                  {service.description}
+                </p>
               </div>
               
-              {/* Content */}
-              <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-3 tracking-tight group-hover:text-[#FD5800] transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-gray-500 leading-relaxed mb-6 text-[15px]">
-                {service.description}
-              </p>
-              
               {/* Tags */}
-              <div className="flex flex-wrap gap-2">
+              <div className="relative z-10 flex flex-wrap gap-2 pt-4 mt-auto">
                 {service.tags.map(tag => (
-                  <span key={tag} className="px-3 py-1 text-xs font-semibold tracking-wide text-gray-500 bg-gray-50 rounded-full border border-gray-100 group-hover:border-[#FD5800]/20 group-hover:text-[#FD5800] group-hover:bg-[#FD5800]/5 transition-all duration-300">
+                  <span key={tag} className="px-3 py-1 text-xs font-bold tracking-wide text-[#FD5800] bg-[#FD5800]/10 rounded-full border border-[#FD5800]/20 group-hover:bg-[#FD5800] group-hover:text-white transition-colors duration-500">
                     {tag}
                   </span>
                 ))}

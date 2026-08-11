@@ -1,203 +1,237 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
-const caseStudyImages = [
-  '/images/68b69b5022644c08e48b9405_Happydent.jpg',
-  '/images/669f9fbcc3481015e0e2112f_MOTOR.png',
-  '/images/669fa0f361c519d7bc7b7084_cards.png',
-  '/images/68e4b82d7c62d5759deaecd4_Mentos%2520website.jpg',
-  '/images/6a22d3c2280604b61b881a82_TATA%2520capital%2520women%2527s%2520day%2520cover.jpg',
-  '/images/6a50f13e8e27025e5f498bb4_image%2520(13).png',
-  '/images/6a75d1097b618207b8a68fe3_MIAN-JULY-THUMBNAIL%2520(1).png',
+const col1Images = [
+  '/images/6.png',
+  '/images/7.png',
+  '/images/8.jpg',
+  '/images/9.jpg',
+  '/images/10.avif',
+  '/images/11.png',
+  '/images/12.png',
+  '/images/13.png',
+  '/images/14.png',
+  '/images/15.png',
 ]
 
-const stats = [
-  { value: '500', suffix: 'Cr+', label: 'Ad Spend Managed' },
-  { value: '3.2', suffix: 'x', label: 'Average ROAS' },
-  { value: '120', suffix: '+', label: 'Brands Scaled' },
-  { value: '98', suffix: '%', label: 'Client Retention' },
+const col2Images = [
+  '/images/16.png',
+  '/images/17.png',
+  '/images/6470329994a07b3f73a75acf_PRALHAD STUDY-01 (Large).png',
+  '/images/647725f396c6376edf86be43_DOMINOS WEBSITE CASE STUDY m text-01 (Large).png',
+  '/images/6477260dbbb4647b0057f061_SWIGGY CASE STUDY M TEXT-01 (Large).png',
+  '/images/6477262de0f4dc148b14b786_WE DELIVER CS-01 (Large).png',
+  '/images/6477266468810cea11c95a7e_JUST ONE HEAD CASE STUDY M TEXT-01 (Large).png',
+  '/images/647726b6bbb4647b00589d78_FEVICOL WEBSITE CASE STUDY M TEXT (Large).png',
+  '/images/6477272c5e9047a330a89ba3_SWITCH MOBILITY STUDY M TEXT-01 (Large).png',
+  '/images/64774cb69983a2137ad4433e_IMAGINE MEATS CASE  STUDY M TEXT-01 (Large).png',
+  '/images/64774eb8a0df3323433e2e83_J&J WEBSITE CASE STUDY M TEXT-01 (Large).png',
 ]
 
-function AnimatedCounter({ value, suffix }) {
-  const [count, setCount] = useState(0)
+const rotatingWords = ['Google Ads', 'Meta Ads', 'YouTube', 'Programmatic', 'LinkedIn']
+
+function AnimatedCounter({ target, suffix = '', duration = 2000 }) {
   const ref = useRef(null)
-  const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
+    let animationFrameId
+    let startTime = null
+    let hasAnimated = false
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true)
-          const target = parseFloat(value)
-          const isDecimal = value.includes('.')
-          const duration = 2000
-          const steps = 60
-          const increment = target / steps
-          let current = 0
-          const timer = setInterval(() => {
-            current += increment
-            if (current >= target) {
-              setCount(target)
-              clearInterval(timer)
-            } else {
-              setCount(isDecimal ? parseFloat(current.toFixed(1)) : Math.floor(current))
+          hasAnimated = true
+          startTime = null
+          const animate = (now) => {
+            if (!startTime) startTime = now
+            const elapsed = now - startTime
+            const progress = Math.min(elapsed / duration, 1)
+            const eased = 1 - Math.pow(1 - progress, 3)
+            const isDecimal = String(target).includes('.')
+            const currentVal = isDecimal
+              ? (eased * target).toFixed(1)
+              : Math.floor(eased * target)
+            
+            if (ref.current) {
+              ref.current.textContent = `${currentVal}${suffix}`
             }
-          }, duration / steps)
+
+            if (progress < 1) {
+              animationFrameId = requestAnimationFrame(animate)
+            } else {
+              if (ref.current) ref.current.textContent = `${target}${suffix}`
+            }
+          }
+          animationFrameId = requestAnimationFrame(animate)
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     )
+
     if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [value, hasAnimated])
+    return () => {
+      observer.disconnect()
+      if (animationFrameId) cancelAnimationFrame(animationFrameId)
+    }
+  }, [target, duration, suffix])
+
+  return <span ref={ref}>0{suffix}</span>
+}
+
+function RotatingText() {
+  const [index, setIndex] = useState(0)
+  const [isVisible, setIsVisible] = useState(true)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsVisible(false)
+      setTimeout(() => {
+        setIndex(prev => (prev + 1) % rotatingWords.length)
+        setIsVisible(true)
+      }, 400)
+    }, 2800)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-    <span ref={ref}>
-      {count}{suffix}
+    <span className="relative inline-block text-[#FD5800] py-1 px-1 min-w-[200px] md:min-w-[280px]">
+      <span
+        className={`inline-block w-full transition-all duration-400 ${
+          isVisible
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 -translate-y-3'
+        }`}
+      >
+        {rotatingWords[index]}
+      </span>
+      <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 300 8" fill="none">
+        <path d="M2 6C75 2 225 2 298 6" stroke="#FD5800" strokeWidth="3" strokeLinecap="round" opacity="0.5"/>
+      </svg>
     </span>
   )
 }
 
 export default function Hero() {
-  const sectionRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  })
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen flex flex-col overflow-hidden bg-white">
-      
-      {/* Background Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)',
-        backgroundSize: '60px 60px',
+    <section
+      id="hero"
+      className="min-h-screen flex flex-col justify-between pt-24 md:pt-28 pb-6 md:pb-10 px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
+    >
+      {/* CSS Animations */}
+      <style>{`
+        @keyframes float1 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(3deg); } }
+        @keyframes float2 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(-2deg); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(253, 88, 0, 0.15); } 50% { box-shadow: 0 0 40px rgba(253, 88, 0, 0.3); } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-animate-1 { animation: slideInLeft 0.8s ease-out both; }
+        .hero-animate-2 { animation: slideInLeft 0.8s ease-out 0.15s both; }
+        .hero-animate-3 { animation: slideInUp 0.8s ease-out 0.3s both; }
+        .hero-animate-4 { animation: slideInUp 0.8s ease-out 0.45s both; }
+        .hero-animate-5 { animation: slideInUp 0.8s ease-out 0.6s both; }
+        .hero-cards-animate { animation: slideInRight 1s ease-out 0.5s both; }
+        @keyframes marqueeVertical { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
+        @keyframes marqueeVerticalReverse { 0% { transform: translateY(-50%); } 100% { transform: translateY(0); } }
+        .animate-marquee-vertical { animation: marqueeVertical 18s linear infinite; }
+        .animate-marquee-vertical-reverse { animation: marqueeVerticalReverse 18s linear infinite; }
+      `}</style>
+
+      {/* Ambient gradient orbs background (Optimized: Removed heavy animation) */}
+      <div className="absolute top-20 -left-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#FD5800]/[0.04] to-[#FF9066]/[0.02] blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 -right-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#FD5800]/[0.03] to-[#FF6B35]/[0.02] blur-3xl pointer-events-none" />
+
+      {/* Subtle dot grid */}
+      <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{
+        backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)',
+        backgroundSize: '32px 32px'
       }} />
 
-      {/* Ambient Glow */}
-      <div className="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-[#FD5800]/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-[#FF6B35]/10 rounded-full blur-[120px] pointer-events-none" />
+      {/* LEFT COLUMN - Moving Up */}
+      <div className="absolute top-0 left-0 w-[18%] xl:w-[20%] h-full hidden md:flex justify-center hero-cards-animate overflow-hidden px-4 pointer-events-none z-0">
+        <div className="flex flex-col gap-4 animate-marquee-vertical w-full h-max pt-[200px]">
+          {[...col1Images, ...col1Images].map((src, idx) => (
+            <div key={`col1-${idx}`} className="w-full h-[220px] xl:h-[260px] flex-shrink-0 rounded-[1.5rem] overflow-hidden border border-gray-100 shadow-lg pointer-events-auto">
+              <img src={src} alt="Campaign" className="w-full h-full object-cover" />
+            </div>
+          ))}
+        </div>
+      </div>
 
-      {/* Main Hero Content */}
-      <motion.div style={{ y, opacity }} className="relative z-10 flex-1 flex flex-col justify-center items-center text-center px-6 pt-32 pb-16 md:pt-40 md:pb-20">
-        
-        
-        {/* Main Heading */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-[1.1] mb-8 max-w-4xl"
-        >
-          We scale brands
-          <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] via-[#FF8C42] to-[#FD5800]">
-            with precision media.
-          </span>
-        </motion.h1>
-        
+      {/* RIGHT COLUMN - Moving Down */}
+      <div className="absolute top-0 right-0 w-[18%] xl:w-[20%] h-full hidden md:flex justify-center hero-cards-animate overflow-hidden px-4 pointer-events-none z-0">
+        <div className="flex flex-col gap-4 animate-marquee-vertical-reverse w-full h-max">
+          {[...col2Images, ...col2Images].map((src, idx) => (
+            <div key={`col2-${idx}`} className="w-full h-[220px] xl:h-[260px] flex-shrink-0 rounded-[1.5rem] overflow-hidden border border-gray-100 shadow-lg pointer-events-auto">
+              <img src={src} alt="Campaign" className="w-full h-full object-cover" />
+            </div>
+          ))}
+        </div>
+      </div>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-3 items-center"
-        >
-          <a 
-            href="#contact"
-            className="group relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#FD5800] text-white font-bold text-sm tracking-wide overflow-hidden transition-all duration-300 hover:shadow-[0_10px_25px_rgba(253,88,0,0.3)] hover:-translate-y-0.5"
+      {/* Main Content - Centered Layout */}
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 flex flex-col items-center justify-center mt-12 md:mt-20">
+        
+        {/* CENTER CONTENT */}
+        <div className="w-full lg:max-w-[50%] xl:max-w-[48%] flex flex-col items-center">
+
+          <h1
+            className="text-[28px] sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[56px] font-black font-sans text-black leading-[1.15] md:leading-[1.1] tracking-tight mb-8 text-center hero-animate-2"
           >
-            <span className="relative z-10">Start Your Campaign</span>
-            <svg className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B35] to-[#FD5800] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </a>
-          <a 
-            href="#case-studies"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 text-gray-800 font-bold text-sm tracking-wide hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 shadow-sm"
-          >
-            <svg className="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            View Case Studies
-          </a>
-        </motion.div>
-      </motion.div>
+            We scale brands via <br />
+            <RotatingText /> <br />
+            <span className="text-black inline-block mt-2">with precision media buying.</span>
+          </h1>
 
-      {/* Stats Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
-        className="relative z-10 w-full border-t border-gray-100 bg-gray-50/50"
-      >
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
-          {stats.map((stat, i) => (
-            <div 
-              key={stat.label} 
-              className={`flex flex-col items-center justify-center py-8 md:py-10 ${
-                i < stats.length - 1 ? 'border-r border-gray-100' : ''
-              } ${i < 2 ? 'border-b md:border-b-0 border-gray-100' : ''}`}
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 mb-10 hero-animate-4 w-full">
+            <a
+              href="#contact"
+              className="group relative flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3.5 sm:py-3 rounded-full font-bold text-[13px] sm:text-[14px] bg-[#FD5800] text-white border-2 border-transparent hover:shadow-[0_0_30px_rgba(253,88,0,0.3)] hover:scale-105 transition-all duration-300 tracking-wide overflow-hidden"
+              style={{ animation: 'pulseGlow 3s ease infinite' }}
             >
-              <span className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-1 tracking-tight">
-                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+              <span className="relative z-10 flex items-center gap-2.5">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Start Your Campaign
+                <svg className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </span>
-              <span className="text-gray-400 text-xs md:text-sm font-semibold tracking-wider uppercase">{stat.label}</span>
-            </div>
-          ))}
-        </div>
-      </motion.div>
+            </a>
 
-      {/* Marquee Section - Case Study Images */}
-      <div className="relative z-10 w-full py-10 md:py-14 border-t border-gray-100 bg-white overflow-hidden">
-        <div className="mb-6 text-center">
-          <span className="text-gray-400 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">Trusted by leading brands</span>
-        </div>
-        
-        {/* Marquee Row 1 */}
-        <div className="flex gap-5 animate-marquee mb-5">
-          {[...caseStudyImages, ...caseStudyImages].map((img, i) => (
-            <div 
-              key={`r1-${i}`} 
-              className="flex-shrink-0 w-[280px] md:w-[340px] h-[160px] md:h-[200px] rounded-2xl overflow-hidden group relative border border-gray-100 shadow-sm"
+            <a
+              href="#case-studies"
+              className="group flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3.5 sm:py-3 rounded-full font-bold text-[13px] sm:text-[14px] text-gray-700 border-2 border-black/10 hover:border-[#FD5800]/40 hover:text-[#FD5800] hover:bg-orange-50/50 hover:scale-105 hover:shadow-md transition-all duration-300"
             >
-              <img 
-                src={img} 
-                alt="Case Study" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-          ))}
-        </div>
+              <span>View Case Studies</span>
+              <svg className="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+          </div>
 
-        {/* Marquee Row 2 - Reverse */}
-        <div className="flex gap-5 animate-marquee-reverse">
-          {[...caseStudyImages.slice().reverse(), ...caseStudyImages.slice().reverse()].map((img, i) => (
-            <div 
-              key={`r2-${i}`} 
-              className="flex-shrink-0 w-[280px] md:w-[340px] h-[160px] md:h-[200px] rounded-2xl overflow-hidden group relative border border-gray-100 shadow-sm"
-            >
-              <img 
-                src={img} 
-                alt="Case Study" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-          ))}
-        </div>
+          {/* Stats Row */}
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 lg:gap-12 hero-animate-5 w-full">
+            {[
+              { value: 500, suffix: 'Cr+', label: 'Ad Spend Managed' },
+              { value: 120, suffix: '+', label: 'Brands Scaled' },
+              { value: 98, suffix: '%', label: 'Client Retention' },
+            ].map((stat, i) => (
+              <div key={i} className="flex flex-col items-center group cursor-default">
+                <span className="text-[#FD5800] text-3xl md:text-4xl font-black tracking-tighter group-hover:scale-110 transition-transform duration-300">
+                  <AnimatedCounter target={stat.value} />{stat.suffix}
+                </span>
+                <span className="text-[11px] sm:text-xs font-bold text-gray-500 tracking-wide uppercase mt-1.5">{stat.label}</span>
+              </div>
+            ))}
+          </div>
 
-        {/* Fade Edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        </div>
       </div>
     </section>
   )

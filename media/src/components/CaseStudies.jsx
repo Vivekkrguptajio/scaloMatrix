@@ -5,44 +5,44 @@ const caseStudies = [
   {
     brand: 'Happydent',
     category: 'Social Media',
-    image: '/images/68b69b5022644c08e48b9405_Happydent.jpg',
+    image: '/images/6.png',
     result: '4.2x ROAS',
   },
   {
     brand: 'Mentos',
     category: 'Content Production',
-    image: '/images/68e4b82d7c62d5759deaecd4_Mentos%2520website.jpg',
+    image: '/images/7.png',
     result: '2.8M Reach',
   },
   {
     brand: 'TATA Capital',
     category: 'Campaign Strategy',
-    image: '/images/6a22d3c2280604b61b881a82_TATA%2520capital%2520women%2527s%2520day%2520cover.jpg',
+    image: '/images/8.jpg',
     result: '320% Growth',
   },
   {
     brand: 'Motor Launch',
     category: 'Performance Marketing',
-    image: '/images/669f9fbcc3481015e0e2112f_MOTOR.png',
+    image: '/images/9.jpg',
     result: '5.1x ROAS',
   },
   {
     brand: 'Brand Cards',
     category: 'Digital Strategy',
-    image: '/images/669fa0f361c519d7bc7b7084_cards.png',
+    image: '/images/10.avif',
     result: '180% CTR lift',
   },
   {
     brand: 'Mian Launch',
     category: 'Influencer Campaign',
-    image: '/images/6a75d1097b618207b8a68fe3_MIAN-JULY-THUMBNAIL%2520(1).png',
+    image: '/images/11.png',
     result: '1.2M Views',
   },
 ]
 
 export default function CaseStudies() {
   return (
-    <section id="case-studies" className="relative py-24 md:py-32 bg-[#0a0a0a] overflow-hidden">
+    <section id="case-studies" className="relative py-12 md:py-16 bg-[#0a0a0a] overflow-hidden">
       
       {/* Background */}
       <div className="absolute inset-0 opacity-[0.02]" style={{
@@ -53,32 +53,17 @@ export default function CaseStudies() {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
-        <div className="mb-16 md:mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-[#FD5800] text-xs font-bold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FD5800]" />
-              Case Studies
-            </div>
-          </motion.div>
-          <motion.div
+        <div className="max-w-3xl mx-auto text-center mb-10">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.1]"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-              The receipts{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066]">speak louder.</span>
-            </h2>
-            <p className="text-white/40 text-base md:text-lg max-w-md leading-relaxed font-medium">
-              Real campaigns. Real numbers. Every case study is a brand that trusted us to deliver — and we did.
-            </p>
-          </motion.div>
+            The receipts{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066]">speak louder.</span>
+          </motion.h2>
         </div>
 
         {/* Case Study Grid */}

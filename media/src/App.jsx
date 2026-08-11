@@ -6,7 +6,6 @@ import WhyUs from './components/WhyUs'
 import Process from './components/Process'
 import TeamMembers from './components/TeamMembers'
 import ContactUs from './components/ContactUs'
-import ThePromise from './components/ThePromise'
 import Contact from './components/Contact'
 import ScrollReveal from './components/ScrollReveal'
 import CustomCursor from './components/CustomCursor'
@@ -36,31 +35,24 @@ function App() {
   }, [])
   
   return (
-    <div className="relative min-h-screen bg-[#0a0a0a] font-sans overflow-x-clip">
+    <div className="relative min-h-screen bg-white font-sans overflow-x-clip">
       <CustomCursor />
       <ScrollToTop />
       <Navbar />
       
-      {/* Hero - Dark full-screen */}
-      <Hero />
-
       {/* Main Content Block */}
-      <main className="relative z-20 bg-white">
+      <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+        <Hero />
         <ScrollReveal><ServicesGrid /></ScrollReveal>
+        <CaseStudies />
         <ScrollReveal><WhyUs /></ScrollReveal>
         <ScrollReveal><Process /></ScrollReveal>
         <ScrollReveal><TeamMembers /></ScrollReveal>
-        <ScrollReveal><ThePromise /></ScrollReveal>
+        <ContactUs />
       </main>
 
-      {/* Case Studies - Dark section */}
-      <CaseStudies />
-
-      {/* Contact Form - Dark section */}
-      <ContactUs />
-
-      {/* Footer */}
-      <Contact reveal={false} />
+      {/* Sticky Reveal Footer */}
+      <Contact reveal={true} />
     </div>
   )
 }
