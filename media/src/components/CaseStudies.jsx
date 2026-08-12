@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import { getIkUrl } from '../utils/imagekit'
 
 const caseStudies = [
   {
@@ -79,7 +80,7 @@ export default function CaseStudies() {
             >
               {/* Image */}
               <img 
-                src={cs.image} 
+                src={getIkUrl(cs.image)} 
                 alt={cs.brand}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"

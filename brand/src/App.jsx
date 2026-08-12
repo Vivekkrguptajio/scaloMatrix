@@ -1,10 +1,14 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import MarketingNeeds from './components/MarketingNeeds'
+import Testimonials from './components/Testimonials'
 import ServicesGrid from './components/ServicesGrid'
 import Process from './components/Process'
 import TeamMembers from './components/TeamMembers'
 import ContactUs from './components/ContactUs'
 import ThePromise from './components/ThePromise'
+import FoundersBrands from './components/FoundersBrands'
+import GoodFitChecklist from './components/GoodFitChecklist'
 import Contact from './components/Contact'
 import ScrollReveal from './components/ScrollReveal'
 import CustomCursor from './components/CustomCursor'
@@ -17,20 +21,27 @@ import './index.css'
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.08, 
-      wheelMultiplier: 1.2,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
       smoothWheel: true,
-      smoothTouch: false,
-      touchMultiplier: 2,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+      infinite: false,
     })
 
+    let rafId
     function raf(time) {
       lenis.raf(time)
-      requestAnimationFrame(raf)
+      rafId = requestAnimationFrame(raf)
     }
-    requestAnimationFrame(raf)
+    rafId = requestAnimationFrame(raf)
 
-    return () => lenis.destroy()
+    return () => {
+      cancelAnimationFrame(rafId)
+      lenis.destroy()
+    }
   }, [])
   
   return (
@@ -39,11 +50,15 @@ function App() {
       <ScrollToTop />
       <Navbar />
       
-      <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] pt-24">
+      <main className="relative z-20 bg-[#f2efe9] rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero />
+        <ScrollReveal><MarketingNeeds /></ScrollReveal>
+        <ScrollReveal><Testimonials /></ScrollReveal>
         <ScrollReveal><ServicesGrid /></ScrollReveal>
         <ScrollReveal><Process /></ScrollReveal>
         <ScrollReveal><TeamMembers /></ScrollReveal>
+        <ScrollReveal><FoundersBrands /></ScrollReveal>
+        <ScrollReveal><GoodFitChecklist /></ScrollReveal>
         <ContactUs />
         <ScrollReveal><ThePromise /></ScrollReveal>
       </main>

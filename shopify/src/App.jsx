@@ -26,21 +26,25 @@ import 'lenis/dist/lenis.css'
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.08, // Apple-like smooth momentum
-      wheelMultiplier: 1.2,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
       smoothWheel: true,
-      smoothTouch: false,
-      touchMultiplier: 2,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+      infinite: false,
     })
 
+    let rafId
     function raf(time) {
       lenis.raf(time)
-      requestAnimationFrame(raf)
+      rafId = requestAnimationFrame(raf)
     }
-
-    requestAnimationFrame(raf)
+    rafId = requestAnimationFrame(raf)
 
     return () => {
+      cancelAnimationFrame(rafId)
       lenis.destroy()
     }
   }, [])

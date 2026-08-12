@@ -1,67 +1,68 @@
 import { motion } from 'framer-motion'
+import { getIkUrl } from '../utils/imagekit'
 
 const teamMembers = [
   {
     id: "01",
-    name: "Adi",
-    role: "Founder & Lead Strategist",
-    image: "/team/adi.png",
-    tagline: "CRO obsessed. Revenue driven.",
+    name: "KAANYA",
+    role: "CO-FOUNDER & BRAND STRATEGIST",
+    image: "/team/adi.png", 
+    description: "She builds brands by turning audiences into communities. Her own Instagram climbed from 2K to 100K in six months, the same playbook she now runs for the brands she partners with.",
   },
   {
     id: "02",
-    name: "Shreyas",
-    role: "Design & Branding",
+    name: "SAMARTH",
+    role: "CO-FOUNDER & D2C GROWTH STRATEGIST",
     image: "/team/shreyas.png",
-    tagline: "Pixels with purpose.",
+    description: "7 years building and scaling D2C brands from the ground up. He sharpens positioning, storytelling, and customer experience until the message earns attention and converts.",
   },
   {
     id: "03",
-    name: "Nayan",
-    role: "Website Developer",
+    name: "NAYAN",
+    role: "WEBSITE DEVELOPER",
     image: "/team/nayan.png",
-    tagline: "Code that converts.",
+    description: "Turns strategic vision into pixel-perfect digital experiences. Fast, responsive, and designed to convert visitors into loyal customers.",
   },
   {
     id: "04",
-    name: "Yadu",
-    role: "Project Manager",
+    name: "YADU",
+    role: "PROJECT MANAGER",
     image: "/team/yadu.png",
-    tagline: "Ships on time. Every time.",
+    description: "The glue that holds everything together. Ensures campaigns ship on time, workflows are seamless, and quality never drops.",
   },
 ];
 
 export default function TeamMembers() {
   return (
-    <section id="team" className="w-full py-20 md:py-28 bg-white text-black font-sans overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 xl:px-8 w-full">
+    <section id="team" className="w-full py-24 bg-[#5D42F5] text-white font-sans overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
         
         {/* Header Section */}
-        <div className="w-full mb-14 md:mb-20">
+        <div className="w-full mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6"
+            className="flex flex-col"
           >
-            <div>
-              <div className="inline-flex items-center gap-2 bg-orange-50 border border-[#FD5800]/20 text-[#FD5800] text-xs font-bold tracking-wider uppercase px-4 py-2 rounded-full mb-5">
-                <span className="w-2 h-2 rounded-full bg-[#FD5800] animate-pulse" />
-                The People
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight text-black leading-[1]">
-                Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066]">team.</span>
-              </h2>
+            <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tight leading-[1.1] mb-8 uppercase">
+              We don't hand over decks.<br/>
+              We build <span className="text-[#D4FF00]">Direction.</span>
+            </h2>
+            <div className="max-w-2xl space-y-5">
+              <p className="text-white/90 font-medium text-base md:text-lg leading-relaxed">
+                We partner with brands beyond strategy: bringing clarity, guiding teams, and staying close enough to ensure every idea is implemented as intended.
+              </p>
+              <p className="text-white/90 font-medium text-base md:text-lg leading-relaxed">
+                We're not your agency. And we're not just consultants. We're your fractional CMO, helping your team turn good ideas into meaningful progress.
+              </p>
             </div>
-            <p className="text-gray-500 font-medium text-base md:text-lg max-w-[400px] leading-relaxed">
-              A small, senior team. No juniors. No layers. Just people who ship great work.
-            </p>
           </motion.div>
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-x-8 gap-y-16">
           {teamMembers.map((item, index) => (
             <motion.div 
               key={item.id}
@@ -69,44 +70,36 @@ export default function TeamMembers() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.12 }}
               viewport={{ once: true }}
-              className="flex flex-col group cursor-pointer"
+              className="flex flex-col group"
             >
               {/* Image Container */}
-              <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-5 bg-gray-50 relative">
+              <div className="w-full aspect-[4/5] relative overflow-hidden mb-6 group-hover:shadow-2xl transition-all duration-300">
                 <img 
-                  src={item.image} 
+                  src={getIkUrl(item.image)} 
                   alt={item.name} 
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5">
-                  <span className="text-white/80 text-sm font-medium italic tracking-wide">
-                    "{item.tagline}"
-                  </span>
-                </div>
-
-                {/* ID Badge */}
-                <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                  <span className="text-[11px] font-black text-[#FD5800]">{item.id}</span>
+                {/* Overlay for text legibility at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90"></div>
+                
+                {/* Name & Role Badge Overlay */}
+                <div className="absolute bottom-6 left-6 pr-6">
+                  <h3 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase mb-3">
+                    {item.name}
+                  </h3>
+                  <div className="inline-block bg-[#D4FF00] text-black text-[10px] md:text-xs font-bold tracking-widest uppercase px-3 py-1.5 shadow-sm">
+                    {item.role}
+                  </div>
                 </div>
               </div>
 
-              {/* Name & Role */}
-              <div className="flex items-start justify-between gap-2">
-                <div>
-                  <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-1 group-hover:text-[#FD5800] transition-colors duration-300">
-                    {item.name}
-                  </h3>
-                  <p className="text-sm md:text-[15px] text-gray-500 font-medium">
-                    {item.role}
-                  </p>
-                </div>
-                <div className="w-8 h-8 rounded-full border-2 border-gray-200 flex items-center justify-center mt-1 group-hover:border-[#FD5800] group-hover:bg-[#FD5800] transition-all duration-300 shrink-0">
-                  <svg className="w-3.5 h-3.5 text-gray-400 group-hover:text-white transition-colors duration-300 -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </div>
+              {/* Bottom Description */}
+              <div className="flex flex-col">
+                <div className="w-8 h-[3px] bg-[#D4FF00] mb-5"></div>
+                <p className="text-white/90 text-sm md:text-[15px] font-medium leading-relaxed pr-4">
+                  {item.description}
+                </p>
               </div>
             </motion.div>
           ))}

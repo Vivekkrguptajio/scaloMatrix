@@ -1,0 +1,90 @@
+import React from 'react'
+import { motion } from 'framer-motion'
+import { FaPlay } from 'react-icons/fa'
+
+const videos = [
+  {
+    id: 1,
+    title: "Imagine opening a...",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop",
+  },
+  {
+    id: 2,
+    title: "What if Vineeta Singh's",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+  },
+  {
+    id: 3,
+    title: "Kusha Kapila",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+  },
+  {
+    id: 4,
+    title: "What if McDonald's started",
+    image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+  },
+  {
+    id: 5,
+    title: "Dhurandhar was already a hit",
+    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=600&auto=format&fit=crop",
+  }
+]
+
+export default function Testimonials() {
+  return (
+    <section className="w-full bg-[#FF5722] py-24 overflow-hidden relative">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+        
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-5xl md:text-7xl lg:text-[7rem] font-black text-white tracking-tighter uppercase leading-none drop-shadow-lg"
+          >
+            CREATIVITY THAT HITS.
+          </motion.h2>
+        </div>
+
+        {/* CSS for hiding scrollbar is injected inline via regular style object to avoid styled-jsx issues in pure React setups */}
+        <div 
+          className="flex gap-6 overflow-x-auto pb-10 snap-x snap-mandatory px-4 md:px-0"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {videos.map((video, index) => (
+            <motion.div 
+              key={video.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative shrink-0 w-[280px] h-[480px] md:w-[320px] md:h-[560px] rounded-[30px] overflow-hidden snap-center group cursor-pointer border-[4px] border-white/20 hover:border-white/60 transition-all duration-300 shadow-2xl"
+            >
+              <img 
+                src={video.image} 
+                alt={video.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80"></div>
+              
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                <p className="text-[#D4FF00] font-serif italic text-lg md:text-xl font-bold mb-12 drop-shadow-md absolute top-20 px-6 leading-snug">
+                  {video.title}
+                </p>
+                
+                <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-[#FF5722] transform transition-transform duration-300 group-hover:scale-110 shadow-2xl">
+                  <FaPlay size={20} className="ml-1" />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+      <style dangerouslySetInnerHTML={{__html: `
+        ::-webkit-scrollbar {
+          display: none;
+        }
+      `}} />
+    </section>
+  )
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Outfit:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
+/* Google Fonts loaded from index.html for non-blocking performance */
 @import "tailwindcss";
 
 @font-face {
@@ -260,9 +260,4 @@ img, video, iframe {
 /* Optimize images for rendering */
 img {
   image-rendering: auto;
-}
-
-/* ═══════ PERFORMANCE OPTIMIZATIONS ═══════ */
-img, video, iframe {
-  content-visibility: auto;
 }
