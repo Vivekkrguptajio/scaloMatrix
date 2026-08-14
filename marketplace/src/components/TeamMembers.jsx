@@ -33,7 +33,7 @@ const teamMembers = [
 
 export default function TeamMembers() {
   return (
-    <section id="team" className="w-full py-20 md:py-28 bg-white text-black font-sans overflow-hidden">
+    <section id="team" className="w-full py-10 md:py-12 md:py-28 bg-white text-black font-sans overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 xl:px-8 w-full">
         
         {/* Header Section */}

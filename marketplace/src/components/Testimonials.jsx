@@ -23,7 +23,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-24 bg-brand-bg relative">
+    <section id="testimonials" className="py-12 md:py-8 md:py-10 bg-brand-bg relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">

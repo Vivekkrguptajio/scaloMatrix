@@ -198,7 +198,7 @@ const servicesData = [
 
 export default function ServicesSection({ onOpenModal }) {
   return (
-    <section id="services" className="py-24 bg-[#050608] text-white relative overflow-hidden font-sans border-t border-gray-800">
+    <section id="services" className="py-12 md:py-8 md:py-10 bg-[#050608] text-white relative overflow-hidden font-sans border-t border-gray-800">
       
       {/* Background Racing Glows & Speed Lines */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-[radial-gradient(ellipse_at_top,rgba(253,88,0,0.12)_0%,transparent_70%)] pointer-events-none" />

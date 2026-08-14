@@ -65,7 +65,7 @@ export default function ClientSuccess({ onOpenModal }) {
   });
 
   return (
-    <section id="case-studies" className="py-24 bg-white text-gray-900 relative overflow-hidden">
+    <section id="case-studies" className="py-12 md:py-8 md:py-10 bg-white text-gray-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}

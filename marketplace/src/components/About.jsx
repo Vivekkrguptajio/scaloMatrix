@@ -3,7 +3,7 @@ import { Target, TrendingUp, Users, DollarSign } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-brand-bg relative overflow-hidden">
+    <section id="about" className="py-12 md:py-8 md:py-10 bg-brand-bg relative overflow-hidden">
       
       {/* Background Glow */}
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Masterclass = () => {
   return (
-    <section className="py-24 bg-brand-surface relative overflow-hidden">
+    <section className="py-12 md:py-8 md:py-10 bg-brand-surface relative overflow-hidden">
       
       {/* Glow */}
       <div className="absolute top-1/2 left-1/2 w-full max-w-3xl h-96 bg-brand-accent/10 rounded-full blur-[150px] pointer-events-none -translate-y-1/2 -translate-x-1/2"></div>

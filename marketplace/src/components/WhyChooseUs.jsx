@@ -26,7 +26,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-24 bg-brand-bg relative border-t border-brand-surface">
+    <section className="py-12 md:py-8 md:py-10 bg-brand-bg relative border-t border-brand-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">

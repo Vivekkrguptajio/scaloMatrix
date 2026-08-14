@@ -39,13 +39,15 @@ function App() {
       <ScrollToTop />
       <Navbar />
       
-      <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] pt-24">
+      <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
         <Hero />
-        <ScrollReveal><ServicesGrid /></ScrollReveal>
-        <ScrollReveal><Process /></ScrollReveal>
-        <ScrollReveal><TeamMembers /></ScrollReveal>
-        <ContactUs />
-        <ScrollReveal><ThePromise /></ScrollReveal>
+        <div className="pt-20">
+          <ScrollReveal><ServicesGrid /></ScrollReveal>
+          <ScrollReveal><Process /></ScrollReveal>
+          <ScrollReveal><TeamMembers /></ScrollReveal>
+          <ContactUs />
+          <ScrollReveal><ThePromise /></ScrollReveal>
+        </div>
       </main>
 
       <Contact reveal={true} />

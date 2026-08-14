@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function AboutPrachi({ onOpenModal }) {
   return (
-    <section id="about" className="py-24 bg-[#F8FAFC] text-gray-900 relative overflow-hidden">
+    <section id="about" className="py-12 md:py-8 md:py-10 bg-[#F8FAFC] text-gray-900 relative overflow-hidden">
       {/* Subtle Glow */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-[140px] pointer-events-none" />
 
