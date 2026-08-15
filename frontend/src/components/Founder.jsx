@@ -21,8 +21,8 @@ export default function Founder() {
           >
             <div className="relative aspect-[3/4] w-full max-w-[400px] mx-auto lg:mx-0 rounded-[1.75rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
               <img 
-                src="/image.png" 
-                alt="Founder" 
+                src="/team/adi.png" 
+                alt="Adi - Founder" 
                 loading="lazy"
                 className="w-full h-full object-cover"
               />
@@ -33,8 +33,8 @@ export default function Founder() {
                   "We don't just build software. We architect unfair advantages."
                 </p>
                 <div>
-                  <h4 className="font-bold text-[#FD5800] uppercase tracking-widest text-xs">John Doe</h4>
-                  <p className="text-gray-400 text-xs font-medium">Founder & CEO, scaloMATRIX</p>
+                  <h4 className="font-bold text-[#FD5800] uppercase tracking-widest text-xs">Adi</h4>
+                  <p className="text-gray-400 text-xs font-medium">Founder & Lead Strategist, scaloMATRIX</p>
                 </div>
               </div>
             </div>
