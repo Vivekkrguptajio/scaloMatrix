@@ -51,7 +51,7 @@ html {
 body {
   font-family: var(--font-sans);
   color: #101828;
-  background: #fff;
+  background: #0a0a0a;
   overflow-x: hidden;
 }
 

@@ -1,5 +1,8 @@
+import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
+
 import CustomCursor from './components/CustomCursor';
 import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -14,9 +17,7 @@ const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
 const GenericPage = lazy(() => import('./pages/GenericPage'));
 const Login = lazy(() => import('./pages/Login'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
-import { useEffect } from 'react';
-import Lenis from 'lenis';
-import 'lenis/dist/lenis.css';
+const Career = lazy(() => import('./pages/Career'));
 
 function App() {
   useEffect(() => {
@@ -48,6 +49,7 @@ function App() {
       <Suspense fallback={<div className="min-h-screen w-full bg-white flex items-center justify-center"><div className="w-8 h-8 border-4 border-[#FD5800] border-t-transparent rounded-full animate-spin"></div></div>}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/career" element={<Career />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/about/:slug" element={<GenericPage />} />
           <Route path="/resources/:slug" element={<GenericPage />} />

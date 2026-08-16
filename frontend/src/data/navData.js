@@ -3,7 +3,7 @@ export const navLinks = [
   { name: 'Solutions', href: '#', hasDropdown: true },
   { name: 'About', href: '/about', hasDropdown: true },
   { name: 'Resources', href: '#', hasDropdown: true },
-  { name: 'Careers', href: '#' },
+  { name: 'Careers', href: '/career' },
 ];
 
 export const megaMenuData = {
