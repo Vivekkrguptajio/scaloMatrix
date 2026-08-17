@@ -32,7 +32,7 @@ const videos = [
 
 export default function Testimonials() {
   return (
-    <section className="w-full bg-[#FF5722] py-24 overflow-hidden relative">
+    <section className="w-full bg-[#111] py-24 overflow-hidden relative border-t border-white/5">
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         
         <div className="text-center mb-16">
@@ -42,7 +42,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
             className="text-5xl md:text-7xl lg:text-[7rem] font-black text-white tracking-tighter uppercase leading-none drop-shadow-lg"
           >
-            CREATIVITY THAT HITS.
+            CREATIVITY THAT <span className="text-[#FD5800] drop-shadow-[0_0_20px_rgba(253,88,0,0.4)]">HITS.</span>
           </motion.h2>
         </div>
 
@@ -58,21 +58,21 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative shrink-0 w-[280px] h-[480px] md:w-[320px] md:h-[560px] rounded-[30px] overflow-hidden snap-center group cursor-pointer border-[4px] border-white/20 hover:border-white/60 transition-all duration-300 shadow-2xl"
+              className="relative shrink-0 w-[280px] h-[480px] md:w-[320px] md:h-[560px] rounded-[30px] overflow-hidden snap-center group cursor-pointer border border-white/10 hover:border-[#FD5800]/60 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(253,88,0,0.2)]"
             >
               <img 
                 src={video.image} 
                 alt={video.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/80 via-transparent to-[#0A0A0A]/90"></div>
               
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                <p className="text-[#D4FF00] font-serif italic text-lg md:text-xl font-bold mb-12 drop-shadow-md absolute top-20 px-6 leading-snug">
+                <p className="text-white font-serif italic text-lg md:text-xl font-bold mb-12 drop-shadow-md absolute top-20 px-6 leading-snug group-hover:text-[#FD5800] transition-colors">
                   {video.title}
                 </p>
                 
-                <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-[#FF5722] transform transition-transform duration-300 group-hover:scale-110 shadow-2xl">
+                <div className="w-16 h-16 rounded-full bg-[#FD5800] backdrop-blur-sm flex items-center justify-center text-white transform transition-transform duration-300 group-hover:scale-110 shadow-[0_0_20px_rgba(253,88,0,0.5)]">
                   <FaPlay size={20} className="ml-1" />
                 </div>
               </div>

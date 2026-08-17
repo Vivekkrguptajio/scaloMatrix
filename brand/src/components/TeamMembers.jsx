@@ -34,27 +34,27 @@ const teamMembers = [
 
 export default function TeamMembers() {
   return (
-    <section id="team" className="w-full py-24 bg-[#5D42F5] text-white font-sans overflow-hidden">
+    <section id="team" className="w-full py-24 bg-[#0A0A0A] text-white font-sans overflow-hidden border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
         
         {/* Header Section */}
-        <div className="w-full mb-20">
+        <div className="w-full mb-20 text-center md:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex flex-col"
+            className="flex flex-col md:flex-row md:items-end justify-between gap-8"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tight leading-[1.1] mb-8 uppercase">
+            <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tight leading-[1.1] uppercase">
               We don't hand over decks.<br/>
-              We build <span className="text-[#D4FF00]">Direction.</span>
+              We build <span className="text-[#FD5800] drop-shadow-[0_0_20px_rgba(253,88,0,0.4)]">Direction.</span>
             </h2>
-            <div className="max-w-2xl space-y-5">
-              <p className="text-white/90 font-medium text-base md:text-lg leading-relaxed">
+            <div className="max-w-xl space-y-5 text-left md:text-right">
+              <p className="text-gray-400 font-medium text-base md:text-lg leading-relaxed">
                 We partner with brands beyond strategy: bringing clarity, guiding teams, and staying close enough to ensure every idea is implemented as intended.
               </p>
-              <p className="text-white/90 font-medium text-base md:text-lg leading-relaxed">
+              <p className="text-gray-400 font-medium text-base md:text-lg leading-relaxed">
                 We're not your agency. And we're not just consultants. We're your fractional CMO, helping your team turn good ideas into meaningful progress.
               </p>
             </div>
@@ -73,22 +73,22 @@ export default function TeamMembers() {
               className="flex flex-col group"
             >
               {/* Image Container */}
-              <div className="w-full aspect-[4/5] relative overflow-hidden mb-6 group-hover:shadow-2xl transition-all duration-300">
+              <div className="w-full aspect-[4/5] relative overflow-hidden mb-6 rounded-[24px] border border-white/5 group-hover:border-[#FD5800]/50 transition-all duration-500 shadow-lg group-hover:shadow-[0_20px_40px_rgba(253,88,0,0.1)]">
                 <img 
                   src={getIkUrl(item.image)} 
                   alt={item.name} 
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0"
                 />
                 
                 {/* Overlay for text legibility at bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500"></div>
                 
                 {/* Name & Role Badge Overlay */}
                 <div className="absolute bottom-6 left-6 pr-6">
-                  <h3 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase mb-3">
+                  <h3 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase mb-3 drop-shadow-md">
                     {item.name}
                   </h3>
-                  <div className="inline-block bg-[#D4FF00] text-black text-[10px] md:text-xs font-bold tracking-widest uppercase px-3 py-1.5 shadow-sm">
+                  <div className="inline-block bg-[#FD5800] text-white text-[10px] md:text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-full shadow-[0_0_15px_rgba(253,88,0,0.5)]">
                     {item.role}
                   </div>
                 </div>
@@ -96,8 +96,8 @@ export default function TeamMembers() {
 
               {/* Bottom Description */}
               <div className="flex flex-col">
-                <div className="w-8 h-[3px] bg-[#D4FF00] mb-5"></div>
-                <p className="text-white/90 text-sm md:text-[15px] font-medium leading-relaxed pr-4">
+                <div className="w-8 h-[3px] bg-[#FD5800] mb-5 group-hover:w-16 transition-all duration-300"></div>
+                <p className="text-gray-400 text-sm md:text-[15px] font-medium leading-relaxed pr-4 group-hover:text-gray-300 transition-colors">
                   {item.description}
                 </p>
               </div>

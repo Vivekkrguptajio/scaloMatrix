@@ -50,14 +50,7 @@ const BrandCard = ({ brand }) => (
 const TrustStrip = memo(function TrustStrip() {
   return (
     <section className="w-full bg-[#F8FAFC] py-8 md:py-10 border-y border-gray-200 text-gray-900 overflow-hidden relative">
-      <div className="container mx-auto px-4 sm:px-6 mb-8 text-center">
-        <span className="font-handwriting text-2xl text-[#FD5800] block mb-1 font-bold">
-          Trusted by 100+ Market Leaders ✦
-        </span>
-        <h2 className="text-2xl sm:text-3xl font-black text-gray-900 uppercase tracking-tight">
-          Brands That Trust Our Amazon PPC Framework
-        </h2>
-      </div>
+
 
       <div className="flex flex-col gap-4 relative">
         {/* Top Marquee Row */}

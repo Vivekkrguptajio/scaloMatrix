@@ -20,8 +20,8 @@ const ClientLogos = memo(function ClientLogos() {
 
         <div className="animate-marquee flex whitespace-nowrap py-4 items-center gap-10 sm:gap-16 md:gap-24 px-8">
           {[...topRowBrands, ...topRowBrands, ...topRowBrands].map((brand, index) => (
-            <div key={index} className="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity duration-300">
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-gray-900 uppercase tracking-tighter">
+            <div key={index} className="flex-shrink-0 opacity-50 hover:opacity-100 transition-all duration-300 group/brand cursor-pointer">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-gray-900 group-hover/brand:text-[#FD5800] uppercase tracking-tighter transition-colors duration-300">
                 {brand}
               </h2>
             </div>
@@ -36,8 +36,8 @@ const ClientLogos = memo(function ClientLogos() {
 
         <div className="animate-marquee-reverse flex whitespace-nowrap py-4 items-center gap-10 sm:gap-16 md:gap-24 px-8">
           {[...bottomRowBrands, ...bottomRowBrands, ...bottomRowBrands].map((brand, index) => (
-            <div key={index} className="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity duration-300">
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-gray-900 uppercase tracking-tighter">
+            <div key={index} className="flex-shrink-0 opacity-50 hover:opacity-100 transition-all duration-300 group/brand cursor-pointer">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-gray-900 group-hover/brand:text-[#FD5800] uppercase tracking-tighter transition-colors duration-300">
                 {brand}
               </h2>
             </div>
