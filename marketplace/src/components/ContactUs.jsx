@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-
-
 export default function ContactUs() {
   const [formData, setFormData] = useState({
     name: '',
@@ -18,10 +16,9 @@ export default function ContactUs() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted", formData);
-    // Add real submission logic here
   };
 
-  const inputClasses = "w-full bg-black/5 border-b-2 border-transparent px-5 py-4 md:py-5 text-black placeholder:text-gray-500 focus:outline-none focus:border-[#FD5800] focus:bg-black/[0.02] transition-colors font-medium rounded-t-xl";
+  const inputClasses = "w-full bg-black/5 border-b-2 border-transparent px-5 py-4 md:py-5 text-black placeholder:text-gray-600 focus:outline-none focus:border-[#FD5800] focus:bg-black/[0.02] transition-colors font-medium rounded-t-xl";
 
   return (
     <section className="relative w-full py-8 md:py-12 lg:py-14 bg-white font-sans overflow-hidden">
@@ -51,7 +48,7 @@ export default function ContactUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-gray-500 font-medium text-lg max-w-md leading-relaxed"
+                className="text-gray-900 font-normal text-lg max-w-md leading-relaxed"
               >
                 Whether you have a specific project in mind or just want to explore possibilities, we'd love to hear from you.
               </motion.p>
@@ -72,7 +69,7 @@ export default function ContactUs() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400 font-semibold uppercase tracking-widest mb-1">Email Us</p>
+                  <p className="text-sm text-gray-700 font-bold uppercase tracking-widest mb-1">Email Us</p>
                   <a href="mailto:hello@scalo.com" className="text-lg font-bold text-black hover:text-[#FD5800] transition-colors">hello@scalo.com</a>
                 </div>
               </div>
@@ -85,7 +82,7 @@ export default function ContactUs() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400 font-semibold uppercase tracking-widest mb-1">Call Us</p>
+                  <p className="text-sm text-gray-700 font-bold uppercase tracking-widest mb-1">Call Us</p>
                   <a href="tel:+919876543210" className="text-lg font-bold text-black hover:text-[#FD5800] transition-colors">+91 987 654 3210</a>
                 </div>
               </div>
@@ -141,7 +138,7 @@ export default function ContactUs() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className={`${inputClasses} appearance-none cursor-pointer ${!formData.service ? 'text-gray-500' : 'text-black'}`}
+                  className={`${inputClasses} appearance-none cursor-pointer ${!formData.service ? 'text-gray-600' : 'text-black'}`}
                   required
                 >
                   <option value="" disabled>What are you looking for?</option>
@@ -152,7 +149,7 @@ export default function ContactUs() {
                   <option value="Other">Other / General Inquiry</option>
                 </select>
                 {/* Custom chevron for select */}
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-700">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>

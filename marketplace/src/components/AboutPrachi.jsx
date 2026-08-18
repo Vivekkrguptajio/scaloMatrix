@@ -2,115 +2,67 @@ import React from 'react';
 
 export default function AboutPrachi({ onOpenModal }) {
   return (
-    <section id="about" className="py-12 md:py-8 md:py-10 bg-[#F8FAFC] text-gray-900 relative overflow-hidden">
-      {/* Subtle Glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section id="about" className="py-24 bg-white text-gray-900 border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
-          {/* Left Visual Card */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden border border-gray-200 bg-white p-8 shadow-xl">
-              
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#FD5800] via-orange-500 to-amber-500 p-1 shadow-lg shadow-[#FD5800]/20">
-                  <div className="w-full h-full bg-white rounded-xl flex items-center justify-center font-black text-2xl text-[#FD5800]">
-                    SM
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black text-gray-900">
-                    <span className="text-[#FD5800]">scalo</span>MATRIX
-                  </h3>
-                  <p className="text-sm font-semibold text-[#FD5800]">Amazon PPC Principal Agency</p>
-                  <p className="text-xs text-gray-500 mt-0.5">10+ Years Managing Amazon Ad Funnels</p>
-                </div>
-              </div>
-
-              <div className="space-y-3 mb-6 text-xs text-gray-700">
-                <div className="flex items-center justify-between py-2 border-b border-gray-200">
-                  <span>Certified Marketplaces:</span>
-                  <span className="text-gray-900 font-bold">US, UK, IN, EU, CA</span>
-                </div>
-                <div className="flex items-center justify-between py-2 border-b border-gray-200">
-                  <span>Specialization:</span>
-                  <span className="text-[#FD5800] font-bold">PPC Architecture & TACOS Reduction</span>
-                </div>
-                <div className="flex items-center justify-between py-2">
-                  <span>Execution Style:</span>
-                  <span className="text-emerald-600 font-bold">100% Data-Driven (No Guesswork)</span>
-                </div>
-              </div>
-
-              <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4 text-center">
-                <p className="text-xs font-bold text-gray-800">
-                  "Advertising is not about spending more — it's about eliminating waste and commanding premium rank."
-                </p>
-              </div>
+          {/* Left Column: Bold Editorial Statement */}
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-50 text-gray-900 text-xs font-bold tracking-[0.2em] uppercase rounded border border-gray-200">
+              The Agency Difference
             </div>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 leading-[1.1]">
+              We build <span className="font-semibold text-[#FD5800]">Amazon engines</span> that actually scale.
+            </h2>
+            
+            <div className="w-20 h-1 bg-[#FD5800]" />
+            
+            <p className="text-xl text-gray-900 font-normal leading-relaxed">
+              No guesswork. No vanity metrics. Just <span className="text-[#FD5800] font-semibold">rigorous data analysis</span>, strategic bid optimization, and an obsession with lowering your ACoS while driving top-line revenue.
+            </p>
           </div>
 
-          {/* Right Text Content */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FD5800]/30 bg-orange-500/10 text-[#FD5800] font-bold text-xs uppercase tracking-wider">
-              WHO WE ARE, REALLY?
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight">
-              <span className="text-[#FD5800]">scalo</span>MATRIX — <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-amber-500">
-                Trusted Amazon Advertising Agency
-              </span>
-            </h2>
-
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed font-normal">
-              Over the last 10+ years, our team has helped Amazon sellers across the US, UK, and India scale their stores with strategic advertising that’s backed by data — not guesswork. From first-time sellers to 7-figure brands, our senior strategists work directly with clients to improve ROI, rank better, and sell smarter.
+          {/* Right Column: Details & Metrics */}
+          <div className="bg-gray-50/50 rounded-[2rem] p-8 sm:p-12 border border-gray-200 shadow-sm">
+            <h3 className="text-2xl font-semibold mb-6 text-gray-900 tracking-tight">
+              scalo<span className="font-light">MATRIX</span>
+            </h3>
+            
+            <p className="text-gray-900 leading-relaxed mb-10 font-normal">
+              For over a decade, we have been the silent growth partners behind 7-figure Amazon brands across the US, UK, and India. Our senior team doesn't just manage ads; we architect full-funnel scaling strategies that dominate market share.
             </p>
 
-            {/* 4 Stat Counters Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-              <div className="bg-white border border-gray-200 rounded-2xl p-4 text-center shadow-sm">
-                <span className="text-3xl font-black text-[#FD5800] block font-mono">100+</span>
-                <span className="text-xs text-gray-500 font-semibold mt-1 block uppercase tracking-wider">
-                  Stores Optimized
-                </span>
+            {/* Clean Metrics Grid */}
+            <div className="grid grid-cols-2 gap-8 mb-10">
+              <div>
+                <div className="text-4xl font-bold text-gray-900 mb-1">$10M+</div>
+                <div className="text-xs font-bold text-gray-700 uppercase tracking-widest">Ad Spend Managed</div>
               </div>
-
-              <div className="bg-white border border-gray-200 rounded-2xl p-4 text-center shadow-sm">
-                <span className="text-3xl font-black text-emerald-600 block font-mono">$10M+</span>
-                <span className="text-xs text-gray-500 font-semibold mt-1 block uppercase tracking-wider">
-                  Ad Spend Managed
-                </span>
+              <div>
+                <div className="text-4xl font-bold text-gray-900 mb-1">100+</div>
+                <div className="text-xs font-bold text-gray-700 uppercase tracking-widest">Brands Scaled</div>
               </div>
-
-              <div className="bg-white border border-gray-200 rounded-2xl p-4 text-center shadow-sm">
-                <span className="text-3xl font-black text-[#FD5800] block font-mono">5+</span>
-                <span className="text-xs text-gray-500 font-semibold mt-1 block uppercase tracking-wider">
-                  Countries Client Base
-                </span>
+              <div>
+                <div className="text-4xl font-bold text-gray-900 mb-1">10<span className="text-[#FD5800] text-3xl">yr</span></div>
+                <div className="text-xs font-bold text-gray-700 uppercase tracking-widest">Platform Expertise</div>
               </div>
-
-              <div className="bg-white border border-gray-200 rounded-2xl p-4 text-center shadow-sm">
-                <span className="text-3xl font-black text-emerald-600 block font-mono">95%</span>
-                <span className="text-xs text-gray-500 font-semibold mt-1 block uppercase tracking-wider">
-                  Client Retention
-                </span>
+              <div>
+                <div className="text-4xl font-bold text-gray-900 mb-1">95%</div>
+                <div className="text-xs font-bold text-gray-700 uppercase tracking-widest">Client Retention</div>
               </div>
             </div>
 
-            <div className="pt-4">
-              <button
-                onClick={() => onOpenModal('strategy')}
-                className="px-8 py-4 rounded-full bg-[#FD5800] hover:bg-orange-600 text-white font-bold text-base shadow-lg shadow-[#FD5800]/25 transition-all inline-flex items-center gap-2"
-              >
-                <span>Work With Our Senior PPC Team</span>
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </button>
-            </div>
-
+            <button
+              onClick={() => onOpenModal('strategy')}
+              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gray-900 text-white rounded-xl font-semibold text-sm hover:bg-[#FD5800] transition-colors duration-300 w-full sm:w-auto justify-center"
+            >
+              <span>Work With Our Senior Team</span>
+              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
           </div>
 
         </div>

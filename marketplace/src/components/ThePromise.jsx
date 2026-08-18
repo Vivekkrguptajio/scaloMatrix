@@ -1,4 +1,3 @@
-
 export default function ThePromise() {
   return (
     <section className="w-full bg-white text-black py-8 md:py-12 lg:py-14 font-sans flex flex-col items-center justify-center px-6 text-center rounded-b-[40px] md:rounded-b-[60px]">
@@ -8,13 +7,13 @@ export default function ThePromise() {
         </h4>
         
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-8 leading-[1.1]">
-          Pages that earn their keep<br className="hidden md:block" />
+          Pages that <span className="text-[#FD5800]">earn their keep</span><br className="hidden md:block" />
           <span className="opacity-90">— or we keep working.</span>
         </h2>
         
-        <p className="text-gray-600 text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+        <p className="text-gray-900 text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-normal">
           We build every page to beat your current one by at least
-          20%. If it doesn't, we don't disappear — we keep iterating.
+          <span className="text-[#FD5800] font-semibold"> 20%</span>. If it doesn't, we don't disappear — we keep iterating.
           That's the deal, in writing.
         </p>
         
@@ -26,7 +25,7 @@ export default function ThePromise() {
           <span className="group-hover:translate-x-1 transition-transform">→</span>
         </a>
         
-        <p className="text-gray-500 text-[10px] md:text-xs mt-8 tracking-wider uppercase font-medium">
+        <p className="text-gray-800 text-[10px] md:text-xs mt-8 tracking-wider uppercase font-semibold">
           Reply within 24 hours · free teardown if it's a fit · no pitch on call one
         </p>
       </div>

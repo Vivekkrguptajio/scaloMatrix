@@ -1,34 +1,27 @@
 import React, { useState } from 'react';
 
-// Exact SVGs matching the provided image style
-const LogoGoldline = () => (
-  <div className="flex items-center gap-3 text-gray-300">
-    <svg width="42" height="42" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="18" stroke="currentColor" strokeWidth="2.5" />
-      <path d="M14 14V26M20 10V30M26 16V24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+// Exact brand logos from Shopify
+const LogoBoldCare = () => (
+  <div className="flex items-center gap-3 text-gray-200">
+    <svg width="32" height="38" viewBox="0 0 24 24" fill="none" stroke="#FD5800" strokeWidth="2.5">
+      <path d="M6 4h8a4 4 0 010 8H6V4z" />
+      <path d="M6 12h9a4 4 0 010 8H6v-8z" />
     </svg>
-    <span className="text-[34px] font-semibold tracking-tight text-[#d4d4d8]">goldline</span>
+    <span className="text-[28px] font-bold tracking-tight text-white">Bold Care</span>
   </div>
 );
 
-const LogoAven = () => (
-  <div className="flex items-center gap-3 text-gray-300">
-    <svg width="48" height="48" viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 6C20 6 13 14 13 22C13 26 16 29 20 29C24 29 27 26 27 22C27 14 20 6 20 6Z" />
-      <path d="M11 25C11 25 5 21 5 15C5 11 8 8 12 8C16 8 20 14 20 14" fill="currentColor" opacity="0.6"/>
-      <path d="M29 25C29 25 35 21 35 15C35 11 32 8 28 8C24 8 20 14 20 14" fill="currentColor" opacity="0.6"/>
-    </svg>
-    <span className="text-[34px] font-semibold tracking-tighter text-[#d4d4d8]">aven.</span>
+const LogoGoodMonk = () => (
+  <div className="flex flex-col items-center justify-center text-center">
+    <span className="text-[26px] font-black tracking-tight text-[#FD5800] leading-none uppercase">GOOD</span>
+    <span className="text-[26px] font-black tracking-tight text-white leading-none uppercase">MONK</span>
   </div>
 );
 
-const LogoKanba = () => (
-  <div className="flex items-center gap-3 text-gray-400">
-    <svg width="42" height="42" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 28C8.68629 28 6 25.3137 6 22C6 18.6863 8.68629 16 12 16C15.3137 16 24.6863 28 28 28C31.3137 28 34 25.3137 34 22C34 18.6863 31.3137 16 28 16C24.6863 16 15.3137 28 12 28Z" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M20 22L16 16" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-    <span className="text-[34px] font-sans font-semibold tracking-tight text-[#d4d4d8]">kanba</span>
+const LogoTheGoodBug = () => (
+  <div className="flex flex-col items-center justify-center">
+    <span className="text-[28px] font-black tracking-tight text-white">TheGoodBug</span>
+    <span className="text-[9px] font-bold uppercase tracking-widest text-[#FD5800] mt-0.5">Daily Probiotics</span>
   </div>
 );
 
@@ -133,51 +126,51 @@ export default function TestimonialsSection() {
             {/* Column A: Testimonial Tall, Logo Short */}
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[0]} />
-              <LogoCard><LogoAven /></LogoCard>
+              <LogoCard><LogoBoldCare /></LogoCard>
             </div>
 
             {/* Column B: Logo Short, Testimonial Tall */}
             <div className="flex flex-col gap-6">
-              <LogoCard><LogoGoldline /></LogoCard>
+              <LogoCard><LogoGoodMonk /></LogoCard>
               <TestimonialCard item={testimonialsData[2]} />
             </div>
 
             {/* Column C: Testimonial Tall, Logo Short */}
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[1]} />
-              <LogoCard><LogoKanba /></LogoCard>
+              <LogoCard><LogoTheGoodBug /></LogoCard>
             </div>
 
             {/* Set 2 (Duplicate for infinite loop) */}
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[0]} />
-              <LogoCard><LogoAven /></LogoCard>
+              <LogoCard><LogoBoldCare /></LogoCard>
             </div>
 
             <div className="flex flex-col gap-6">
-              <LogoCard><LogoGoldline /></LogoCard>
+              <LogoCard><LogoGoodMonk /></LogoCard>
               <TestimonialCard item={testimonialsData[2]} />
             </div>
 
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[1]} />
-              <LogoCard><LogoKanba /></LogoCard>
+              <LogoCard><LogoTheGoodBug /></LogoCard>
             </div>
             
             {/* Set 3 (Duplicate to ensure smooth scrolling on wide screens) */}
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[0]} />
-              <LogoCard><LogoAven /></LogoCard>
+              <LogoCard><LogoBoldCare /></LogoCard>
             </div>
 
             <div className="flex flex-col gap-6">
-              <LogoCard><LogoGoldline /></LogoCard>
+              <LogoCard><LogoGoodMonk /></LogoCard>
               <TestimonialCard item={testimonialsData[2]} />
             </div>
 
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[1]} />
-              <LogoCard><LogoKanba /></LogoCard>
+              <LogoCard><LogoTheGoodBug /></LogoCard>
             </div>
 
           </div>

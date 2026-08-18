@@ -8,7 +8,7 @@ const cardData = [
     metric: '15+ Experts',
     desc: 'Specialized account strategists, ad analysts & reporting experts for fast-growing brands.',
     btnText: 'Explore Team',
-    bg: 'bg-gradient-to-br from-[#3B82F6] via-[#2563EB] to-[#1D4ED8]', // Vibrant Electric Blue
+    bg: 'bg-black',
     badge: 'Unified Support'
   },
   {
@@ -17,7 +17,7 @@ const cardData = [
     metric: '3 Markets',
     desc: 'Proven ad funnels and scaling strategies across US, UK & India marketplaces.',
     btnText: 'View Regions',
-    bg: 'bg-gradient-to-br from-[#10B981] via-[#059669] to-[#047857]', // Vibrant Emerald Green
+    bg: 'bg-black',
     badge: 'Cross-Border'
   },
   {
@@ -26,7 +26,7 @@ const cardData = [
     metric: '0% Guesswork',
     desc: 'Precision bid optimization, search term waste elimination, and transparent weekly ROI.',
     btnText: 'See Analytics',
-    bg: 'bg-gradient-to-br from-[#8B5CF6] via-[#7C3AED] to-[#6D28D9]', // Vibrant Electric Purple
+    bg: 'bg-black',
     badge: 'ROAS Focus'
   },
   {
@@ -35,7 +35,7 @@ const cardData = [
     metric: '10+ Years',
     desc: 'Led by senior Amazon advertising specialists trusted by over 100+ global sellers.',
     btnText: 'Book Strategy',
-    bg: 'bg-gradient-to-br from-[#FF5722] via-[#FD5800] to-[#C2410C]', // Vibrant Signature Orange
+    bg: 'bg-black',
     badge: 'Senior Led'
   }
 ];
@@ -46,21 +46,18 @@ export default function WhyChoosePrachi({ onOpenModal }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <span className="font-handwriting text-2xl text-[#FD5800] -rotate-2 font-bold block">
-            Built for Speed, Scale & ROAS 🏆
-          </span>
-
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FD5800]/30 bg-orange-500/10 text-[#FD5800] font-bold text-xs uppercase tracking-wider">
+        <div className="max-w-3xl mx-auto text-center mb-20 space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-50 text-gray-900 text-xs font-bold tracking-[0.2em] uppercase rounded border border-gray-200">
             Agency Difference
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight uppercase leading-tight">
-            Why Amazon Sellers Choose <span className="text-[#FD5800]">scalo</span>MATRIX
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight leading-[1.1]">
+            Why Amazon Sellers Choose <br />
+            <span className="font-semibold">scalo<span className="text-[#FD5800]">MATRIX</span></span>
           </h2>
 
-          <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            We’re not freelancers or outsourced consultants. We’re a full-service Amazon advertising agency built for scale, speed, and results.
+          <p className="text-lg text-gray-900 font-normal max-w-2xl mx-auto leading-relaxed">
+            We aren't freelancers or outsourced consultants. We're a specialized Amazon advertising engine built strictly for <span className="text-[#FD5800] font-semibold">scale and profitability</span>.
           </p>
         </div>
 
@@ -74,8 +71,8 @@ export default function WhyChoosePrachi({ onOpenModal }) {
               className={`${item.bg} rounded-[32px] p-8 sm:p-9 text-white relative overflow-hidden shadow-2xl border-2 border-white/20 flex flex-col justify-between min-h-[460px] group`}
             >
               {/* Rotating Fan / Propeller Geometric Watermark Element */}
-              <div className="absolute -top-12 -right-12 pointer-events-none select-none opacity-20 group-hover:opacity-30 transition-opacity">
-                <svg className="w-64 h-64 text-black animate-[spin_15s_linear_infinite]" viewBox="0 0 100 100" fill="currentColor">
+              <div className="absolute -top-12 -right-12 pointer-events-none select-none opacity-40 group-hover:opacity-60 transition-opacity">
+                <svg className="w-64 h-64 text-[#FD5800] animate-[spin_15s_linear_infinite]" viewBox="0 0 100 100" fill="currentColor">
                   {/* Rotating Fan Blades */}
                   <path d="M50 50 L50 5 L62 25 Z" />
                   <path d="M50 50 L95 50 L75 62 Z" />
@@ -90,8 +87,8 @@ export default function WhyChoosePrachi({ onOpenModal }) {
               </div>
 
               {/* Bottom Secondary Rotating Fan Accent */}
-              <div className="absolute -bottom-16 -left-16 pointer-events-none select-none opacity-15">
-                <svg className="w-56 h-56 text-black animate-[spin_25s_linear_infinite_reverse]" viewBox="0 0 100 100" fill="currentColor">
+              <div className="absolute -bottom-16 -left-16 pointer-events-none select-none opacity-30 group-hover:opacity-50 transition-opacity">
+                <svg className="w-56 h-56 text-[#FD5800] animate-[spin_25s_linear_infinite_reverse]" viewBox="0 0 100 100" fill="currentColor">
                   <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" />
                 </svg>
               </div>
@@ -99,7 +96,7 @@ export default function WhyChoosePrachi({ onOpenModal }) {
               {/* Card Content Top */}
               <div className="relative z-10">
                 {/* Category Header */}
-                <h3 className="text-4xl sm:text-5xl font-black tracking-tight text-white lowercase mb-6">
+                <h3 className="text-4xl sm:text-5xl font-black tracking-tight text-[#FD5800] lowercase mb-6">
                   {item.category}
                 </h3>
 
@@ -136,17 +133,25 @@ export default function WhyChoosePrachi({ onOpenModal }) {
           ))}
         </div>
 
-        {/* Action Banner Strip */}
-        <div className="mt-16 bg-gradient-to-r from-orange-500/10 via-amber-500/5 to-transparent border border-orange-500/30 rounded-3xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
-          <div>
-            <h4 className="text-2xl font-black text-gray-900">Ready to stop burning ad budget?</h4>
-            <p className="text-gray-600 text-sm mt-1 font-medium">Get a comprehensive account audit & customized growth plan within 24 hours.</p>
+        {/* Action Banner Strip - Premium Redesign */}
+        <div className="mt-20 bg-gray-50 border border-gray-200 rounded-[2rem] p-10 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm relative overflow-hidden">
+          {/* Subtle background glow */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#FD5800]/5 blur-[80px] pointer-events-none rounded-full" />
+          
+          <div className="relative z-10 text-center md:text-left">
+            <h4 className="text-3xl font-light text-gray-900 tracking-tight mb-2">
+              Ready to stop <span className="font-semibold text-[#FD5800]">burning</span> ad budget?
+            </h4>
+            <p className="text-gray-900 text-base font-normal">
+              Get a comprehensive account audit & customized growth plan within 24 hours.
+            </p>
           </div>
+          
           <motion.button
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => onOpenModal('audit')}
-            className="whitespace-nowrap px-8 py-4 rounded-full bg-[#FD5800] hover:bg-orange-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-[#FD5800]/25 transition-all"
+            className="relative z-10 whitespace-nowrap px-8 py-4 rounded-xl bg-[#FD5800] hover:bg-orange-600 text-white font-semibold text-sm transition-all shadow-md"
           >
             Claim Free Account Audit
           </motion.button>

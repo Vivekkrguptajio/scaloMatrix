@@ -8,7 +8,6 @@ import WhyChoosePrachi from './components/WhyChoosePrachi';
 import ServicesSection from './components/ServicesSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import MasterclassSection from './components/MasterclassSection';
-import ContactSection from './components/ContactSection';
 import ContactUs from './components/ContactUs';
 import ThePromise from './components/ThePromise';
 import Contact from './components/Contact';
@@ -55,7 +54,7 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#0a0a0a] font-sans text-gray-900 overflow-x-clip">
+    <div className="relative min-h-screen bg-white font-sans text-gray-900 overflow-x-clip">
       <CustomCursor />
       <ScrollToTop />
       
@@ -72,7 +71,6 @@ function App() {
         <ServicesSection onOpenModal={handleOpenModal} />
         <TestimonialsSection onOpenModal={handleOpenModal} />
         <MasterclassSection onOpenModal={handleOpenModal} />
-        <ContactSection />
         <ContactUs />
         <ScrollReveal><ThePromise /></ScrollReveal>
       </main>
