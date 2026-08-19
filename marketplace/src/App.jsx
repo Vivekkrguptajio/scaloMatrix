@@ -6,8 +6,10 @@ import ClientSuccess from './components/ClientSuccess';
 import AboutPrachi from './components/AboutPrachi';
 import WhyChoosePrachi from './components/WhyChoosePrachi';
 import ServicesSection from './components/ServicesSection';
+import PpcRoadmap from './components/PpcRoadmap';
 import TestimonialsSection from './components/TestimonialsSection';
 import MasterclassSection from './components/MasterclassSection';
+import MarketplaceFaq from './components/MarketplaceFaq';
 import ContactUs from './components/ContactUs';
 import ThePromise from './components/ThePromise';
 import Contact from './components/Contact';
@@ -69,8 +71,10 @@ function App() {
         <AboutPrachi onOpenModal={handleOpenModal} />
         <WhyChoosePrachi onOpenModal={handleOpenModal} />
         <ServicesSection onOpenModal={handleOpenModal} />
+        <PpcRoadmap onOpenModal={handleOpenModal} />
         <TestimonialsSection onOpenModal={handleOpenModal} />
         <MasterclassSection onOpenModal={handleOpenModal} />
+        <MarketplaceFaq onOpenModal={handleOpenModal} />
         <ContactUs />
         <ScrollReveal><ThePromise /></ScrollReveal>
       </main>

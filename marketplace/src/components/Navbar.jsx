@@ -10,13 +10,13 @@ export default function Navbar({ onOpenModal }) {
 
   const navLinks = [
     { name: 'Home', href: '#hero' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Ad Management', href: '#services' },
-    { name: 'Masterclass', href: '#masterclass' },
-    { name: 'Brand Audit', href: '#audit' },
     { name: 'Case Studies', href: '#case-studies' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: 'About', href: '#about' },
+    { name: 'Growth Lanes', href: '#services' },
+    { name: 'Blueprint', href: '#roadmap' },
+    { name: 'Masterclass', href: '#masterclass' },
+    { name: 'FAQ', href: '#faq' },
+    { name: 'Contact', href: '#contact' },
   ]
 
   // Prevent background body scroll when mobile menu is open
