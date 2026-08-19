@@ -33,8 +33,8 @@ const teamMembers = [
 
 export default function TeamMembers() {
   return (
-    <section id="team" className="w-full py-20 md:py-28 bg-white text-black font-sans overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 xl:px-8 w-full">
+    <section id="team" className="relative w-full py-20 md:py-28 bg-white text-black font-sans">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 xl:px-8 w-full relative z-10">
         
         {/* Header Section */}
         <div className="w-full mb-14 md:mb-20">
@@ -72,7 +72,7 @@ export default function TeamMembers() {
               className="flex flex-col group cursor-pointer"
             >
               {/* Image Container */}
-              <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-5 bg-gray-50 relative">
+              <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-5 bg-white shadow-sm border border-black/5 relative">
                 <img 
                   src={item.image} 
                   alt={item.name} 
@@ -93,7 +93,7 @@ export default function TeamMembers() {
               </div>
 
               {/* Name & Role */}
-              <div className="flex items-start justify-between gap-2">
+              <div className="flex items-start justify-between gap-2 px-1">
                 <div>
                   <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-1 group-hover:text-[#FD5800] transition-colors duration-300">
                     {item.name}
@@ -111,7 +111,6 @@ export default function TeamMembers() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   )
