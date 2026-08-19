@@ -125,7 +125,7 @@ export default function TestimonialsSection() {
   );
 
   return (
-    <section className="py-12 md:py-8 md:py-10 bg-[#09090B] text-white relative overflow-hidden font-sans border-t border-[#222]">
+    <section className="py-16 md:py-20 bg-[#09090B] text-white relative overflow-hidden font-sans border-t border-[#222]">
       
       {/* Marquee Track Container */}
       <div className="flex relative overflow-hidden">

@@ -42,7 +42,7 @@ const cardData = [
 
 export default function WhyChoosePrachi({ onOpenModal }) {
   return (
-    <section className="py-12 md:py-8 md:py-10 bg-white text-gray-900 relative overflow-hidden border-t border-gray-200">
+    <section className="py-16 md:py-24 bg-white text-gray-900 relative border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
