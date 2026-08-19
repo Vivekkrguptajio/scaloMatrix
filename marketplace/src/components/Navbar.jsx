@@ -15,8 +15,6 @@ export default function Navbar({ onOpenModal }) {
     { name: 'Growth Lanes', href: '#services' },
     { name: 'Blueprint', href: '#roadmap' },
     { name: 'Masterclass', href: '#masterclass' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
   ]
 
   // Prevent background body scroll when mobile menu is open

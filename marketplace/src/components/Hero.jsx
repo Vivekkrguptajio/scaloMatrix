@@ -22,16 +22,16 @@ export default function Hero({ onOpenModal }) {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-light tracking-tight leading-[1.08] text-gray-900">
+            <h1 className="text-[28px] sm:text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight leading-[1.05] text-black font-sans">
               We Engineer <br className="hidden lg:block" />
-              <span className="font-semibold text-[#FD5800]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066] drop-shadow-sm">
                 Profitable Growth
               </span> <br className="hidden lg:block" />
               For Amazon Brands.
             </h1>
             
-            <p className="text-base sm:text-lg text-gray-900 font-normal max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              We aren't just another agency. We are <span className="text-[#FD5800] font-semibold">data-driven PPC architects</span> helping 7-figure sellers cut wasted spend, scale revenue, and dominate their category.
+            <p className="text-[15px] sm:text-base md:text-lg text-[#222] font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans">
+              We aren't just another agency. We are <span className="text-[#FD5800] font-bold">data-driven PPC architects</span> helping 7-figure sellers cut wasted spend, scale revenue, and dominate their category.
             </p>
 
             {/* Call to Action Buttons */}
@@ -57,15 +57,15 @@ export default function Hero({ onOpenModal }) {
             {/* Trust Badges Bar */}
             <div className="pt-6 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 border-t border-gray-200 mt-6">
               <div>
-                <p className="text-2xl sm:text-3xl font-light text-gray-900">100<span className="text-[#FD5800]">+</span></p>
+                <p className="text-2xl sm:text-3xl font-black text-black">100<span className="text-[#FD5800]">+</span></p>
                 <p className="text-[10px] text-gray-700 font-bold tracking-widest uppercase mt-1">Stores Optimized</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-light text-gray-900"><span className="text-[#FD5800]">$</span>10M<span className="text-[#FD5800]">+</span></p>
+                <p className="text-2xl sm:text-3xl font-black text-black"><span className="text-[#FD5800]">$</span>10M<span className="text-[#FD5800]">+</span></p>
                 <p className="text-[10px] text-gray-700 font-bold tracking-widest uppercase mt-1">Ad Spend Managed</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-light text-gray-900">95<span className="text-[#FD5800]">%</span></p>
+                <p className="text-2xl sm:text-3xl font-black text-black">95<span className="text-[#FD5800]">%</span></p>
                 <p className="text-[10px] text-gray-700 font-bold tracking-widest uppercase mt-1">Client Retention</p>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function Hero({ onOpenModal }) {
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between items-end border-b border-gray-200 pb-3">
                   <span className="text-xs font-bold text-gray-700 tracking-widest uppercase">Monthly Spend:</span>
-                  <span className="text-gray-900 text-2xl font-light">₹{adSpend.toLocaleString('en-IN')}</span>
+                  <span className="text-black text-2xl font-black">₹{adSpend.toLocaleString('en-IN')}</span>
                 </div>
                 
                 <div className="relative pt-1">
@@ -119,7 +119,7 @@ export default function Hero({ onOpenModal }) {
                   <span className="text-[9px] text-gray-700 uppercase tracking-widest block font-bold mb-1">
                     Waste Cut
                   </span>
-                  <span className="text-xl font-light text-gray-900">
+                  <span className="text-xl font-black text-black">
                     ₹{wastedSavings.toLocaleString('en-IN')}
                   </span>
                   <span className="text-[9px] text-gray-600 font-medium block mt-1">saved / mo</span>
@@ -129,7 +129,7 @@ export default function Hero({ onOpenModal }) {
                   <span className="text-[9px] text-[#FD5800] uppercase tracking-widest block font-bold mb-1">
                     Est. Profit Boost
                   </span>
-                  <span className="text-xl font-light text-[#FD5800]">
+                  <span className="text-xl font-black text-[#FD5800]">
                     +₹{netProfitGrowth.toLocaleString('en-IN')}
                   </span>
                   <span className="text-[9px] text-orange-600 font-medium block mt-1">profit / mo</span>

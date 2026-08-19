@@ -109,7 +109,7 @@ export default function ServicesSection({ onOpenModal }) {
             STRUGGLING TO SCALE ON AMAZON?
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight uppercase leading-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-black tracking-tight uppercase leading-tight">
             Choose Your <span className="font-bold text-[#FD5800]">Growth Lane</span>
           </h2>
 

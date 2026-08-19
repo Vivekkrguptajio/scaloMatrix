@@ -71,7 +71,7 @@ export default function ClientSuccess({ onOpenModal }) {
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-50 text-gray-900 text-xs font-bold tracking-[0.2em] uppercase rounded border border-gray-200">
               Proven Performance
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-[1.1] text-gray-900">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-[1.1] text-black">
               Impact & <span className="font-semibold text-[#FD5800]">Outcomes.</span>
             </h2>
             <p className="text-gray-900 text-base max-w-xl font-normal leading-relaxed">
@@ -136,7 +136,7 @@ export default function ClientSuccess({ onOpenModal }) {
                   {/* Main Metric */}
                   <div className="mb-6">
                     <div className="flex items-baseline gap-2.5 mb-1.5">
-                      <span className={`text-4xl sm:text-5xl font-light text-transparent bg-clip-text bg-gradient-to-r ${client.accent} tracking-tighter`}>
+                      <span className={`text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r ${client.accent} tracking-tighter`}>
                         {client.metric}
                       </span>
                       <span className="text-gray-700 font-bold uppercase tracking-widest text-xs">{client.metricLabel}</span>

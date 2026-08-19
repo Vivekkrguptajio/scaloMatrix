@@ -51,7 +51,7 @@ export default function WhyChoosePrachi({ onOpenModal }) {
             Agency Difference
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight leading-[1.1]">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-black tracking-tight leading-[1.1]">
             Why Amazon Sellers Choose <br />
             <span className="font-semibold">scalo<span className="text-[#FD5800]">MATRIX</span></span>
           </h2>
@@ -139,7 +139,7 @@ export default function WhyChoosePrachi({ onOpenModal }) {
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#FD5800]/5 blur-[80px] pointer-events-none rounded-full" />
           
           <div className="relative z-10 text-center md:text-left">
-            <h4 className="text-3xl font-light text-gray-900 tracking-tight mb-2">
+            <h4 className="text-3xl font-black text-black tracking-tight mb-2">
               Ready to stop <span className="font-semibold text-[#FD5800]">burning</span> ad budget?
             </h4>
             <p className="text-gray-900 text-base font-normal">

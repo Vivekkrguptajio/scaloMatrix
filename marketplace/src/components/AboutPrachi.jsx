@@ -13,7 +13,7 @@ export default function AboutPrachi({ onOpenModal }) {
               The Agency Difference
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 leading-[1.1]">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-black leading-[1.1]">
               We build <span className="font-semibold text-[#FD5800]">Amazon engines</span> that actually scale.
             </h2>
             
@@ -27,7 +27,7 @@ export default function AboutPrachi({ onOpenModal }) {
           {/* Right Column: Details & Metrics */}
           <div className="bg-gray-50/50 rounded-[2rem] p-8 sm:p-12 border border-gray-200 shadow-sm">
             <h3 className="text-2xl font-semibold mb-6 text-gray-900 tracking-tight">
-              scalo<span className="font-light">MATRIX</span>
+              scalo<span className="font-black text-black">MATRIX</span>
             </h3>
             
             <p className="text-gray-900 leading-relaxed mb-10 font-normal">

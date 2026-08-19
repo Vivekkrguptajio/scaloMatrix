@@ -22,7 +22,7 @@ export default function MasterclassSection({ onOpenModal }) {
               Free Access Masterclass
             </div>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight leading-[1.1]">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-black tracking-tight leading-[1.1]">
               Advanced <span className="text-[#FD5800]">Amazon Ads</span> Masterclass <br />
               <span className="font-semibold">
                 scalo<span className="text-[#FD5800]">MATRIX</span> Edition
@@ -90,7 +90,7 @@ export default function MasterclassSection({ onOpenModal }) {
                       <span className="text-gray-300 font-mono text-xs font-bold uppercase tracking-widest mb-4">
                         scaloMATRIX Masterclass
                       </span>
-                      <h4 className="text-2xl sm:text-3xl font-light text-white max-w-sm leading-tight">
+                      <h4 className="text-2xl sm:text-3xl font-black text-white max-w-sm leading-tight">
                         Amazon Ads Scaling Framework 2026
                       </h4>
                       <p className="text-xs text-gray-400 mt-4 tracking-widest uppercase">45 Mins • Teardown</p>

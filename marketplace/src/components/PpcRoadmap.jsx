@@ -64,7 +64,7 @@ export default function PpcRoadmap({ onOpenModal }) {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-50 text-gray-900 text-xs font-bold tracking-[0.2em] uppercase rounded border border-gray-200">
             Proven Framework
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-900 tracking-tight leading-[1.1]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight leading-[1.1]">
             Our 4-Step <span className="font-semibold text-[#FD5800]">PPC Scaling Engine</span>
           </h2>
           <p className="text-gray-900 text-base max-w-2xl mx-auto font-normal leading-relaxed">
