@@ -1,30 +1,5 @@
 import React, { useState } from 'react';
 
-// Exact brand logos from Shopify
-const LogoBoldCare = () => (
-  <div className="flex items-center gap-3 text-gray-200">
-    <svg width="32" height="38" viewBox="0 0 24 24" fill="none" stroke="#FD5800" strokeWidth="2.5">
-      <path d="M6 4h8a4 4 0 010 8H6V4z" />
-      <path d="M6 12h9a4 4 0 010 8H6v-8z" />
-    </svg>
-    <span className="text-[28px] font-bold tracking-tight text-white">Bold Care</span>
-  </div>
-);
-
-const LogoGoodMonk = () => (
-  <div className="flex flex-col items-center justify-center text-center">
-    <span className="text-[26px] font-black tracking-tight text-[#FD5800] leading-none uppercase">GOOD</span>
-    <span className="text-[26px] font-black tracking-tight text-white leading-none uppercase">MONK</span>
-  </div>
-);
-
-const LogoTheGoodBug = () => (
-  <div className="flex flex-col items-center justify-center">
-    <span className="text-[28px] font-black tracking-tight text-white">TheGoodBug</span>
-    <span className="text-[9px] font-bold uppercase tracking-widest text-[#FD5800] mt-0.5">Daily Probiotics</span>
-  </div>
-);
-
 const testimonialsData = [
   {
     id: 't1',
@@ -92,8 +67,8 @@ export default function TestimonialsSection() {
     );
   };
 
-  const LogoCard = ({ children }) => (
-    <div className="bg-[#18181B] border border-[#222] rounded-2xl h-[160px] w-[380px] flex-shrink-0 flex items-center justify-center relative overflow-hidden group">
+  const LogoCard = ({ src, alt }) => (
+    <div className="bg-[#18181B] border border-[#222] rounded-2xl h-[160px] w-[380px] flex-shrink-0 flex items-center justify-center relative overflow-hidden group p-6">
       <div 
         className="absolute inset-0 opacity-[0.25] pointer-events-none" 
         style={{
@@ -102,8 +77,8 @@ export default function TestimonialsSection() {
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] to-transparent opacity-60 pointer-events-none" />
-      <div className="relative z-10 transition-transform duration-500 group-hover:scale-105">
-        {children}
+      <div className="relative z-10 transition-transform duration-500 group-hover:scale-105 flex items-center justify-center">
+        <img src={src} alt={alt} className="h-12 max-w-[220px] object-contain drop-shadow-md brightness-110" />
       </div>
     </div>
   );
@@ -123,54 +98,51 @@ export default function TestimonialsSection() {
           <div className="animate-marquee flex gap-6 w-max">
             
             {/* Set 1 */}
-            {/* Column A: Testimonial Tall, Logo Short */}
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[0]} />
-              <LogoCard><LogoBoldCare /></LogoCard>
+              <LogoCard src="/logo/Nutraphyll.png" alt="Nutraphyll" />
             </div>
 
-            {/* Column B: Logo Short, Testimonial Tall */}
             <div className="flex flex-col gap-6">
-              <LogoCard><LogoGoodMonk /></LogoCard>
+              <LogoCard src="/logo/Judex.png" alt="Judex" />
               <TestimonialCard item={testimonialsData[2]} />
             </div>
 
-            {/* Column C: Testimonial Tall, Logo Short */}
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[1]} />
-              <LogoCard><LogoTheGoodBug /></LogoCard>
+              <LogoCard src="/logo/Wayora.png" alt="Wayora" />
             </div>
 
             {/* Set 2 (Duplicate for infinite loop) */}
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[0]} />
-              <LogoCard><LogoBoldCare /></LogoCard>
+              <LogoCard src="/logo/Nada.png" alt="Nada" />
             </div>
 
             <div className="flex flex-col gap-6">
-              <LogoCard><LogoGoodMonk /></LogoCard>
+              <LogoCard src="/logo/drapes.png" alt="Drapes" />
               <TestimonialCard item={testimonialsData[2]} />
             </div>
 
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[1]} />
-              <LogoCard><LogoTheGoodBug /></LogoCard>
+              <LogoCard src="/logo/velmukha.png" alt="Velmukha" />
             </div>
             
             {/* Set 3 (Duplicate to ensure smooth scrolling on wide screens) */}
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[0]} />
-              <LogoCard><LogoBoldCare /></LogoCard>
+              <LogoCard src="/logo/Nutraphyll.png" alt="Nutraphyll" />
             </div>
 
             <div className="flex flex-col gap-6">
-              <LogoCard><LogoGoodMonk /></LogoCard>
+              <LogoCard src="/logo/Judex.png" alt="Judex" />
               <TestimonialCard item={testimonialsData[2]} />
             </div>
 
             <div className="flex flex-col gap-6">
               <TestimonialCard item={testimonialsData[1]} />
-              <LogoCard><LogoTheGoodBug /></LogoCard>
+              <LogoCard src="/logo/Wayora.png" alt="Wayora" />
             </div>
 
           </div>

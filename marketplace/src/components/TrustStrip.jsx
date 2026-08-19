@@ -1,9 +1,10 @@
 import React, { memo } from 'react';
 
 const topRowBrands = [
+  { name: 'Nutraphyll', img: '/logo/Nutraphyll.png', color: '#10B981' },
+  { name: 'Judex', img: '/logo/Judex.png', color: '#3B82F6' },
+  { name: 'Nada', img: '/logo/Nada.png', color: '#FD5800' },
   { name: 'Gladful', color: '#F97316', render: () => <span className="text-orange-500 font-black text-xl tracking-tighter">Gladful</span> },
-  { name: 'GOOD MONK', color: '#FD5800', render: () => <span className="text-[#FD5800] font-black text-base leading-tight uppercase tracking-tight">GOOD MONK</span> },
-  { name: 'ADILQADRI', color: '#111827', render: () => <span className="text-gray-900 font-serif font-bold text-lg tracking-wide">ADILQADRI</span> },
   { name: 'Bold Care', color: '#FD5800', render: () => (
     <div className="flex items-center gap-2 text-gray-900 font-bold text-lg">
       <svg width="18" height="22" viewBox="0 0 24 24" fill="none" stroke="#FD5800" strokeWidth="2.5">
@@ -19,11 +20,16 @@ const topRowBrands = [
       <span className="text-[7px] font-bold uppercase tracking-widest text-[#FD5800]">Daily Probiotics</span>
     </div>
   )},
+  { name: 'Wayora', img: '/logo/Wayora.png', color: '#EC4899' },
   { name: 'SUPERYOU', color: '#DC2626', render: () => <span className="text-white bg-red-600 font-black italic px-2.5 py-0.5 text-base tracking-tighter rounded">SUPERYOU</span> },
-  { name: 'HealthFab', color: '#FD5800', render: () => <span className="text-[#FD5800] font-black text-xl tracking-tight">HealthFab</span> },
 ];
 
 const bottomRowBrands = [
+  { name: 'drapes', img: '/logo/drapes.png', color: '#EAB308' },
+  { name: 'velmukha', img: '/logo/velmukha.png', color: '#8B5CF6' },
+  { name: 'WayoraN', img: '/logo/WayoraN.png', color: '#14B8A6' },
+  { name: 'HealthFab', color: '#FD5800', render: () => <span className="text-[#FD5800] font-black text-xl tracking-tight">HealthFab</span> },
+  { name: 'ADILQADRI', color: '#111827', render: () => <span className="text-gray-900 font-serif font-bold text-lg tracking-wide">ADILQADRI</span> },
   { name: 'MuscleBlaze', color: '#1F2937', render: () => (
     <div className="flex items-center gap-1.5 text-gray-900 font-black italic text-lg">
       <span className="text-xs uppercase tracking-widest font-bold text-gray-500">MuscleBlaze</span>
@@ -32,10 +38,6 @@ const bottomRowBrands = [
   )},
   { name: 'koparo', color: '#16A34A', render: () => <span className="text-green-600 font-black text-xl lowercase">koparo</span> },
   { name: 'Emma', color: '#F59E0B', render: () => <span className="text-amber-500 font-bold text-2xl tracking-tight">Emma.</span> },
-  { name: 'Beautywise', color: '#111827', render: () => <span className="text-gray-900 font-serif italic font-bold text-xl">Beautywise</span> },
-  { name: 'allter', color: '#8d9e78', render: () => <span className="text-white bg-[#8d9e78] rounded-full px-3 py-1 font-bold text-xs">allter</span> },
-  { name: 'CONSCIOUS CHEMIST', color: '#111827', render: () => <span className="text-gray-900 font-semibold text-xs tracking-wider uppercase text-center">CONSCIOUS CHEMIST</span> },
-  { name: 'DECODE AGE', color: '#4F46E5', render: () => <span className="text-indigo-800 font-black text-base uppercase tracking-tight">DECODE AGE</span> },
 ];
 
 const BrandCard = ({ brand }) => (
@@ -43,7 +45,11 @@ const BrandCard = ({ brand }) => (
     className="bg-white border border-gray-200 hover:border-[#FD5800] rounded-xl h-12 sm:h-14 w-44 sm:w-52 flex items-center justify-center relative overflow-hidden flex-shrink-0 mx-2.5 px-4 shadow-xs transition-all duration-300 hover:scale-105 hover:shadow-md cursor-pointer"
     style={{ borderLeft: `4px solid ${brand.color}` }}
   >
-    {brand.render()}
+    {brand.img ? (
+      <img src={brand.img} alt={brand.name} className="h-7 sm:h-8 max-w-[130px] object-contain" />
+    ) : (
+      brand.render && brand.render()
+    )}
   </div>
 );
 
