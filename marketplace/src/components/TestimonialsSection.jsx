@@ -83,6 +83,47 @@ export default function TestimonialsSection() {
     </div>
   );
 
+  // Strictly alternating 6-column set: Top, Bottom, Top, Bottom, Top, Bottom
+  const renderColumnSet = (keyPrefix) => (
+    <>
+      {/* Column 1: Testimonial TOP, Logo BOTTOM */}
+      <div key={`${keyPrefix}-col-1`} className="flex flex-col gap-6">
+        <TestimonialCard item={testimonialsData[0]} />
+        <LogoCard src="/logo/Nutraphyll.png" alt="Nutraphyll" />
+      </div>
+
+      {/* Column 2: Logo TOP, Testimonial BOTTOM */}
+      <div key={`${keyPrefix}-col-2`} className="flex flex-col gap-6">
+        <LogoCard src="/logo/Judex.png" alt="Judex" />
+        <TestimonialCard item={testimonialsData[2]} />
+      </div>
+
+      {/* Column 3: Testimonial TOP, Logo BOTTOM */}
+      <div key={`${keyPrefix}-col-3`} className="flex flex-col gap-6">
+        <TestimonialCard item={testimonialsData[1]} />
+        <LogoCard src="/logo/Wayora.png" alt="Wayora" />
+      </div>
+
+      {/* Column 4: Logo TOP, Testimonial BOTTOM */}
+      <div key={`${keyPrefix}-col-4`} className="flex flex-col gap-6">
+        <LogoCard src="/logo/Nada.png" alt="Nada" />
+        <TestimonialCard item={testimonialsData[0]} />
+      </div>
+
+      {/* Column 5: Testimonial TOP, Logo BOTTOM */}
+      <div key={`${keyPrefix}-col-5`} className="flex flex-col gap-6">
+        <TestimonialCard item={testimonialsData[2]} />
+        <LogoCard src="/logo/drapes.png" alt="Drapes" />
+      </div>
+
+      {/* Column 6: Logo TOP, Testimonial BOTTOM */}
+      <div key={`${keyPrefix}-col-6`} className="flex flex-col gap-6">
+        <LogoCard src="/logo/velmukha.png" alt="Velmukha" />
+        <TestimonialCard item={testimonialsData[1]} />
+      </div>
+    </>
+  );
+
   return (
     <section className="py-12 md:py-8 md:py-10 bg-[#09090B] text-white relative overflow-hidden font-sans border-t border-[#222]">
       
@@ -93,58 +134,12 @@ export default function TestimonialsSection() {
         <div className="absolute top-0 bottom-0 left-0 w-32 md:w-64 bg-gradient-to-r from-[#09090B] to-transparent z-20 pointer-events-none" />
         <div className="absolute top-0 bottom-0 right-0 w-32 md:w-64 bg-gradient-to-l from-[#09090B] to-transparent z-20 pointer-events-none" />
 
-        {/* Single Marquee Row containing Columns */}
+        {/* Single Marquee Row containing strictly alternating Columns */}
         <div className="flex w-max relative">
           <div className="animate-marquee flex gap-6 w-max">
-            
-            {/* Set 1 */}
-            <div className="flex flex-col gap-6">
-              <TestimonialCard item={testimonialsData[0]} />
-              <LogoCard src="/logo/Nutraphyll.png" alt="Nutraphyll" />
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <LogoCard src="/logo/Judex.png" alt="Judex" />
-              <TestimonialCard item={testimonialsData[2]} />
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <TestimonialCard item={testimonialsData[1]} />
-              <LogoCard src="/logo/Wayora.png" alt="Wayora" />
-            </div>
-
-            {/* Set 2 (Duplicate for infinite loop) */}
-            <div className="flex flex-col gap-6">
-              <TestimonialCard item={testimonialsData[0]} />
-              <LogoCard src="/logo/Nada.png" alt="Nada" />
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <LogoCard src="/logo/drapes.png" alt="Drapes" />
-              <TestimonialCard item={testimonialsData[2]} />
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <TestimonialCard item={testimonialsData[1]} />
-              <LogoCard src="/logo/velmukha.png" alt="Velmukha" />
-            </div>
-            
-            {/* Set 3 (Duplicate to ensure smooth scrolling on wide screens) */}
-            <div className="flex flex-col gap-6">
-              <TestimonialCard item={testimonialsData[0]} />
-              <LogoCard src="/logo/Nutraphyll.png" alt="Nutraphyll" />
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <LogoCard src="/logo/Judex.png" alt="Judex" />
-              <TestimonialCard item={testimonialsData[2]} />
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <TestimonialCard item={testimonialsData[1]} />
-              <LogoCard src="/logo/Wayora.png" alt="Wayora" />
-            </div>
-
+            {renderColumnSet('set1')}
+            {renderColumnSet('set2')}
+            {renderColumnSet('set3')}
           </div>
         </div>
 
