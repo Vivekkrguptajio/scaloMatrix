@@ -8,7 +8,7 @@ const cardData = [
     metric: '15+ Experts',
     desc: 'Specialized account strategists, ad analysts & reporting experts for fast-growing brands.',
     btnText: 'Explore Team',
-    bg: 'bg-black',
+    bg: 'bg-white',
     badge: 'Unified Support'
   },
   {
@@ -17,7 +17,7 @@ const cardData = [
     metric: '3 Markets',
     desc: 'Proven ad funnels and scaling strategies across US, UK & India marketplaces.',
     btnText: 'View Regions',
-    bg: 'bg-black',
+    bg: 'bg-white',
     badge: 'Cross-Border'
   },
   {
@@ -26,7 +26,7 @@ const cardData = [
     metric: '0% Guesswork',
     desc: 'Precision bid optimization, search term waste elimination, and transparent weekly ROI.',
     btnText: 'See Analytics',
-    bg: 'bg-black',
+    bg: 'bg-white',
     badge: 'ROAS Focus'
   },
   {
@@ -35,7 +35,7 @@ const cardData = [
     metric: '10+ Years',
     desc: 'Led by senior Amazon advertising specialists trusted by over 100+ global sellers.',
     btnText: 'Book Strategy',
-    bg: 'bg-black',
+    bg: 'bg-white',
     badge: 'Senior Led'
   }
 ];
@@ -61,17 +61,17 @@ export default function WhyChoosePrachi({ onOpenModal }) {
           </p>
         </div>
 
-        {/* 4 Cards with distinct colors, rotating fan element, and wider chunky dimensions */}
+        {/* 4 Cards: White bg, Orange border, Black text, Orange headers */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {cardData.map((item, idx) => (
             <motion.div
               key={idx}
               whileHover={{ y: -10, scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className={`${item.bg} rounded-[32px] p-8 sm:p-9 text-white relative overflow-hidden shadow-2xl border-2 border-white/20 flex flex-col justify-between min-h-[460px] group`}
+              className="bg-white rounded-[32px] p-8 sm:p-9 text-gray-900 relative overflow-hidden shadow-lg hover:shadow-2xl border-2 border-[#FD5800] flex flex-col justify-between min-h-[460px] group transition-all duration-300"
             >
               {/* Rotating Fan / Propeller Geometric Watermark Element */}
-              <div className="absolute -top-12 -right-12 pointer-events-none select-none opacity-40 group-hover:opacity-60 transition-opacity">
+              <div className="absolute -top-12 -right-12 pointer-events-none select-none opacity-10 group-hover:opacity-20 transition-opacity">
                 <svg className="w-64 h-64 text-[#FD5800] animate-[spin_15s_linear_infinite]" viewBox="0 0 100 100" fill="currentColor">
                   {/* Rotating Fan Blades */}
                   <path d="M50 50 L50 5 L62 25 Z" />
@@ -87,7 +87,7 @@ export default function WhyChoosePrachi({ onOpenModal }) {
               </div>
 
               {/* Bottom Secondary Rotating Fan Accent */}
-              <div className="absolute -bottom-16 -left-16 pointer-events-none select-none opacity-30 group-hover:opacity-50 transition-opacity">
+              <div className="absolute -bottom-16 -left-16 pointer-events-none select-none opacity-10 group-hover:opacity-15 transition-opacity">
                 <svg className="w-56 h-56 text-[#FD5800] animate-[spin_25s_linear_infinite_reverse]" viewBox="0 0 100 100" fill="currentColor">
                   <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" />
                 </svg>
@@ -102,28 +102,28 @@ export default function WhyChoosePrachi({ onOpenModal }) {
 
                 {/* Big Metric Highlight */}
                 <div className="space-y-1 mb-5">
-                  <span className="inline-block text-xs font-bold uppercase tracking-widest text-white/90 bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/25">
+                  <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#FD5800] bg-[#FD5800]/10 px-3.5 py-1.5 rounded-full border border-[#FD5800]/25">
                     {item.badge}
                   </span>
-                  <div className="text-4xl sm:text-5xl font-black text-white tracking-tight pt-1">
+                  <div className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight pt-1">
                     {item.metric}
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-white/90 text-sm font-medium leading-relaxed">
+                <p className="text-gray-900 text-sm font-normal leading-relaxed">
                   {item.desc}
                 </p>
               </div>
 
-              {/* Bottom White Pill Button */}
+              {/* Bottom Action Button */}
               <div className="relative z-10 pt-6 mt-4">
                 <button
                   onClick={() => onOpenModal('strategy')}
-                  className="w-full py-4 px-5 bg-white hover:bg-gray-100 text-gray-900 rounded-2xl font-black text-sm transition-all duration-300 shadow-xl flex items-center justify-center gap-2.5 group-hover:shadow-2xl"
+                  className="w-full py-4 px-5 bg-gray-900 hover:bg-[#FD5800] text-white rounded-2xl font-black text-sm transition-all duration-300 shadow-md flex items-center justify-center gap-2.5 hover:shadow-xl group/btn"
                 >
                   <span>{item.btnText}</span>
-                  <svg className="w-4 h-4 text-gray-900 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 text-white group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </button>
