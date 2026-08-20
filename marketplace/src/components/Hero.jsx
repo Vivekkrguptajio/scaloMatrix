@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { heroData } from '../data/content';
 
 export default function Hero({ onOpenModal }) {
   const [adSpend, setAdSpend] = useState(15000);
@@ -23,16 +24,14 @@ export default function Hero({ onOpenModal }) {
             
             {/* Main Headline */}
             <h1 className="text-[28px] sm:text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight leading-[1.05] text-black font-sans">
-              We Engineer <br className="hidden lg:block" />
+              {heroData.headline.line1} <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066] drop-shadow-sm">
-                Profitable Growth
+                {heroData.headline.highlight}
               </span> <br className="hidden lg:block" />
-              For Amazon Brands.
+              {heroData.headline.line2}
             </h1>
             
-            <p className="text-[15px] sm:text-base md:text-lg text-[#222] font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans">
-              We aren't just another agency. We are <span className="text-[#FD5800] font-bold">data-driven PPC architects</span> helping 7-figure sellers cut wasted spend, scale revenue, and dominate their category.
-            </p>
+            <p className="text-[15px] sm:text-base md:text-lg text-[#222] font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans" dangerouslySetInnerHTML={{ __html: heroData.description }} />
 
             {/* Call to Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
@@ -56,18 +55,15 @@ export default function Hero({ onOpenModal }) {
 
             {/* Trust Badges Bar */}
             <div className="pt-6 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 border-t border-gray-200 mt-6">
-              <div>
-                <p className="text-2xl sm:text-3xl font-black text-black">100<span className="text-[#FD5800]">+</span></p>
-                <p className="text-[10px] text-gray-700 font-bold tracking-widest uppercase mt-1">Stores Optimized</p>
-              </div>
-              <div>
-                <p className="text-2xl sm:text-3xl font-black text-black"><span className="text-[#FD5800]">$</span>10M<span className="text-[#FD5800]">+</span></p>
-                <p className="text-[10px] text-gray-700 font-bold tracking-widest uppercase mt-1">Ad Spend Managed</p>
-              </div>
-              <div>
-                <p className="text-2xl sm:text-3xl font-black text-black">95<span className="text-[#FD5800]">%</span></p>
-                <p className="text-[10px] text-gray-700 font-bold tracking-widest uppercase mt-1">Client Retention</p>
-              </div>
+              {heroData.metrics.map((metric, index) => (
+                <div key={index}>
+                  <p className="text-2xl sm:text-3xl font-black text-black">
+                    {metric.prefix && <span className="text-[#FD5800]">{metric.prefix}</span>}
+                    {metric.value.replace('+', '')}<span className="text-[#FD5800]">{metric.value.includes('+') ? '+' : metric.value.includes('%') ? '%' : ''}</span>
+                  </p>
+                  <p className="text-[10px] text-gray-700 font-bold tracking-widest uppercase mt-1">{metric.label}</p>
+                </div>
+              ))}
             </div>
 
           </div>

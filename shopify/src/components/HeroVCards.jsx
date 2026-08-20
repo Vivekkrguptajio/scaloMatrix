@@ -4,36 +4,60 @@ export default function HeroVCards() {
   const row1Cards = [
     { 
       id: 1, 
-      img: '/photsWork/Nada(1).png', 
-      title: 'Vamshi Farms', 
-      url: 'vamshifarms.com',
+      img: '/photsWork/Nada.png', 
+      title: 'Nada', 
+      url: 'nada.store',
       stat: '+44% CVR',
-      category: 'Health & Organic' 
+      category: 'Apparel & Fashion' 
     },
     { 
       id: 2, 
       img: '/photsWork/Nutraphyll.png', 
-      title: 'Pizzeria Authentic', 
-      url: 'pizzeria.store',
+      title: 'Nutraphyll', 
+      url: 'nutraphyll.com',
       stat: '+35% Orders',
-      category: 'Food & Beverage' 
+      category: 'Health & Wellness' 
     },
     { 
       id: 3, 
-      img: '/photsWork/Velmukha(2).png', 
-      title: 'Super Kaju', 
-      url: 'superkaju.in',
+      img: '/photsWork/Velmukha.png', 
+      title: 'Velmukha', 
+      url: 'velmukha.in',
       stat: '+50% Sales',
-      category: 'D2C Gourmet' 
+      category: 'D2C Brand' 
     },
     { 
       id: 4, 
       img: '/photsWork/wayoranatural.png', 
-      title: 'Desi Classics', 
-      url: 'desiclassics.shop',
+      title: 'Wayora Natural', 
+      url: 'wayoranatural.shop',
       stat: '+28% AOV',
-      category: 'Apparel & Fashion' 
+      category: 'Beauty & Skincare' 
     },
+    { 
+      id: 5, 
+      img: '/photsWork/Drapes.png', 
+      title: 'Drapes Corner', 
+      url: 'drapescorner.com',
+      stat: '+60% CVR',
+      category: 'Home & Decor' 
+    },
+    { 
+      id: 6, 
+      img: '/photsWork/Judex.png', 
+      title: 'Judex Fragrance', 
+      url: 'judex.com',
+      stat: '+45% Sales',
+      category: 'Beauty & Fragrance' 
+    },
+    { 
+      id: 7, 
+      img: '/photsWork/Luxury.png', 
+      title: 'Wayora Luxury', 
+      url: 'wayoraluxury.com',
+      stat: '+80% Orders',
+      category: 'Apparel & Fashion' 
+    }
   ];
 
   return (

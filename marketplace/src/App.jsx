@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustStrip from './components/TrustStrip';
 import ClientSuccess from './components/ClientSuccess';
-import AboutPrachi from './components/AboutPrachi';
-import WhyChoosePrachi from './components/WhyChoosePrachi';
-import ServicesSection from './components/ServicesSection';
-import PpcRoadmap from './components/PpcRoadmap';
-import TestimonialsSection from './components/TestimonialsSection';
-import MasterclassSection from './components/MasterclassSection';
-import MarketplaceFaq from './components/MarketplaceFaq';
-import ContactUs from './components/ContactUs';
-import ThePromise from './components/ThePromise';
-import Contact from './components/Contact';
 import StrategyModal from './components/StrategyModal';
-import CustomCursor from './components/CustomCursor';
-import ScrollToTop from './components/ScrollToTop';
-import ScrollReveal from './components/ScrollReveal';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import './index.css';
+
+const AboutPrachi = lazy(() => import('./components/AboutPrachi'));
+const WhyChoosePrachi = lazy(() => import('./components/WhyChoosePrachi'));
+const ServicesSection = lazy(() => import('./components/ServicesSection'));
+const PpcRoadmap = lazy(() => import('./components/PpcRoadmap'));
+const TestimonialsSection = lazy(() => import('./components/TestimonialsSection'));
+const MasterclassSection = lazy(() => import('./components/MasterclassSection'));
+const MarketplaceFaq = lazy(() => import('./components/MarketplaceFaq'));
+const ContactUs = lazy(() => import('./components/ContactUs'));
+const ThePromise = lazy(() => import('./components/ThePromise'));
+const Contact = lazy(() => import('./components/Contact'));
+const CustomCursor = lazy(() => import('./components/CustomCursor'));
+const ScrollToTop = lazy(() => import('./components/ScrollToTop'));
+const ScrollReveal = lazy(() => import('./components/ScrollReveal'));
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -57,8 +58,10 @@ function App() {
 
   return (
     <div className="relative min-h-screen bg-white font-sans text-gray-900 overflow-x-clip">
-      <CustomCursor />
-      <ScrollToTop />
+      <Suspense fallback={null}>
+        <CustomCursor />
+        <ScrollToTop />
+      </Suspense>
       
       {/* Navigation Header */}
       <Navbar onOpenModal={handleOpenModal} />
@@ -68,19 +71,24 @@ function App() {
         <Hero onOpenModal={handleOpenModal} />
         <TrustStrip />
         <ClientSuccess onOpenModal={handleOpenModal} />
-        <AboutPrachi onOpenModal={handleOpenModal} />
-        <WhyChoosePrachi onOpenModal={handleOpenModal} />
-        <ServicesSection onOpenModal={handleOpenModal} />
-        <PpcRoadmap onOpenModal={handleOpenModal} />
-        <TestimonialsSection onOpenModal={handleOpenModal} />
-        <MasterclassSection onOpenModal={handleOpenModal} />
-        <MarketplaceFaq onOpenModal={handleOpenModal} />
-        <ContactUs />
-        <ScrollReveal><ThePromise /></ScrollReveal>
+        
+        <Suspense fallback={<div className="w-full h-[50vh] flex items-center justify-center bg-white"><div className="w-8 h-8 border-4 border-[#FD5800] border-t-transparent rounded-full animate-spin"></div></div>}>
+          <AboutPrachi onOpenModal={handleOpenModal} />
+          <WhyChoosePrachi onOpenModal={handleOpenModal} />
+          <ServicesSection onOpenModal={handleOpenModal} />
+          <PpcRoadmap onOpenModal={handleOpenModal} />
+          <TestimonialsSection onOpenModal={handleOpenModal} />
+          <MasterclassSection onOpenModal={handleOpenModal} />
+          <MarketplaceFaq onOpenModal={handleOpenModal} />
+          <ContactUs />
+          <ScrollReveal><ThePromise /></ScrollReveal>
+        </Suspense>
       </main>
 
       {/* Sticky Reveal Footer copied from Shopify */}
-      <Contact reveal={true} />
+      <Suspense fallback={null}>
+        <Contact reveal={true} />
+      </Suspense>
 
       {/* Interactive Booking & Audit Modal */}
       <StrategyModal

@@ -1,6 +1,7 @@
 import Marquee from './Marquee'
 import { FaShopify } from 'react-icons/fa'
 import { useState, useEffect, useRef } from 'react'
+import { heroData } from '../data/content'
 
 export function AnimatedCounter({ target, prefix = '', suffix = '', duration = 2000 }) {
   const [count, setCount] = useState(0)
@@ -44,7 +45,7 @@ export function AnimatedCounter({ target, prefix = '', suffix = '', duration = 2
   return <span ref={ref}>{prefix}{count.toLocaleString()}{suffix}</span>
 }
 
-const rotatingWords = ['Shopify Stores', 'Landing Pages', 'Custom Themes', 'D2C Brands']
+const rotatingWords = heroData.rotatingWords
 
 function RotatingText() {
   const [index, setIndex] = useState(0)
@@ -81,9 +82,9 @@ function RotatingText() {
 
 export default function Hero() {
   const storeImages = [
-    '/photsWork/Drapes Corner.png',
-    '/photsWork/Nada(1).png',
-    '/photsWork/Luxury unisex brand - Perfect fit fabric – Wayora.png'
+    '/photsWork/Drapes.png',
+    '/photsWork/Nada.png',
+    '/photsWork/Luxury.png'
   ]
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -140,11 +141,11 @@ export default function Hero() {
             <div className="flex items-center justify-center md:justify-start gap-3 mb-4 md:mb-5 hero-animate-1">
               <div className="inline-flex items-center gap-2.5 bg-[#f0fdf4] border border-[#95BF47]/30 text-[#5a8a00] text-xs font-bold tracking-wider uppercase px-4 py-2 rounded-full shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 cursor-default">
                 <FaShopify className="w-4 h-4 text-[#95BF47]" />
-                <span>Shopify Partner</span>
+                <span>{heroData.badge}</span>
               </div>
               <div className="hidden sm:inline-flex items-center gap-2 bg-orange-50 border border-[#FD5800]/20 text-[#FD5800] text-xs font-bold tracking-wider uppercase px-4 py-2 rounded-full shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 cursor-default">
                 <span className="w-2 h-2 rounded-full bg-[#FD5800] animate-pulse" />
-                <span>CRO-Led</span>
+                <span>{heroData.badge2}</span>
               </div>
             </div>
 
@@ -154,15 +155,14 @@ export default function Hero() {
             >
               We build <RotatingText />
               <span className="block mt-1 md:mt-2" />
-              <span className="text-black">that Make more money from the same ad spend.</span>
+              <span className="text-black">{heroData.headlineSuffix}</span>
             </h1>
 
             {/* Sub Heading */}
             <p 
               className="text-[14px] sm:text-[15px] md:text-base text-[#555] font-medium max-w-[620px] leading-relaxed mb-6 md:mb-7 text-center md:text-left mx-auto md:mx-0 hero-animate-3"
-            >
-              From custom Shopify themes to high-converting landing pages — we ship stores that convert <strong className="font-bold text-black">at least 20% better</strong> than what's running today.
-            </p>
+              dangerouslySetInnerHTML={{ __html: heroData.description }}
+            />
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-3 sm:gap-4 mb-7 hero-animate-4">
@@ -193,11 +193,7 @@ export default function Hero() {
 
             {/* Stats Row */}
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-5 lg:gap-7 hero-animate-5">
-              {[
-                { value: 20, prefix: '+', suffix: '%', label: 'Guaranteed CVR Lift' },
-                { value: 450, prefix: '', suffix: '+', label: 'Stores Shipped' },
-                { value: 98, prefix: '', suffix: '+', label: 'NPS Score · 2025' },
-              ].map((stat, i) => (
+              {heroData.stats.map((stat, i) => (
                 <div key={i} className="flex flex-col items-center md:items-start group cursor-default">
                   <span className="text-[#FD5800] text-2xl md:text-3xl font-black tracking-tighter group-hover:scale-110 transition-transform duration-300">
                     {stat.prefix}<AnimatedCounter target={stat.value} />{stat.suffix}

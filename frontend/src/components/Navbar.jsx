@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
-import { navLinks, megaMenuData } from '../data/navData'
+import { navLinks, megaMenuData } from '../data'
 
 export default function Navbar({ activeSection, loading, isDarkTheme = false, isHidden = false }) {
   const [mobileMenu, setMobileMenu] = useState(false)

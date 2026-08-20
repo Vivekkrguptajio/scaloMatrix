@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { solutions } from '../data/aboutData'
+import { solutions } from '../data'
 
 export default function About() {
   const [activeCardId, setActiveCardId] = useState(null);

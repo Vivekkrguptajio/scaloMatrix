@@ -5,7 +5,7 @@ const topRowBrands = [
   { name: 'BURBERRY', borderColor: '#EAB308', logo: null, type: 'text', fontStyle: 'font-serif tracking-widest text-sm sm:text-base font-semibold' },
   { name: 'MONTE CARLO', borderColor: '#1D4ED8', logo: null, type: 'text', fontStyle: 'font-sans font-bold text-sm sm:text-base' },
   { name: 'perfora', borderColor: '#22D3EE', logo: null, type: 'text', fontStyle: 'font-serif font-bold text-base sm:text-lg tracking-tight' },
-  { name: 'HAVELLS', borderColor: '#DC2626', logo: 'H', type: 'icon-text', fontStyle: 'font-sans font-black text-red-600 text-base sm:text-lg tracking-tighter' },
+  { name: 'HAVELLS', borderColor: '#DC2626', logo: 'H', type: 'icon-text', fontStyle: 'font-sans font-black text-orange-600 text-base sm:text-lg tracking-tighter' },
   { name: 'SELECT CITYWALK', borderColor: '#F59E0B', logo: '*', type: 'icon-text', fontStyle: 'font-serif text-[10px] sm:text-xs text-center leading-tight' },
   { name: 'Canon', borderColor: '#DC2626', logo: null, type: 'text', fontStyle: 'font-serif font-black text-lg sm:text-xl italic' },
 ];
@@ -13,7 +13,7 @@ const topRowBrands = [
 const bottomRowBrands = [
   { name: 'Canon', borderColor: '#DC2626', logo: null, type: 'text', fontStyle: 'font-serif font-black text-lg sm:text-xl italic' },
   { name: 'LLOYD', borderColor: '#1E3A8A', logo: 'L', type: 'circle-icon', fontStyle: '' },
-  { name: 'BLUE TEA', borderColor: '#1D4ED8', logo: 'B', type: 'icon-text', fontStyle: 'font-sans font-bold text-blue-800 text-base sm:text-lg' },
+  { name: 'BLUE TEA', borderColor: '#1D4ED8', logo: 'B', type: 'icon-text', fontStyle: 'font-sans font-bold text-violet-800 text-base sm:text-lg' },
   { name: 'one8', subtext: 'BY VIRAT KOHLI', borderColor: '#1F2937', logo: null, type: 'text-subtext', fontStyle: 'font-sans font-light text-lg sm:text-xl' },
 ];
 
@@ -30,14 +30,14 @@ const BrandCard = ({ brand }) => {
       {brand.type === 'icon-text' && (
         <div className="flex items-center gap-1.5 sm:gap-2">
           {brand.logo && (
-            <span className={`text-base sm:text-lg font-black ${brand.name === 'HAVELLS' ? 'text-red-600' : 'text-blue-800'}`}>
+            <span className={`text-base sm:text-lg font-black ${brand.name === 'HAVELLS' ? 'text-orange-600' : 'text-violet-800'}`}>
               {brand.name === 'HAVELLS' ? '⚡' : '❀'}
             </span>
           )}
           <div className={brand.fontStyle}>
             {brand.name === 'SELECT CITYWALK' ? (
               <div className="flex flex-col items-center">
-                <span className="text-red-600 text-[8px] sm:text-[9px] leading-none">SELECT</span>
+                <span className="text-orange-600 text-[8px] sm:text-[9px] leading-none">SELECT</span>
                 <span className="font-bold text-[11px] sm:text-xs leading-none">CITYWALK</span>
                 <span className="text-[7px] sm:text-[8px] italic leading-none">New Delhi</span>
               </div>
@@ -47,7 +47,7 @@ const BrandCard = ({ brand }) => {
       )}
 
       {brand.type === 'circle-icon' && (
-        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-b from-blue-400 to-blue-900 flex items-center justify-center shadow-inner">
+        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-b from-violet-400 to-violet-900 flex items-center justify-center shadow-inner">
           <span className="text-white text-[8px] sm:text-[9px] font-bold tracking-widest">LLOYD</span>
         </div>
       )}
@@ -94,13 +94,13 @@ const FoundersBrands = memo(function FoundersBrands() {
   return (
     <section 
       ref={containerRef}
-      className="w-full bg-[#C4FF1A] pt-24 md:pt-36 pb-28 md:pb-40 min-h-[600px] md:min-h-[750px] flex flex-col justify-between overflow-hidden relative"
+      className="w-full bg-violet-100 pt-24 md:pt-36 pb-28 md:pb-40 min-h-[600px] md:min-h-[750px] flex flex-col justify-between overflow-hidden relative"
     >
       {/* Title Header */}
       <div className="container mx-auto px-6 md:px-12 lg:px-24 mb-16 md:mb-28 lg:mb-32 z-10">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight uppercase max-w-3xl font-sans">
-          Brands our founders <br className="hidden md:block" />
-          have helped grow.
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight uppercase max-w-3xl font-sans">
+          <span className="text-[#FD5800]">Brands our founders</span> <br className="hidden md:block" />
+          <span className="text-gray-900">have helped grow.</span>
         </h2>
       </div>
 
@@ -112,8 +112,8 @@ const FoundersBrands = memo(function FoundersBrands() {
         {/* Top Row - Moves Left + Parallax */}
         <motion.div style={{ x: topRowX }} className="relative flex overflow-x-hidden group w-full py-1">
           {/* Gradient Masks */}
-          <div className="absolute top-0 left-0 w-20 md:w-44 h-full bg-gradient-to-r from-[#C4FF1A] to-transparent z-10 pointer-events-none" />
-          <div className="absolute top-0 right-0 w-20 md:w-44 h-full bg-gradient-to-l from-[#C4FF1A] to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 left-0 w-20 md:w-44 h-full bg-gradient-to-r from-violet-100 to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-20 md:w-44 h-full bg-gradient-to-l from-violet-100 to-transparent z-10 pointer-events-none" />
 
           <div className="animate-marquee flex whitespace-nowrap items-center">
             {[...topRowBrands, ...topRowBrands, ...topRowBrands, ...topRowBrands, ...topRowBrands].map((brand, index) => (
@@ -124,8 +124,8 @@ const FoundersBrands = memo(function FoundersBrands() {
 
         {/* Bottom Row - Moves Right + Parallax */}
         <motion.div style={{ x: bottomRowX }} className="relative flex overflow-x-hidden group w-full py-1">
-          <div className="absolute top-0 left-0 w-20 md:w-44 h-full bg-gradient-to-r from-[#C4FF1A] to-transparent z-10 pointer-events-none" />
-          <div className="absolute top-0 right-0 w-20 md:w-44 h-full bg-gradient-to-l from-[#C4FF1A] to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 left-0 w-20 md:w-44 h-full bg-gradient-to-r from-violet-100 to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-20 md:w-44 h-full bg-gradient-to-l from-violet-100 to-transparent z-10 pointer-events-none" />
 
           <div className="animate-marquee-reverse flex whitespace-nowrap items-center ml-12">
             {[...bottomRowBrands, ...bottomRowBrands, ...bottomRowBrands, ...bottomRowBrands, ...bottomRowBrands].map((brand, index) => (

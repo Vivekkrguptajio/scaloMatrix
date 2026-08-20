@@ -32,8 +32,11 @@ const videos = [
 
 export default function Testimonials() {
   return (
-    <section className="w-full bg-[#111] py-24 overflow-hidden relative border-t border-white/5">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+    <section className="w-full bg-[#18062B] py-24 overflow-hidden relative border-t border-violet-900/40">
+      {/* Background Violet Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-violet-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-12 relative z-10">
         
         <div className="text-center mb-16">
           <motion.h2 
@@ -42,7 +45,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
             className="text-5xl md:text-7xl lg:text-[7rem] font-black text-white tracking-tighter uppercase leading-none drop-shadow-lg"
           >
-            CREATIVITY THAT <span className="text-[#FD5800] drop-shadow-[0_0_20px_rgba(253,88,0,0.4)]">HITS.</span>
+             <span className="text-white">CREATIVITY THAT</span> <span className="text-[#FD5800]">HITS.</span>
           </motion.h2>
         </div>
 
@@ -58,7 +61,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative shrink-0 w-[280px] h-[480px] md:w-[320px] md:h-[560px] rounded-[30px] overflow-hidden snap-center group cursor-pointer border border-white/10 hover:border-[#FD5800]/60 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(253,88,0,0.2)]"
+              className={`relative shrink-0 w-[280px] h-[480px] md:w-[320px] md:h-[560px] rounded-[30px] overflow-hidden snap-center group cursor-pointer border border-white/10 ${index % 2 === 0 ? 'hover:border-[#FD5800]/60 hover:shadow-[0_20px_40px_rgba(253,88,0,0.2)]' : 'hover:border-violet-500/60 hover:shadow-[0_20px_40px_rgba(139,92,246,0.2)]'} transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.5)]`}
             >
               <img 
                 src={video.image} 

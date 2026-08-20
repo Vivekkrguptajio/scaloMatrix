@@ -9,7 +9,6 @@ export default defineConfig({
     host: true,
   },
   build: {
-    // Code splitting: separate vendor chunks for better caching
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -19,14 +18,14 @@ export default defineConfig({
           if (id.includes('node_modules/framer-motion') || id.includes('node_modules/lenis')) {
             return 'vendor-animation'
           }
+          if (id.includes('node_modules/lucide-react') || id.includes('node_modules/react-icons')) {
+            return 'vendor-icons'
+          }
         },
       },
     },
-    // Minification
     sourcemap: false,
-    // Target modern browsers for smaller bundles
-    target: 'es2020',
-    // Chunk size warning limit
-    chunkSizeWarningLimit: 600,
+    target: 'esnext',
+    chunkSizeWarningLimit: 800,
   },
 })

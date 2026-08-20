@@ -1,22 +1,23 @@
+import React, { useEffect, Suspense, lazy } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import MarketingNeeds from './components/MarketingNeeds'
-import Testimonials from './components/Testimonials'
-import ServicesGrid from './components/ServicesGrid'
-import Process from './components/Process'
-import TeamMembers from './components/TeamMembers'
-import ContactUs from './components/ContactUs'
-import ThePromise from './components/ThePromise'
-import FoundersBrands from './components/FoundersBrands'
-import GoodFitChecklist from './components/GoodFitChecklist'
-import Contact from './components/Contact'
-import ScrollReveal from './components/ScrollReveal'
-import CustomCursor from './components/CustomCursor'
-import ScrollToTop from './components/ScrollToTop'
-import { useEffect } from 'react'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import './index.css'
+
+const Testimonials = lazy(() => import('./components/Testimonials'))
+const ServicesGrid = lazy(() => import('./components/ServicesGrid'))
+const Process = lazy(() => import('./components/Process'))
+const TeamMembers = lazy(() => import('./components/TeamMembers'))
+const ContactUs = lazy(() => import('./components/ContactUs'))
+const ThePromise = lazy(() => import('./components/ThePromise'))
+const FoundersBrands = lazy(() => import('./components/FoundersBrands'))
+const GoodFitChecklist = lazy(() => import('./components/GoodFitChecklist'))
+const Contact = lazy(() => import('./components/Contact'))
+const ScrollReveal = lazy(() => import('./components/ScrollReveal'))
+const CustomCursor = lazy(() => import('./components/CustomCursor'))
+const ScrollToTop = lazy(() => import('./components/ScrollToTop'))
 
 function App() {
   useEffect(() => {
@@ -46,24 +47,31 @@ function App() {
   
   return (
     <div className="relative min-h-screen bg-[#0a0a0a] font-sans overflow-x-clip">
-      <CustomCursor />
-      <ScrollToTop />
+      <Suspense fallback={null}>
+        <CustomCursor />
+        <ScrollToTop />
+      </Suspense>
       <Navbar />
       
       <main className="relative z-20 bg-[#f2efe9] rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero />
-        <ScrollReveal><MarketingNeeds /></ScrollReveal>
-        <ScrollReveal><Testimonials /></ScrollReveal>
-        <ScrollReveal><ServicesGrid /></ScrollReveal>
-        <ScrollReveal><Process /></ScrollReveal>
-        <ScrollReveal><TeamMembers /></ScrollReveal>
-        <ScrollReveal><FoundersBrands /></ScrollReveal>
-        <ScrollReveal><GoodFitChecklist /></ScrollReveal>
-        <ContactUs />
-        <ScrollReveal><ThePromise /></ScrollReveal>
+        <MarketingNeeds />
+        
+        <Suspense fallback={<div className="w-full h-[50vh] flex items-center justify-center bg-[#f2efe9]"><div className="w-8 h-8 border-4 border-[#FD5800] border-t-transparent rounded-full animate-spin"></div></div>}>
+          <ScrollReveal><Testimonials /></ScrollReveal>
+          <ScrollReveal><ServicesGrid /></ScrollReveal>
+          <ScrollReveal><Process /></ScrollReveal>
+          <ScrollReveal><TeamMembers /></ScrollReveal>
+          <ScrollReveal><FoundersBrands /></ScrollReveal>
+          <ScrollReveal><GoodFitChecklist /></ScrollReveal>
+          <ContactUs />
+          <ScrollReveal><ThePromise /></ScrollReveal>
+        </Suspense>
       </main>
 
-      <Contact reveal={true} />
+      <Suspense fallback={null}>
+        <Contact reveal={true} />
+      </Suspense>
     </div>
   )
 }

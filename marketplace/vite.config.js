@@ -9,5 +9,25 @@ export default defineConfig({
     allowedHosts: ['marketplace.localhost', 'localhost'],
     host: true, // Listen on all local IPs
     port: 5174,
-  }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/')) {
+            return 'vendor-react'
+          }
+          if (id.includes('node_modules/framer-motion') || id.includes('node_modules/lenis')) {
+            return 'vendor-animation'
+          }
+          if (id.includes('node_modules/lucide-react') || id.includes('node_modules/react-icons')) {
+            return 'vendor-icons'
+          }
+        },
+      },
+    },
+    sourcemap: false,
+    target: 'esnext',
+    chunkSizeWarningLimit: 800,
+  },
 })

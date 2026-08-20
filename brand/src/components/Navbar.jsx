@@ -124,7 +124,7 @@ export default function Navbar() {
           </span>
         </motion.a>
         
-        {/* Desktop Nav Links (Centered perfectly) */}
+        {/* Desktop Nav Links (Centeorange perfectly) */}
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 lg:gap-2 h-full">
           {navLinks.map((link) => (
             <div key={link.name} className="relative h-full flex items-center">

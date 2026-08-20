@@ -72,7 +72,7 @@ export default function MarketingNeeds() {
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-7xl font-black tracking-tight leading-tight uppercase text-[#0A0A0A]">
-            ALL YOUR <span className="bg-[#FD5800] text-white px-4 py-1.5 inline-block -rotate-2 transform shadow-[0_10px_20px_rgba(253,88,0,0.3)]">MARKETING</span><br/>NEEDS
+            <span className="text-[#0A0A0A]">ALL YOUR</span> <span className="bg-[#FD5800] text-white px-4 py-1.5 inline-block -rotate-2 transform shadow-[0_10px_20px_rgba(253,88,0,0.3)]">MARKETING</span><br/><span className="text-[#0A0A0A]">NEEDS</span>
           </h2>
         </div>
 
@@ -123,7 +123,7 @@ export default function MarketingNeeds() {
           </div>
 
           {/* Right Column: Card Content */}
-          <div className="bg-white rounded-[30px] shadow-2xl shadow-black/5 overflow-hidden border border-gray-100">
+          <div className="bg-white rounded-[30px] shadow-2xl shadow-violet-500/5 overflow-hidden border border-violet-100">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
@@ -137,7 +137,7 @@ export default function MarketingNeeds() {
                   <span className="absolute top-8 right-10 text-[6rem] font-black opacity-[0.03] leading-none text-white">
                     {tabData[activeTab].id}
                   </span>
-                  <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#FD5800] rounded-full opacity-20 blur-[50px] pointer-events-none"></div>
+                  <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-violet-500 rounded-full opacity-20 blur-[50px] pointer-events-none"></div>
                   
                   <h3 className="text-4xl md:text-5xl font-black mb-4 uppercase max-w-[80%] leading-[1.1] relative z-10">
                     {tabData[activeTab].heading}

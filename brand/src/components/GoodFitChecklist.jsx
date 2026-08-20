@@ -29,19 +29,19 @@ const GoodFitChecklist = () => {
       id: 'item1',
       text: "You've got a team who can execute, but no one to steer the wheel.",
       number: '01',
-      color: 'text-indigo-400',
-      bgColor: 'bg-indigo-400',
-      borderColor: 'border-indigo-400',
-      lightBgColor: 'bg-indigo-50',
+      color: 'text-violet-400',
+      bgColor: 'bg-violet-400',
+      borderColor: 'border-violet-400',
+      lightBgColor: 'bg-violet-50',
     },
     {
       id: 'item2',
       text: "You're past the same old, boring content.",
       number: '02',
-      color: 'text-pink-400',
-      bgColor: 'bg-pink-400',
-      borderColor: 'border-pink-400',
-      lightBgColor: 'bg-pink-50',
+      color: 'text-orange-400',
+      bgColor: 'bg-orange-400',
+      borderColor: 'border-orange-400',
+      lightBgColor: 'bg-orange-50',
     },
     {
       id: 'item3',
@@ -55,17 +55,15 @@ const GoodFitChecklist = () => {
   ];
 
   return (
-    <section className="w-full bg-[#f2efe9] py-16 md:py-24 px-6 md:px-12 lg:px-24">
+    <section className="w-full bg-violet-100 py-16 md:py-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-24">
         
         {/* Left Side: Content & Checklist */}
         <div className="flex-1">
           <div className="mb-10">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight uppercase font-sans mb-4">
-              Let's find out if we're <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-pink-500 to-orange-500">
-                A good fit
-              </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight uppercase font-sans mb-4">
+              <span className="text-gray-900">Let's find out if we're</span> <br className="hidden md:block" />
+              <span className="text-[#FD5800]">A good fit</span>
             </h2>
             <p className="text-gray-600 text-lg md:text-xl max-w-lg">
               Tick the boxes that sound like you. All three, and we should talk.

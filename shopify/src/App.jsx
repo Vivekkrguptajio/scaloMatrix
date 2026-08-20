@@ -1,27 +1,29 @@
+import React, { useEffect, Suspense, lazy } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import HeroVCards from './components/HeroVCards'
-import FeaturedCaseStudy from './components/FeaturedCaseStudy'
-import HappyClients from './components/HappyClients'
-import GuestList from './components/GuestList'
-import CaseStudiesGrid from './components/CaseStudiesGrid'
-import Calculator from './components/Calculator'
-import AiManifesto from './components/AiManifesto'
-import CroBrandExercise from './components/CroBrandExercise'
-import HowItWorks from './components/HowItWorks'
-import HiringPhilosophy from './components/HiringPhilosophy'
-import WhoWeDontWorkWith from './components/WhoWeDontWorkWith'
-import TeamMembers from './components/TeamMembers'
-import ContactUs from './components/ContactUs'
-import ThePromise from './components/ThePromise'
-import Offers from './components/Offers'
-import Contact from './components/Contact'
-import ScrollReveal from './components/ScrollReveal'
-import CustomCursor from './components/CustomCursor'
-import ScrollToTop from './components/ScrollToTop'
-import { useEffect } from 'react'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
+import './index.css'
+
+const FeaturedCaseStudy = lazy(() => import('./components/FeaturedCaseStudy'))
+const HappyClients = lazy(() => import('./components/HappyClients'))
+const GuestList = lazy(() => import('./components/GuestList'))
+const CaseStudiesGrid = lazy(() => import('./components/CaseStudiesGrid'))
+const Calculator = lazy(() => import('./components/Calculator'))
+const AiManifesto = lazy(() => import('./components/AiManifesto'))
+const CroBrandExercise = lazy(() => import('./components/CroBrandExercise'))
+const HowItWorks = lazy(() => import('./components/HowItWorks'))
+const HiringPhilosophy = lazy(() => import('./components/HiringPhilosophy'))
+const WhoWeDontWorkWith = lazy(() => import('./components/WhoWeDontWorkWith'))
+const TeamMembers = lazy(() => import('./components/TeamMembers'))
+const ContactUs = lazy(() => import('./components/ContactUs'))
+const ThePromise = lazy(() => import('./components/ThePromise'))
+const Offers = lazy(() => import('./components/Offers'))
+const Contact = lazy(() => import('./components/Contact'))
+const ScrollReveal = lazy(() => import('./components/ScrollReveal'))
+const CustomCursor = lazy(() => import('./components/CustomCursor'))
+const ScrollToTop = lazy(() => import('./components/ScrollToTop'))
 
 function App() {
   useEffect(() => {
@@ -50,30 +52,37 @@ function App() {
   }, [])
   return (
     <div className="relative min-h-screen bg-[#0a0a0a] font-sans overflow-x-clip">
-      <CustomCursor />
-      <ScrollToTop />
+      <Suspense fallback={null}>
+        <CustomCursor />
+        <ScrollToTop />
+      </Suspense>
       <Navbar />
       
       <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero />
-        <ScrollReveal><HeroVCards /></ScrollReveal>
-        <ScrollReveal><FeaturedCaseStudy /></ScrollReveal>
-        <ScrollReveal><HappyClients /></ScrollReveal>
-        <ScrollReveal><GuestList /></ScrollReveal>
-        <ScrollReveal><CaseStudiesGrid /></ScrollReveal>
-        <ScrollReveal><Calculator /></ScrollReveal>
-        <ScrollReveal><Offers /></ScrollReveal>
-        <ScrollReveal><AiManifesto /></ScrollReveal>
-        <ScrollReveal><CroBrandExercise /></ScrollReveal>
-        <ScrollReveal><HowItWorks /></ScrollReveal>
-        <ScrollReveal><HiringPhilosophy /></ScrollReveal>
-        <ScrollReveal><WhoWeDontWorkWith /></ScrollReveal>
-        <ScrollReveal><TeamMembers /></ScrollReveal>
-        <ContactUs />
-        <ScrollReveal><ThePromise /></ScrollReveal>
+        <HeroVCards />
+        
+        <Suspense fallback={<div className="w-full h-[50vh] flex items-center justify-center bg-gray-50"><div className="w-8 h-8 border-4 border-[#FD5800] border-t-transparent rounded-full animate-spin"></div></div>}>
+          <ScrollReveal><FeaturedCaseStudy /></ScrollReveal>
+          <ScrollReveal><HappyClients /></ScrollReveal>
+          <ScrollReveal><GuestList /></ScrollReveal>
+          <ScrollReveal><CaseStudiesGrid /></ScrollReveal>
+          <ScrollReveal><Calculator /></ScrollReveal>
+          <ScrollReveal><Offers /></ScrollReveal>
+          <ScrollReveal><AiManifesto /></ScrollReveal>
+          <ScrollReveal><CroBrandExercise /></ScrollReveal>
+          <ScrollReveal><HowItWorks /></ScrollReveal>
+          <ScrollReveal><HiringPhilosophy /></ScrollReveal>
+          <ScrollReveal><WhoWeDontWorkWith /></ScrollReveal>
+          <ScrollReveal><TeamMembers /></ScrollReveal>
+          <ContactUs />
+          <ScrollReveal><ThePromise /></ScrollReveal>
+        </Suspense>
       </main>
 
-      <Contact reveal={true} />
+      <Suspense fallback={null}>
+        <Contact reveal={true} />
+      </Suspense>
     </div>
   )
 }

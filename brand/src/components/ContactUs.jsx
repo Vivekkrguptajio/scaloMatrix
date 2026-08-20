@@ -28,7 +28,7 @@ export default function ContactUs() {
       
       {/* ─── Background Ambient Waves ─── */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(253,88,0,0.1)_0%,transparent_70%)] rounded-full pointer-events-none -translate-y-1/3 translate-x-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(253,88,0,0.05)_0%,transparent_70%)] rounded-full pointer-events-none translate-y-1/3 -translate-x-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(139,92,246,0.08)_0%,transparent_70%)] rounded-full pointer-events-none translate-y-1/3 -translate-x-1/3"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 relative z-10 w-full">
         
@@ -44,7 +44,7 @@ export default function ContactUs() {
                 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-black"
               >
                 Let's build <br />
-                <span className="text-[#FD5800]">something amazing.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-violet-500">something amazing.</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -185,7 +185,7 @@ export default function ContactUs() {
               >
                 <button 
                   type="submit"
-                  className="group w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-bold text-lg bg-[#FD5800] text-white border border-transparent hover:bg-white hover:text-black hover:border-black transition-colors tracking-wide"
+                  className="group w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-bold text-lg bg-gradient-to-r from-[#FD5800] to-violet-500 text-white border border-transparent hover:from-white hover:to-white hover:text-black hover:border-black transition-colors tracking-wide"
                 >
                   <span>Send Message</span>
                   
