@@ -22,11 +22,15 @@ const Career = lazy(() => import('./pages/Career'));
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.08, // Apple-like smooth momentum
-      wheelMultiplier: 1.2,
+      lerp: 0.06,
+      duration: 1.6,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
+      wheelMultiplier: 0.85,
       smoothTouch: false,
-      touchMultiplier: 2,
+      touchMultiplier: 1.8,
+      syncTouch: true,
+      syncTouchLerp: 0.04,
     });
 
     function raf(time) {
