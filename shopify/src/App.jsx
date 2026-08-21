@@ -29,18 +29,24 @@ const ScrollToTop = lazy(() => import('./components/ScrollToTop'))
 function App() {
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
+    
+    // On mobile, native scrolling is perfectly hardware-accelerated and smooth.
+    // Hijacking it with JS often causes jank. So we disable Lenis on mobile.
+    if (isMobile) {
+      document.documentElement.classList.add('mobile-native-scroll');
+      return;
+    }
+
     const lenis = new Lenis({
-      lerp: isMobile ? 0.08 : 0.06,
-      duration: isMobile ? 1.2 : 1.6,
+      lerp: 0.06,
+      duration: 1.6,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: isMobile ? 1.0 : 0.85,
-      touchMultiplier: 2.2,
+      wheelMultiplier: 0.85,
+      touchMultiplier: 1.5,
       infinite: false,
-      syncTouch: true,
-      syncTouchLerp: 0.06,
     })
 
     let rafId

@@ -96,6 +96,15 @@ a, button, [role="button"], input, select, textarea, label {
     inset 0 1px 2px rgba(255, 255, 255, 0.9) !important;
   transform: translateZ(0);
   backface-visibility: hidden;
+  will-change: transform, backdrop-filter;
+}
+
+@media (max-width: 768px) {
+  .glass-navbar {
+    backdrop-filter: blur(12px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
+    background: rgba(255, 255, 255, 0.7) !important;
+  }
 }
 
 /* ═══════ HIDE SCROLLBAR ═══════ */
@@ -238,14 +247,9 @@ html.lenis body {
 }
 
 /* ═══════ PERFORMANCE OPTIMIZATIONS ═══════ */
-.content-auto {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 1000px;
-}
-
-/* ═══════ GPU ACCELERATION ═══════ */
+/* GPU ACCELERATION */
 img, video, iframe {
-  content-visibility: auto;
+  transform: translateZ(0);
 }
 
 img {
