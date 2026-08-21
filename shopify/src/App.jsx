@@ -2,6 +2,7 @@ import React, { useEffect, Suspense, lazy } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import HeroVCards from './components/HeroVCards'
+import { ScrollProgressBar } from './components/ScrollReveal'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import './index.css'
@@ -27,18 +28,19 @@ const ScrollToTop = lazy(() => import('./components/ScrollToTop'))
 
 function App() {
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
     const lenis = new Lenis({
-      lerp: 0.06,
-      duration: 1.6,
+      lerp: isMobile ? 0.08 : 0.06,
+      duration: isMobile ? 1.2 : 1.6,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.85,
-      touchMultiplier: 1.8,
+      wheelMultiplier: isMobile ? 1.0 : 0.85,
+      touchMultiplier: 2.2,
       infinite: false,
       syncTouch: true,
-      syncTouchLerp: 0.04,
+      syncTouchLerp: 0.06,
     })
 
     let rafId
@@ -55,6 +57,7 @@ function App() {
   }, [])
   return (
     <div className="relative min-h-screen bg-[#0a0a0a] font-sans overflow-x-clip">
+      <ScrollProgressBar />
       <Suspense fallback={null}>
         <CustomCursor />
         <ScrollToTop />
@@ -67,19 +70,19 @@ function App() {
         
         <Suspense fallback={<div className="w-full h-[50vh] flex items-center justify-center bg-gray-50"><div className="w-8 h-8 border-4 border-[#FD5800] border-t-transparent rounded-full animate-spin"></div></div>}>
           <ScrollReveal><FeaturedCaseStudy /></ScrollReveal>
-          <ScrollReveal><HappyClients /></ScrollReveal>
+          <ScrollReveal variant="scaleUp"><HappyClients /></ScrollReveal>
           <ScrollReveal><GuestList /></ScrollReveal>
-          <ScrollReveal><CaseStudiesGrid /></ScrollReveal>
+          <ScrollReveal variant="scaleUp"><CaseStudiesGrid /></ScrollReveal>
           <ScrollReveal><Calculator /></ScrollReveal>
-          <ScrollReveal><Offers /></ScrollReveal>
+          <ScrollReveal variant="scaleUp"><Offers /></ScrollReveal>
           <ScrollReveal><AiManifesto /></ScrollReveal>
-          <ScrollReveal><CroBrandExercise /></ScrollReveal>
+          <ScrollReveal variant="blur"><CroBrandExercise /></ScrollReveal>
           <ScrollReveal><HowItWorks /></ScrollReveal>
           <ScrollReveal><HiringPhilosophy /></ScrollReveal>
           <ScrollReveal><WhoWeDontWorkWith /></ScrollReveal>
           <ScrollReveal><TeamMembers /></ScrollReveal>
           <ContactUs />
-          <ScrollReveal><ThePromise /></ScrollReveal>
+          <ScrollReveal variant="blur"><ThePromise /></ScrollReveal>
         </Suspense>
       </main>
 

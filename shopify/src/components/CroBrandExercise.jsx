@@ -2,13 +2,13 @@
 const CroBrandExercise = () => {
   return (
     <section id="cro" className="w-full py-8 md:py-12 lg:py-14 bg-white text-black font-sans">
-      <div className="max-w-[1280px] mx-auto w-full px-6 md:px-12 xl:px-16 flex flex-col gap-6 lg:gap-8">
+      <div className="max-w-[1280px] mx-auto w-full px-4 sm:px-6 md:px-12 xl:px-16 flex flex-col gap-6 lg:gap-8">
         
         {/* Top Row: Large Headline & Subtext */}
         <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end gap-6">
           {/* Left Side: Large Headline */}
           <div className="lg:w-[60%]">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-[#111111] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-[#111111] tracking-tight">
               CRO is a brand exercise.<br />
               The % is <a 
                 href="#case-studies"
@@ -153,7 +153,7 @@ const CroBrandExercise = () => {
                 Variant lifted CVR <span className="text-[#FD5800]">+34%</span> week one.
               </h4>
 
-              <div className="text-5xl md:text-6xl font-black text-[#ff6b6b] my-4">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-[#ff6b6b] my-4">
                 +34%
               </div>
             </div>
@@ -182,7 +182,7 @@ const CroBrandExercise = () => {
                 Brand-led hero, compounding by month three.
               </h4>
 
-              <div className="text-5xl md:text-6xl font-black text-[#FD5800] my-4">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-[#FD5800] my-4">
                 +22%
               </div>
             </div>

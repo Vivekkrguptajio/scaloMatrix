@@ -162,7 +162,7 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <button 
           onClick={() => setMobileMenu(!mobileMenu)}
-          className="md:hidden flex flex-col gap-1.5 p-2 z-20"
+          className="md:hidden flex flex-col gap-1.5 p-3 z-20 min-w-[44px] min-h-[44px] items-center justify-center active:scale-90 transition-transform duration-150"
         >
           <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${mobileMenu ? 'rotate-45 translate-y-[5px]' : ''}`}></span>
           <span className={`block w-5 h-[2px] transition-all duration-300 bg-[#FD5800] ${mobileMenu ? 'opacity-0' : ''}`}></span>
@@ -194,7 +194,7 @@ export default function Navbar() {
                     setMobileMenu(false);
                   }
                 }}
-                className="flex items-center justify-between text-base font-bold px-4 py-2 transition-all rounded-xl text-[#FD5800]/80 hover:text-[#FD5800] hover:bg-orange-50/50"
+                className="flex items-center justify-between text-base font-bold px-4 py-3 min-h-[44px] transition-all rounded-xl text-[#FD5800]/80 hover:text-[#FD5800] hover:bg-orange-50/50 active:bg-orange-50"
               >
                 {link.name}
               </a>

@@ -38,14 +38,18 @@
 }
 
 /* ═══════ GLOBAL STYLES ═══════ */
-*, body, a, button, input, select, textarea {
-  cursor: none !important;
+/* Custom cursor only on non-touch desktop devices */
+@media (hover: hover) and (pointer: fine) {
+  *, body, a, button, input, select, textarea {
+    cursor: none !important;
+  }
 }
 
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -53,13 +57,31 @@ body {
   color: #101828;
   background: #fff;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
-
+/* ═══════ MOBILE TOUCH OPTIMIZATION ═══════ */
+a, button, [role="button"], input, select, textarea, label {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
 
 ::selection {
   background-color: #FD5800;
   color: #fff;
+}
+
+/* ═══════ SCROLL PROGRESS BAR ═══════ */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FD5800, #FF9066);
+  z-index: 9999;
+  transform-origin: left;
+  will-change: transform;
+  pointer-events: none;
 }
 
 /* ═══════ GLASSMORPHISM NAVBAR ═══════ */
@@ -82,8 +104,8 @@ body {
 }
 
 html, body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -216,32 +238,27 @@ html.lenis body {
 }
 
 /* ═══════ PERFORMANCE OPTIMIZATIONS ═══════ */
-/* Use on heavy below-the-fold sections to skip rendering off-screen */
 .content-auto {
   content-visibility: auto;
   contain-intrinsic-size: 1px 1000px;
 }
 
 /* ═══════ GPU ACCELERATION ═══════ */
-/* Force GPU compositing for animated elements */
 img, video, iframe {
   content-visibility: auto;
 }
 
-/* Optimize images for rendering */
 img {
   image-rendering: auto;
 }
 
 /* ═══════ APPLE-LEVEL SCROLL ENHANCEMENTS ═══════ */
 
-/* Silky smooth rendering for all animated elements */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* GPU-accelerate all motion elements for jank-free animations */
 [style*="transform"],
 .will-change-transform {
   will-change: transform;
@@ -251,15 +268,43 @@ img {
   perspective: 1000px;
 }
 
-/* Smooth scroll behavior for anchor links */
 html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
 
-/* Ensure sections have proper containment for scroll performance */
 section {
   contain: layout style;
+}
+
+/* ═══════ MOBILE-SPECIFIC OPTIMIZATIONS ═══════ */
+@media (max-width: 768px) {
+  /* Reduce heavy background effects on mobile */
+  .absolute[class*="blur-3xl"] {
+    display: none;
+  }
+
+  /* Ensure no horizontal overflow */
+  main, section, div {
+    max-width: 100vw;
+  }
+
+  /* Bigger touch targets for range sliders */
+  input[type="range"] {
+    min-height: 44px;
+    padding: 12px 0;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    width: 32px !important;
+    height: 32px !important;
+    margin-top: -15px !important;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 32px !important;
+    height: 32px !important;
+  }
 }
 
 /* Reduce motion for users who prefer it */
@@ -271,4 +316,5 @@ section {
     scroll-behavior: auto !important;
   }
 }
+
 

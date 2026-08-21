@@ -98,13 +98,13 @@ export default function Hero() {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex flex-col justify-between pt-24 md:pt-28 pb-6 md:pb-10 px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
+      className="min-h-[85vh] md:min-h-screen flex flex-col justify-between pt-20 md:pt-28 pb-6 md:pb-10 px-4 sm:px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
     >
       {/* CSS Animations */}
       <style>{`
-        @keyframes float1 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(3deg); } }
-        @keyframes float2 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(-2deg); } }
-        @keyframes float3 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-25px) rotate(2deg); } }
+        @keyframes float1 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
+        @keyframes float2 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-10px) rotate(-1.5deg); } }
+        @keyframes float3 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(1.5deg); } }
         @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
         @keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(253, 88, 0, 0.15); } 50% { box-shadow: 0 0 40px rgba(253, 88, 0, 0.3); } }
@@ -120,9 +120,9 @@ export default function Hero() {
         .hero-cards-animate { animation: slideInRight 1s ease-out 0.5s both; }
       `}</style>
 
-      {/* Animated gradient orbs background */}
-      <div className="absolute top-20 -left-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#FD5800]/[0.04] to-[#FF9066]/[0.02] blur-3xl pointer-events-none" style={{ animation: 'gradientMove 8s ease infinite' }} />
-      <div className="absolute bottom-20 -right-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#95BF47]/[0.04] to-[#5a8a00]/[0.02] blur-3xl pointer-events-none" style={{ animation: 'gradientMove 10s ease infinite reverse' }} />
+      {/* Animated gradient orbs background — hidden on mobile via CSS */}
+      <div className="hidden md:block absolute top-20 -left-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#FD5800]/[0.04] to-[#FF9066]/[0.02] blur-3xl pointer-events-none" style={{ animation: 'gradientMove 8s ease infinite' }} />
+      <div className="hidden md:block absolute bottom-20 -right-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#95BF47]/[0.04] to-[#5a8a00]/[0.02] blur-3xl pointer-events-none" style={{ animation: 'gradientMove 10s ease infinite reverse' }} />
 
       {/* Subtle dot grid */}
       <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{
@@ -131,7 +131,7 @@ export default function Hero() {
       }} />
 
       {/* Main Content - Two Column Layout on Desktop */}
-      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-8 md:mt-14 -translate-y-[15px]">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 mt-4 md:mt-14 md:-translate-y-[15px]">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8 xl:gap-12">
           
           {/* LEFT COLUMN - Text Content */}
@@ -151,7 +151,7 @@ export default function Hero() {
 
             {/* Main Heading with Rotating Text */}
             <h1 
-              className="text-[22px] sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[42px] font-black font-sans text-black leading-[1.25] md:leading-[1.15] tracking-tight mb-4 md:mb-5 text-center md:text-left hero-animate-2"
+              className="text-[20px] sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[42px] font-black font-sans text-black leading-[1.3] md:leading-[1.15] tracking-tight mb-4 md:mb-5 text-center md:text-left hero-animate-2"
             >
               We build <RotatingText />
               <span className="block mt-1 md:mt-2" />
@@ -165,7 +165,7 @@ export default function Hero() {
             />
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-3 sm:gap-4 mb-7 hero-animate-4">
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-3 mb-7 hero-animate-4">
               <a 
                 href="#contact" 
                 className="group relative flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-2.5 sm:py-2 rounded-full font-bold text-[12px] sm:text-[13px] bg-[#FD5800] text-white border-2 border-transparent hover:shadow-[0_0_30px_rgba(253,88,0,0.3)] hover:scale-105 transition-all duration-300 tracking-wide overflow-hidden"

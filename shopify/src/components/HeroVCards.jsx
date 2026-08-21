@@ -61,21 +61,21 @@ export default function HeroVCards() {
   ];
 
   return (
-    <section className="w-full pt-6 md:pt-8 pb-10 md:pb-16 bg-white text-black font-sans overflow-hidden relative z-10">
+    <section className="w-full pt-4 md:pt-8 pb-8 md:pb-16 bg-white text-black font-sans overflow-hidden relative z-10">
       <style>{`
         @keyframes marqueeLeft {
           0% { transform: translateX(0%); }
           100% { transform: translateX(-50%); }
         }
         .animate-marquee-left {
-          animation: marqueeLeft 55s linear infinite;
+          animation: marqueeLeft 40s linear infinite;
           display: flex;
           width: max-content;
         }
       `}</style>
 
       {/* Header Container */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 w-full mb-3">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 w-full mb-3">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 pb-6 border-b border-gray-100">
           
           {/* Left Controls */}
@@ -123,11 +123,11 @@ export default function HeroVCards() {
 
         {/* Row 1: Left Moving Marquee */}
         <div className="w-full overflow-hidden group">
-          <div className="flex animate-marquee-left gap-3 md:gap-4 group-hover:[animation-play-state:paused] [transform:translateZ(0)] will-change-transform">
+          <div className="flex animate-marquee-left gap-2 md:gap-4 group-hover:[animation-play-state:paused] [transform:translateZ(0)] will-change-transform">
             {[...row1Cards, ...row1Cards, ...row1Cards, ...row1Cards].map((card, idx) => (
               <div 
                 key={idx} 
-                className="w-[335px] sm:w-[388px] md:w-[423px] min-w-[335px] sm:min-w-[388px] md:min-w-[423px] max-w-[335px] sm:max-w-[388px] md:max-w-[423px] h-[550px] md:h-[607px] rounded-xl md:rounded-2xl overflow-hidden shadow-md bg-white shrink-0 group/card cursor-pointer flex flex-col"
+                className="w-[280px] sm:w-[335px] md:w-[423px] min-w-[280px] sm:min-w-[335px] md:min-w-[423px] max-w-[280px] sm:max-w-[335px] md:max-w-[423px] h-[450px] sm:h-[520px] md:h-[607px] rounded-xl md:rounded-2xl overflow-hidden shadow-md bg-white shrink-0 group/card cursor-pointer flex flex-col"
               >
 
                 {/* Screenshot Image Container */}

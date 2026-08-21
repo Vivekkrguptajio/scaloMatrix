@@ -70,11 +70,11 @@ const Calculator = () => {
         `}
       </style>
 
-      <div className="max-w-[1360px] mx-auto flex flex-col items-center px-6 md:px-12 xl:px-16 w-full">
+      <div className="max-w-[1360px] mx-auto flex flex-col items-center px-4 sm:px-6 md:px-12 xl:px-16 w-full">
         
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
             Do the <span className="text-[#FD5800]">math.</span>
           </h2>
           <div className="w-full lg:w-[40%] flex lg:justify-end">
