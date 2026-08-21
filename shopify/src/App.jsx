@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import HeroVCards from './components/HeroVCards'
 import { ScrollProgressBar } from './components/ScrollReveal'
+import SkeletonLoader from './components/SkeletonLoader'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import './index.css'
@@ -74,7 +75,7 @@ function App() {
         <Hero />
         <HeroVCards />
         
-        <Suspense fallback={<div className="w-full h-[50vh] flex items-center justify-center bg-gray-50"><div className="w-8 h-8 border-4 border-[#FD5800] border-t-transparent rounded-full animate-spin"></div></div>}>
+        <Suspense fallback={<SkeletonLoader />}>
           <ScrollReveal><FeaturedCaseStudy /></ScrollReveal>
           <ScrollReveal variant="scaleUp"><HappyClients /></ScrollReveal>
           <ScrollReveal><GuestList /></ScrollReveal>

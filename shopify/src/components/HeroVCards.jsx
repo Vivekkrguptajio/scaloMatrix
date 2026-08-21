@@ -124,7 +124,7 @@ export default function HeroVCards() {
         {/* Row 1: Left Moving Marquee */}
         <div className="w-full overflow-hidden group">
           <div className="flex animate-marquee-left gap-2 md:gap-4 group-hover:[animation-play-state:paused] [transform:translateZ(0)] will-change-transform">
-            {[...row1Cards, ...row1Cards, ...row1Cards, ...row1Cards].map((card, idx) => (
+            {[...row1Cards, ...row1Cards].map((card, idx) => (
               <div 
                 key={idx} 
                 className="w-[280px] sm:w-[335px] md:w-[423px] min-w-[280px] sm:min-w-[335px] md:min-w-[423px] max-w-[280px] sm:max-w-[335px] md:max-w-[423px] h-[450px] sm:h-[520px] md:h-[607px] rounded-xl md:rounded-2xl overflow-hidden shadow-md bg-white shrink-0 group/card cursor-pointer flex flex-col"
