@@ -24,7 +24,7 @@ export default function HeroVCards() {
       title: 'Velmukha', 
       url: 'velmukha.in',
       stat: '+50% Sales',
-      category: 'D2C Brand' 
+      category: 'CRO' 
     },
     { 
       id: 4, 
@@ -119,7 +119,7 @@ export default function HeroVCards() {
       </div>
 
       {/* Marquee Wrapper */}
-      <div className="relative w-full overflow-hidden flex flex-col gap-6 py-2">
+      <div className="relative w-full overflow-hidden flex flex-col gap-6 py-2 px-6 md:px-12">
 
         {/* Row 1: Left Moving Marquee */}
         <div className="w-full overflow-hidden group">
@@ -149,8 +149,6 @@ export default function HeroVCards() {
             ))}
           </div>
         </div>
-
-
       </div>
     </section>
   );

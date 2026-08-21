@@ -1,7 +1,7 @@
 export const heroData = {
   badge: 'Shopify Partner',
   badge2: 'CRO-Led',
-  rotatingWords: ['Shopify Stores', 'Landing Pages', 'Custom Themes', 'D2C Brands'],
+  rotatingWords: ['Shopify Stores', 'Landing Pages', 'Custom Themes', 'CRO'],
   headlineSuffix: 'that Make more money from the same ad spend.',
   description: "From custom Shopify themes to high-converting landing pages — we ship stores that convert <strong className='font-bold text-black'>at least 20% better</strong> than what's running today.",
   stats: [
