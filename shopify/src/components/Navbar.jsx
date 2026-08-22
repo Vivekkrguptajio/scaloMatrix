@@ -100,7 +100,7 @@ export default function Navbar() {
     <header className="fixed left-0 right-0 z-50 flex justify-center transition-[opacity,transform] duration-700 ease-in-out top-4 px-4">
       <nav
         ref={navRef}
-        className={`relative w-full flex flex-col transition-all duration-300 backdrop-blur-2xl backdrop-saturate-200 max-w-7xl border rounded-[32px] ${
+        className={`relative w-full flex flex-col transition-all duration-300 backdrop-blur-md backdrop-saturate-200 max-w-7xl border rounded-[32px] ${
           isDark
             ? 'bg-white/5 border-white/10'
             : 'bg-white/20 border-white/30'

@@ -82,9 +82,9 @@ function RotatingText() {
 
 export default function Hero() {
   const storeImages = [
-    '/photsWork/Drapes.png',
-    '/photsWork/Nada.png',
-    '/photsWork/Luxury.png'
+    '/photsWork/Drapes.webp',
+    '/photsWork/Nada.webp',
+    '/photsWork/Luxury.webp'
   ]
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -121,8 +121,8 @@ export default function Hero() {
       `}</style>
 
       {/* Animated gradient orbs background — hidden on mobile via CSS */}
-      <div className="hidden md:block absolute top-20 -left-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#FD5800]/[0.04] to-[#FF9066]/[0.02] blur-3xl pointer-events-none" style={{ animation: 'gradientMove 8s ease infinite' }} />
-      <div className="hidden md:block absolute bottom-20 -right-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#95BF47]/[0.04] to-[#5a8a00]/[0.02] blur-3xl pointer-events-none" style={{ animation: 'gradientMove 10s ease infinite reverse' }} />
+      <div className="hidden md:block absolute top-20 -left-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#FD5800]/[0.04] to-[#FF9066]/[0.02] blur-3xl pointer-events-none [transform:translateZ(0)] will-change-transform" />
+      <div className="hidden md:block absolute bottom-20 -right-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#95BF47]/[0.04] to-[#5a8a00]/[0.02] blur-3xl pointer-events-none [transform:translateZ(0)] will-change-transform" />
 
       {/* Subtle dot grid */}
       <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{

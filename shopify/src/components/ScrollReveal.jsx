@@ -50,8 +50,8 @@ const ScrollReveal = ({
       animate: { opacity: 1, scale: 1 },
     },
     blur: {
-      initial: { opacity: 0, filter: isMobile ? 'blur(6px)' : 'blur(12px)', y: isMobile ? 15 : 30 },
-      animate: { opacity: 1, filter: 'blur(0px)', y: 0 },
+      initial: { opacity: 0, scale: 0.95, y: isMobile ? 15 : 30 },
+      animate: { opacity: 1, scale: 1, y: 0 },
     },
     slideUp: {
       initial: { opacity: 0, y: isMobile ? 60 : 120 },

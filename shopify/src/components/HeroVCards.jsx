@@ -4,7 +4,7 @@ export default function HeroVCards() {
   const row1Cards = [
     { 
       id: 1, 
-      img: '/photsWork/Nada.png', 
+      img: '/photsWork/Nada.webp', 
       title: 'Nada', 
       url: 'nada.store',
       stat: '+44% CVR',
@@ -12,7 +12,7 @@ export default function HeroVCards() {
     },
     { 
       id: 2, 
-      img: '/photsWork/Nutraphyll.png', 
+      img: '/photsWork/Nutraphyll.webp', 
       title: 'Nutraphyll', 
       url: 'nutraphyll.com',
       stat: '+35% Orders',
@@ -20,7 +20,7 @@ export default function HeroVCards() {
     },
     { 
       id: 3, 
-      img: '/photsWork/Velmukha.png', 
+      img: '/photsWork/Velmukha.webp', 
       title: 'Velmukha', 
       url: 'velmukha.in',
       stat: '+50% Sales',
@@ -28,7 +28,7 @@ export default function HeroVCards() {
     },
     { 
       id: 4, 
-      img: '/photsWork/wayoranatural.png', 
+      img: '/photsWork/wayoranatural.webp', 
       title: 'Wayora Natural', 
       url: 'wayoranatural.shop',
       stat: '+28% AOV',
@@ -36,7 +36,7 @@ export default function HeroVCards() {
     },
     { 
       id: 5, 
-      img: '/photsWork/Drapes.png', 
+      img: '/photsWork/Drapes.webp', 
       title: 'Drapes Corner', 
       url: 'drapescorner.com',
       stat: '+60% CVR',
@@ -44,7 +44,7 @@ export default function HeroVCards() {
     },
     { 
       id: 6, 
-      img: '/photsWork/Judex.png', 
+      img: '/photsWork/Judex.webp', 
       title: 'Judex Fragrance', 
       url: 'judex.com',
       stat: '+45% Sales',
@@ -52,7 +52,7 @@ export default function HeroVCards() {
     },
     { 
       id: 7, 
-      img: '/photsWork/Luxury.png', 
+      img: '/photsWork/Luxury.webp', 
       title: 'Wayora Luxury', 
       url: 'wayoraluxury.com',
       stat: '+80% Orders',
@@ -123,7 +123,7 @@ export default function HeroVCards() {
 
         {/* Row 1: Left Moving Marquee */}
         <div className="w-full overflow-hidden group">
-          <div className="flex animate-marquee-left gap-2 md:gap-4 group-hover:[animation-play-state:paused] [transform:translateZ(0)] will-change-transform">
+          <div className="flex animate-marquee-left gap-2 md:gap-4 group-hover:[animation-play-state:paused]">
             {[...row1Cards, ...row1Cards].map((card, idx) => (
               <div 
                 key={idx} 
@@ -135,6 +135,7 @@ export default function HeroVCards() {
                   <img 
                     src={card.img} 
                     alt={card.title} 
+                    loading="lazy"
                     className="w-full h-full object-cover object-top"
                   />
 
