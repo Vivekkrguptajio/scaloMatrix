@@ -80,7 +80,9 @@ export default function Insights() {
           {/* Grid Layout - 4 Cards Side by Side, animated by scroll */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {insights.map((item, i) => (
-              <InsightCard key={item.id} item={item} index={i} />
+              <div key={item.id} className={i >= 2 ? "hidden sm:block" : ""}>
+                <InsightCard item={item} index={i} />
+              </div>
             ))}
           </div>
 

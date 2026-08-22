@@ -6,7 +6,7 @@ export default function Showreel() {
   const videoId = 'L9V2lbljBa4';
 
   return (
-    <section id="showreel" className="w-full bg-white relative z-20 pt-2 pb-0 md:py-[5%] mt-4 md:mt-24">
+    <section id="showreel" className="w-full bg-white relative z-20 pt-2 pb-10 md:py-[5%] mt-4 md:mt-24">
       <div className="max-w-[1400px] w-full mx-auto px-4 md:px-8 mb-2 md:mb-10 text-center">
         <h2 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tight">
           Streamline Business with our <span className="text-[#FD5800]">Flexible options</span>

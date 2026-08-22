@@ -84,7 +84,9 @@ export default function SelectedWork() {
           {/* Grid Layout - 4 Cards Side by Side, animated by scroll */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {caseStudies.map((study, i) => (
-              <CaseCard key={study.id} study={study} index={i} />
+              <div key={study.id} className={i >= 2 ? "hidden sm:block" : ""}>
+                <CaseCard study={study} index={i} />
+              </div>
             ))}
           </div>
 

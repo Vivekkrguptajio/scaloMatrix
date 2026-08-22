@@ -288,9 +288,10 @@ section {
     display: none;
   }
 
-  /* Ensure no horizontal overflow */
-  main, section, div {
+  /* Ensure no horizontal overflow on document level */
+  body, html {
     max-width: 100vw;
+    overflow-x: hidden;
   }
 
   /* Bigger touch targets for range sliders */

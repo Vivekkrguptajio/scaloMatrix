@@ -427,7 +427,7 @@ const CaseStudiesGrid = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black tracking-tight lg:w-[60%]">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black tracking-tight lg:w-[60%]">
             Things we are happy<br /><span className="text-[#FD5800]">about.</span>
           </h2>
           <div className="w-full lg:w-[40%] flex lg:justify-end">
@@ -452,7 +452,7 @@ const CaseStudiesGrid = () => {
                 key={study.id} 
                 className={`p-4 sm:p-5 flex flex-col ${idx === 0 ? 'border-b-[0.5px] border-black' : ''}`}
               >
-                <div className="bg-[#f1f1f1] border border-black p-3 mb-4 flex-1 flex items-center justify-center min-h-[200px] sm:min-h-[240px]">
+                <div className="bg-[#f1f1f1] border border-black p-2 sm:p-3 mb-4 flex-1 flex items-center justify-center min-h-[170px] sm:min-h-[240px]">
                   {study.mockup}
                 </div>
                 <div className="flex justify-between items-end mt-auto">

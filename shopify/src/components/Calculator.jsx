@@ -45,13 +45,13 @@ const Calculator = () => {
             background: black;
           }
           .custom-slider::-webkit-slider-thumb {
-            height: 24px;
-            width: 24px;
+            height: 32px;
+            width: 32px;
             background: #FD5800;
             border: 2px solid black;
             cursor: pointer;
             -webkit-appearance: none;
-            margin-top: -11px;
+            margin-top: -15px;
           }
           .custom-slider::-moz-range-track {
             width: 100%;
@@ -60,8 +60,8 @@ const Calculator = () => {
             background: black;
           }
           .custom-slider::-moz-range-thumb {
-            height: 24px;
-            width: 24px;
+            height: 32px;
+            width: 32px;
             background: #FD5800;
             border: 2px solid black;
             cursor: pointer;
@@ -74,7 +74,7 @@ const Calculator = () => {
         
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-6 gap-6">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black lg:w-[60%]">
             Do the <span className="text-[#FD5800]">math.</span>
           </h2>
           <div className="w-full lg:w-[40%] flex lg:justify-end">
@@ -164,7 +164,7 @@ const Calculator = () => {
                 <div className="text-[10px] font-mono tracking-widest text-gray-500 uppercase flex items-center gap-2 mb-1">
                   <span className="text-gray-400">↘</span> EXTRA REVENUE / MONTH
                 </div>
-                <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#FD5800] tracking-tight">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#FD5800] tracking-tight">
                   {formatExtra(extraRevLakhs)}
                 </div>
               </div>

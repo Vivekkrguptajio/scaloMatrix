@@ -98,7 +98,7 @@ export default function Hero() {
   return (
     <section 
       id="hero" 
-      className="min-h-[85vh] md:min-h-screen flex flex-col justify-between pt-20 md:pt-28 pb-6 md:pb-10 px-4 sm:px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
+      className="min-h-[75vh] md:min-h-screen flex flex-col justify-between pt-20 md:pt-28 pb-4 md:pb-10 px-4 sm:px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
     >
       {/* CSS Animations */}
       <style>{`
@@ -151,7 +151,7 @@ export default function Hero() {
 
             {/* Main Heading with Rotating Text */}
             <h1 
-              className="text-[20px] sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[42px] font-black font-sans text-black leading-[1.3] md:leading-[1.15] tracking-tight mb-4 md:mb-5 text-center md:text-left hero-animate-2"
+              className="text-[18px] sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[42px] font-black font-sans text-black leading-[1.25] md:leading-[1.15] tracking-tight mb-3 md:mb-5 text-center md:text-left hero-animate-2"
             >
               We build <RotatingText />
               <span className="block mt-1 md:mt-2" />
@@ -160,7 +160,7 @@ export default function Hero() {
 
             {/* Sub Heading */}
             <p 
-              className="text-[14px] sm:text-[15px] md:text-base text-[#555] font-medium max-w-[620px] leading-relaxed mb-6 md:mb-7 text-center md:text-left mx-auto md:mx-0 hero-animate-3"
+              className="text-[13px] sm:text-[15px] md:text-base text-[#555] font-medium max-w-[620px] leading-relaxed mb-4 md:mb-7 text-center md:text-left mx-auto md:mx-0 hero-animate-3"
               dangerouslySetInnerHTML={{ __html: heroData.description }}
             />
 
@@ -192,7 +192,7 @@ export default function Hero() {
             </div>
 
             {/* Stats Row */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-5 lg:gap-7 hero-animate-5">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 lg:gap-7 hero-animate-5">
               {heroData.stats.map((stat, i) => (
                 <div key={i} className="flex flex-col items-center md:items-start group cursor-default">
                   <span className="text-[#FD5800] text-2xl md:text-3xl font-black tracking-tighter group-hover:scale-110 transition-transform duration-300">
@@ -280,7 +280,7 @@ export default function Hero() {
       </div>
 
       {/* Marquee at the bottom */}
-      <div className="w-screen relative left-1/2 -translate-x-1/2 z-30 mt-8 md:mt-12">
+      <div className="w-screen relative left-1/2 -translate-x-1/2 z-30 mt-4 md:mt-12">
         <Marquee />
       </div>
     </section>

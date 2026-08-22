@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-const GuestCard = ({ brand, index }) => {
+const GuestCard = ({ brand, index, additionalClass = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -29,7 +29,7 @@ const GuestCard = ({ brand, index }) => {
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/4 h-32 border border-black -ml-[1px] -mt-[1px] bg-white flex items-center justify-center p-5 transition-all duration-700 ease-out transform group hover:bg-black/[0.02] ${
+      className={`w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/4 h-24 sm:h-32 border border-black -ml-[1px] -mt-[1px] bg-white flex items-center justify-center p-4 sm:p-5 transition-all duration-700 ease-out transform group hover:bg-black/[0.02] ${additionalClass} ${
         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95'
       }`}
     >
@@ -59,11 +59,11 @@ const GuestList = () => {
         
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end mb-8 gap-4">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] tracking-tight text-black lg:w-[60%]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] tracking-tight text-black lg:w-[60%]">
             The <span className="text-[#FD5800]">guest list.</span>
           </h2>
           <div className="w-full lg:w-[40%] flex lg:justify-end">
-            <p className="text-gray-600 text-lg leading-tight lg:text-right">
+            <p className="text-gray-600 text-sm md:text-lg leading-tight lg:text-right">
               Brands we've shipped for. The kind of names that wouldn't sit still for mediocre work. Now you can be one of them.
             </p>
           </div>
@@ -73,7 +73,7 @@ const GuestList = () => {
         <div className="relative w-full">
           <div className="flex flex-wrap justify-center pl-[1px] pt-[1px]">
             {brandLogos.map((brand, idx) => (
-              <GuestCard key={idx} brand={brand} index={idx} />
+              <GuestCard key={idx} brand={brand} index={idx} additionalClass={idx >= 4 ? "hidden sm:flex" : ""} />
             ))}
           </div>
         </div>

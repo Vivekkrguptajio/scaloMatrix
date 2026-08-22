@@ -33,11 +33,11 @@ const teamMembers = [
 
 export default function TeamMembers() {
   return (
-    <section id="team" className="w-full py-20 md:py-28 bg-white text-black font-sans overflow-hidden">
+    <section id="team" className="w-full py-12 md:py-28 bg-white text-black font-sans overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 xl:px-8 w-full">
         
         {/* Header Section */}
-        <div className="w-full mb-14 md:mb-20">
+        <div className="w-full mb-8 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export default function TeamMembers() {
                 <span className="w-2 h-2 rounded-full bg-[#FD5800] animate-pulse" />
                 The People
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight text-black leading-[1]">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight text-black leading-[1]">
                 Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD5800] to-[#FF9066]">team.</span>
               </h2>
             </div>
@@ -61,7 +61,7 @@ export default function TeamMembers() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-7">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-7">
           {teamMembers.map((item, index) => (
             <motion.div 
               key={item.id}

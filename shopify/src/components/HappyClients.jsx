@@ -105,7 +105,7 @@ const HappyClients = () => {
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black tracking-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-black tracking-tight">
             <AnimatedCounter target={1000} suffix="+" /> <span className="text-[#FD5800]">Happy Clients</span>
           </h2>
           
@@ -120,7 +120,7 @@ const HappyClients = () => {
       <div className="w-full border-t-[0.5px] border-b-[0.5px] md:border-t md:border-b border-black bg-white overflow-hidden group">
         <div className="flex animate-marquee group-hover:[animation-play-state:paused]" style={{ animationDuration: '50s' }}>
           {[...testimonials, ...testimonials, ...testimonials].map((client, idx) => (
-            <div key={idx} className="min-w-[280px] sm:min-w-[340px] max-w-[280px] sm:max-w-[340px] flex flex-col border-r-[0.5px] md:border-r border-black shrink-0 bg-white">
+            <div key={idx} className="min-w-[250px] sm:min-w-[340px] max-w-[250px] sm:max-w-[340px] flex flex-col border-r-[0.5px] md:border-r border-black shrink-0 bg-white">
               
               {/* Logo Section */}
               <div className="h-[84px] flex items-center justify-center p-4 border-b border-black">
@@ -128,7 +128,7 @@ const HappyClients = () => {
               </div>
 
               {/* Content Section */}
-              <div className="flex-1 px-6 py-7 flex flex-col items-center text-center">
+              <div className="flex-1 px-4 sm:px-6 py-5 sm:py-7 flex flex-col items-center text-center">
                 
                 {/* Stars */}
                 <div className="flex gap-[3px] mb-4">
@@ -140,7 +140,7 @@ const HappyClients = () => {
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-[15px] md:text-[17px] font-medium text-[#111] mb-8 leading-[1.55]">
+                <p className="text-[13px] sm:text-[15px] md:text-[17px] font-medium text-[#111] mb-6 sm:mb-8 leading-[1.55]">
                   "{client.text}"
                 </p>
 
@@ -165,7 +165,7 @@ const HappyClients = () => {
           {/* Double the items to create seamless loop effect */}
           {[...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems].map((item, idx) => (
             <div key={idx} className="flex items-center gap-8">
-              <div className="flex items-center gap-3 font-mono text-sm lg:text-lg font-bold tracking-wider">
+              <div className="flex items-center gap-3 font-mono text-xs sm:text-sm lg:text-lg font-bold tracking-wider">
                 <span className="text-black uppercase">{item.name}</span>
                 <span className="text-white/80 text-lg leading-none mt-[-2px]">•</span>
                 <span className="text-white uppercase">{item.stat}</span>

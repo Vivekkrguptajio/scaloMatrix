@@ -34,13 +34,13 @@ const cardsData = [
 export default function ServicesCards() {
 
   return (
-    <section className="bg-black py-8 relative overflow-hidden" id="services">
+    <section className="bg-white py-8 relative overflow-hidden" id="services">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         {/* Heading */}
         <div className="flex flex-col items-center justify-center text-center pb-8 pt-2">
           <span className="text-[#FD5800] uppercase tracking-[0.2em] text-[13px] font-bold mb-2">Ecosystem</span>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[100px] font-sans font-black leading-none uppercase tracking-tight text-white">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[100px] font-sans font-black leading-none uppercase tracking-tight text-black">
             What We Build
           </h2>
         </div>

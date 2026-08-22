@@ -28,7 +28,7 @@ const HowItWorks = () => {
           <h4 className="text-[#FD5800] text-[11px] md:text-xs font-bold tracking-[0.2em] uppercase mb-3">
             How The Work Happens
           </h4>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.15] tracking-tight text-black max-w-3xl">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.15] tracking-tight text-black max-w-3xl">
             Signal in. Design out. <span className="text-[#FD5800]">Shipped live.</span>
           </h2>
         </motion.div>

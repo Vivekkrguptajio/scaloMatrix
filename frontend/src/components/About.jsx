@@ -61,7 +61,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="relative w-full h-[auto] md:h-screen min-h-[100vh] flex flex-col pt-0 bg-white font-sans overflow-hidden">
+    <section id="about" className="relative w-full h-[auto] md:h-screen min-h-[100vh] flex flex-col pt-0 bg-white font-sans overflow-x-clip">
       
       {/* ─── Background Ambient Waves ─── */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#FD5800]/[0.03] to-transparent rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
@@ -75,7 +75,7 @@ export default function About() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onMouseMove={handleMouseMove}
-          className="w-full h-full md:min-h-screen flex flex-col md:flex-row shadow-2xl overflow-x-hidden md:overflow-x-auto md:overflow-y-hidden rounded-none border-t border-gray-200 cursor-auto md:cursor-ew-resize select-none" 
+          className="w-full h-full md:min-h-screen flex flex-col md:flex-row shadow-2xl overflow-x-clip md:overflow-x-auto md:overflow-y-hidden rounded-none border-t border-gray-200 cursor-auto md:cursor-ew-resize select-none" 
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {solutions.map((item, index) => {
@@ -106,9 +106,8 @@ export default function About() {
               <div 
                 key={item.id}
                 onClick={() => setActiveCardId(isActive ? null : item.id)}
-                className={`flex flex-col justify-between border-b md:border-b-0 md:border-r border-black/5 hover:border-black/10 last:border-0 md:last:border-r-0 relative overflow-hidden group 
-                  w-full md:w-[380px] lg:w-[420px] shrink-0 md:snap-center py-5 md:py-12 px-6 md:px-10 transition-all duration-500 cursor-pointer hover:shadow-2xl hover:z-10
-                  ${isActive ? forceBg : 'bg-white'} ${activeBg}`}
+                className={`sticky md:static flex flex-col justify-between border-b md:border-b-0 md:border-r border-black/5 hover:border-black/10 last:border-0 md:last:border-r-0 relative overflow-hidden group w-full md:w-[380px] lg:w-[420px] shrink-0 md:snap-center py-5 md:py-12 px-6 md:px-10 transition-all duration-500 cursor-pointer hover:shadow-2xl hover:z-10 shadow-[0_-10px_30px_rgba(0,0,0,0.08)] md:shadow-none ${isActive ? forceBg : 'bg-white'} ${activeBg}`}
+                style={{ top: `calc(10vh + ${index * 15}px)` }}
               >
                 {/* Large Background Card Number */}
                 <div className={`absolute top-4 right-6 font-black text-6xl md:text-8xl select-none pointer-events-none group-hover:opacity-[0.08] transition-opacity 

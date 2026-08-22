@@ -8,7 +8,7 @@ const CroBrandExercise = () => {
         <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-end gap-6">
           {/* Left Side: Large Headline */}
           <div className="lg:w-[60%]">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-[#111111] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-sans leading-[1.1] text-[#111111] tracking-tight">
               CRO is a brand exercise.<br />
               The % is <a 
                 href="#case-studies"
@@ -35,13 +35,13 @@ const CroBrandExercise = () => {
         <div className="bg-white border border-black rounded-3xl overflow-hidden w-full flex flex-col lg:flex-row shadow-sm">
           
           {/* Left Column: The Re-frame Hero */}
-          <div className="w-full lg:w-5/12 p-8 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-black flex flex-col justify-between">
+          <div className="w-full lg:w-5/12 p-5 sm:p-8 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-black flex flex-col justify-between">
             <div>
               <div className="text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-8">
                 THE RE-FRAME
               </div>
 
-              <h3 className="text-3xl md:text-4xl font-bold leading-[1.15] text-black mb-8">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-[1.15] text-black mb-8">
                 CRO is <span className="line-through text-gray-400 font-normal">a button-colour war.</span>{" "}
                 <span className="bg-[#FD5800] text-white px-2 py-0.5 inline-block">who walks in the door.</span>
               </h3>
@@ -65,7 +65,7 @@ const CroBrandExercise = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 border-b border-black">
               
               {/* Factor 01: Audience */}
-              <div className="p-7 md:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-black">
+              <div className="p-5 sm:p-7 md:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-black">
                 <div>
                   <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-gray-500 uppercase mb-6">
                     <span>⊕ FACTOR · 01 · AUDIENCE</span>
@@ -88,7 +88,7 @@ const CroBrandExercise = () => {
               </div>
 
               {/* Factor 02: Language */}
-              <div className="p-7 md:p-8 flex flex-col justify-between">
+              <div className="p-5 sm:p-7 md:p-8 flex flex-col justify-between">
                 <div>
                   <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-gray-500 uppercase mb-6">
                     <span>⊕ FACTOR · 02 · LANGUAGE</span>
@@ -113,7 +113,7 @@ const CroBrandExercise = () => {
             </div>
 
             {/* Bottom Factor 3: Trust */}
-            <div className="p-7 md:p-8 flex flex-col justify-between flex-1">
+            <div className="p-5 sm:p-7 md:p-8 flex flex-col justify-between flex-1">
               <div>
                 <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-gray-500 uppercase mb-6">
                   <span>⊕ FACTOR · 03 · TRUST</span>
@@ -143,7 +143,7 @@ const CroBrandExercise = () => {
         <div className="bg-[#111111] text-white border border-black w-full grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr]">
           
           {/* Left Comparison (Killed Variant) */}
-          <div className="p-8 md:p-10 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gray-800">
+          <div className="p-5 sm:p-8 md:p-10 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gray-800">
             <div>
               <div className="text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-4">
                 ⊕ THE "WIN" NOBODY SHOULD WANT
@@ -153,7 +153,7 @@ const CroBrandExercise = () => {
                 Variant lifted CVR <span className="text-[#FD5800]">+34%</span> week one.
               </h4>
 
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-[#ff6b6b] my-4">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#ff6b6b] my-4">
                 +34%
               </div>
             </div>
@@ -172,7 +172,7 @@ const CroBrandExercise = () => {
           </div>
 
           {/* Right Comparison (Compound Winner) */}
-          <div className="p-8 md:p-10 flex flex-col justify-between">
+          <div className="p-5 sm:p-8 md:p-10 flex flex-col justify-between">
             <div>
               <div className="text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-4">
                 ⊕ THE "WIN" NOBODY SHOULD WANT
@@ -182,7 +182,7 @@ const CroBrandExercise = () => {
                 Brand-led hero, compounding by month three.
               </h4>
 
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-[#FD5800] my-4">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#FD5800] my-4">
                 +22%
               </div>
             </div>
