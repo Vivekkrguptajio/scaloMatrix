@@ -87,7 +87,8 @@ function App() {
           <ScrollReveal><HowItWorks /></ScrollReveal>
           <ScrollReveal><HiringPhilosophy /></ScrollReveal>
           <ScrollReveal><WhoWeDontWorkWith /></ScrollReveal>
-          <ScrollReveal><TeamMembers /></ScrollReveal>
+          {/* Hidden Section: Team Members */}
+          {/* <ScrollReveal><TeamMembers /></ScrollReveal> */}
           <ContactUs />
           <ScrollReveal variant="blur"><ThePromise /></ScrollReveal>
         </Suspense>

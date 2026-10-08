@@ -1,9 +1,11 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import LegalModal from './LegalModal';
 
 export default function Contact({ reveal = false }) {
   const footerRef = useRef(null);
   const [footerHeight, setFooterHeight] = useState(0);
+  const [legalTab, setLegalTab] = useState(null);
 
   useEffect(() => {
     if (!reveal) return;
@@ -44,47 +46,85 @@ export default function Contact({ reveal = false }) {
           <div className="w-full h-px bg-white/20 mb-8 md:mb-10"></div>
 
         {/* Bottom Row */}
-        <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0 text-sm font-medium">
+        <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-6 text-sm font-medium">
           
           {/* Social Icons */}
           <div className="flex items-center gap-6">
-            <a href="#" target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors">
+            <a href="#" target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors" aria-label="LinkedIn">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
               </svg>
             </a>
-            <a href="#" target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors">
+            <a href="#" target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors" aria-label="Instagram">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </a>
-            <a href="#" target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors">
+            <a href="#" target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors" aria-label="YouTube">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21.582 6.186a2.63 2.63 0 0 0-1.854-1.854C18.09 4 12 4 12 4s-6.09 0-7.728.332A2.63 2.63 0 0 0 2.418 6.186C2.086 7.824 2 12 2 12s.086 4.176.418 5.814a2.63 2.63 0 0 0 1.854 1.854C5.91 20 12 20 12 20s6.09 0 7.728-.332a2.63 2.63 0 0 0 1.854-1.854C21.914 16.176 22 12 22 12s-.086-4.176-.418-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
             </a>
-            <a href="#" target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors">
+            <a href="#" target="_blank" rel="noreferrer" className="hover:text-gray-400 transition-colors" aria-label="Twitter">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
               </svg>
             </a>
           </div>
 
-          {/* Navigation Links */}
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-white">
-            <a href="#about" className="hover:text-gray-400 transition-colors">About</a>
-            <a href="#contact" className="hover:text-gray-400 transition-colors">Contact</a>
-            <a href="#work" className="hover:text-gray-400 transition-colors">Case Studies</a>
-            <a href="#blog" className="hover:text-gray-400 transition-colors">Blog</a>
-            <a href="#privacy" className="hover:text-gray-400 transition-colors">Privacy</a>
+          {/* Navigation & Legal Links */}
+          <div className="flex flex-col items-center gap-3">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-white/90 text-sm font-semibold">
+              <a href="#case-studies" className="hover:text-[#FD5800] transition-colors">Case Studies</a>
+              <a href="#services" className="hover:text-[#FD5800] transition-colors">Services</a>
+              <a href="#cro" className="hover:text-[#FD5800] transition-colors">Why CRO</a>
+              <a href="#process" className="hover:text-[#FD5800] transition-colors">Process</a>
+              <a href="#brand" className="hover:text-[#FD5800] transition-colors">Brand</a>
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-x-3 sm:gap-x-4 gap-y-2 text-xs text-white/60">
+              <button 
+                type="button"
+                onClick={() => setLegalTab('terms')} 
+                className="hover:text-[#FD5800] transition-colors cursor-pointer underline-offset-4 hover:underline"
+              >
+                Terms &amp; Conditions
+              </button>
+              <span className="text-white/20 hidden sm:inline">•</span>
+              <button 
+                type="button"
+                onClick={() => setLegalTab('privacy')} 
+                className="hover:text-[#FD5800] transition-colors cursor-pointer underline-offset-4 hover:underline"
+              >
+                Privacy Policy
+              </button>
+              <span className="text-white/20 hidden sm:inline">•</span>
+              <button 
+                type="button"
+                onClick={() => setLegalTab('legal')} 
+                className="hover:text-[#FD5800] transition-colors cursor-pointer underline-offset-4 hover:underline"
+              >
+                Legal &amp; Policies
+              </button>
+            </div>
           </div>
 
-          {/* Copyright text */}
-          <div className="text-center lg:text-right text-white/80 leading-relaxed text-xs md:text-sm">
-            <p>Proudly created in India.</p>
-            <p>All Right Reserved, All Wrong Reversed.</p>
+          {/* Powered by Kraffic Enterprises & Copyright text */}
+          <div className="text-center lg:text-right flex flex-col items-center lg:items-end gap-1.5 leading-relaxed text-xs">
+            <div className="flex items-center gap-2 text-xs md:text-sm font-medium">
+              <span className="text-white/60">Powered by</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white font-bold tracking-wide hover:border-[#FD5800]/50 transition-colors">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FD5800] shadow-[0_0_8px_#FD5800] animate-pulse"></span>
+                Kraffic Enterprises
+              </span>
+            </div>
+            <p className="text-white/60 text-xs mt-0.5">
+              © {new Date().getFullYear()} scaloMATRIX · Proudly created in India
+            </p>
+            <p className="text-white/40 text-[11px]">
+              All Right Reserved, All Wrong Reversed.
+            </p>
           </div>
 
         </div>
@@ -95,14 +135,23 @@ export default function Contact({ reveal = false }) {
     </footer>
   );
 
-  if (reveal) {
-    return (
-      <>
-        <div id="contact" style={{ height: footerHeight ? footerHeight * 0.8 : '100vh' }} className="w-full relative z-0 pointer-events-none" />
-        {footerContent}
-      </>
-    );
-  }
+  return (
+    <>
+      {reveal ? (
+        <>
+          <div id="contact" style={{ height: footerHeight ? footerHeight * 0.8 : '100vh' }} className="w-full relative z-0 pointer-events-none" />
+          {footerContent}
+        </>
+      ) : (
+        footerContent
+      )}
 
-  return footerContent;
+      {/* Interactive Legal Modal */}
+      <LegalModal 
+        isOpen={Boolean(legalTab)} 
+        initialTab={legalTab || 'terms'} 
+        onClose={() => setLegalTab(null)} 
+      />
+    </>
+  );
 }
