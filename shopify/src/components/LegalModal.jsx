@@ -18,11 +18,27 @@ export default function LegalModal({ isOpen, initialTab = 'terms', onClose }) {
       if (e.key === 'Escape') onClose();
     };
 
+    // Freeze Lenis smooth scroll instance
+    if (typeof window !== 'undefined' && window.__lenis) {
+      window.__lenis.stop();
+    }
+
+    const prevBodyOverflow = document.body.style.overflow;
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = prevBodyOverflow;
+      document.documentElement.style.overflow = prevHtmlOverflow;
+
+      // Unfreeze Lenis smooth scroll instance
+      if (typeof window !== 'undefined' && window.__lenis) {
+        window.__lenis.start();
+      }
+
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);
@@ -38,13 +54,25 @@ export default function LegalModal({ isOpen, initialTab = 'terms', onClose }) {
   return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 font-sans">
+        <div 
+          data-lenis-prevent="true"
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 font-sans"
+        >
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
+            onWheel={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+            onTouchMove={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+            data-lenis-prevent="true"
             className="fixed inset-0 bg-black/80 backdrop-blur-md"
           />
 
@@ -54,6 +82,7 @@ export default function LegalModal({ isOpen, initialTab = 'terms', onClose }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
+            data-lenis-prevent="true"
             className="relative w-full max-w-4xl max-h-[88vh] bg-[#121212] border border-white/15 rounded-3xl shadow-[0_25px_70px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden text-white z-10"
           >
             {/* Header */}
@@ -106,7 +135,11 @@ export default function LegalModal({ isOpen, initialTab = 'terms', onClose }) {
             </div>
 
             {/* Scrollable Content Body */}
-            <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-6 text-sm text-gray-300 leading-relaxed custom-scrollbar">
+            <div 
+              data-lenis-prevent="true"
+              onWheel={(e) => e.stopPropagation()}
+              className="flex-1 overflow-y-auto overscroll-contain p-6 sm:p-8 space-y-6 text-sm text-gray-300 leading-relaxed custom-scrollbar"
+            >
               {activeTab === 'terms' && (
                 <div className="space-y-6">
                   <div>

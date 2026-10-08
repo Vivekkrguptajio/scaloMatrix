@@ -50,6 +50,8 @@ function App() {
       infinite: false,
     })
 
+    window.__lenis = lenis
+
     let rafId
     function raf(time) {
       lenis.raf(time)
@@ -60,6 +62,7 @@ function App() {
     return () => {
       cancelAnimationFrame(rafId)
       lenis.destroy()
+      window.__lenis = null
     }
   }, [])
   return (
