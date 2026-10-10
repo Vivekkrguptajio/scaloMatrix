@@ -101,7 +101,7 @@ export default function TestimonialsSection() {
       {/* Column 3: Testimonial TOP, Logo BOTTOM */}
       <div key={`${keyPrefix}-col-3`} className="flex flex-col gap-6">
         <TestimonialCard item={testimonialsData[1]} />
-        <LogoCard src="/logo/Wayora.png" alt="Wayora" />
+        <LogoCard src="/logo/velmukha.png" alt="Velmukha" />
       </div>
 
       {/* Column 4: Logo TOP, Testimonial BOTTOM */}

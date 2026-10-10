@@ -8,6 +8,7 @@ import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import './index.css'
 
+const BrandStatement = lazy(() => import('./components/BrandStatement'))
 const FeaturedCaseStudy = lazy(() => import('./components/FeaturedCaseStudy'))
 const HappyClients = lazy(() => import('./components/HappyClients'))
 const GuestList = lazy(() => import('./components/GuestList'))
@@ -77,10 +78,12 @@ function App() {
       <main className="relative z-20 bg-white rounded-b-[40px] md:rounded-b-[60px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <Hero />
         <HeroVCards />
-        
+
         <Suspense fallback={<SkeletonLoader />}>
+          <BrandStatement />
           <ScrollReveal><FeaturedCaseStudy /></ScrollReveal>
-          <ScrollReveal variant="scaleUp"><HappyClients /></ScrollReveal>
+          {/* Hidden Section: Happy Clients */}
+          {/* <ScrollReveal variant="scaleUp"><HappyClients /></ScrollReveal> */}
           <ScrollReveal><GuestList /></ScrollReveal>
           <ScrollReveal variant="scaleUp"><CaseStudiesGrid /></ScrollReveal>
           <ScrollReveal><Calculator /></ScrollReveal>

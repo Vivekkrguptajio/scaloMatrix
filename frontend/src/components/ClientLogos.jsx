@@ -4,10 +4,8 @@ const logoImages = [
   { name: "Nutraphyll", img: "/logo/Nutraphyll.png" },
   { name: "Judex", img: "/logo/Judex.png" },
   { name: "Nada", img: "/logo/Nada.png" },
-  { name: "Wayora", img: "/logo/Wayora.png" },
   { name: "drapes", img: "/logo/drapes.png" },
   { name: "velmukha", img: "/logo/velmukha.png" },
-  { name: "WayoraN", img: "/logo/WayoraN.png" },
 ];
 
 const ClientLogos = memo(function ClientLogos() {

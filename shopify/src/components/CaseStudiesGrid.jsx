@@ -457,21 +457,6 @@ const CaseStudiesGrid = () => {
                 </div>
                 <div className="flex justify-between items-end mt-auto">
                   {study.badge}
-                  <div className="flex items-center gap-4">
-                    <div className="flex flex-col items-end">
-                      <div className="text-xl sm:text-2xl font-bold text-[#FD5800] leading-none mb-1">
-                        <AnimatedCounter target={parseInt(study.aov)} prefix="+" suffix="%" />
-                      </div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
-                    </div>
-                    <div className="w-[1px] h-8 bg-gray-300"></div>
-                    <div className="flex flex-col items-end">
-                      <div className="text-xl sm:text-2xl font-bold text-[#FD5800] leading-none mb-1">
-                        <AnimatedCounter target={parseInt(study.rev)} prefix="+" suffix="%" />
-                      </div>
-                      <div className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
-                    </div>
-                  </div>
                 </div>
               </div>
             ))}
@@ -504,30 +489,15 @@ const CaseStudiesGrid = () => {
           {/* Row 1 */}
           <motion.div variants={itemVariants} className="bg-white border border-black w-full grid grid-cols-3 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
             {allStudies.slice(0, 3).map((study, idx) => (
-              <div 
-                key={study.id} 
+              <div
+                key={study.id}
                 className={`p-4 md:p-5 flex flex-col overflow-hidden ${idx < 2 ? 'border-r border-black' : ''}`}
               >
                 <div className="bg-[#f1f1f1] border border-black p-3 md:p-4 mb-5 flex-1 flex items-center justify-center min-h-[280px] overflow-hidden">
                   {study.mockup}
                 </div>
-                <div className="flex flex-wrap xl:flex-nowrap justify-between items-end mt-auto gap-2 xl:gap-4">
+                <div className="flex justify-between items-end mt-auto">
                   <div className="shrink-0">{study.badge}</div>
-                  <div className="flex items-center gap-3 xl:gap-5 shrink-0">
-                    <div className="flex flex-col items-end">
-                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">
-                        <AnimatedCounter target={parseInt(study.aov)} prefix="+" suffix="%" />
-                      </div>
-                      <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
-                    </div>
-                    <div className="w-[1px] h-6 xl:h-8 bg-gray-300"></div>
-                    <div className="flex flex-col items-end">
-                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">
-                        <AnimatedCounter target={parseInt(study.rev)} prefix="+" suffix="%" />
-                      </div>
-                      <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
-                    </div>
-                  </div>
                 </div>
               </div>
             ))}
@@ -536,30 +506,15 @@ const CaseStudiesGrid = () => {
           {/* Row 2 */}
           <motion.div variants={itemVariants} className="bg-white border border-black w-full grid grid-cols-3 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(253,88,0,0.2)] transition-all duration-300">
             {allStudies.slice(3, 6).map((study, idx) => (
-              <div 
-                key={study.id} 
+              <div
+                key={study.id}
                 className={`p-4 md:p-5 flex flex-col overflow-hidden ${idx < 2 ? 'border-r border-black' : ''}`}
               >
                 <div className="bg-[#f1f1f1] border border-black p-3 md:p-4 mb-5 flex-1 flex items-center justify-center min-h-[280px] overflow-hidden">
                   {study.mockup}
                 </div>
-                <div className="flex flex-wrap xl:flex-nowrap justify-between items-end mt-auto gap-2 xl:gap-4">
+                <div className="flex justify-between items-end mt-auto">
                   <div className="shrink-0">{study.badge}</div>
-                  <div className="flex items-center gap-3 xl:gap-5 shrink-0">
-                    <div className="flex flex-col items-end">
-                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">
-                        <AnimatedCounter target={parseInt(study.aov)} prefix="+" suffix="%" />
-                      </div>
-                      <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">AOV</div>
-                    </div>
-                    <div className="w-[1px] h-6 xl:h-8 bg-gray-300"></div>
-                    <div className="flex flex-col items-end">
-                      <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#FD5800] leading-none mb-1.5">
-                        <AnimatedCounter target={parseInt(study.rev)} prefix="+" suffix="%" />
-                      </div>
-                      <div className="text-[8px] xl:text-[9px] font-mono text-gray-400 uppercase tracking-widest">REVENUE</div>
-                    </div>
-                  </div>
                 </div>
               </div>
             ))}

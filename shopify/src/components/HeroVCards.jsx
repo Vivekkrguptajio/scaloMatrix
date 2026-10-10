@@ -26,37 +26,21 @@ export default function HeroVCards() {
       stat: '+50% Sales',
       category: 'CRO' 
     },
-    { 
-      id: 4, 
-      img: '/photsWork/wayoranatural.webp', 
-      title: 'Wayora Natural', 
-      url: 'wayoranatural.shop',
-      stat: '+28% AOV',
-      category: 'Beauty & Skincare' 
-    },
-    { 
-      id: 5, 
-      img: '/photsWork/Drapes.webp', 
-      title: 'Drapes Corner', 
+    {
+      id: 4,
+      img: '/photsWork/Drapes.webp',
+      title: 'Drapes Corner',
       url: 'drapescorner.com',
       stat: '+60% CVR',
-      category: 'Home & Decor' 
+      category: 'Home & Decor'
     },
-    { 
-      id: 6, 
-      img: '/photsWork/Judex.webp', 
-      title: 'Judex Fragrance', 
+    {
+      id: 5,
+      img: '/photsWork/Judex.webp',
+      title: 'Judex Fragrance',
       url: 'judex.com',
       stat: '+45% Sales',
-      category: 'Beauty & Fragrance' 
-    },
-    { 
-      id: 7, 
-      img: '/photsWork/Luxury.webp', 
-      title: 'Wayora Luxury', 
-      url: 'wayoraluxury.com',
-      stat: '+80% Orders',
-      category: 'Apparel & Fashion' 
+      category: 'Beauty & Fragrance'
     }
   ];
 
@@ -96,7 +80,7 @@ export default function HeroVCards() {
           {/* Right Social Proof Stack */}
           <div className="flex items-center gap-4 bg-gray-50/80 p-3.5 px-5 rounded-2xl border border-[#FD5800] shadow-sm">
             <div className="flex -space-x-3">
-              {['/logo/Judex.png', '/logo/Nada.png', '/logo/Nutraphyll.png', '/logo/Wayora.png', '/logo/drapes.png'].map((src, i) => (
+              {['/logo/Judex.png', '/logo/Nada.png', '/logo/Nutraphyll.png', '/logo/velmukha.png', '/logo/drapes.png'].map((src, i) => (
                 <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden shadow-sm">
                   <img src={src} alt="Client" className="w-full h-full object-cover" />
                 </div>

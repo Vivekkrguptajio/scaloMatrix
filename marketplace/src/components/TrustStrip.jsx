@@ -4,19 +4,15 @@ const topRowLogos = [
   { name: 'Nutraphyll', img: '/logo/Nutraphyll.png', color: '#10B981' },
   { name: 'Judex', img: '/logo/Judex.png', color: '#3B82F6' },
   { name: 'Nada', img: '/logo/Nada.png', color: '#FD5800' },
-  { name: 'Wayora', img: '/logo/Wayora.png', color: '#EC4899' },
   { name: 'drapes', img: '/logo/drapes.png', color: '#EAB308' },
   { name: 'velmukha', img: '/logo/velmukha.png', color: '#8B5CF6' },
-  { name: 'WayoraN', img: '/logo/WayoraN.png', color: '#14B8A6' },
 ];
 
 const bottomRowLogos = [
-  { name: 'Wayora', img: '/logo/Wayora.png', color: '#EC4899' },
   { name: 'drapes', img: '/logo/drapes.png', color: '#EAB308' },
   { name: 'Nutraphyll', img: '/logo/Nutraphyll.png', color: '#10B981' },
   { name: 'velmukha', img: '/logo/velmukha.png', color: '#8B5CF6' },
   { name: 'Judex', img: '/logo/Judex.png', color: '#3B82F6' },
-  { name: 'WayoraN', img: '/logo/WayoraN.png', color: '#14B8A6' },
   { name: 'Nada', img: '/logo/Nada.png', color: '#FD5800' },
 ];
 

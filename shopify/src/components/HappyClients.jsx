@@ -35,16 +35,6 @@ const HappyClients = () => {
     },
     {
       logo: (
-        <img src="/logo/Wayora.png" alt="Wayora" className="h-12 object-contain" />
-      ),
-      text: "Our customers are more engaged, and our sales have never been better.",
-      author: "Suchita A Mukerji",
-      title: "Founder - The Basic Women",
-      avatarColor: "bg-pink-200",
-      avatar: "/logo/Wayora.png"
-    },
-    {
-      logo: (
         <img src="/logo/drapes.png" alt="Drapes" className="h-12 object-contain" />
       ),
       text: "The changes they made to our landing pages have led to an immediate spike in our daily orders.",
@@ -97,7 +87,7 @@ const HappyClients = () => {
           
           {/* Avatars */}
           <div className="flex -space-x-3 mb-2 justify-center">
-            {['/logo/Judex.png', '/logo/Nada.png', '/logo/Nutraphyll.png', '/logo/Wayora.png', '/logo/drapes.png'].map((src, i) => (
+            {['/logo/Judex.png', '/logo/Nada.png', '/logo/Nutraphyll.png', '/logo/velmukha.png', '/logo/drapes.png'].map((src, i) => (
               <div key={i} className="w-12 h-12 rounded-full border-[3px] border-white bg-gray-300 overflow-hidden shadow-sm">
                 <img src={src} alt="Client" className="w-full h-full object-cover" />
               </div>

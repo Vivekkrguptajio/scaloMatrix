@@ -47,10 +47,8 @@ const GuestList = () => {
     { name: "Nutraphyll", img: "/logo/Nutraphyll.png" },
     { name: "Judex", img: "/logo/Judex.png" },
     { name: "Nada", img: "/logo/Nada.png" },
-    { name: "Wayora", img: "/logo/Wayora.png" },
     { name: "Drapes", img: "/logo/drapes.png" },
     { name: "Velmukha", img: "/logo/velmukha.png" },
-    { name: "WayoraN", img: "/logo/WayoraN.png" },
   ];
 
   return (

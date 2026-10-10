@@ -176,6 +176,23 @@ export default function LegalModal({ isOpen, initialTab = 'terms', onClose }) {
                       Kraffic Enterprises respects the proprietary business data, store analytics, and revenue numbers of our partners. All analytical telemetry and commercial data shared with us remain strictly confidential and protected under standard commercial non-disclosure guidelines.
                     </p>
                   </div>
+
+                  <div>
+                    <h4 className="text-lg font-bold text-white mb-2">6. No Refund Policy</h4>
+                    <p>
+                      All payments made to <strong className="text-white">Kraffic Enterprises</strong> / <strong className="text-white">scaloMATRIX</strong> are <strong className="text-white">strictly non-refundable</strong>. Once a project is initiated and payment has been received — whether in full or as a partial milestone — no refunds, credits, or chargebacks will be issued under any circumstances.
+                    </p>
+                    <ul className="list-disc list-inside space-y-1.5 pl-2 text-gray-300 mt-3">
+                      <li>Custom design, development, research, and strategic work involves dedicated expert hours that cannot be reversed once commenced.</li>
+                      <li>Milestone payments are non-refundable upon delivery of the corresponding milestone deliverables.</li>
+                      <li>Advance/retainer payments secure resource allocation and scheduling priority and are non-refundable regardless of project continuation.</li>
+                      <li>If the Client chooses to discontinue or cancel a project mid-way, all payments made up to that point remain with Kraffic Enterprises as compensation for work already performed and resources allocated.</li>
+                      <li>Any disputes regarding deliverables will be addressed through revision rounds as outlined in the signed Statement of Work (SOW), not through refunds.</li>
+                    </ul>
+                    <p className="mt-3">
+                      By engaging our services, you acknowledge and agree to this no-refund policy in its entirety.
+                    </p>
+                  </div>
                 </div>
               )}
 
@@ -237,9 +254,9 @@ export default function LegalModal({ isOpen, initialTab = 'terms', onClose }) {
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-bold text-white mb-2">3. Refund & Revision Policy</h4>
+                    <h4 className="text-lg font-bold text-white mb-2">3. No Refund Policy</h4>
                     <p>
-                      Custom digital architecture, custom code integration, and strategic research involve committed expert engineering hours. Specific milestones, revision rounds, and money-back guarantees are governed directly by individual signed project statements of work (SOWs).
+                      All payments made to Kraffic Enterprises / scaloMATRIX are <strong className="text-white">strictly non-refundable</strong>. Custom digital architecture, code integration, and strategic research involve committed expert engineering hours that cannot be reversed once commenced. Advance payments, milestone payments, and retainer fees are non-refundable under any circumstances, including project cancellation or discontinuation by the Client. Deliverable disputes will be resolved through revision rounds as defined in the signed Statement of Work (SOW), not through monetary refunds.
                     </p>
                   </div>
 
